@@ -1,0 +1,245 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(233, 243, 249);
+    background-image: url('/images/logo_filli.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.title_connexion{
+    text-align: center;
+    
+}
+
+form { 
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    width:50%;
+    font-family: 'Reem Kufi', sans-serif;
+
+}
+
+input{
+    padding: 10px;
+    border: 1px solid black;
+    text-align: center;
+
+}
+ h1,h2{
+    display: flex;
+    font-family: 'Krona One',sans-serif;
+    color:#306BC4;
+}
+
+
+body p{
+    padding: 10px;
+    font-family: 'Nunito',sans-serif;
+    
+}
+.introduction{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: hv;
+    height: 350px;
+}
+
+.introduction p{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.dust-cpt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: hv;
+    height: 350px;
+}
+
+.dust-cpt p{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    background-color:rgba(0, 140, 250, 0.2) ;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.co2-cpt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+    height: 350px;
+}
+
+.co2-cpt p{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    background-color:rgb(30, 129, 176,0.12) ;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.temp-cpt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+    height: 350px;
+}
+
+.temp-cpt p{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    background-color:rgb(0, 56, 255, 0.2) ;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.noise-cpt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+    height: 350px;
+}
+.noise-cpt p{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    background-color:rgb(151, 135, 251,0.2) ;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.heart-cpt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+    height: 350px;
+}
+.heart-cpt p{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    background-color:rgb(62, 125, 249,0.31) ;
+    align-items: center;
+    border-radius: 20px;
+}
+
+
+
+.footer {
+    padding: 30px;
+    height: hv;
+    display: flex;
+    position: relative;
+    width: 100%;
+    align-items: center;
+    background-color:rgb(0, 102, 255,0.18);
+}
+
+.footer p{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    font-family: 'Nunito',sans-serif;
+}
+
+
+
+.image-prod{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    background-image: url("/images/health_eir.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    
+}
+
+.image-dust-cpt{
+    width: 30%;
+    height: 70%;
+    display: flex;
+    background-image: url("/images/dust_capt.png");
+    background-size: cover;
+    background-position: center;
+    background-color:rgb(207, 160, 233,0.2);
+    border-radius: 20px;
+}
+
+.image-co2-cpt{
+    width: 30%;
+    height: 70%;
+    display: flex;
+    background-image: url("/images/c02_capt.png");
+    background-size: cover;
+    background-position: center;
+    background-color:rgb(207, 160, 233,0.2);
+    border-radius: 20px;
+}
+
+.image-temp-cpt{
+    width: 20%;
+    height: 70%;
+    display: flex;
+    background-image: url("/images/temp_capt.png");
+    background-size: cover;
+    background-position: center;
+    background-color:rgb(207, 160, 233,0.2);
+    border-radius: 20px;
+}
+
+.image-noise-cpt{
+    width: 30%;
+    height: 70%;
+    display: flex;
+    background-image: url("/images/noise_capt.png");
+    background-size: cover;
+    background-position: center;
+    background-color:rgb(207, 160, 233,0.2);
+    border-radius: 20px;
+
+}
+
+.image-heart-cpt{
+    width: 30%;
+    height: 70%;
+    display: flex;
+    background-image: url("/images/heart_capt.png");
+    background-size: cover;
+    background-position: center;
+    background-color:rgb(207, 160, 233,0.2);
+    border-radius: 20px;
+}
+
+
+
+#foot_img{
+   display: flex;
+    width: 125px;
+
+}
