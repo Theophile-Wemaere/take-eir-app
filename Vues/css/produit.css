@@ -4,7 +4,7 @@ body{
     align-items: center;
     justify-content: center;
     background-color: rgb(233, 243, 249);
-    background-image: url('/images/logo_filli.png');
+    background-image: url('/Vues/images/logo_filli.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -173,7 +173,7 @@ body p{
     width: 30%;
     height: 100%;
     display: flex;
-    background-image: url("/images/health_eir.png");
+    background-image: url("/Vues/images/health_eir.png");
     background-size: cover;
     background-position: center;
     border-radius: 20px;
@@ -184,7 +184,7 @@ body p{
     width: 30%;
     height: 70%;
     display: flex;
-    background-image: url("/images/dust_capt.png");
+    background-image: url("/Vues/images/dust_capt.png");
     background-size: cover;
     background-position: center;
     background-color:rgb(207, 160, 233,0.2);
@@ -195,7 +195,7 @@ body p{
     width: 30%;
     height: 70%;
     display: flex;
-    background-image: url("/images/c02_capt.png");
+    background-image: url("/Vues/images/c02_capt.png");
     background-size: cover;
     background-position: center;
     background-color:rgb(207, 160, 233,0.2);
@@ -206,7 +206,7 @@ body p{
     width: 20%;
     height: 70%;
     display: flex;
-    background-image: url("/images/temp_capt.png");
+    background-image: url("/Vues/images/temp_capt.png");
     background-size: cover;
     background-position: center;
     background-color:rgb(207, 160, 233,0.2);
@@ -217,7 +217,7 @@ body p{
     width: 30%;
     height: 70%;
     display: flex;
-    background-image: url("/images/noise_capt.png");
+    background-image: url("/Vues/images/noise_capt.png");
     background-size: cover;
     background-position: center;
     background-color:rgb(207, 160, 233,0.2);
@@ -229,7 +229,7 @@ body p{
     width: 30%;
     height: 70%;
     display: flex;
-    background-image: url("/images/heart_capt.png");
+    background-image: url("/Vues/images/heart_capt.png");
     background-size: cover;
     background-position: center;
     background-color:rgb(207, 160, 233,0.2);
