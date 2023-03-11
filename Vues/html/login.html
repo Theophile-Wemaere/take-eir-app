@@ -9,18 +9,38 @@
         <link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
     </head>
 <body>
-<div class = "login">
+    <div class="top-bar">
+        <div class="top-bar-img">
+          <img src="/Vues/images/logo-notext.png" href="/"/>
+        </div>
+        <button class="page-button">Notre produit</button>
+        <div class="separator"></div>
+        <button class="page-button">Qui somme nous ?</button>
+        <button class="login-button">Se connecter</button>
+        <div class="sphere" style="background-color: #2d67e0"></div>
+        <div class="sphere" style="background-color: #e0584c"></div>
+        <div class="sphere" style="background-color: #5dd1b7"></div>
+      </div>
     
-    <h1 class="title_connexion">CONNEXION</h1>
-    <form action = "" method="get">
     
-        <label for="email">Email :</label>
-        <input type="email" name="E-mail" id="email">
-    
-        <label for="mdp">Mot de passe :</label>
-        <input type="password" name="Mot de passe" id="mdp">
-    
-    </form>
-</div>
+    <div class = "login">
+        
+        <h1 class="title_connexion">CONNEXION</h1>
+        <form action = "" method="get" class="form_log">
+        
+            <input class="email" type="email" name="E-mail" id="email" placeholder="Email:">
+        
+            <input class="mdp" type="password" name="Mot de passe" id="mdp" placeholder="Mot de passe:">
+
+            <a href="">Mot de passe oublié ?</a>
+            <div class="remember">
+                <input type="checkbox" id="check" name="check" checked>
+                <label for="check">Se souvenir de moi</label>
+            </div>
+        </form>
+        <button class="connect_button">Se connecter</button>
+        <a class = "link_compt_crea" href="">Vous n'avez pas de compte ? Créez le</a>
+    </div>
 </body>
+
 </html>
