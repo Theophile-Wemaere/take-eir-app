@@ -1,7 +1,4 @@
-@font-face { 
-    font-family: 'Reem Kufi', sans-serif;
-    src: url("https://fonts.googleapis.com/css?family=Reem+Kufi");
-}
+
 
 body{
     display: flex;
@@ -15,86 +12,10 @@ body{
     background-attachment: fixed;
 }
 
-.title_connexion{
-    margin-top: 15%;
-    margin-bottom: 5%;
-    text-align: center;
-    
-}
-
-.form_log{
-    width: 540px;
-    
-}
-
-.login { 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Reem Kufi',sans-serif;
-    height: 90%;
-    width:100%;
-    border: 1px solid black;
-}
-.remember{
-    font-family: 'Reem Kufi', sans-serif;
-}
-
-.connect_button {
-    border: 0;
-    line-height: 2.5;
-    padding: 0 20px;
-    font-size: 1rem;
-    text-align: center;
-    color: #fff;
-    border-radius: 10px;
-    background-color: rgb(182, 63, 202,0.45);
-    width: 200px;
-    height: 75px;
-    
-}
 
 
-.email, .mdp{
-    padding: 10px;
-    display: flex;
-    height: 25px;
-    width: 100%;
-    margin-bottom: 50px;
-    background-color: rgb(4, 25, 214,0.27);
-    border: 1px solid rgb(4, 25, 214);
-    border-radius: 10px;
-}
-
-.link_compt_crea{
-    
-}
 
 
-::-webkit-input-placeholder { 
-    color: rgb(26, 35, 232,0.73);
-    font-weight: bold;
-
-  }
-  ::-moz-placeholder { 
-    color: rgb(26, 35, 232,0.73);
-    font-weight: bold;
-  }
-
-  :-ms-input-placeholder { 
-    color: rgb(26, 35, 232,0.73);
-    font-weight: bold;
-  }
-  :-moz-placeholder { 
-    color: rgb(26, 35, 232,0.73);
-    font-weight: bold;
-  }
-
- h1,h2{
-    display: flex;
-    font-family: 'Krona One',sans-serif;
-    color:#306BC4;
-}
 
 body p{
     padding: 10px;
