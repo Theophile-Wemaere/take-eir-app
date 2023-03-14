@@ -29,13 +29,17 @@
       <div class="top-bar-img">
         <img src="/images/logo-notext.png" href="/" />
       </div>
-      <button class="page-button">Notre produit</button>
-      <div class="separator"></div>
-      <button class="page-button">Qui somme nous ?</button>
-      <button class="login-button">Se connecter</button>
-      <div class="sphere" style="background-color: #2d67e0"></div>
-      <div class="sphere" style="background-color: #e0584c"></div>
-      <div class="sphere" style="background-color: #5dd1b7"></div>
+      <div class="right-items">  
+        <button class="page-button">Notre produit</button>
+        <div class="separator"></div>
+        <button class="page-button">Qui somme nous ?</button>
+        <button class="login-button">Se connecter</button>
+      </div>
+      <div class="menu-button" href="javascript:void(0);" onclick="toggleMenu()">
+        <div class="sphere" style="background-color: #2d67e0"></div>
+        <div class="sphere" style="background-color: #e0584c"></div>
+        <div class="sphere" style="background-color: #5dd1b7"></div>
+      </div>
     </div>
     <div class="main-box">
       <div class="left-part">
@@ -56,5 +60,16 @@
         <img src="/images/linkedin.png" />
       </div>-->
     </div>
+
+  <script>
+  </script>
+
   </body>
+  <script>
+    function myFunction() {
+        document.getElementById("drop-menu").classList.toggle("show");
+    }
+
+  </script>
+
 </html>
