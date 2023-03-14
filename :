@@ -38,16 +38,15 @@
       <div class="sphere" style="background-color: #5dd1b7"></div>
     </div>
     <div class="main-box">
-      <div class="left-part">
-        <h1>La révolution de l’hospitalisation à domicile !</h1>
-        <h3>
-          Le dispositif Health-EIR permet d’évaluer, en temps réel, la qualité
-          de votre prise en charge à domicile. Il intègre différents capteurs
-          permettant de mesurer des grandeurs environnementales et
-          physiologiques.
-        </h3>
+      <div>
+      <h1>La révolution de l’hospitalisation à domicile !</h1>
+      <h3>
+        Le dispositif Health-EIR permet d’évaluer, en temps réel, la qualité de
+        votre prise en charge à domicile. Il intègre différents capteurs
+        permettant de mesurer des grandeurs environnementales et physiologiques.
+      </h3>
       </div>
-      <img src="/images/ai-render.png" />
+      <img src="/images/render-AI.png" />
     </div>
     <div class="bottom-bar">
       <a>© take-eir</a>
