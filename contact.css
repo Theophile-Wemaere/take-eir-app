@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+    background-color: #e9f3f9;
+    background-image: url(images/bg-half.png), url(images/bg-half2.png);
+    background-position: left top, right top;
+    background-repeat: no-repeat;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%); 
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+}
+
+form{
+	background-color: white;
+	padding: 50px;
+	border-radius: 10px;
+}
+
+form h1{
+	font-size: 20px;
+}
+
+form div.separation{
+	background-color: #E0584C;
+	height: 1px;
+	width: 100%;
+}
+
+form div.corps-formulaire{
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 30px;
+}
+
+form .corps-formulaire div.groupe{
+	position: relative;
+	margin-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+form div.gauche div.groupe input{
+	margin-top: 5px;
+	padding: 10px 5px 10px 30px;
+	border: 1px solid #c9c9c9;
+	outline-color: #B9D0FF;
+	border-radius: 5px;
+}
+
+
+form div.gauche div.groupe i{
+	position: absolute;
+	color: #E0584C;
+	left: 0;
+	top: 25px;
+	padding: 9px 8px;
+}
+
+form .corps-formulaire .droite{
+	margin-left: 40px;
+}
+
+form .corps-formulaire .droite .groupe{
+	height: 100%;
+}
+
+form .corps-formulaire .droite .groupe textarea{
+	margin-top: 5px;
+	padding: 10px;
+	background-color: #f8f8f8;
+	border: 2px solid #B9D0FF;
+	outline: none;
+	border-radius: 5px;
+	color: grey;
+	resize: none;
+	height: 72%;
+}
+
+form .pied-formulaire button{
+	margin-top: 10px;
+	background-color: #E0584C;
+	color: white;
+	font-size: 15px;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+form .pied-formulaire button:hover{
+	opacity: 0.8;
+	transform: scale(1.1);
+	transition: 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 920px){
+	form .corps-formulaire .droite{
+	margin-left: 0px;
+
+	}
+
+}
