@@ -6,15 +6,23 @@ body{
     align-items: center;
     justify-content: center;
     background-color: rgb(233, 243, 249);
-    background-image: url('/Vues/images/logo_filli.png');
+    background-image: url('/Vues/images/logo_opacité.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
 }
 
 
+.Title_prod{
+    font-family: 'Krona ONE',sans-serif;
+    margin-top: 7.5%;
+    color: #306BC4;
+}
 
-
+.texte-milieu{
+    font-family: "Krona ONE", sans-serif;
+    color: #0775B2;
+}
 
 
 body p{
@@ -52,7 +60,7 @@ body p{
     width: 50%;
     height: 50%;
     display: flex;
-    background-color:rgba(0, 140, 250, 0.2) ;
+    background-color:rgb(0, 140, 250, 0.2) ;
     align-items: center;
     border-radius: 20px;
 }
@@ -178,7 +186,7 @@ footer img{
 
 .image-co2-cpt{
     width: 30%;
-    height: 70%;
+    height: 80%;
     display: flex;
     background-image: url("/Vues/images/c02_capt.png");
     background-size: cover;
