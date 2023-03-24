@@ -121,6 +121,7 @@ html, body {
     width: 20px;
     height: 20px;
     border-radius: 25px;
+    pointer-events: none;
 }
 
 .menu-button {
@@ -157,6 +158,11 @@ html, body {
     .drop-menu {
         visibility: hidden;
     }
+
+    .menu-button {
+        pointer-events: none;
+    }
+
 }
 /* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_-_-_-_-_-_-_-_-_ */
 
