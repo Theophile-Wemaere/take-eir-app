@@ -10,6 +10,7 @@ html, body {
 }
 
 .wrapper {
+    height: 90%;
     flex-grow: 1;
 }
 
