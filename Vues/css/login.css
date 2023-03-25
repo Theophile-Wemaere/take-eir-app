@@ -53,7 +53,10 @@ body{
     width: 200px;
     height: 75px;
     margin-top: 2%;
-    
+    transition: background-color 0.2s ease-out;
+}
+.connect_button:hover{
+    background-color: rgb(182, 63, 202,0.85);
 }
 
 

@@ -47,7 +47,7 @@ body{
     width: 200px;
     height: 75px;
     margin-top: 2%;
-    
+    transition: margin-right 2s;
 }
 
 
