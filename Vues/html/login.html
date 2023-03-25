@@ -39,7 +39,24 @@
             </div>
         
     </form>
-    <button class="connect_button">Se connecter</button>
+    
+    <button id = "btn" class="connect_button">Se connecter</button>
+    <div id="loader" class="loader"></div>
+
+    <script>
+        const btn = document.getElementById('btn');
+        const loader = document.getElementById('loader');
+
+        btn.addEventListener('click', () => {
+        loader.style.display = 'block';
+  // Code pour lancer une requête ou une opération qui prend du temps
+        setTimeout(() => {
+        loader.style.display = 'none';
+        }, 3000); // Temps en millisecondes avant de cacher le loader
+    });
+
+    </script>
+
     <a class = "link_compt_crea" href="">Vous n'avez pas de compte ? Créez le</a>
 
     </div>

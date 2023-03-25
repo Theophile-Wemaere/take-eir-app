@@ -59,6 +59,22 @@ body{
     background-color: rgb(182, 63, 202,0.85);
 }
 
+.loader {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    display: none;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
 
 .email, .mdp{
     padding: 10px;
@@ -132,6 +148,7 @@ body{
     top: 14%;
     width: auto;
     height: 80%;
+
 }
 
 .top-bar-img img {
@@ -193,4 +210,10 @@ body{
     width: 20px;
     height: 20px;
     border-radius: 25px;
+    transform: translateY(0%);
+    transition: transform 0.5s ease-in-out;
 }
+
+  .sphere:hover {
+    transform: translateY(-50%);
+  }
