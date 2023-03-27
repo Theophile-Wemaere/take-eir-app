@@ -1,302 +1,304 @@
-html, body {
-    background-color: #e9f3f9;
-    background-image: url(images/bg-half.png), url(images/bg-half2.png);
-    background-position: left top, right top;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    display: flex;
-    height: 100%;
-    flex-direction: column;
+html,
+body {
+  background-color: #e9f3f9;
+  background-image: url(images/bg-half.png), url(images/bg-half2.png);
+  background-position: left top, right top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
 }
 
 .wrapper {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 /* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_-_-_-_-_-_-_-_-_ */
 
 .top-bar {
-    background-color: #ffffff;
-    position: relative;
-    top: 20px;
-    left: 2%;
-    right: 2%;
-    display: flex;
-    width: 96%;
-    height: 70px;
-    border-radius: 15px;
-    align-items: center;
-    justify-content: right;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
+  position: relative;
+  top: 20px;
+  left: 2%;
+  right: 2%;
+  display: flex;
+  width: 96%;
+  height: 70px;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: right;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .top-bar a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    float: right;
-    height: 50px;
-    color: #2d67e0;
-    margin-right: 10px;
-    text-decoration: none;
-    border-radius: 15px;
-    font-family: "Krona One", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: right;
+  height: 50px;
+  color: #2d67e0;
+  margin-right: 10px;
+  text-decoration: none;
+  border-radius: 15px;
+  font-family: "Krona One", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
 }
 
 .top-bar-img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    left: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 2%;
 }
 
 .top-bar-img img {
-    width: auto;
-    height: 110%;
+  width: auto;
+  height: 110%;
 }
 
 .right-items {
-    visibility: visible;
-    float: right;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  visibility: visible;
+  float: right;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 @media (max-width: 790px) {
-    .right-items {
-        visibility: hidden;
-    }
+  .right-items {
+    visibility: hidden;
+  }
 }
 
 .page-button {
-    height: 50px;
-    padding: 10px 10px;
-    background-color: #ffffff;
-    border-radius: 15px;
-    color: #2d67e0;
-    font-family: "Krona One", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    border: 0;
+  height: 50px;
+  padding: 10px 10px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  color: #2d67e0;
+  font-family: "Krona One", sans-serif;
+  font-style: normal;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 15px;
+  border: 0;
 }
 
 .page-button:hover {
-    background-color: #dde9ff;
+  background-color: #dde9ff;
 }
 
 .login-button {
-    height: 50px;
-    padding: 10px 10px;
-    text-align: right;
-    background-color: #2d67e0;
-    border-radius: 15px;
-    color: #ffffff;
-    font-family: "Krona One", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 50px;
+  padding: 10px 10px;
+  text-align: right;
+  background-color: #2d67e0;
+  border-radius: 15px;
+  color: #ffffff;
+  font-family: "Krona One", sans-serif;
+  font-style: normal;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 15px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .login-button:hover {
-    background-color: #3f2de1;
-    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.5);
+  background-color: #3f2de1;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.5);
 }
 
 .separator {
-    width: 10px;
-    height: 10px;
-    border-radius: 25px;
-    background-color: #dde9ff;
+  width: 10px;
+  height: 10px;
+  border-radius: 25px;
+  background-color: #dde9ff;
 }
 
 .sphere {
-    margin: 5px 10px 5px 0;
-    width: 20px;
-    height: 20px;
-    border-radius: 25px;
-    pointer-events: none;
+  margin: 5px 10px 5px 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 25px;
+  pointer-events: none;
 }
 
 .menu-button {
-    margin-right: 10px;
-    padding-left: 10px;
-    display: flex;
-    flex-direction: row;
+  margin-right: 10px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
 .menu-button:hover {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .drop-menu {
-    position: absolute;
-    z-index: 1000;
-    border-radius: 25px;
-    top: 120px;
-    margin-bottom: 50px;
-    left: 25%;
-    min-width: 250px;
-    width: 50%;
-    height: 250px;
-    background-color: white;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  position: absolute;
+  z-index: 1000;
+  border-radius: 25px;
+  top: 120px;
+  margin-bottom: 50px;
+  left: 25%;
+  min-width: 250px;
+  width: 50%;
+  height: 250px;
+  background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 @media (min-width: 790px) {
-    .drop-menu {
-        visibility: hidden;
-    }
+  .drop-menu {
+    visibility: hidden;
+  }
 
-    .menu-button {
-        pointer-events: none;
-    }
-
+  .menu-button {
+    pointer-events: none;
+  }
 }
 /* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_-_-_-_-_-_-_-_-_ */
 
 .main-box {
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    width: auto;
-    height: 70%;
-    border-radius: 25px;
-    max-width: 80%;
-    margin-bottom: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  width: auto;
+  height: 70%;
+  border-radius: 25px;
+  max-width: 80%;
+  margin-bottom: 5%;
 }
 
 .left-part {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .right-part {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-box h1 {
-    text-align: left;
-    color: #2d67e0;
-    margin: 0;
-    font-family: "Montserrat", sans-serif;
-    font-size: medium;
-    font-weight: 700;
-    font-size: 3vw;
-    letter-spacing: 0.1em;
-    padding-bottom: 1vw;
+  text-align: left;
+  color: #2d67e0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: medium;
+  font-weight: 700;
+  font-size: 3vw;
+  letter-spacing: 0.1em;
+  padding-bottom: 1vw;
 }
 
 .main-box h3 {
-    text-align: left;
-    color: #2d67e0;
-    margin: 0;
-    font-family: "Nunito", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 2vw;
-    letter-spacing: 0.1em;
+  text-align: left;
+  color: #2d67e0;
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2vw;
+  letter-spacing: 0.1em;
 }
 
 .main-box img {
-    max-width: auto;
-    max-height: 80%;
-    border-radius: 25px;
+  max-width: auto;
+  max-height: 80%;
+  border-radius: 25px;
 }
 
 @media (max-width: 1040px) {
-    /* adjust the breakpoint as needed */
-    .left-part,
-    .right-part {
-        flex-basis: 50%; /* make both divs take up the full width */
-    }
-    .main-box h1 {
-        text-align: center;
-        font-size: 5vw;
-        padding-bottom: 10px;
-    }
+  /* adjust the breakpoint as needed */
+  .left-part,
+  .right-part {
+    flex-basis: 50%; /* make both divs take up the full width */
+  }
+  .main-box h1 {
+    text-align: center;
+    font-size: 5vw;
+    padding-bottom: 10px;
+  }
 
-    .main-box h3 {
-        text-align: center;
-        font-size: 3vw;
-    }
+  .main-box h3 {
+    text-align: center;
+    font-size: 3vw;
+  }
 
-    .main-box img {
-        max-width: 90%;
-        max-height: auto;
-    }
+  .main-box img {
+    max-width: 90%;
+    max-height: auto;
+  }
 }
 
 /* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_-_-_-_-_-_-_-_-_ */
 
 .bottom-bar {
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 5%;
-    background: rgba(0, 102, 255, 0.18);
-    display: flex;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5%;
+  background: rgba(0, 102, 255, 0.18);
+  display: flex;
 }
 
 .bottom-bar a {
-    margin-top: auto;
-    margin-bottom: auto;
-    float: left;
-    color: #2d67e0;
-    margin-left: 10px;
-    text-decoration: none;
-    border-radius: 15px;
-    font-family: "Krona One", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+  float: left;
+  color: #2d67e0;
+  margin-left: 10px;
+  text-decoration: none;
+  border-radius: 15px;
+  font-family: "Krona One", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
 }
 
 .medias {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    right: 0;
-    margin-right: 10px;
-    width: 20%;
-    height: 24px;
-    justify-content: space-evenly;
-    align-self: center;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+  width: 20%;
+  height: 24px;
+  justify-content: space-evenly;
+  align-self: center;
 }
 
 .bottom-bar img {
-    height: 100%;
-    width: 24px;
+  height: 100%;
+  width: 24px;
 }
 
 @media (max-width: 790px) {
-    .bottom-bar a {
-        font-size: 3vw;
-    }
+  .bottom-bar a {
+    font-size: 3vw;
+  }
 
-    .medias {
-        width: 40%;
-    }
+  .medias {
+    width: 40%;
+  }
 }
