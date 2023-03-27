@@ -1,0 +1,142 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(233, 243, 249);
+}
+
+.top-bar {
+    background-color: #ffffff;
+    position: absolute;
+    top: 20px;
+    left: 2%;
+    right: 2%;
+    display: flex;
+    width: 96%;
+    height: 10%;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: right;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.top-bar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    height: 50px;
+    color: #2d67e0;
+    margin-right: 10px;
+    text-decoration: none;
+    border-radius: 15px;
+    font-family: "Krona One", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.top-bar-img {
+    display: block;
+    position: absolute;
+    left: 1%;
+    top: 14%;
+    width: auto;
+    height: 80%;
+}
+
+.top-bar-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.page-button {
+    height: 50px;
+    float: right;
+    padding: 10px 10px;
+    text-align: right;
+    background-color: #ffffff;
+    margin-right: 10px;
+    border-radius: 15px;
+    color: #2d67e0;
+    font-family: "Krona One", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    border: 0;
+}
+
+.page-button:hover {
+    background-color: #dde9ff;
+}
+
+.login-button {
+    height: 50px;
+    float: right;
+    padding: 10px 10px;
+    text-align: right;
+    background-color: #2d67e0;
+    margin-right: 10px;
+    border-radius: 15px;
+    color: #ffffff;
+    font-family: "Krona One", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.login-button:hover {
+    background-color: #3f2de1;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.5);
+}
+
+.separator {
+    margin-right: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 25px;
+    background-color: #dde9ff;
+}
+
+.sphere {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 25px;
+}
+
+.globalMonitoring{
+    position: absolute;
+    width: 1200px;
+    height: 4244px;
+left: 120px;
+top: 164px;
+    background: #FFFFFF;
+    box-shadow: 1px 4px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.boutonPatient{
+box-sizing: border-box;
+position: absolute;
+width: 260px;
+height: 67px;
+left: 199px;
+top: 50px;
+font-family: 'Krona One';
+font-style: normal;
+color: white;
+font-weight: 400;
+font-size: 24px;
+background: #2D67E0;
+border: 2px solid #2D67E0;
+border-radius: 15px;
+}
+
+.infoPatient p{
+    font-family: "Krona One";
+    margin-left: 240px;
+    margin-top: 150px;
+}
