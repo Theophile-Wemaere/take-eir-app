@@ -299,29 +299,6 @@ footer img{
     background-color: #dde9ff;
 }
 
-.bouton_prod, .bouton_login{
-        overflow: hidden;
-        transition: all 0.3s ease-in-out;
-      }
-.bouton_login:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0);
-    transition: all 0.5s ease-out;
-      }
-      
-      .top-bar:hover .bouton_login:before {
-        left: 0;
-        background-color: rgba(255, 255, 255, 0.5);
-      }
-      
-      .top-bar:hover .bouton_login {
-        transform: translateX(100%);
-      }
 
 .login-button {
     height: 50px;
