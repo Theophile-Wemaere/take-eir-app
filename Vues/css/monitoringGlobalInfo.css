@@ -1,9 +1,14 @@
+html{
+    font-family: 'Krona One', sans-serif;
+}
 body{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: rgb(233, 243, 249);
+    font-family: 'Krona One', sans-serif;
+
 }
 
 .top-bar {
@@ -31,7 +36,6 @@ body{
     margin-right: 10px;
     text-decoration: none;
     border-radius: 15px;
-    font-family: "Krona One", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -60,7 +64,6 @@ body{
     margin-right: 10px;
     border-radius: 15px;
     color: #2d67e0;
-    font-family: "Krona One", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -80,7 +83,6 @@ body{
     margin-right: 10px;
     border-radius: 15px;
     color: #ffffff;
-    font-family: "Krona One", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -111,8 +113,8 @@ body{
     position: absolute;
     width: 1200px;
     height: 4244px;
-left: 120px;
-top: 164px;
+    left: 120px;
+    top: 164px;
     background: #FFFFFF;
     box-shadow: 1px 4px 3px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
@@ -121,22 +123,48 @@ top: 164px;
 .boutonPatient{
 box-sizing: border-box;
 position: absolute;
-width: 260px;
+width: 327px;
 height: 67px;
-left: 199px;
-top: 50px;
-font-family: 'Krona One';
+margin-left: 40%;
+margin-top: 2.5%;
 font-style: normal;
 color: white;
-font-weight: 400;
+font-weight: 400px;
 font-size: 24px;
 background: #2D67E0;
 border: 2px solid #2D67E0;
 border-radius: 15px;
 }
 
-.infoPatient p{
-    font-family: "Krona One";
-    margin-left: 240px;
-    margin-top: 150px;
+.infoPatient{
+    margin-left: 33%;
+    margin-top: 10%;
+    font-size: 20px;
+}
+
+hr{
+    border-width: 0px;
+}
+
+.cardiacData{
+    justify-content: space-around;
+    align-items: center;
+}
+
+.title_card_graph {
+    font-family: 'Krona One';
+    width: 430px;
+    height: 68px;
+    margin-left: 2.5%;
+    top: 20%;
+    background: #E0584C;
+    border: 2px solid #2D67E0;
+    border-radius: 15px;
+    color:white;
+}
+
+.cardiacGraph {
+   
+    background-image: url("cardiac_data.png");
+   
 }
