@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <link rel="stylesheet" href="/Vues/css/login.css" />
+        <meta charset="utf-8">
+        <title id="connexion">Login</title>
+        <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
+    </head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-img">
+          <img src="/Vues/images/logo-notext.png" href="/"/>
+        </div>
+        <a href="produit.html"><button class="page-button">Notre produit</button></a> 
+        <div class="separator"></div>
+        <button class="page-button">Qui sommes nous ?</button>
+        <a href="login.html"><button class="login-button">Se connecter</button></a>>
+        <div class="sphere" style="background-color: #2d67e0"></div>
+        <div class="sphere" style="background-color: #e0584c"></div>
+        <div class="sphere" style="background-color: #5dd1b7"></div>
+      </div>
+    
+    
+    <div class = "login">
+        
+        <h1 class="title_connexion">CONNEXION</h1>
+        <form action = "" method="get" class="form_log">
+        
+            <input class="email" type="email" name="E-mail"  placeholder="Email:">
+        
+            <input class="mdp" type="password" name="Mot de passe"  placeholder="Mot de passe:">
+
+            <a href="réinitialisation_mdp.html">Mot de passe oublié ?</a>
+            <div class="remember">
+                <input type="checkbox" id="check" name="check" checked>
+                <label for="check">Se souvenir de moi</label>
+            </div>
+        
+    </form>
+    
+    <button id = "btn" class="connect_button">Se connecter</button>
+    <div id="loader" class="loader"></div>
+
+    <script>
+        const btn = document.getElementById('btn');
+        const loader = document.getElementById('loader');
+
+        btn.addEventListener('click', () => {
+        loader.style.display = 'block';
+  // Code pour lancer une requête ou une opération qui prend du temps
+        setTimeout(() => {
+        loader.style.display = 'none';
+        }, 3000); // Temps en millisecondes avant de cacher le loader
+    });
+
+    </script>
+
+    <a class = "link_compt_crea" href="">Vous n'avez pas de compte ? Créez le</a>
+
+    </div>
+</body>
+
+</html>
