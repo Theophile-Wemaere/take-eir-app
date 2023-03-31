@@ -39,7 +39,9 @@ body{
 
 .remember{
     font-family: 'Reem Kufi', sans-serif;
+    
 }
+
 
 .connect_button {
     border: 0;
@@ -57,6 +59,7 @@ body{
 }
 .connect_button:hover{
     background-color: rgb(182, 63, 202,0.85);
+    cursor: pointer;
 }
 
 .loader {
@@ -148,6 +151,8 @@ body{
     top: 14%;
     width: auto;
     height: 80%;
+    cursor: pointer;
+
 
 }
 
@@ -174,6 +179,8 @@ body{
 
 .page-button:hover {
     background-color: #dde9ff;
+    cursor: pointer;
+
 }
 
 .login-button {
@@ -195,6 +202,8 @@ body{
 .login-button:hover {
     background-color: #3f2de1;
     box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+
 }
 .bouton_prod{
     transition: all 0.3s ease-in-out;
