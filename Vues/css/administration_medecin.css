@@ -117,7 +117,8 @@ body{
     border-radius: 25px;
 }
 
-.adminMedecin{
+
+.manageMedecin{
     position: absolute;
     width: 82%;
     height: hv;
@@ -125,6 +126,25 @@ body{
     top: 164px;
     font-family: 'Krona One', sans-serif;
     background: #FFFFFF;
-    box-shadow: 1px 4px 3px rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 4px 3px rgba(0, 0, 0);
+    border-radius: 15px;
+}
+
+
+
+
+.boutonSeuilAlerte{
+    box-sizing: border-box;
+    position: absolute;
+    width: 327px;
+    height: 67px;
+    margin-left: 40%;
+    margin-top: 2.5%;
+    font-style: normal;
+    color: white;
+    font-weight: 400px;
+    font-size: 24px;
+    background: #2D67E0;
+    font-family: 'Krona One';
     border-radius: 15px;
 }
