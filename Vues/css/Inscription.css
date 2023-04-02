@@ -18,13 +18,15 @@ body{
     width: 540px;
     
 }
-
+input{
+    font-family: 'Krona One';
+}
 
 .inscription { 
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: 'Reem Kufi',sans-serif;
+    font-family: 'Krona One',sans-serif;
     height: 90%;
     width:100%;
 }
@@ -75,6 +77,19 @@ body{
   :-moz-placeholder { 
     color: rgb(26, 35, 232,0.73);
     font-weight: bold;
+  }
+
+  .type{
+    padding: 10px;
+    height: 50px;
+    width: 105%;
+    margin-bottom: 50px;
+    background-color: rgb(4, 25, 214,0.27);
+    border-color: blue;
+    border-radius: 10px;
+    font-family: "Krona One";
+    color: purple;
+    opacity: 0.5;
   }
 
   .top-bar {

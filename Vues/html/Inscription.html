@@ -23,7 +23,13 @@
     <div class = "Inscription">
         
         <h1 class="title_register">INSCRIPTION</h1>
-        <form action = "" method="get" class="form_inscription">
+        <form action = "" method="get" class="form_inscription" placeholder="Etes-vous un ...">
+
+            <select name="personType" class="type">
+                <option value="select">Choisissez votre statut</option>
+                <option value="Patient/Famille">Patient</option>
+                <option value="medecin">Medecin</option>
+            </select>
         
             <input class="Nom" type="text" name="name" placeholder="Nom :">
         
