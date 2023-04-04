@@ -1,4 +1,3 @@
-
 body{
     display: flex;
     flex-direction: column;
@@ -9,7 +8,6 @@ body{
 
 }
 
-    
 
 .top-bar {
     background-color: #ffffff;
@@ -125,40 +123,27 @@ body{
     transform: translateY(-50%);
   }
 
-input{
-    width: 322px;
-    height: 56px;
-    border-radius: 15px;
-    text-align: center;
-    font-family: "Krona One";
-    font-size: 24px;
-}
-
-
-
-
-hr{
-    border-width: 0px;
-}
-
-
-.manageMedecin{
+.docteur{
     position: absolute;
-    width: 82%;
-    height: hv;
+    flex-direction: column;
+    display: flex;
+    width: 25%;
+    height: 95%;
     left: 120px;
     top: 164px;
     font-family: 'Krona One', sans-serif;
     background-color: white;
     border-radius: 15px;
+    border-color:rgb(7, 100, 158);
 }
-.manageMedecin button{
+
+.docteur button{
     box-sizing: border-box;
     position: absolute;
     text-align: center;
-    width: 327px;
-    height: 67px;
-    margin-left: 40%;
+    width: 45%;
+    height: 10%;
+    margin-left: 27.5%;
     margin-top: 8%;
     color: white;
     font-weight: 400px;
@@ -168,88 +153,36 @@ hr{
     border-radius: 15px;
 }
 
-.seuilSon{
-    align-items: center;
-    width: 100%;
-    display: flex;
-    height: 150px;
-    margin-top:15%;
-}
-
-.seuilTemp, .seuilCard{
-    align-items: center;
-    width: 100%;
-    display: flex;
-    height: 150px;
-    margin-top:5%;
-}
-
-
-
-.seuilSon img,.seuilTemp img, .seuilCard img {
-    width: 85px;
+.docteur img{
+    width:85px;
     height: 85px;
-    margin-left: 15%;
-    margin-top: 1%;
 }
 
-
-
-.sonInfo, .tempInfo, .cardInfo{
+.profil {
     display: flex;
-    margin-top:1%;
-    width: 100%;
+    margin-top: 35%;
+    margin-left: 10%;
 }
 
-
-.sonInfo input {
-    margin-top: 1%;
-    margin-left: 5%;
-    background-color: rgb(127, 0, 255,0.5);
-}
-
-.tempInfo input {
-    margin-top: 1%;
-    margin-left: 5%;
-    background-color: rgba(106, 233, 110, 0.5);
-}
-
-.cardInfo input {
-    margin-top: 1%;
-    margin-left: 5%;
-    background-color: rgba(240, 81, 81, 0.5);
-}
-
-
-.sonInfo p {
-    margin-top: 3%;
-    margin-left: 3%;
-    font-size: 23px;
-    color:rgb(127, 0, 255);
-}
-
-.tempInfo p {
-    margin-top: 3%;
-    margin-left: 3%;
-    font-size: 23px;
-    color:#33AE81;
-}
-
-.cardInfo p {
-    margin-top: 3%;
-    margin-left: 3%;
-    font-size: 23px;
-    color:rgb(225, 29, 29);
-}
-
-.resetPara{
-    margin-top: 2%;
-    margin-left: 30%;
-    font-size: 24px;
-    color:  rgb(47, 183, 207);
+.reglage{
+    margin-left: 75%;
+    margin-top: 10%;
 }
 
 
 
+.infoDocteur{
+    margin-top: 8%;
+    margin-left: 2%;
+    font-size: 20px;
+}
 
+.profil p{
+    margin-left: 1%;
+    margin-top: 10%;
+    font-size: 20px;
+}
 
+hr{
+    border-width: 0px;
+}
