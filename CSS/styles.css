@@ -1,7 +1,7 @@
 html,
 body {
   background-color: #e9f3f9;
-  background-image: url(images/bg-half.png), url(images/bg-half2.png);
+  background-image: url(/images/bg-half.png), url(/images/bg-half2.png);
   background-position: left top, right top;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -164,6 +164,12 @@ body {
 
 .page-button:hover {
   background-color: #dde9ff;
+}
+
+.current-button {
+  color: #e0584c;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
 }
 
 .login-button {
