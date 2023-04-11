@@ -9,13 +9,14 @@
 }
 
 .form_log {
-  width: 540px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .link_compt_crea {
-  display: flex;
-  margin-right: 20.5%;
-  margin-top: 0.5%;
+  margin-top: 20px;
 }
 
 .login {
@@ -23,17 +24,22 @@
   position: relative;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   font-family: "Reem Kufi", sans-serif;
   height: 90%;
-  top: 50px;
-  width: 100%;
+  width: 90%;
+  left: 5%;
+  right: 5%;
 }
 
 .remember {
+  margin-top: 20px;
   font-family: "Reem Kufi", sans-serif;
+  text-align: center;
 }
 
 .connect_button {
+  margin-top: 20px;
   border: 0;
   line-height: 2.5;
   padding: 0 20px;
@@ -44,7 +50,6 @@
   background-color: rgb(182, 63, 202, 0.45);
   width: 200px;
   height: 75px;
-  margin-top: 2%;
   transition: background-color 0.2s ease-out;
 }
 .connect_button:hover {
@@ -52,6 +57,8 @@
 }
 
 .loader {
+  margin-top: 20px;
+  margin-bottom: 3%;
   border: 8px solid rgba(0, 0, 0, 0.1);
   border-left-color: #3498db;
   border-radius: 50%;
@@ -100,4 +107,3 @@
 .sphere:hover {
   transform: translateY(-50%);
 }
-
