@@ -48,6 +48,10 @@ input{
     margin-left: 35%;
 }
 
+.register_button:hover{
+    background-color: rgb(182, 63, 202,0.75);
+}
+
 
 .Nom, .Prénom, .email, .mdp,.health_key{
     padding: 10px;

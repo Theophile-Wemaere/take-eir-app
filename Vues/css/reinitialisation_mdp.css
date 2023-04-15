@@ -16,10 +16,12 @@ body{
     text-align: center;
     color: #1277EE;
     font-family: 'Krona One',sans-serif;
+    font-size: 120%;
 }
 
 .form_reset_mdp{
-    width: 540px;
+    width: 50%;
+    height: 100%;
     
 }
 
@@ -50,6 +52,9 @@ body{
     transition: margin-right 2s;
 }
 
+.confirm_button:hover{
+    background-color: rgb(182, 63, 202,0.75);
+}
 
 .old_mdp, .new_mdp{
     padding: 10px;
@@ -141,7 +146,6 @@ body{
     color: #2d67e0;
     font-family: "Krona One", sans-serif;
     font-style: normal;
-    font-weight: 400;
     font-size: 15px;
     border: 0;
 }
@@ -184,4 +188,14 @@ body{
     width: 20px;
     height: 20px;
     border-radius: 25px;
+}
+
+@media(max-width:800px){
+    .title_reset_mdp{
+        margin-top: 30%;
+    }
+
+    .confirm_button{
+        margin-top: 2%;
+    }
 }
