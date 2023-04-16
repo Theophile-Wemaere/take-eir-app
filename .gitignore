@@ -1,2 +1,4 @@
 buttons/
 scripts/
+php/
+.htpasswd
