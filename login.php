@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/CSS/login.css" />
     <link rel="stylesheet" href="/CSS/styles.css" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title id="connexion">Login TAKE-EIR</title>
     <script src="/JS/scripts.js"></script>
     <link
@@ -38,7 +38,7 @@
               Qui sommes nous ?
             </button></a
           >
-          <a href="/login.html">
+          <a href="/login.php">
             <button class="login-button" style="margin-right: 10px">
               Se connecter
             </button></a
@@ -65,7 +65,7 @@
           ><button class="page-button">Qui sommes nous ?</button></a
         >
         <div class="separator"></div>
-        <a href="/login.html"
+        <a href="/login.php"
           ><button class="login-button" style="margin-top: 10px">
             Se connecter
           </button></a
@@ -98,7 +98,6 @@
 
         <button id="btn" class="connect_button">Se connecter</button>
         <div id="loader" class="loader"></div>
-
         <script>
           const btn = document.getElementById("btn");
           const loader = document.getElementById("loader");
@@ -111,6 +110,15 @@
             }, 3000); // Temps en millisecondes avant de cacher le loader
           });
         </script>
+        
+       <?php
+       require "database.php";
+       // Get the email and password from the form
+       $email = $_POST["email"];
+       $password = $_POST["password"];
+       $results = $_DB->select("show tables");
+       echo $results;
+       ?>  
 
         <a class="link_compt_crea" href=""
           >Vous n'avez pas de compte ? Créez le</a

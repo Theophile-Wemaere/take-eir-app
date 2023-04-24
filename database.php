@@ -31,9 +31,8 @@ $creds = file(".creds");
 $creds_line = $creds[0];                                                                                                                                                                                     
 $creds_parts = explode(":", $creds_line);                                                                                                                                                                    
 $username = $creds_parts[0];                                                                                                                                                                                 
-$password = $creds_parts[1]; 
+$password = str_replace("\n", "", $creds_parts[1]); 
 define("DB_USER", $username);
 define("DB_PASSWORD", $password);
- 
 $_DB = new DB();
 ?>
