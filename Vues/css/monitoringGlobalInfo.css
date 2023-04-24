@@ -188,7 +188,7 @@ hr{
 .title_dust_graph {
     font-family: 'Krona One';
     width: 50%;
-    height: 20%;
+    height: 15%;
     margin-left: 20%;
     margin-top: 10%;
     background: #67B4C5;
@@ -210,7 +210,7 @@ hr{
 .title_noise_graph{
     font-family: 'Krona One';
     width: 20%;
-    height: 30%;
+    height: 15%;
     margin-left: 40%;
     margin-top: 8%;
     background: #712DE0;
@@ -261,7 +261,7 @@ hr{
 
 .dustData img {
     width: 65%;
-    height: 53%;
+    height: 49%;
     margin-top: 2.5%;
     margin-left: 12%;
 }

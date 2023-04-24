@@ -144,51 +144,41 @@ hr{
 
 .manageMedecin{
     position: absolute;
-    width: 82%;
+    width: 85%;
     height: hv;
-    left: 120px;
-    top: 164px;
+    left: 8%;
+    top: 20%;
     font-family: 'Krona One', sans-serif;
     background-color: white;
     border-radius: 15px;
 }
 .manageMedecin button{
     box-sizing: border-box;
-    position: absolute;
     text-align: center;
-    width: 327px;
-    height: 67px;
-    margin-left: 40%;
-    margin-top: 8%;
+    width: 20%;
+    height: 100px;
+    margin-left: 42%;
+    margin-top: 5%;
     color: white;
-    font-weight: 400px;
     font-size: 24px;
     background: #2D67E0;
     font-family: 'Krona One';
     border-radius: 15px;
 }
 
-.seuilSon{
-    align-items: center;
-    width: 100%;
-    display: flex;
-    height: 150px;
-    margin-top:15%;
-}
 
-.seuilTemp, .seuilCard{
+.seuilSon, .seuilTemp, .seuilCard{
     align-items: center;
-    width: 100%;
     display: flex;
-    height: 150px;
+    height: 25%;
     margin-top:5%;
 }
 
 
 
-.seuilSon img,.seuilTemp img, .seuilCard img {
-    width: 85px;
-    height: 85px;
+img {
+    width: 10%;
+    height: 10%;
     margin-left: 15%;
     margin-top: 1%;
 }
@@ -259,3 +249,31 @@ hr{
     top: 50%;
 }
 
+@media(max-width:800px){
+    .seuilSon, .seuilTemp, .seuilCard{
+     flex-direction: column;
+     margin-left: 7.5%;
+     border: solid 1px yellow;
+     margin-right: 7.5%;
+    }
+
+    .sonInfo, .tempInfo, .cardInfo{
+        flex-direction: column;
+        margin-left: 15%;
+        border: solid 1px blue;
+        width: 75%;
+
+    }
+
+ img {
+        width: 20%;
+        height: 20%;
+        margin-left: 2%;
+        border: solid 1px black;
+    }
+
+    .manageMedecin button{
+        width: auto;
+        margin-left:32%;
+    }
+}

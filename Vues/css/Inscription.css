@@ -196,3 +196,14 @@ input{
     height: 20px;
     border-radius: 25px;
 }
+
+@media(max-width:800px){
+    .register_button{
+        margin-left: 33%;
+    }
+
+    .title_register{
+        margin-top: 25%;
+    }
+
+}
