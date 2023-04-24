@@ -17,7 +17,7 @@ class DB {
     if ($this->pdo!==null) { $this->pdo = null; }
   }
 
-  function select ($sql, $data=null) {
+  function execute ($sql, $data=null) {
     $this->stmt = $this->pdo->prepare($sql);
     $this->stmt->execute($data);
     return $this->stmt->fetchAll();

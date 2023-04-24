@@ -116,11 +116,11 @@
        // Get the email and password from the form
        $email = $_POST["email"];
        $password = $_POST["password"];
-       $results = $_DB->select("show tables");
+       $results = $_DB->execute("show tables");
        echo $results;
        ?>  
 
-        <a class="link_compt_crea" href=""
+        <a class="link_compt_crea" href="/register.php"
           >Vous n'avez pas de compte ? Créez le</a
         >
       </div>

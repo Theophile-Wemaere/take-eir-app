@@ -1,0 +1,71 @@
+.title_register {
+  margin-bottom: 5%;
+  text-align: center;
+  color: #1277ee;
+  font-family: "Krona One", sans-serif;
+  font-size: 3vw;
+}
+
+.form_inscription {
+  max-width: 540px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inscription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Reem Kufi", sans-serif;
+  height: 90%;
+  width: 100%;
+}
+
+.register_button {
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  border-radius: 10px;
+  background-color: rgb(182, 63, 202, 0.45);
+  width: 200px;
+  height: 75px;
+  margin-top: 2%;
+}
+
+.Nom,
+.Prénom,
+.email,
+.mdp,
+.health_key {
+  padding: 10px;
+  height: 25px;
+  width: 100%;
+  margin-bottom: 50px;
+  background-color: rgb(4, 25, 214, 0.27);
+  border: 1px solid rgb(4, 25, 214);
+  border-radius: 10px;
+}
+
+::-webkit-input-placeholder {
+  color: rgb(26, 35, 232, 0.73);
+  font-weight: bold;
+}
+::-moz-placeholder {
+  color: rgb(26, 35, 232, 0.73);
+  font-weight: bold;
+}
+
+:-ms-input-placeholder {
+  color: rgb(26, 35, 232, 0.73);
+  font-weight: bold;
+}
+:-moz-placeholder {
+  color: rgb(26, 35, 232, 0.73);
+  font-weight: bold;
+}
