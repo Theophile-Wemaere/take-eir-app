@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 	<title>Register</title>
+    <script src="/JS/scripts.js"></script>
 </head>
 <body>
   <div class="wrapper">

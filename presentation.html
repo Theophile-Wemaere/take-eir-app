@@ -207,5 +207,29 @@
         </div>
       </div>
     </div>
+    <script>
+      function dropMenuPres() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+
+      window.onclick = function (event) {
+        if (!event.target.matches(".menu-button")) {
+          var menu = document.getElementById("dropMenu");
+          if (menu.style.display === "flex") {
+            menu.style.display = "none";
+          }
+        }
+        if (!event.target.matches(".dropbtn")) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains("show")) {
+              openDropdown.classList.remove("show");
+            }
+          }
+        }
+      };
+    </script>
   </body>
 </html>

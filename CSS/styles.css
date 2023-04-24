@@ -148,8 +148,7 @@ body {
   z-index: 1000;
   border-radius: 25px;
   top: 120px;
-  margin-bottom: 50px;
-  left: 25%;
+  right: 3%;
   min-width: 250px;
   width: 50%;
   height: 250px;

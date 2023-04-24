@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/CSS/styles.css" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta charset="utf-8"/>
-    <title id="connexion">Login TAKE-EIR</title>
+    <title id="connexion">Login</title>
     <script src="/JS/scripts.js"></script>
     <link
       href="https://fonts.googleapis.com/css?family=Krona+One"
