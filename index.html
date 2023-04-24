@@ -8,6 +8,7 @@
   <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="/JS/scripts.js"></script>
   <link
     rel="stylesheet"
     href="https://kit.fontawesome.com/bc424452bc.css"
@@ -30,9 +31,6 @@
         <div class="top-bar-img">
           <a href="/"><img src="/images/logo-notext.png" /></a>
         </div>
-        <a href="/buttons/"
-          ><button class="button-demo">les boutons stylés</button></a
-        >
         <div class="right-items">
           <a href="/produit.html">
             <button class="page-button" style="margin-right: 10px">
@@ -40,10 +38,12 @@
             </button></a
           >
           <div class="separator" style="margin-right: 10px"></div>
-          <button class="page-button" style="margin-right: 10px">
-            Qui sommes nous ?
-          </button>
-          <a href="/login.html">
+          <a href="/presentation.html">
+            <button class="page-button" style="margin-right: 10px">
+              Qui sommes nous ?
+            </button></a
+          >
+          <a href="/login.php">
             <button class="login-button" style="margin-right: 10px">
               Se connecter
             </button></a
@@ -62,13 +62,19 @@
         </span>
       </div>
       <div class="drop-menu" id="dropMenu" style="display: none">
-        <button class="page-button">Notre produit</button>
+        <a href="/produit.html"
+          ><button class="page-button">Notre produit</button></a
+        >
         <div class="separator"></div>
-        <button class="page-button">Qui sommes nous ?</button>
+        <a href="/presentation.html"
+          ><button class="page-button">Qui sommes nous ?</button></a
+        >
         <div class="separator"></div>
-        <button class="login-button" style="margin-top: 10px">
-          Se connecter
-        </button>
+        <a href="/login.php"
+          ><button class="login-button" style="margin-top: 10px">
+            Se connecter
+          </button></a
+        >
       </div>
       <div class="main-box">
         <div class="left-part">
@@ -105,26 +111,4 @@
       </a>
     </div>
   </div>
-
-  <script>
-    function toggleMenu() {
-      console.log("clicked !");
-      const menu = document.getElementById("dropMenu");
-      if (menu.style.display === "none") {
-        menu.style.display = "flex";
-      } else {
-        menu.style.display = "none";
-      }
-    }
-
-    window.onclick = function (e) {
-      console.log(e.target);
-      if (!e.target.matches(".menu-button")) {
-        var menu = document.getElementById("dropMenu");
-        if (menu.style.display === "flex") {
-          menu.style.display = "none";
-        }
-      }
-    };
-  </script>
 </html>
