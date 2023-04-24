@@ -25,9 +25,6 @@
         <div class="top-bar-img">
           <a href="/"><img src="/images/logo-notext.png" /></a>
         </div>
-        <a href="/buttons/"
-          ><button class="button-demo">les boutons stylés</button></a
-        >
         <div class="right-items">
           <a href="/produit.html">
             <button class="page-button" style="margin-right: 10px">
@@ -39,16 +36,16 @@
           <div class="dropdown">
             <button
               id="menu-btn"
-              onmouseenter="dropMenuPres()()"
-              onmouseleave="dropMenuPres()()"
-              class="dropbtn"
+              onmouseenter="dropMenuPres()"
+              onmouseleave="dropMenuPres()"
+              class="dropbtn current-button"
             >
               Qui sommes nous ?
             </button>
             <div
               id="myDropdown"
-              onmouseenter="dropMenuPres()()"
-              onmouseleave="dropMenuPres()()"
+              onmouseenter="dropMenuPres()"
+              onmouseleave="dropMenuPres()"
               class="dropdown-content"
             >
               <a href="#title" class="smooth-scroll">Notre Client</a>
@@ -80,6 +77,7 @@
           </div>
         </span>
       </div>
+
       <div class="box">
         <h3 id="title">Notre Client :</h3>
         <div class="corps">
@@ -189,15 +187,12 @@
           </table>
         </div>
       </div>
-    </div>
-    <script>
-        /* When the user clicks on the button,
-      toggle between hiding and showing the dropdown content */
-        function dropMenuPres()() {
+
+      <script>
+        function dropMenuPres() {
           document.getElementById("myDropdown").classList.toggle("show");
         }
 
-        // Close the dropdown if the user clicks outside of it
         window.onclick = function (event) {
           if (!event.target.matches(".dropbtn")) {
             var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -210,7 +205,8 @@
             }
           }
         };
-    </script>
-    <script type="text/javascript" src="smooth-scroll.js"></script>
+      </script>
+      <script type="text/javascript" src="smooth-scroll.js"></script>
+    </div>
   </body>
 </html>
