@@ -99,10 +99,22 @@ form .pied-formulaire button:hover{
 	transition: 0.3s ease-in-out;
 }
 
-@media screen and (max-width: 920px){
-	form .corps-formulaire .droite{
-	margin-left: 0px;
+@media screen and (max-width: 1015px){
 
+	body{
+		font-size: 14px;
+	}
+
+	form .corps-formulaire{
+		display: flex;
+		flex-direction: column;
+		justify-content: right;
+	}
+
+	form .corps-formulaire .droite{
+		width: 100%;
+		margin-left: 0;
+		height: 180px;
 	}
 
 }
