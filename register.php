@@ -61,13 +61,51 @@
       </div>
     <div class = "inscription">
         <h1 class="title_register">INSCRIPTION</h1>
-        <form action = "" method="get" class="form_inscription">
-            <input class="Nom" type="text" name="name" placeholder="Nom :">
-            <input class="Prénom" type="text" name="first_name" placeholder="Prenom :">
-            <input class="email" type="email" name="E-mail"  placeholder="Email:">
-            <input class="mdp" type="password" name="Mot de passe"  placeholder="Mot de passe:">
+        <form method="POST" class="form_inscription">
+            <input class="Nom" type="text" name="name" placeholder="Prenom:">
+            <input class="Prénom" type="text" name="surname" placeholder="Nom:">
+            <input class="email" type="email" name="email"  placeholder="Email:">
+            <input class="mdp" type="password"  placeholder="Mot de passe:">
+            <input class="mdp" type="password" name="password"  placeholder="Confirmation mot de passe:">
+        <button type="submit" class="register_button">S'inscrire</button>
         </form>
-        <button class="register_button">S'inscrire</button>
+       <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
+         require "database.php";
+         // Get the email and password from the form
+         $name = $_POST["name"];
+         $surname = $_POST["surname"];
+         $email = $_POST["email"];
+         $password = $_POST["password"];
+
+         // Generate hashed password using PASSWORD_ARGON2ID algorithm
+         $options = [
+           "memory_cost" => PASSWORD_ARGON2_DEFAULT_MEMORY_COST,
+           "time_cost" => PASSWORD_ARGON2_DEFAULT_TIME_COST,
+           "threads" => PASSWORD_ARGON2_DEFAULT_THREADS,
+         ];
+         $hashedPassword = password_hash(
+           $password,
+           PASSWORD_ARGON2ID,
+           $options
+         );
+
+         // Prepare and execute the query to insert the new user into the database
+         $sql =
+           "INSERT INTO users (name, surname, email, password, id_role) VALUES (:name, :surname, :email, :password, 1)";
+         $stmt = $_DB->execute($sql, [
+           "name" => $name,
+           "surname" => $surname,
+           "email" => $email,
+           "password" => $hashedPassword,
+         ]);
+
+         // Check if the insert was successful
+         if ($stmt->rowCount() > 0) {
+           echo "User created successfully";
+         } else {
+           echo "Error creating user";
+         }
+       } ?>  
     </div>
   </div>
 </body>

@@ -116,7 +116,10 @@
          // Get the email and password from the form
          $email = $_POST["email"];
          $password = $_POST["password"];
-         $stmt = $_DB->execute("show tables");
+         $stmt = $_DB->execute(
+           "SELECT password FROM users WHERE email = :email",
+           ["email" => $email]
+         );
          if ($stmt->rowCount() > 0) {
            $row = $stmt->fetch();
            $password_hash = $row["password"];
