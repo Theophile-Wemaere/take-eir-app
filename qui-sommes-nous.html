@@ -21,14 +21,39 @@
           </div>
           <button class="page-button">Notre produit</button>
           <div class="separator"></div>
-          <button class="page-button" >Qui somme nous ?</button>
+
+          <div class="dropdown">
+            <button id="menu-btn" onmouseenter="myFunction()" onmouseleave="myFunction()" class="dropbtn">Qui sommes nous ?</button>
+            <div id="myDropdown" onmouseenter="myFunction()" onmouseleave="myFunction()" class="dropdown-content">
+              <a href="#title" class="smooth-scroll">Notre Client</a>
+              <a href="#sectionEquipe" class="smooth-scroll" >Notre Equipe</a>
+                <a href="#sectionNous" style="margin-left:25px" class="smooth-scroll" >Qui sommes-nous</a>
+            </div>
+          </div>
+
           <button class="login-button">Se connecter</button>
           <div class="sphere" style="background-color: #2d67e0"></div>
           <div class="sphere" style="background-color: #e0584c"></div>
           <div class="sphere" style="background-color: #5dd1b7"></div>
         </div>
         <div class="box">
-            <h3 style="margin-top: 12%"> Qui sommes-nous ?</h3>
+            <h3 id="title"> Notre Client :</h3>
+            <div class="corps">
+
+                <table>
+                    <tr >
+                        <td style="width:30%"><img class="client-img" src="/images/Infinite_measures.png"/></td>            <!-- METTRE LA PHOTO INFINITE MEASURES -->
+                        <td style="float:right"><p class="textcorp">Infinite Measure, un client à la recherche de solutions pour l'environnement, a
+                    lancé un appel d'offre pour la création d'un capteur modulaire, paramétrable et bon marché pour une
+                    diffusion de masse.Nous avons décidé de répondre à leur appel, et en se basant sur leur cahier des
+                    charges.</p>
+                            <p class="textcorp">  Nous avons conçu Health-eir : un dispositif permettant d’optimiser une hospitalisation à
+                    domicile.</p></td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3 id="sectionNous"> Qui sommes-nous ?</h3>
             <div class="corps">
                  <center><img id="projet-img" src="/images/logo-notext.png"/></center>
                 <div>
@@ -45,7 +70,7 @@
                     déterminés à jouer un rôle clé dans cette transformation, tout en respectant l’environnement via
                     des méthodes de conception éco-responsables.</p>
             </div>
-            <h3> Notre Equipe :</h3>
+            <h3 id="sectionEquipe"> Notre Equipe :</h3>
             <div class="corps">
 
                 <div>
@@ -96,25 +121,30 @@
                     </tbody>
                 </table>
             </div>
-            <h3> Notre Client :</h3>
-            <div class="corps">
-
-                <table>
-                    <tr >
-                        <td style="width:30%"><img class="client-img" src="/images/Infinite_measures.png"/></td>            <!-- METTRE LA PHOTO INFINITE MEASURES -->
-                        <td style="float:right"><p class="textcorp">Infinite Measure, un client à la recherche de solutions pour l'environnement, a
-                    lancé un appel d'offre pour la création d'un capteur modulaire, paramétrable et bon marché pour une
-                    diffusion de masse.Nous avons décidé de répondre à leur appel, et en se basant sur leur cahier des
-                    charges.</p>
-                            <p class="textcorp">  Nous avons conçu Health-eir : un dispositif permettant d’optimiser une hospitalisation à
-                    domicile.</p></td>
-                    </tr>
-                </table>
-            </div>
-
 
         </div>
 
+    <script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
 
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+    </script>
+    <script type="text/javascript" src="smooth-scroll.js"></script>
     </body>
 </html>

@@ -84,3 +84,82 @@ figure figcaption{
     letter-spacing: 0.1em;
     text-align:center;
 }
+
+.dropbtn {
+  height: 50px;
+  float: right;
+  padding: 10px 10px;
+  text-align: right;
+  background-color: #ffffff;
+  margin-right: 10px;
+  border-radius: 15px;
+  color: #2d67e0;
+  font-family: "Krona One", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  border: 0;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #dde9ff;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top:100%;
+  background-color: #FFF;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 15px;
+  height:fit-content;
+}
+
+.dropdown-content a {
+  display: block;
+  color: #2d67e0;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align:center;
+  justify-content: center;
+  vertical-align: middle;
+  margin-right:30px;
+  height:fit-content;
+
+}
+
+.dropdown a:hover {background-color: #dde9ff;}
+
+.show {display: block;}
+
+@media (min-width: 850px) {
+  .equip-img{
+    width:65%;
+  }
+
+  #title{
+  margin-top: 16%;
+  }
+
+}
+
+
+@media (max-width: 850px) {
+  .equip-img{
+    width:65%;
+  }
+
+  #title{
+  margin-top: 32%;
+  }
+
+}
