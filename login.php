@@ -74,29 +74,29 @@
 
       <div class="login">
         <h1 class="title_connexion">CONNEXION</h1>
-        <form action="" method="get" class="form_log">
+        <form action="" method="POST" class="form_log">
           <input
             class="email"
             type="email"
-            name="E-mail"
+            name="email"
             placeholder="Email:"
           />
 
           <input
             class="mdp"
             type="password"
-            name="Mot de passe"
+            name="password"
             placeholder="Mot de passe:"
           />
 
           <a href="">Mot de passe oublié ?</a>
           <div class="remember">
-            <input type="checkbox" id="check" name="check" checked />
+            <input type="checkbox" id="rememberme" name="check" checked />
             <label for="check">Se souvenir de moi</label>
           </div>
-        </form>
 
-        <button id="btn" class="connect_button">Se connecter</button>
+        <button id="btn" type="submit" class="connect_button">Se connecter</button>
+        </form>
         <div id="loader" class="loader"></div>
         <script>
           const btn = document.getElementById("btn");
@@ -107,18 +107,29 @@
             // Code pour lancer une requête ou une opération qui prend du temps
             setTimeout(() => {
               loader.style.display = "none";
-            }, 3000); // Temps en millisecondes avant de cacher le loader
+            }, 2000); // Temps en millisecondes avant de cacher le loader
           });
         </script>
         
-       <?php
-       require "database.php";
-       // Get the email and password from the form
-       $email = $_POST["email"];
-       $password = $_POST["password"];
-       $results = $_DB->execute("show tables");
-       echo $results;
-       ?>  
+       <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
+         require "database.php";
+         // Get the email and password from the form
+         $email = $_POST["email"];
+         $password = $_POST["password"];
+         $stmt = $_DB->execute("show tables");
+         if ($stmt->rowCount() > 0) {
+           $row = $stmt->fetch();
+           $password_hash = $row["password"];
+           if (password_verify($password, $password_hash)) {
+             echo "Password is valid!";
+             echo '<script>alert("Your password is valid ! Congratulation")</script>';
+           } else {
+             echo '<p style="color: red;">Error, invalid password !</p>';
+           }
+         } else {
+           echo "Error, bad credentials";
+         }
+       } ?>  
 
         <a class="link_compt_crea" href="/register.php"
           >Vous n'avez pas de compte ? Créez le</a
