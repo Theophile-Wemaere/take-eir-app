@@ -9,6 +9,8 @@
   <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="/JS/scripts.js"></script>
+  <script type="text/javascript" src="/JS/smooth-scroll.js"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap"
     rel="stylesheet"
@@ -76,6 +78,23 @@
             <div class="sphere" style="background-color: #5dd1b7"></div>
           </div>
         </span>
+      </div>
+      <div class="drop-menu" id="dropMenu" style="display: none">
+        <a href="/produit.html"
+          ><button class="page-button">Notre produit</button></a
+        >
+        <div class="separator"></div>
+        <a href="/presentation.html"
+          ><button class="page-button current-button">
+            Qui sommes nous ?
+          </button></a
+        >
+        <div class="separator"></div>
+        <a href="/login.html"
+          ><button class="login-button" style="margin-top: 10px">
+            Se connecter
+          </button></a
+        >
       </div>
 
       <div class="box">
@@ -187,26 +206,6 @@
           </table>
         </div>
       </div>
-
-      <script>
-        function dropMenuPres() {
-          document.getElementById("myDropdown").classList.toggle("show");
-        }
-
-        window.onclick = function (event) {
-          if (!event.target.matches(".dropbtn")) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-              var openDropdown = dropdowns[i];
-              if (openDropdown.classList.contains("show")) {
-                openDropdown.classList.remove("show");
-              }
-            }
-          }
-        };
-      </script>
-      <script type="text/javascript" src="smooth-scroll.js"></script>
     </div>
   </body>
 </html>
