@@ -184,7 +184,7 @@ body {
   padding-left: 10px;
   border-top: 2Opx;
   text-align: center;
-  width:170%;
+
 
 }
 
@@ -202,8 +202,6 @@ body {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   margin-top: 10px;
-
-  
   max-height: 200px; /* ajustez la hauteur maximale selon vos préférences */
   overflow-y: auto; /* ajouter une barre de défilement verticale si les résultats dépassent la hauteur maximale */
 }
@@ -233,20 +231,6 @@ body {
     cursor: pointer;
     padding: 10px;
     
-  }
-
-  
-  .search-results {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin-top: 10px;
-    max-height: 200px; /* ajustez la hauteur maximale selon vos préférences */
-    overflow-y: auto; /* ajouter une barre de défilement verticale si les résultats dépassent la hauteur maximale */
-    width: 170%;
-    margin-left: -30%;
-
-
   }
   
   .search-results ul {
