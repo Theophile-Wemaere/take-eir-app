@@ -9,13 +9,10 @@ body {
 
 .main-box {
     display: grid;
-    grid-template-columns: repeat(2, 48%); /* 3 columns */
-    grid-template-rows: auto; /* auto rows */
     position: absolute;
     top: 20%;
-    left: 2%;
     margin: auto;
-    justify-content: left;
+    justify-content:center ;
     padding-left: 10px;
     width: 96%;
     height: 70%;
@@ -126,19 +123,19 @@ body {
 }
 
 .login-button {
-    height: 50px;
-    float: right;
-    padding: 10px 10px;
-    text-align: right;
-    background-color: #2d67e0;
-    margin-right: 10px;
-    border-radius: 15px;
-    color: #ffffff;
-    font-family: "Krona One", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 50px;
+  float: right;
+  padding: 10px 10px;
+  text-align: right;
+  background-color: #2d67e0;
+  margin-right: 10px;
+  border-radius: 15px;
+  color: #ffffff;
+  font-family: "Krona One", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .login-button:hover {
@@ -174,4 +171,130 @@ body {
     font-weight: 400;
     font-size: 15px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   
+    }
+.search-box {
+  display: flex;
+  align-items: center;
+  margin: 0 auto; /* centre horizontalement */
+   /* réduit la largeur de la searchbox */
+  height: 20px;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  padding-left: 10px;
+  border-top: 2Opx;
+  text-align: center;
+  width:170%;
+
 }
+
+.search-input {
+  font-size: 16px;
+  background-color: transparent;
+  margin-left: 0%;
+  width: 20px;
+
+}
+
+
+.search-results {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+
+  
+  max-height: 200px; /* ajustez la hauteur maximale selon vos préférences */
+  overflow-y: auto; /* ajouter une barre de défilement verticale si les résultats dépassent la hauteur maximale */
+}
+
+.search-results ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+
+.search-results li {
+  padding: 5px 0;
+}
+
+  
+  .search-box form {
+    display: flex;
+  }
+  
+  
+  .search-box button[type="submit"] {
+    
+    background-color: #2d67e0;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    
+  }
+
+  
+  .search-results {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    max-height: 200px; /* ajustez la hauteur maximale selon vos préférences */
+    overflow-y: auto; /* ajouter une barre de défilement verticale si les résultats dépassent la hauteur maximale */
+    width: 170%;
+    margin-left: -30%;
+
+
+  }
+  
+  .search-results ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+  }
+  
+  .search-results li {
+    padding: 5px 0;
+  }
+  .onglets {
+    display: inline-block;
+    text-align: center; /* centre les éléments horizontalement */
+  }
+  .user-button {
+    height: 35px;
+    float: center;
+    padding: 10px 10px;
+    text-align: center;
+    background-color: #2d67e0;
+    margin-right: 10px;
+    border-radius: 15px;
+    color: #ffffff;
+    font-family: "Krona One", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  } 
+  .ticket-button {
+    height: 35px;
+    float: center;
+    padding: 10px 10px;
+    text-align: center;
+    background-color: #2d67e0;
+    margin-right: 10px;
+    border-radius: 15px;
+    color: #ffffff;
+    font-family: "Krona One", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .user-button:active, .user-button:focus, .ticket-button:active, .ticket-button:focus {
+    background-color: #71747d; /* couleur de fond lorsqu'enfoncé/sélectionné */
+    color: #fff; /* couleur du texte lorsqu'enfoncé/sélectionné */
+    border: none; /* supprime la bordure lorsqu'enfoncé/sélectionné */
+    outline: none; /* supprime la bordure de sélection lorsqu'enfoncé/sélectionné */
+  }
