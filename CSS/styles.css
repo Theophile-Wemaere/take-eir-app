@@ -258,10 +258,10 @@ body {
 /* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_-_-_-_-_-_-_-_-_ */
 
 .bottom-bar {
-  position: relative;
+  position: auto;
   left: 0;
-  bottom: 0;
   width: 100%;
+  bottom: 0%;
   height: 5%;
   background: rgba(0, 102, 255, 0.18);
   display: flex;

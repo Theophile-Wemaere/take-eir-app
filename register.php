@@ -62,6 +62,20 @@
     <div class = "inscription">
         <h1 class="title_register">INSCRIPTION</h1>
         <form method="POST" class="form_inscription">
+
+            <select name="personType" class="type">
+                <option value="select">Choisissez votre statut</option>
+                <option value="Patient/Famille">Patient</option>
+                <option value="medecin">Medecin</option>
+            </select>
+
+            <select name="personType" class="type">
+                <option value="select">Choisissez votre sex</option>
+                <option value="Patient/Famille">Homme</option>
+                <option value="medecin">Femme</option>
+                <option value="medecin">Autres</option>
+            </select>
+
             <input class="Nom" type="text" name="name" placeholder="Prenom:">
             <input class="Prénom" type="text" name="surname" placeholder="Nom:">
             <input class="email" type="email" name="email"  placeholder="Email:">
