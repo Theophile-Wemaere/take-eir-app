@@ -117,15 +117,13 @@ figure figcaption {
 }
 
 .dropdown-content a {
-  display: block;
   color: #2d67e0;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
   text-align: center;
   justify-content: center;
-  vertical-align: middle;
-  margin-right: 30px;
+  margin: 0;
   height: fit-content;
 }
 
@@ -134,7 +132,10 @@ figure figcaption {
 }
 
 .show {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 @media (min-width: 850px) {
