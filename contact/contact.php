@@ -7,7 +7,7 @@
     <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/CSS/styles.css" />
-    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="/CSS/contact.css">
     <script src="/JS/scripts.js"></script>
     <title>Nous contacter</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -142,7 +142,7 @@
 </body>
 <div class="bottom-bar">
     <a>© take-eir</a>
-    <a href="/contact.html">Nous contacter</a>
+    <a href="/contact/contact.php">Nous contacter</a>
     <div class="medias">
         <!-- https://icons8.com/icons/set/social-media -->
         <a href="https://linkedin.com/"><img src="/images/icons8-linkedin-24.png" />
