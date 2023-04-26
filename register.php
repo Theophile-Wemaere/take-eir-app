@@ -70,12 +70,19 @@
                 <option value="medecin">Medecin</option>
             </select>
 
-            <select name="personType" class="type">
-                <option value="select">Choisissez votre sex</option>
-                <option value="Patient/Famille">Homme</option>
-                <option value="medecin">Femme</option>
-                <option value="medecin">Autres</option>
-            </select>
+            <label>Êtes-vous un ...</label>
+            <hr>
+            <div class="sex">
+                <div class="h">
+                <input type="checkbox" id="h" name="h" checked>
+                <label for="h">Homme</label>
+                </div>
+
+                <div class="f">
+                <input type="checkbox" id="f" name="f">
+                <label for="f">Femme</label>
+                </div>
+              </div>
 
             <input class="Nom" type="text" name="name" placeholder="Prenom:">
             <input class="Prénom" type="text" name="surname" placeholder="Nom:">
