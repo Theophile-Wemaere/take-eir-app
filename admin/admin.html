@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <script src="/JS/scripts.js"></script>
+  <script src="/JS/admin-page.js"></script>
   <link
     rel="stylesheet"
     href="https://kit.fontawesome.com/bc424452bc.css"
@@ -78,91 +79,14 @@
     </div>
     <div class="wrapper">
       <div class="main-box">
-        <script>
-          function doSearch() {
-            // (A1) GET SEARCH TERM
-            var data = new FormData(document.getElementById("mySearch"));
-
-            // (A2) AJAX - USE HTTP:// NOT FILE://
-            fetch("/admin-controller.php", {
-              method: "POST",
-              body: data,
-            })
-              .then((res) => res.json())
-              .then((res) => {
-                if (res !== null) {
-                  const table = document.createElement("table");
-                  const thead = table.createTHead();
-                  const row = thead.insertRow();
-                  row.innerHTML =
-                    "<th>ID</th><th>Name</th><th>Surname</th><th>Email</th><th>Role</th><th>Created At</th><th>Action</th>";
-                  const tbody = table.createTBody();
-                  for (let r of res) {
-                    const newRow = tbody.insertRow();
-                    newRow.insertCell().textContent = r.id_user;
-                    newRow.insertCell().textContent = r.name;
-                    newRow.insertCell().textContent = r.surname;
-                    newRow.insertCell().textContent = r.email;
-                    newRow.insertCell().textContent = r.role_name;
-                    newRow.insertCell().textContent = r.created_at;
-                    const selectCell = newRow.insertCell();
-                    const select = document.createElement("select");
-                    select.innerHTML =
-                      "<option value=''>Select Action</option><option value='delete'>Delete</option><option value='disable'>Disable</option>";
-                    selectCell.appendChild(select);
-                    const buttonCell = newRow.insertCell();
-                    const button = document.createElement("button");
-                    button.textContent = "Execute";
-                    button.disabled = true;
-                    buttonCell.appendChild(button);
-                    select.addEventListener("change", function () {
-                      const selectedOption = this.value;
-                      if (selectedOption !== "") {
-                        button.disabled = false;
-                      } else {
-                        button.disabled = true;
-                      }
-                    });
-                    button.addEventListener("click", function () {
-                      const selectedOption = select.value;
-                      const id = r.id_user;
-                      const confirmMessage = `Are you sure you want to ${selectedOption} user ${id}?`;
-                      if (confirm(confirmMessage)) {
-                        const url = "/admin-controller.php";
-                        const data = new FormData();
-                        data.append("action", selectedOption);
-                        data.append("id_user", id);
-                        fetch(url, {
-                          method: "POST",
-                          body: data,
-                        })
-                          .then((res) => res.json())
-                          .then((res) => {
-                            // Handle response from server
-                            console.log(res);
-                          })
-                          .catch((error) => {
-                            console.error(error);
-                          });
-                      }
-                    });
-                  }
-                  results.appendChild(table);
-                }
-              });
-
-            return false;
-          }
-        </script>
-
-        <!-- (B) SEARCH FORM -->
         <form id="mySearch" onsubmit="return doSearch()">
-          <input type="text" name="search" required />
+          <input type="text" name="search" />
           <input type="submit" value="Search" />
         </form>
-
-        <!-- (C) SEARCH RESULTS -->
         <div id="results"></div>
+        <script>
+          doSearch();
+        </script>
       </div>
     </div>
     <div class="bottom-bar">
