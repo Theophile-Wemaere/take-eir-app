@@ -6,6 +6,19 @@ body{
     background-color: rgb(233, 243, 249);
 }
 
+.sex{
+    margin-bottom: 10%;
+    display: flex;
+    justify-content: space-around;
+}
+
+hr{
+    border:0px;
+}
+
+label{
+    font-family: "Krona ONE";
+}
 .title_register{
     margin-bottom: 5%;
     margin-top :17.5% ;
