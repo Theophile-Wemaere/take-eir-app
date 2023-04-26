@@ -1,4 +1,5 @@
 .Title_prod {
+  position: relative;
   font-family: "Krona ONE", sans-serif;
   margin-top: 7.5%;
   color: #306bc4;
@@ -7,6 +8,7 @@
 .texte-milieu {
   font-family: "Krona ONE", sans-serif;
   color: #0775b2;
+  text-align: center;
 }
 
 body p {
@@ -15,6 +17,7 @@ body p {
 }
 
 .introduction {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -184,4 +187,49 @@ body p {
   background-position: center;
   background-color: rgb(207, 160, 233, 0.2);
   border-radius: 20px;
+}
+
+@media (max-width: 700px) {
+  .introduction,
+  .dust-cpt,
+  .temp-cpt,
+  .heart-cpt {
+    flex-direction: column;
+    margin-bottom: 80px;
+  }
+
+  .text-container {
+    margin-bottom: 20%;
+  }
+
+  .introduction p {
+    margin-bottom: 30px;
+  }
+
+  .co2-cpt,
+  .noise-cpt {
+    flex-direction: column-reverse;
+    margin-bottom: 80px;
+  }
+
+  .main-box p {
+    width: 100%;
+    font-size: 3vw;
+    text-align: center;
+  }
+
+  .image-prod,
+  .image-co2-cpt,
+  .image-dust-cpt,
+  .image-temp-cpt,
+  .image-noise-cpt,
+  .image-heart-cpt {
+    width: 100%;
+    min-height: 70%;
+    padding: 10px;
+  }
+
+  .texte-milieu {
+    text-align: center;
+  }
 }
