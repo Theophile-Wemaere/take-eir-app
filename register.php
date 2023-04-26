@@ -92,7 +92,7 @@
 
          // Prepare and execute the query to insert the new user into the database
          $sql =
-           "INSERT INTO users (name, surname, email, password, id_role) VALUES (:name, :surname, :email, :password, 1)";
+           "INSERT INTO users (name, surname, email, password, id_role) VALUES (:name, :surname, :email, :password, 3)";
          $stmt = $_DB->execute($sql, [
            "name" => $name,
            "surname" => $surname,
