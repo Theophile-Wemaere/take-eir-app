@@ -1,0 +1,338 @@
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(233, 243, 249);
+    background-image: url('/Vues/images/logo_opacité.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+
+.Title_prod{
+    font-family: 'Krona ONE',sans-serif;
+    margin-top: 7.5%;
+    color: #306BC4;
+}
+
+.texte-milieu{
+    font-family: "Krona ONE", sans-serif;
+    color: #0775B2;
+}
+
+
+body p{
+    padding: 10px;
+    font-family: 'Nunito',sans-serif;
+    
+}
+
+.introduction{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: hv;
+    height: 350px;
+}
+
+.introduction p{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.dust-cpt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: hv;
+    height: 350px;
+}
+
+.dust-cpt p{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    background-color:rgb(0, 140, 250, 0.2) ;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.co2-cpt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+    height: 350px;
+}
+
+.co2-cpt p{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    background-color:rgb(30, 129, 176,0.12) ;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.temp-cpt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+    height: 350px;
+}
+
+.temp-cpt p{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    background-color:rgb(0, 56, 255, 0.2) ;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.noise-cpt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+    height: 350px;
+    transition: transform 2s .5s;
+
+}
+
+.noise-cpt p{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    background-color:rgb(151, 135, 251,0.2) ;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.heart-cpt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+    height: 350px;
+}
+
+.heart-cpt p{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    background-color:rgb(62, 125, 249,0.31) ;
+    align-items: center;
+    border-radius: 20px;
+}
+
+
+
+footer {
+    padding: 30px;
+    
+    display: flex;
+    width: 100%;
+    background-color:rgb(0, 102, 255,0.18);
+}
+
+footer p{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content:space-around;
+    font-family: 'Nunito',sans-serif;
+}
+
+footer img{
+    width: 125px;
+    align-items: flex-end;
+}
+
+
+
+.image-prod{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    background-image: url("/Vues/images/health_eir.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    
+}
+
+.image-dust-cpt{
+    width: 30%;
+    height: 70%;
+    display: flex;
+    background-image: url("/Vues/images/dust_capt.png");
+    background-size: cover;
+    background-position: center;
+    background-color:rgb(207, 160, 233,0.2);
+    border-radius: 20px;
+}
+
+.image-co2-cpt{
+    width: 30%;
+    height: 80%;
+    display: flex;
+    background-image: url("/Vues/images/c02_capt.png");
+    background-size: cover;
+    background-position: center;
+    background-color:rgb(207, 160, 233,0.2);
+    border-radius: 20px;
+}
+
+.image-temp-cpt{
+    width: 20%;
+    height: 70%;
+    display: flex;
+    background-image: url("/Vues/images/temp_capt.png");
+    background-size: cover;
+    background-position: center;
+    background-color:rgb(207, 160, 233,0.2);
+    border-radius: 20px;
+}
+
+.image-noise-cpt{
+    width: 30%;
+    height: 70%;
+    display: flex;
+    background-image: url("/Vues/images/noise_capt.png");
+    background-size: cover;
+    background-position: center;
+    background-color:rgb(207, 160, 233,0.2);
+    border-radius: 20px;
+
+}
+
+.image-heart-cpt{
+    width: 30%;
+    height: 70%;
+    display: flex;
+    background-image: url("/Vues/images/heart_capt.png");
+    background-size: cover;
+    background-position: center;
+    background-color:rgb(207, 160, 233,0.2);
+    border-radius: 20px;
+}
+
+
+
+
+.top-bar {
+    background-color: #ffffff;
+    position: absolute;
+    top: 20px;
+    left: 2%;
+    right: 2%;
+    display: flex;
+    width: 96%;
+    height: 10%;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: right;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.top-bar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    height: 50px;
+    color: #2d67e0;
+    margin-right: 10px;
+    text-decoration: none;
+    border-radius: 15px;
+    font-family: "Krona One", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.top-bar-img {
+    display: block;
+    position: absolute;
+    left: 1%;
+    top: 14%;
+    width: auto;
+    height: 80%;
+}
+
+.top-bar-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.page-button {
+    height: 50px;
+    float: right;
+    padding: 10px 10px;
+    text-align: right;
+    background-color: #ffffff;
+    margin-right: 10px;
+    border-radius: 15px;
+    color: #2d67e0;
+    font-family: "Krona One", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    border: 0;
+}
+
+.page-button:hover {
+    background-color: #dde9ff;
+}
+
+
+.login-button {
+    height: 50px;
+    float: right;
+    padding: 10px 10px;
+    text-align: right;
+    background-color: #2d67e0;
+    margin-right: 10px;
+    border-radius: 15px;
+    color: #ffffff;
+    font-family: "Krona One", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.login-button:hover {
+    background-color: #3f2de1;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.5);
+}
+
+.separator {
+    margin-right: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 25px;
+    background-color: #dde9ff;
+}
+
+.sphere {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 25px;
+}
+
