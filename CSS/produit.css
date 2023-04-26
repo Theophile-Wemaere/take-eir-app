@@ -1,3 +1,7 @@
+html{
+  scroll-behavior: smooth;
+}
+
 .Title_prod {
   color: #2d67e0;
 }
@@ -23,8 +27,8 @@
   display: block;
   width: 1.5vw;
   height: 1.5vw;
-  border-bottom: 5px solid #2d67e0;
-  border-right: 5px solid #2d67e0;
+  border-bottom: 5px solid #E0584C;
+  border-right: 5px solid #E0584C;
   transform: rotate(45deg);
   margin: -10px;
   animation: animate 2s infinite;
@@ -52,6 +56,9 @@
   }
 }
 
+a{
+  scroll-behavior: smooth;
+}
 
 .texte-milieu {
   font-family: "Nunito", sans-serif;
@@ -60,7 +67,7 @@
   font-weight: 900;
   font-size: 2vw;
   letter-spacing: 0.1em;
-  margin-top: 90px;
+  margin-top: 130px;
 }
 
 body p {
@@ -292,5 +299,25 @@ p{
 
   .texte-milieu {
     text-align: center;
+    font-size: 3vw;
   }
+
+  .arrow {
+    display: none;
+  }
+  
+  .arrow span {
+    display: none;
+  }
+  
+  .arrow span:nth-child(2) {
+    display: none;
+      
+  }
+  
+  .arrow span:nth-child(3) {
+    display: none;
+  }
+
+
 }
