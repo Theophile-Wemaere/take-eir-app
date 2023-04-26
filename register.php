@@ -73,15 +73,11 @@
           "time_cost" => PASSWORD_ARGON2_DEFAULT_TIME_COST,
           "threads" => PASSWORD_ARGON2_DEFAULT_THREADS,
         ];
-        $hashedPassword = password_hash(
-          $password,
-          PASSWORD_ARGON2ID,
-          $options
-        );
+        $hashedPassword = password_hash($password, PASSWORD_ARGON2ID, $options);
 
         // Prepare and execute the query to insert the new user into the database
         $sql =
-          "INSERT INTO users (name, surname, email, password, id_role) VALUES (:name, :surname, :email, :password, 3)";
+          "INSERT INTO users (name, surname, email, password, id_role) VALUES (:name, :surname, :email, :password, 1)";
         $stmt = $_DB->execute($sql, [
           "name" => $name,
           "surname" => $surname,

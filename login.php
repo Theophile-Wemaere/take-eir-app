@@ -87,7 +87,7 @@
         $email = $_POST["email"];
         $password = $_POST["password"];
         $stmt = $_DB->execute(
-          "SELECT password, surname, name, roles.role_name FROM users JOIN roles on users.id_role = roles.id_role WHERE email = :email",
+          "SELECT password, surname, name, roles.role_name, roles.role_permission FROM users JOIN roles on users.id_role = roles.id_role WHERE email = :email",
           ["email" => $email]
         );
         if ($stmt->rowCount() > 0) {
@@ -101,6 +101,7 @@
             $_SESSION["surname"] = $row["surname"];
             $_SESSION["email"] = $email;
             $_SESSION["role_name"] = $row["role_name"];
+            $_SESSION["role_permission"] = $row["role_permission"];
           } else {
             echo '<p style="color: red;">Error, invalid password !</p>';
           }
