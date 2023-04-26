@@ -49,13 +49,14 @@
   text-align: center;
   color: #fff;
   border-radius: 10px;
-  background-color: rgb(182, 63, 202, 0.45);
+  background-color: #e0584c;
   width: 200px;
   height: 75px;
-  transition: background-color 0.2s ease-out;
 }
 .connect_button:hover {
-  background-color: rgb(182, 63, 202, 0.85);
+  opacity: 0.8;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
 }
 
 .loader {

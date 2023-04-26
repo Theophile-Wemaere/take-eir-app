@@ -6,59 +6,60 @@
     <link rel="stylesheet" href="/CSS/styles.css" />
     <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-	<title>Register</title>
+    <title>Register</title>
+    <script src="/JS/scripts.js"></script>
 </head>
 <body>
-  <div class="wrapper">
-      <div class="top-bar">
-        <div class="top-bar-img">
-          <a href="/"><img src="/images/logo-notext.png" /></a>
-        </div>
-        <div class="right-items">
-          <a href="/produit.html">
-            <button class="page-button" style="margin-right: 10px">
-              Notre produit
-            </button></a
-          >
-          <div class="separator" style="margin-right: 10px"></div>
-          <a href="/presentation.html">
-            <button class="page-button" style="margin-right: 10px">
-              Qui sommes nous ?
-            </button></a
-          >
-          <a href="/login.php">
-            <button class="login-button" style="margin-right: 10px">
-              Se connecter
-            </button></a
-          >
-        </div>
-        <span style="pointer-events: auto">
-          <div
-            class="menu-button"
-            href="javascript:void(0);"
-            onclick="toggleMenu()"
-          >
-            <div class="sphere" style="background-color: #2d67e0"></div>
-            <div class="sphere" style="background-color: #e0584c"></div>
-            <div class="sphere" style="background-color: #5dd1b7"></div>
-          </div>
-        </span>
+    <div class="top-bar">
+      <div class="top-bar-img">
+        <a href="/"><img src="/images/logo-notext.png" /></a>
       </div>
-      <div class="drop-menu" id="dropMenu" style="display: none">
-        <a href="/produit.html"
-          ><button class="page-button">Notre produit</button></a
+      <div class="right-items">
+        <a href="/produit.html">
+          <button class="page-button" style="margin-right: 10px">
+            Notre produit
+          </button></a
         >
-        <div class="separator"></div>
-        <a href="/presentation.html"
-          ><button class="page-button">Qui sommes nous ?</button></a
+        <div class="separator" style="margin-right: 10px"></div>
+        <a href="/presentation.html">
+          <button class="page-button" style="margin-right: 10px">
+            Qui sommes nous ?
+          </button></a
         >
-        <div class="separator"></div>
-        <a href="/login.php"
-          ><button class="login-button" style="margin-top: 10px">
+        <a href="/login.php">
+          <button class="login-button" style="margin-right: 10px">
             Se connecter
           </button></a
         >
       </div>
+      <span style="pointer-events: auto">
+        <div
+          class="menu-button"
+          href="javascript:void(0);"
+          onclick="toggleMenu()"
+        >
+          <div class="sphere" style="background-color: #2d67e0"></div>
+          <div class="sphere" style="background-color: #e0584c"></div>
+          <div class="sphere" style="background-color: #5dd1b7"></div>
+        </div>
+      </span>
+    </div>
+    <div class="drop-menu" id="dropMenu" style="display: none">
+      <a href="/produit.html"
+        ><button class="page-button">Notre produit</button></a
+      >
+      <div class="separator"></div>
+      <a href="/presentation.html"
+        ><button class="page-button">Qui sommes nous ?</button></a
+      >
+      <div class="separator"></div>
+      <a href="/login.php"
+        ><button class="login-button" style="margin-top: 10px">
+          Se connecter
+        </button></a
+      >
+    </div>
+  <div class="wrapper">
     <div class = "inscription">
         <h1 class="title_register">INSCRIPTION</h1>
         <form method="POST" class="form_inscription">
@@ -105,7 +106,7 @@
 
          // Prepare and execute the query to insert the new user into the database
          $sql =
-           "INSERT INTO users (name, surname, email, password, id_role) VALUES (:name, :surname, :email, :password, 1)";
+           "INSERT INTO users (name, surname, email, password, id_role) VALUES (:name, :surname, :email, :password, 3)";
          $stmt = $_DB->execute($sql, [
            "name" => $name,
            "surname" => $surname,
@@ -120,6 +121,25 @@
            echo "Error creating user";
          }
        } ?>  
+    </div>
+  </div>
+  <div class="bottom-bar">
+    <a>© take-eir</a>
+    <a href="/contact/contact.php">Nous contacter</a>
+    <div class="medias">
+      <!-- https://icons8.com/icons/set/social-media -->
+      <a href="https://linkedin.com/"
+        ><img src="/images/icons8-linkedin-24.png" />
+      </a>
+      <a href="https://youtube.com/"
+        ><img src="/images/icons8-youtube-logo-24.png"
+      /></a>
+      <a href="https://twitter.com/"
+        ><img src="/images/icons8-twitter-24.png" />
+      </a>
+      <a href="https://instagram.com/"
+        ><img src="/images/icons8-instagram-24.png" />
+      </a>
     </div>
   </div>
 </body>

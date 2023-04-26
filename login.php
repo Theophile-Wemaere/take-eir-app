@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/CSS/styles.css" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta charset="utf-8"/>
-    <title id="connexion">Login TAKE-EIR</title>
+    <title id="connexion">Login</title>
     <script src="/JS/scripts.js"></script>
     <link
       href="https://fonts.googleapis.com/css?family=Krona+One"
@@ -142,7 +142,7 @@
   </body>
   <div class="bottom-bar">
     <a>© take-eir</a>
-    <a href="/contact.html">Nous contacter</a>
+    <a href="/contact/contact.php">Nous contacter</a>
     <div class="medias">
       <!-- https://icons8.com/icons/set/social-media -->
       <a href="https://linkedin.com/"

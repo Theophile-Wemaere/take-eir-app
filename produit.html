@@ -17,65 +17,61 @@
     />
   </head>
   <body>
-    <div class="wrapper">
-      <div class="top-bar">
-        <div class="top-bar-img">
-          <a href="/"><img src="/images/logo-notext.png" /></a>
-        </div>
-        <div class="right-items">
-          <a href="/produit.html">
-            <button
-              class="page-button current-button"
-              style="margin-right: 10px"
-            >
-              Notre produit
-            </button></a
-          >
-          <div class="separator" style="margin-right: 10px"></div>
-          <a href="/presentation.html">
-            <button class="page-button" style="margin-right: 10px">
-              Qui sommes nous ?
-            </button></a
-          >
-          <a href="/login.php">
-            <button class="login-button" style="margin-right: 10px">
-              Se connecter
-            </button></a
-          >
-        </div>
-        <span style="pointer-events: auto">
-          <div
-            class="menu-button"
-            href="javascript:void(0);"
-            onclick="toggleMenu()"
-          >
-            <div class="sphere" style="background-color: #2d67e0"></div>
-            <div class="sphere" style="background-color: #e0584c"></div>
-            <div class="sphere" style="background-color: #5dd1b7"></div>
-          </div>
-        </span>
+    <div class="top-bar">
+      <div class="top-bar-img">
+        <a href="/"><img src="/images/logo-notext.png" /></a>
       </div>
-      <div class="drop-menu" id="dropMenu" style="display: none">
-        <a href="/produit.html"
-          ><button class="page-button current-button">Notre produit</button></a
+      <div class="right-items">
+        <a href="/produit.html">
+          <button class="page-button current-button" style="margin-right: 10px">
+            Notre produit
+          </button></a
         >
-        <div class="separator"></div>
-        <a href="/presentation.html"
-          ><button class="page-button">Qui sommes nous ?</button></a
+        <div class="separator" style="margin-right: 10px"></div>
+        <a href="/presentation.html">
+          <button class="page-button" style="margin-right: 10px">
+            Qui sommes nous ?
+          </button></a
         >
-        <div class="separator"></div>
-        <a href="/login.php"
-          ><button class="login-button" style="margin-top: 10px">
+        <a href="/login.php">
+          <button class="login-button" style="margin-right: 10px">
             Se connecter
           </button></a
         >
       </div>
-
+      <span style="pointer-events: auto">
+        <div
+          class="menu-button"
+          href="javascript:void(0);"
+          onclick="toggleMenu()"
+        >
+          <div class="sphere" style="background-color: #2d67e0"></div>
+          <div class="sphere" style="background-color: #e0584c"></div>
+          <div class="sphere" style="background-color: #5dd1b7"></div>
+        </div>
+      </span>
+    </div>
+    <div class="drop-menu" id="dropMenu" style="display: none">
+      <a href="/produit.html"
+        ><button class="page-button current-button">Notre produit</button></a
+      >
+      <div class="separator"></div>
+      <a href="/presentation.html"
+        ><button class="page-button">Qui sommes nous ?</button></a
+      >
+      <div class="separator"></div>
+      <a href="/login.php"
+        ><button class="login-button" style="margin-top: 10px">
+          Se connecter
+        </button></a
+      >
+    </div>
+    <div class="wrapper">
       <div class="main-box">
-        <h1 class="Title_prod">Notre dispositif HEALTH-EIR</h1>
+        <div class="text-container">
+          <h1 class="Title_prod">Notre dispositif HEALTH-EIR</h1>
+        </div>
         <div class="introduction">
-         <img src="/images/ai-render.png" alt="">
-
           <p>
             Suite à la crise du covid, la naissance des téléconsultations s’est
             multipliée. Néanmoins les médecins n’ont pas pu prendre en charge
@@ -90,16 +86,16 @@
             aux données environnementales et corporelles récupérées au préalable
             par HEALTH-EIR.
           </p>
+          <div class="image-prod"></div>
         </div>
 
-        <div>
+        <div class="text-container">
           <h2 class="texte-milieu">
             Notre dispositif est constitué des capteurs suivants.
           </h2>
         </div>
 
         <div class="dust-cpt">
-          <img src="/images/dust_capt.png" alt="">
           <p>
             Les données liées au taux de microparticules dans l’air vont être
             obtenues grâce au capteur SHARP.
@@ -110,11 +106,11 @@
             capté par un phototransistor et la mesure du taux de microparticule
             pourra être faite.
           </p>
-          
+          <div class="image-dust-cpt"></div>
         </div>
 
         <div class="co2-cpt">
-          <img src="/images/c02_capt.png" alt="">
+          <div class="image-co2-cpt"></div>
 
           <p>
             Vous pouvez voir le taux de concentration de l’air en CO2 dans la
@@ -127,16 +123,15 @@
         </div>
 
         <div class="temp-cpt">
-          <img src="/images/temp_capt.png" alt="">
           <p>
             Les données sur la température de la pièce sont produites grâce au
             capteur de tempéra DHT11 inclus dans notre appareil.
           </p>
-          
+          <div class="image-temp-cpt"></div>
         </div>
 
         <div class="noise-cpt">
-          <img src="/images/noise_capt.png" alt="">
+          <div class="image-noise-cpt"></div>
 
           <p>
             L’évaluation de la qualité de l’ambiance sonore autour d’un patient
@@ -145,7 +140,6 @@
         </div>
 
         <div class="heart-cpt">
-          <img src="/images/heart_capt.png" alt="">
           <p>
             Le rythme cardiaque du patient a été mesuré grâce au capteur Grove
             Ear-Clip Heart Sensor.
@@ -154,13 +148,13 @@
             de luminosité induite par la pulsation cardiaque dans un vaisseau
             sanguin.
           </p>
+          <div class="image-heart-cpt"></div>
         </div>
       </div>
     </div>
-
     <div class="bottom-bar">
       <a>© take-eir</a>
-      <a href="/contact.html">Nous contacter</a>
+      <a href="/contact/contact.php">Nous contacter</a>
       <div class="medias">
         <!-- https://icons8.com/icons/set/social-media -->
         <a href="https://linkedin.com/"
@@ -176,9 +170,6 @@
           ><img src="/images/icons8-instagram-24.png" />
         </a>
       </div>
-  </div>
-
-  
+    </div>
   </body>
-
 </html>

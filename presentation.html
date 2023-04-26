@@ -10,7 +10,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <script src="/JS/scripts.js"></script>
-  <script type="text/javascript" src="/JS/smooth-scroll.js"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap"
     rel="stylesheet"
@@ -22,81 +21,75 @@
 </head>
 <html>
   <body>
-    <div class="wrapper">
-      <div class="top-bar">
-        <div class="top-bar-img">
-          <a href="/"><img src="/images/logo-notext.png" /></a>
-        </div>
-        <div class="right-items">
-          <a href="/produit.html">
-            <button class="page-button" style="margin-right: 10px">
-              Notre produit
-            </button></a
-          >
-          <div class="separator" style="margin-right: 10px"></div>
-
-          <div class="dropdown">
-            <button
-              id="menu-btn"
-              onmouseenter="dropMenuPres()"
-              onmouseleave="dropMenuPres()"
-              class="dropbtn current-button"
-            >
-              Qui sommes nous ?
-            </button>
-            <div
-              id="myDropdown"
-              onmouseenter="dropMenuPres()"
-              onmouseleave="dropMenuPres()"
-              class="dropdown-content"
-            >
-              <a href="#title" class="smooth-scroll">Notre Client</a>
-              <a href="#sectionEquipe" class="smooth-scroll">Notre Equipe</a>
-              <a
-                href="#sectionNous"
-                style="margin-left: 25px"
-                class="smooth-scroll"
-                >Qui sommes-nous</a
-              >
-            </div>
-          </div>
-
-          <a href="/login.php">
-            <button class="login-button" style="margin-right: 10px">
-              Se connecter
-            </button></a
-          >
-        </div>
-        <span style="pointer-events: auto">
-          <div
-            class="menu-button"
-            href="javascript:void(0);"
-            onclick="toggleMenu()"
-          >
-            <div class="sphere" style="background-color: #2d67e0"></div>
-            <div class="sphere" style="background-color: #e0584c"></div>
-            <div class="sphere" style="background-color: #5dd1b7"></div>
-          </div>
-        </span>
+    <div class="top-bar">
+      <div class="top-bar-img">
+        <a href="/"><img src="/images/logo-notext.png" /></a>
       </div>
-      <div class="drop-menu" id="dropMenu" style="display: none">
-        <a href="/produit.html"
-          ><button class="page-button">Notre produit</button></a
-        >
-        <div class="separator"></div>
-        <a href="/presentation.html"
-          ><button class="page-button current-button">
-            Qui sommes nous ?
+      <div class="right-items">
+        <a href="/produit.html">
+          <button class="page-button" style="margin-right: 10px">
+            Notre produit
           </button></a
         >
-        <div class="separator"></div>
-        <a href="/login.php"
-          ><button class="login-button" style="margin-top: 10px">
+        <div class="separator" style="margin-right: 10px"></div>
+
+        <div class="dropdown">
+          <button
+            id="menu-btn"
+            onmouseenter="dropMenuPres()"
+            onmouseleave="dropMenuPres()"
+            class="dropbtn current-button"
+          >
+            Qui sommes nous ?
+          </button>
+          <div
+            id="myDropdown"
+            onmouseenter="dropMenuPres()"
+            class="dropdown-content"
+          >
+            <a href="#title" class="smooth-scroll">Notre Client</a>
+            <a href="#sectionNous" class="smooth-scroll">Qui sommes-nous</a>
+            <a href="#sectionEquipe" class="smooth-scroll">Notre Equipe</a>
+          </div>
+        </div>
+
+        <a href="/login.php">
+          <button class="login-button" style="margin-right: 10px">
             Se connecter
           </button></a
         >
       </div>
+      <span style="pointer-events: auto">
+        <div
+          class="menu-button"
+          href="javascript:void(0);"
+          onclick="toggleMenu()"
+        >
+          <div class="sphere" style="background-color: #2d67e0"></div>
+          <div class="sphere" style="background-color: #e0584c"></div>
+          <div class="sphere" style="background-color: #5dd1b7"></div>
+        </div>
+      </span>
+    </div>
+    <div class="drop-menu" id="dropMenu" style="display: none">
+      <a href="/produit.html"
+        ><button class="page-button">Notre produit</button></a
+      >
+      <div class="separator"></div>
+      <a href="/presentation.html"
+        ><button class="page-button current-button">
+          Qui sommes nous ?
+        </button></a
+      >
+      <div class="separator"></div>
+      <a href="/login.php"
+        ><button class="login-button" style="margin-top: 10px">
+          Se connecter
+        </button></a
+      >
+    </div>
 
+    <div class="wrapper">
       <div class="box">
         <h3 id="title">Notre Client :</h3>
         <div class="corps">
@@ -205,6 +198,50 @@
             </tbody>
           </table>
         </div>
+      </div>
+      <script>
+        function dropMenuPres() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function (event) {
+          if (!event.target.matches(".menu-button")) {
+            var menu = document.getElementById("dropMenu");
+            if (menu.style.display === "flex") {
+              menu.style.display = "none";
+            }
+          }
+          if (!event.target.matches(".dropbtn")) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains("show")) {
+                openDropdown.classList.remove("show");
+              }
+            }
+          }
+        };
+      </script>
+      <script type="text/javascript" src="/JS/smooth-scroll.js"></script>
+    </div>
+    <div class="bottom-bar">
+      <a>© take-eir</a>
+      <a href="/contact/contact.php">Nous contacter</a>
+      <div class="medias">
+        <!-- https://icons8.com/icons/set/social-media -->
+        <a href="https://linkedin.com/"
+          ><img src="/images/icons8-linkedin-24.png" />
+        </a>
+        <a href="https://youtube.com/"
+          ><img src="/images/icons8-youtube-logo-24.png"
+        /></a>
+        <a href="https://twitter.com/"
+          ><img src="/images/icons8-twitter-24.png" />
+        </a>
+        <a href="https://instagram.com/"
+          ><img src="/images/icons8-instagram-24.png" />
+        </a>
       </div>
     </div>
   </body>
