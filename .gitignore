@@ -1,1 +1,4 @@
 .creds
+.htpasswd
+scripts/
+buttons/
