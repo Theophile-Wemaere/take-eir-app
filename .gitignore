@@ -1,4 +1,5 @@
 .creds
 .htpasswd
-scripts/
+php
+scripts
 buttons/
