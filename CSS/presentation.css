@@ -143,6 +143,10 @@ figure figcaption {
     width: 65%;
   }
 
+h3{
+  margin-top: 100px;
+  margin-bottom: -80px;
+}
   /*#title {
     margin-top: 16%;
   }*/
@@ -157,3 +161,5 @@ figure figcaption {
     margin-top: 32%;
   }*/
 }
+
+
