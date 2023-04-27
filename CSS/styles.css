@@ -207,7 +207,7 @@ body {
 }
 
 .main-box h1 {
-  text-align: left;
+  text-align: center;
   color: #2d67e0;
   margin: 0;
   font-family: "Montserrat", sans-serif;
@@ -219,7 +219,7 @@ body {
 }
 
 .main-box h3 {
-  text-align: left;
+  text-align: center;
   color: #2d67e0;
   margin: 0;
   font-family: "Nunito", sans-serif;
@@ -233,6 +233,7 @@ body {
   max-width: auto;
   max-height: 80%;
   border-radius: 25px;
+  display: none;
 }
 
 @media (max-width: 1040px) {

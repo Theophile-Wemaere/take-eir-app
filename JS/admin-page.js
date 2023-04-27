@@ -19,7 +19,7 @@ function doSearch() {
         const thead = table.createTHead();
         const row = thead.insertRow();
         row.innerHTML =
-          "<th>ID</th><th>Name</th><th>Surname</th><th>Email</th><th>Role</th><th>Created At</th><th>Action</th>";
+          "<th>ID</th><th>Name</th><th>Surname</th><th>Email</th><th>Role</th><th>Created At</th><th>Gender</th><th>Action</th>";
         const tbody = table.createTBody();
         for (let r of res) {
           const newRow = tbody.insertRow();
@@ -29,6 +29,7 @@ function doSearch() {
           newRow.insertCell().textContent = r.email;
           newRow.insertCell().textContent = r.role_name;
           newRow.insertCell().textContent = r.created_at;
+          newRow.insertCell().textContent = r.gender;
           const actionCell = newRow.insertCell();
           const select = document.createElement("select");
           select.innerHTML =

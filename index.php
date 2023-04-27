@@ -4,6 +4,7 @@
   <title>health-eir</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="/CSS/styles.css" />
+  <link rel="stylesheet" href="/CSS/carroussel.css">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -61,6 +62,7 @@
       </button></a>
   </div>
   <div class="wrapper">
+
     <div class="main-box">
       <div class="left-part">
         <h1>La révolution de l’hospitalisation à domicile !</h1>
@@ -71,10 +73,22 @@
           physiologiques.
         </h3>
       </div>
-      <div class="right-part">
-        <img src="/images/ai-render.png" />
+      <img src="/images/ai-render.png" />
+    </div>
+    <div class="container">
+      <div class="carousel">
+        <div class="carousel__face"><span>Health-Eir</span></div>
+        <div class="carousel__face"><span>Révolutionne</span></div>
+        <div class="carousel__face"><span>Le concept</span></div>
+        <div class="carousel__face"><span>De l'hospitalisation à domicile</span></div>
+        <div class="carousel__face"><span>Notre équipe</span></div>
+        <div class="carousel__face"><span>a travaillé dur</span></div>
+        <div class="carousel__face"><span>pour vous proposer</span></div>
+        <div class="carousel__face"><span>ce produit d'exception</span></div>
+        <div class="carousel__face"><span>Essayez-le !</span></div>
       </div>
     </div>
+  </div>
   </div>
   <div class="bottom-bar">
     <a>© take-eir</a>
