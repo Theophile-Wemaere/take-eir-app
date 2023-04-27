@@ -35,7 +35,7 @@ if (isset($_POST["action"])) {
     $_DB->execute("SET @search = :var", ["var" => "%{$_POST["search"]}%"]);
     $results = $_DB
         ->execute(
-            "SELECT id_user, name, surname, email, created_at, gender, roles.role_name from users join roles on users.id_role = roles.id_role WHERE name LIKE @search OR surname LIKE @search OR email LIKE @search"
+            "SELECT id_user, name, surname, email, created_at, gender, roles.role_name from users join roles on users.id_role = roles.id_role WHERE name LIKE @search OR surname LIKE @search OR email LIKE @searcho ORDER BY created_at ASC"
         )
         ->fetchAll();
     echo json_encode(count($results) == 0 ? null : $results);

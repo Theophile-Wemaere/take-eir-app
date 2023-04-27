@@ -90,7 +90,7 @@
         <input class="email" type="email" name="email" placeholder="Email:" required>
         <input id="password" class="mdp" type="password" placeholder="Mot de passe:" required>
         <input id="confirm-password" class="mdp" type="password" name="password" placeholder="Confirmation mot de passe:" required>
-        <button id="submit"  type="submit" class="register_button">S'inscrire</button>
+        <button id="submit" type="submit" class="register_button">S'inscrire</button>
       </form>
       <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require "database.php";
@@ -100,6 +100,7 @@
         $name = htmlspecialchars($_POST["name"]);
         $surname = htmlspecialchars($_POST["surname"]);
         $email = htmlspecialchars($_POST["email"]);
+        $id = md5($email);
         $password = $_POST["password"];
 
         // Generate hashed password using PASSWORD_ARGON2ID algorithm
@@ -112,8 +113,9 @@
 
         // Prepare and execute the query to insert the new user into the database
         $sql =
-          "INSERT INTO users (name, surname, email, password, id_role, gender) VALUES (:name, :surname, :email, :password, :role, :gender)";
+          "INSERT INTO users (id_user, name, surname, email, password, id_role, gender) VALUES (:id,:name, :surname, :email, :password, :role, :gender)";
         $stmt = $_DB->execute($sql, [
+          "id" => $id,
           "name" => $name,
           "surname" => $surname,
           "email" => $email,
@@ -131,22 +133,22 @@
       } ?>
 
       <script>
-          const passwordInput = document.getElementById('password');
-          const confirmPasswordInput = document.getElementById('confirm-password');
-          const submitButton = document.getElementById('submit');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm-password');
+        const submitButton = document.getElementById('submit');
 
-          function checkPasswords() {
-            if (passwordInput.value === confirmPasswordInput.value) {
-              submitButton.disabled = false;
-            } else {
-              submitButton.disabled = true;
-            }
+        function checkPasswords() {
+          if (passwordInput.value === confirmPasswordInput.value) {
+            submitButton.disabled = false;
+          } else {
+            submitButton.disabled = true;
           }
+        }
 
-          passwordInput.addEventListener('input', checkPasswords);
-          confirmPasswordInput.addEventListener('input', checkPasswords);
+        passwordInput.addEventListener('input', checkPasswords);
+        confirmPasswordInput.addEventListener('input', checkPasswords);
 
-          checkPasswords();
+        checkPasswords();
       </script>
     </div>
   </div>
