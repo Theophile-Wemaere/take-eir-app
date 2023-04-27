@@ -20,137 +20,86 @@
 </head>
 
 <body>
-    <div class="top-bar">
-        <div class="top-bar-img">
-            <a href="/"><img src="/images/logo-notext.png" /></a>
-        </div>
-        <div class="right-items">
-            <a href="/contact/produit.php">
-                <button class="page-button" style="margin-right: 10px">
-                    Notre produit
-                </button></a>
-            <div class="separator" style="margin-right: 10px"></div>
-            <a href="/presentation.php">
-                <button class="page-button" style="margin-right: 10px">
-                    Qui sommes nous ?
-                </button></a>
-            <a href="/login.php">
-                <button class="login-button" style="margin-right: 10px">
-                <?php
-          session_start();
-          if (isset($_SESSION["email"])) {
-            echo $_SESSION["name"] . " " . $_SESSION["surname"];
-          } else {
-            echo "Se connecter";
-          }
-          ?>
-                </button></a>
-        </div>
-        <span style="pointer-events: auto">
-            <div class="menu-button" href="javascript:void(0);" onclick="toggleMenu()">
-                <div class="sphere" style="background-color: #2d67e0"></div>
-                <div class="sphere" style="background-color: #e0584c"></div>
-                <div class="sphere" style="background-color: #5dd1b7"></div>
-            </div>
-        </span>
-    </div>
-    <div class="drop-menu" id="dropMenu" style="display: none">
-        <a href="/contact/produit.php"><button class="page-button">Notre produit</button></a>
-        <div class="separator"></div>
-        <a href="/presentation.php"><button class="page-button">Qui sommes nous ?</button></a>
-        <div class="separator"></div>
-        <a href="/login.php"><button class="login-button" style="margin-top: 10px">
-        <?php
-          session_start();
-          if (isset($_SESSION["email"])) {
-            echo $_SESSION["name"] . " " . $_SESSION["surname"];
-          } else {
-            echo "Se connecter";
-          }
-          ?>
-            </button></a>
-    </div>
+    <?php require "top-bar.php"; ?>
+    <h4 class="sent-notification"></h4>
+    <form id="myForm">
+        <h1>Contactez-nous</h1>
+        <div class="separation"></div>
 
-    <div class="wrapper">
-        <h4 class="sent-notification"></h4>
-        <form id="myForm">
-            <h1>Contactez-nous</h1>
-            <div class="separation"></div>
-
-            <div class="corps-formulaire">
-                <div class="gauche">
-                    <div class="groupe">
-                        <label>Votre prénom</label>
-                        <input id="name" type="text" name="name" require>
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-                    <div class="groupe">
-                        <label>Votre adresse e-mail</label>
-                        <input id="email" type="text" name="email" require>
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
-                    <div class="groupe">
-                        <label>Votre téléphone</label>
-                        <input id="subject" type="text" name="phoneNumber">
-                        <i class="fa-solid fa-mobile"></i>
-                    </div>
+        <div class="corps-formulaire">
+            <div class="gauche">
+                <div class="groupe">
+                    <label>Votre prénom</label>
+                    <input id="name" type="text" name="name" require>
+                    <i class="fa-solid fa-user"></i>
                 </div>
-
-                <div class="droite">
-                    <div class="groupe">
-                        <label>Message</label>
-                        <textarea id="body" placeholder="Saisissez ici..." name="message"></textarea>
-                    </div>
+                <div class="groupe">
+                    <label>Votre adresse e-mail</label>
+                    <input id="email" type="text" name="email" require>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="groupe">
+                    <label>Votre téléphone</label>
+                    <input id="subject" type="text" name="phoneNumber">
+                    <i class="fa-solid fa-mobile"></i>
                 </div>
             </div>
 
-            <center>
-                <div class="pied-formulaire">
-                    <button type="button" onclick="sendEmail()" value="Send An Email">Envoyer le message</button>
+            <div class="droite">
+                <div class="groupe">
+                    <label>Message</label>
+                    <textarea id="body" placeholder="Saisissez ici..." name="message"></textarea>
                 </div>
-            </center>
+            </div>
+        </div>
+
+        <center>
+            <div class="pied-formulaire">
+                <button type="button" onclick="sendEmail()" value="Send An Email">Envoyer le message</button>
+            </div>
+        </center>
 
 
-        </form>
+    </form>
 
 
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript">
-            function sendEmail() {
-                var name = $("#name");
-                var email = $("#email");
-                var subject = $("#subject");
-                var body = $("#body");
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        function sendEmail() {
+            var name = $("#name");
+            var email = $("#email");
+            var subject = $("#subject");
+            var body = $("#body");
 
-                if (isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(subject) && isNotEmpty(body)) {
-                    $.ajax({
-                        url: 'sendEmail.php',
-                        method: 'POST',
-                        dataType: 'json',
-                        data: {
-                            name: name.val(),
-                            email: email.val(),
-                            subject: subject.val(),
-                            body: body.val()
-                        },
-                        success: function(response) {
-                            $('#myForm')[0].reset();
-                            $('.sent-notification').text("Message envoyé avec succès !");
-                        }
-                    });
-                }
+            if (isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(subject) && isNotEmpty(body)) {
+                $.ajax({
+                    url: 'sendEmail.php',
+                    method: 'POST',
+                    dataType: 'json',
+                    data: {
+                        name: name.val(),
+                        email: email.val(),
+                        subject: subject.val(),
+                        body: body.val()
+                    },
+                    success: function(response) {
+                        $('#myForm')[0].reset();
+                        $('.sent-notification').text("Message envoyé avec succès !");
+                    }
+                });
             }
+        }
 
-            function isNotEmpty(caller) {
-                if (caller.val() == "") {
-                    caller.css('border', '1px solid red');
-                    return false;
-                } else
-                    caller.css('border', '');
+        function isNotEmpty(caller) {
+            if (caller.val() == "") {
+                caller.css('border', '1px solid red');
+                return false;
+            } else
+                caller.css('border', '');
 
-                return true;
-            }
-        </script>
+            return true;
+        }
+    </script>
     </div>
     <div class="bottom-bar">
         <a>© take-eir</a>

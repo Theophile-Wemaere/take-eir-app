@@ -26,57 +26,7 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
 <html>
 
 <body>
-  <div class="top-bar">
-    <div class="top-bar-img">
-      <a href="/"><img src="/images/logo-notext.png" /></a>
-    </div>
-    <div class="right-items">
-      <a href="/contact/produit.php">
-        <button class="page-button" style="margin-right: 10px">
-          Notre produit
-        </button></a>
-      <div class="separator" style="margin-right: 10px"></div>
-      <a href="/presentation.html">
-        <button class="page-button" style="margin-right: 10px">
-          Qui sommes nous ?
-        </button></a>
-      <a href="/login.php">
-        <button class="login-button" style="margin-right: 10px">
-          <?php
-          session_start();
-          if (isset($_SESSION["email"])) {
-            echo $_SESSION["name"] . " " . $_SESSION["surname"];
-          } else {
-            echo "Se connecter";
-          }
-          ?>
-
-        </button></a>
-    </div>
-    <span style="pointer-events: auto">
-      <div class="menu-button" href="javascript:void(0);" onclick="toggleMenu()">
-        <div class="sphere" style="background-color: #2d67e0"></div>
-        <div class="sphere" style="background-color: #e0584c"></div>
-        <div class="sphere" style="background-color: #5dd1b7"></div>
-      </div>
-    </span>
-  </div>
-  <div class="drop-menu" id="dropMenu" style="display: none">
-    <a href="/contact/produit.php"><button class="page-button">Notre produit</button></a>
-    <div class="separator"></div>
-    <a href="/presentation.html"><button class="page-button">Qui sommes nous ?</button></a>
-    <div class="separator"></div>
-    <a href="/login.php"><button class="login-button" style="margin-top: 10px">
-        <?php
-        session_start();
-        if (isset($_SESSION["email"])) {
-          echo $_SESSION["name"] . " " . $_SESSION["surname"];
-        } else {
-          echo "Se connecter";
-        }
-        ?>
-      </button></a>
-  </div>
+  <?php require "top-bar.php"; ?>
   <div class="wrapper">
     <div class="main-box">
       <form id="mySearch" onsubmit="return doSearch()">
