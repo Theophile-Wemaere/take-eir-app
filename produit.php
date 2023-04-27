@@ -23,20 +23,27 @@
         <a href="/"><img src="/images/logo-notext.png" /></a>
       </div>
       <div class="right-items">
-        <a href="/produit.html">
+        <a href="/produit.php">
           <button class="page-button current-button" style="margin-right: 10px">
             Notre produit
           </button></a
         >
         <div class="separator" style="margin-right: 10px"></div>
-        <a href="/presentation.html">
+        <a href="/presentation.php">
           <button class="page-button" style="margin-right: 10px">
             Qui sommes nous ?
           </button></a
         >
         <a href="/login.php">
           <button class="login-button" style="margin-right: 10px">
-            Se connecter
+          <?php
+          session_start();
+          if (isset($_SESSION["email"])) {
+            echo $_SESSION["name"] . " " . $_SESSION["surname"];
+          } else {
+            echo "Se connecter";
+          }
+          ?>
           </button></a
         >
       </div>
@@ -53,17 +60,24 @@
       </span>
     </div>
     <div class="drop-menu" id="dropMenu" style="display: none">
-      <a href="/produit.html"
+      <a href="/produit.php"
         ><button class="page-button current-button">Notre produit</button></a
       >
       <div class="separator"></div>
-      <a href="/presentation.html"
+      <a href="/presentation.php"
         ><button class="page-button">Qui sommes nous ?</button></a
       >
       <div class="separator"></div>
       <a href="/login.php"
         ><button class="login-button" style="margin-top: 10px">
-          Se connecter
+        <?php
+          session_start();
+          if (isset($_SESSION["email"])) {
+            echo $_SESSION["name"] . " " . $_SESSION["surname"];
+          } else {
+            echo "Se connecter";
+          }
+          ?>
         </button></a
       >
     </div>

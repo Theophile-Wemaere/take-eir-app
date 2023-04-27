@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<html lang="fr">
 <?php
 session_start();
 if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
@@ -31,7 +31,7 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
       <a href="/"><img src="/images/logo-notext.png" /></a>
     </div>
     <div class="right-items">
-      <a href="/produit.html">
+      <a href="/contact/produit.php">
         <button class="page-button" style="margin-right: 10px">
           Notre produit
         </button></a>
@@ -44,7 +44,7 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
         <button class="login-button" style="margin-right: 10px">
           <?php
           session_start();
-          if (isset($_SESSION["key"])) {
+          if (isset($_SESSION["email"])) {
             echo $_SESSION["name"] . " " . $_SESSION["surname"];
           } else {
             echo "Se connecter";
@@ -62,12 +62,19 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
     </span>
   </div>
   <div class="drop-menu" id="dropMenu" style="display: none">
-    <a href="/produit.html"><button class="page-button">Notre produit</button></a>
+    <a href="/contact/produit.php"><button class="page-button">Notre produit</button></a>
     <div class="separator"></div>
     <a href="/presentation.html"><button class="page-button">Qui sommes nous ?</button></a>
     <div class="separator"></div>
     <a href="/login.php"><button class="login-button" style="margin-top: 10px">
-        Se connecter
+        <?php
+        session_start();
+        if (isset($_SESSION["email"])) {
+          echo $_SESSION["name"] . " " . $_SESSION["surname"];
+        } else {
+          echo "Se connecter";
+        }
+        ?>
       </button></a>
   </div>
   <div class="wrapper">

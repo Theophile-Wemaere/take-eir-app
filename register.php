@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
+<?php
+session_start();
+if (isset($_SESSION["name"])) {
+  header("Location: /");
+}
+?>
 
 <head>
   <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -18,12 +24,12 @@
       <a href="/"><img src="/images/logo-notext.png" /></a>
     </div>
     <div class="right-items">
-      <a href="/produit.html">
+      <a href="/produit.php">
         <button class="page-button" style="margin-right: 10px">
           Notre produit
         </button></a>
       <div class="separator" style="margin-right: 10px"></div>
-      <a href="/presentation.html">
+      <a href="/presentation.php">
         <button class="page-button" style="margin-right: 10px">
           Qui sommes nous ?
         </button></a>
@@ -41,9 +47,9 @@
     </span>
   </div>
   <div class="drop-menu" id="dropMenu" style="display: none">
-    <a href="/produit.html"><button class="page-button">Notre produit</button></a>
+    <a href="/produit.php"><button class="page-button">Notre produit</button></a>
     <div class="separator"></div>
-    <a href="/presentation.html"><button class="page-button">Qui sommes nous ?</button></a>
+    <a href="/presentation.php"><button class="page-button">Qui sommes nous ?</button></a>
     <div class="separator"></div>
     <a href="/login.php"><button class="login-button" style="margin-top: 10px">
         Se connecter
@@ -162,6 +168,20 @@
           // Check if the insert was successful
           if ($stmt->rowCount() > 0) {
             echo "User created successfully";
+            session_start();
+            $_SESSION["name"] = $name;
+            $_SESSION["surname"] = $surname;
+            $_SESSION["email"] = $email;
+            $row = $_DB
+              ->execute(
+                "SELECT role_name,role_permission from roles where id_role = :id",
+                [
+                  "id" => $role,
+                ]
+              )
+              ->fetch();
+            $_SESSION["role_name"] = $row["role_name"];
+            $_SESSION["role_permission"] = $row["role_permission"];
           } else {
             echo '<p style="color: red;">Error creating user !</p>';
           }

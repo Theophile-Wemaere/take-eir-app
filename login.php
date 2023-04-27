@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
+<?php
+session_start();
+if (isset($_SESSION["name"])) {
+  header("Location: /");
+}
+?>
 
 <head>
   <link rel="stylesheet" href="/CSS/login.css" />
@@ -21,12 +27,12 @@
         <a href="/"><img src="/images/logo-notext.png" /></a>
       </div>
       <div class="right-items">
-        <a href="/produit.html">
+        <a href="/produit.php">
           <button class="page-button" style="margin-right: 10px">
             Notre produit
           </button></a>
         <div class="separator" style="margin-right: 10px"></div>
-        <a href="/presentation.html">
+        <a href="/presentation.php">
           <button class="page-button" style="margin-right: 10px">
             Qui sommes nous ?
           </button></a>
@@ -44,9 +50,9 @@
       </span>
     </div>
     <div class="drop-menu" id="dropMenu" style="display: none">
-      <a href="/produit.html"><button class="page-button">Notre produit</button></a>
+      <a href="/produit.php"><button class="page-button">Notre produit</button></a>
       <div class="separator"></div>
-      <a href="/presentation.html"><button class="page-button">Qui sommes nous ?</button></a>
+      <a href="/presentation.php"><button class="page-button">Qui sommes nous ?</button></a>
       <div class="separator"></div>
       <a href="/login.php"><button class="login-button" style="margin-top: 10px">
           Se connecter
@@ -97,12 +103,14 @@
           if (password_verify($password, $password_hash)) {
             echo "Password is valid!";
             session_start();
-            $_SESSION["key"] = "take-eir";
             $_SESSION["name"] = $row["name"];
             $_SESSION["surname"] = $row["surname"];
             $_SESSION["email"] = $email;
             $_SESSION["role_name"] = $row["role_name"];
             $_SESSION["role_permission"] = $row["role_permission"];
+            if ($_SESSION["role_permission"] == 6) {
+              header("Location: /admin/admin.php");
+            }
           } else {
             echo '<p style="color: red;">Error, invalid password !</p>';
           }
