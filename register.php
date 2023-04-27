@@ -54,7 +54,7 @@
       <h1 class="title_register">INSCRIPTION</h1>
       <form method="POST" class="form_inscription">
         <select name="role" class="type">
-          <option value="select">Choisissez votre statut</option>
+          <option value=3>Choisissez votre statut</option>
           <option value=3>Patient/Famille</option>
           <option value=2>Medecin</option>
         </select>
@@ -90,7 +90,32 @@
         <input class="email" type="email" name="email" placeholder="Email:" required>
         <input id="password" class="mdp" type="password" placeholder="Mot de passe:" required>
         <input id="confirm-password" class="mdp" type="password" name="password" placeholder="Confirmation mot de passe:" required>
-        <button id="submit" type="submit" class="register_button">S'inscrire</button>
+        <div id="password-match-message" style="display:none;color:red;">Passwords doesn't match</div>
+        <button id="submit-button" type="submit" class="register_button">S'inscrire</button>
+        <script>
+          const passwordInput = document.getElementById("password");
+          const confirmPasswordInput = document.getElementById("confirm-password");
+          const submitButton = document.getElementById("submit-button")
+          const message = document.getElementById("password-match-message");
+
+          function checkPasswordMatch() {
+            if (passwordInput.value !== confirmPasswordInput.value) {
+              submitButton.disabled = true;
+              submitButton.style.pointerEvents = 'none';
+              submitButton.style.opacity = '0.5';
+              message.style.display = "block";
+            } else {
+              submitButton.disabled = false;
+              submitButton.style.pointerEvents = 'auto';
+              submitButton.style.opacity = '1';
+              message.style.display = "none";
+            }
+          }
+
+          passwordInput.addEventListener("input", checkPasswordMatch);
+          confirmPasswordInput.addEventListener("input", checkPasswordMatch);
+        </script>
+
       </form>
       <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require "database.php";
@@ -103,53 +128,46 @@
         $id = md5($email);
         $password = $_POST["password"];
 
-        // Generate hashed password using PASSWORD_ARGON2ID algorithm
-        $options = [
-          "memory_cost" => PASSWORD_ARGON2_DEFAULT_MEMORY_COST,
-          "time_cost" => PASSWORD_ARGON2_DEFAULT_TIME_COST,
-          "threads" => PASSWORD_ARGON2_DEFAULT_THREADS,
-        ];
-        $hashedPassword = password_hash($password, PASSWORD_ARGON2ID, $options);
-
-        // Prepare and execute the query to insert the new user into the database
-        $sql =
-          "INSERT INTO users (id_user, name, surname, email, password, id_role, gender) VALUES (:id,:name, :surname, :email, :password, :role, :gender)";
-        $stmt = $_DB->execute($sql, [
+        $stmt = $_DB->execute("SELECT * FROM users WHERE id_user = :id", [
           "id" => $id,
-          "name" => $name,
-          "surname" => $surname,
-          "email" => $email,
-          "password" => $hashedPassword,
-          "role" => $role,
-          "gender" => $gender,
         ]);
-
-        // Check if the insert was successful
         if ($stmt->rowCount() > 0) {
-          echo "User created successfully";
+          echo '<p style="color: red;">Error, user with this email already exist !</p>';
         } else {
-          echo "Error creating user";
+          // Generate hashed password using PASSWORD_ARGON2ID algorithm
+          $options = [
+            "memory_cost" => PASSWORD_ARGON2_DEFAULT_MEMORY_COST,
+            "time_cost" => PASSWORD_ARGON2_DEFAULT_TIME_COST,
+            "threads" => PASSWORD_ARGON2_DEFAULT_THREADS,
+          ];
+          $hashedPassword = password_hash(
+            $password,
+            PASSWORD_ARGON2ID,
+            $options
+          );
+
+          // Prepare and execute the query to insert the new user into the database
+          $sql =
+            "INSERT INTO users (id_user, name, surname, email, password, id_role, gender) VALUES (:id,:name, :surname, :email, :password, :role, :gender)";
+          $stmt = $_DB->execute($sql, [
+            "id" => $id,
+            "name" => $name,
+            "surname" => $surname,
+            "email" => $email,
+            "password" => $hashedPassword,
+            "role" => $role,
+            "gender" => $gender,
+          ]);
+
+          // Check if the insert was successful
+          if ($stmt->rowCount() > 0) {
+            echo "User created successfully";
+          } else {
+            echo '<p style="color: red;">Error creating user !</p>';
+          }
         }
       } ?>
 
-      <script>
-        const passwordInput = document.getElementById('password');
-        const confirmPasswordInput = document.getElementById('confirm-password');
-        const submitButton = document.getElementById('submit');
-
-        function checkPasswords() {
-          if (passwordInput.value === confirmPasswordInput.value) {
-            submitButton.disabled = false;
-          } else {
-            submitButton.disabled = true;
-          }
-        }
-
-        passwordInput.addEventListener('input', checkPasswords);
-        confirmPasswordInput.addEventListener('input', checkPasswords);
-
-        checkPasswords();
-      </script>
     </div>
   </div>
   <div class="bottom-bar">
