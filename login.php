@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="/CSS/login.css" />
   <link rel="stylesheet" href="/CSS/styles.css" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
   <meta charset="utf-8" />
   <title id="connexion">Login</title>
   <script src="/JS/scripts.js"></script>

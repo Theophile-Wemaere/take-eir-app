@@ -5,6 +5,7 @@
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <link rel="stylesheet" href="/CSS/register.css" />
   <link rel="stylesheet" href="/CSS/styles.css" />
+  <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
   <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
   <title>Register</title>
@@ -52,6 +53,38 @@
     <div class="inscription">
       <h1 class="title_register">INSCRIPTION</h1>
       <form method="POST" class="form_inscription">
+        <select name="personType" class="type">
+          <option value="select">Choisissez votre statut</option>
+          <option value="Patient/Famille">Patient/Famille</option>
+          <option value="medecin">Medecin</option>
+        </select>
+
+        <div class="gender">
+          <div class="h">
+            <input type="checkbox" id="h" name="gender" value="homme" checked>
+            <label for="h">Homme</label>
+          </div>
+
+          <div class="f">
+            <input type="checkbox" id="f" name="gender" value="femme">
+            <label for="f">Femme</label>
+          </div>
+        </div>
+
+        <script>
+          const checkboxes = document.querySelectorAll('input[name="gender"]');
+
+          checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener("change", (event) => {
+              checkboxes.forEach((cb) => {
+                if (cb !== event.target) {
+                  cb.checked = false;
+                }
+              });
+            });
+          });
+        </script>
+
         <input class="Nom" type="text" name="name" placeholder="Prenom:" required>
         <input class="Prénom" type="text" name="surname" placeholder="Nom:" required>
         <input class="email" type="email" name="email" placeholder="Email:" required>
