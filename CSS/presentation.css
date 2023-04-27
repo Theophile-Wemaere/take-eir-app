@@ -139,8 +139,14 @@ figure figcaption {
 }
 
 @media (min-width: 850px) {
+  .equip-grid{
+      display: inline-block;
+      width:30%;
+      padding: 5px;
+  }
+
   .equip-img {
-    width: 65%;
+    width: 100%;
   }
 
 h3{
@@ -153,13 +159,40 @@ h3{
 }
 
 @media (max-width: 850px) {
+  .equip-grid{
+      display: inline-block;
+      width:30%;
+      padding: 5px;
+  }
+
   .equip-img {
-    width: 65%;
+    width: 100px;
+  }
+
+  .equip-div{
+    text-align:center;
+
+    }
+
+
+  .tableau-equip {
   }
 
   /*#title {
     margin-top: 32%;
   }*/
+}
+
+@media (max-width: 550px) {
+    .equip-div{
+    text-align:center;
+    margin-right:15%;
+    }
+
+    .equip-img {
+    width: 70px;
+    }
+
 }
 
 
