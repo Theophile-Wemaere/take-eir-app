@@ -88,9 +88,9 @@
         <input class="Nom" type="text" name="name" placeholder="Prenom:" required>
         <input class="Prénom" type="text" name="surname" placeholder="Nom:" required>
         <input class="email" type="email" name="email" placeholder="Email:" required>
-        <input class="mdp" type="password" placeholder="Mot de passe:" required>
-        <input class="mdp" type="password" name="password" placeholder="Confirmation mot de passe:" required>
-        <button type="submit" class="register_button">S'inscrire</button>
+        <input id="password" class="mdp" type="password" placeholder="Mot de passe:" required>
+        <input id="confirm-password" class="mdp" type="password" name="password" placeholder="Confirmation mot de passe:" required>
+        <button id="submit"  type="submit" class="register_button">S'inscrire</button>
       </form>
       <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require "database.php";
@@ -129,6 +129,25 @@
           echo "Error creating user";
         }
       } ?>
+
+      <script>
+          const passwordInput = document.getElementById('password');
+          const confirmPasswordInput = document.getElementById('confirm-password');
+          const submitButton = document.getElementById('submit');
+
+          function checkPasswords() {
+            if (passwordInput.value === confirmPasswordInput.value) {
+              submitButton.disabled = false;
+            } else {
+              submitButton.disabled = true;
+            }
+          }
+
+          passwordInput.addEventListener('input', checkPasswords);
+          confirmPasswordInput.addEventListener('input', checkPasswords);
+
+          checkPasswords();
+      </script>
     </div>
   </div>
   <div class="bottom-bar">
