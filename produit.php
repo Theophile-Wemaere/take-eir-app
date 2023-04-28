@@ -2,8 +2,8 @@
 <html lang="fr">
 
 <head>
-  <link rel="stylesheet" href="/CSS/produit.css" />
   <link rel="stylesheet" href="/CSS/styles.css" />
+  <link rel="stylesheet" href="/CSS/produit.css" />
   <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta charset="utf-8" />
@@ -15,7 +15,6 @@
 
 <body>
   <?php require "top-bar.php"; ?>
-
   <div class="wrapper">
     <div class="main-box">
       <div class="text-container">
@@ -35,7 +34,7 @@
           <br />
           <br />
           Nous travaillons en étroite collaboration avec le corps médical pour
-          vous proposer la meilleure solution possible !
+          vous proposer la meilleure solution possible!
         </p>
         <div class="image-prod"></div>
       </div>

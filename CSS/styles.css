@@ -266,7 +266,7 @@ body {
   align-items: center;
 }
 
-.main-box h1 {
+.main-box .left-part h1 {
   text-align: center;
   color: #2d67e0;
   margin: 0;
@@ -278,7 +278,7 @@ body {
   padding-bottom: 1vw;
 }
 
-.main-box h3 {
+.main-box .left-part h3 {
   text-align: center;
   color: #2d67e0;
   margin: 0;

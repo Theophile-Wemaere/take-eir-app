@@ -1,15 +1,21 @@
-html{
+html {
   scroll-behavior: smooth;
 }
 
 .Title_prod {
   color: #2d67e0;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  font-size: 4vw;
+  letter-spacing: 0.1em;
+  text-align: center;
 }
 
-.Title_prod h1{
+.Title_prod h1 {
   font-family: "Nunito", sans-serif;
   margin-top: 7.5%;
-  font-weight: 100;  
+  font-weight: 100;
   font-size: 2vw;
   letter-spacing: 2em;
 }
@@ -27,8 +33,8 @@ html{
   display: block;
   width: 1.5vw;
   height: 1.5vw;
-  border-bottom: 5px solid #E0584C;
-  border-right: 5px solid #E0584C;
+  border-bottom: 5px solid #e0584c;
+  border-right: 5px solid #e0584c;
   transform: rotate(45deg);
   margin: -10px;
   animation: animate 2s infinite;
@@ -44,19 +50,19 @@ html{
 
 @keyframes animate {
   0% {
-      opacity: 0;
-      transform: rotate(45deg) translate(-20px, -20px);
+    opacity: 0;
+    transform: rotate(45deg) translate(-20px, -20px);
   }
   50% {
-      opacity: 1;
+    opacity: 1;
   }
   100% {
-      opacity: 0;
-      transform: rotate(45deg) translate(20px, 20px);
+    opacity: 0;
+    transform: rotate(45deg) translate(20px, 20px);
   }
 }
 
-a{
+a {
   scroll-behavior: smooth;
 }
 
@@ -67,7 +73,7 @@ a{
   font-weight: 900;
   font-size: 2vw;
   letter-spacing: 0.1em;
-  margin-top: 130px;
+  margin-top: 20%;
 }
 
 body p {
@@ -82,12 +88,12 @@ body p {
   justify-content: space-around;
   align-items: center;
   width: hv;
-  height: 350px;
+  height: auto;
 }
 
 .introduction p {
   width: 50%;
-  height: 50%;
+  height: auto;
   display: flex;
   align-items: center;
   font-weight: 900;
@@ -97,7 +103,7 @@ body p {
   text-align: justify;
 }
 
-p{
+p {
   text-align: justify;
 }
 
@@ -267,7 +273,8 @@ p{
   }
 
   .text-container {
-    margin-bottom: 20%;
+    height: auto;
+    margin-bottom: 30%;
   }
 
   .introduction p {
@@ -305,19 +312,16 @@ p{
   .arrow {
     display: none;
   }
-  
+
   .arrow span {
     display: none;
   }
-  
+
   .arrow span:nth-child(2) {
     display: none;
-      
   }
-  
+
   .arrow span:nth-child(3) {
     display: none;
   }
-
-
 }
