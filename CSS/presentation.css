@@ -77,6 +77,17 @@ figure figcaption {
   text-align: center;
 }
 
+.equip-div figcaption {
+  font-size: 2vw;
+}
+
+.equip-grid figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .dropbtn {
   height: 50px;
   float: right;
@@ -139,60 +150,73 @@ figure figcaption {
 }
 
 @media (min-width: 850px) {
-  .equip-grid{
-      display: inline-block;
-      width:30%;
-      padding: 5px;
+  .equip-grid {
+    display: inline-block;
+    width: 30%;
+    padding: 5px;
   }
 
   .equip-img {
     width: 100%;
   }
 
-h3{
-  margin-top: 100px;
-  margin-bottom: -80px;
-}
+  h3 {
+    margin-top: 100px;
+    margin-bottom: -80px;
+  }
   /*#title {
     margin-top: 16%;
   }*/
 }
 
+.equip-div {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.equip-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.equip-grid figure {
+  margin: 0;
+}
+
 @media (max-width: 850px) {
-  .equip-grid{
-      display: inline-block;
-      width:30%;
-      padding: 5px;
+  .equip-grid {
+    display: inline-block;
+    width: 30%;
+    padding: 5px;
   }
 
   .equip-img {
     width: 100px;
   }
-
-  .equip-div{
-    text-align:center;
-
-    }
-
-
-  .tableau-equip {
-  }
-
-  /*#title {
-    margin-top: 32%;
-  }*/
 }
 
 @media (max-width: 550px) {
-    .equip-div{
-    text-align:center;
-    margin-right:15%;
-    }
-
-    .equip-img {
+  .equip-img {
     width: 70px;
-    }
+  }
 
+  .equip-div {
+    flex-direction: row;
+  }
+
+  .equip-div figcaption {
+    font-size: 3vw;
+  }
+
+  .equip-block {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
 }
-
-

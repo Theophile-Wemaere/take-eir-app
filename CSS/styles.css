@@ -245,10 +245,10 @@ body {
   margin-right: auto;
   justify-content: center;
   width: auto;
-  max-height: 100%;
+  max-height: auto;
   border-radius: 25px;
   max-width: 80%;
-  margin-bottom: 5%;
+  margin-bottom: 10%;
 }
 
 .left-part {
@@ -257,6 +257,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: auto;
 }
 
 .right-part {
@@ -302,18 +303,21 @@ body {
   .right-part {
     flex-basis: 50%; /* make both divs take up the full width */
   }
-  .main-box h1 {
+  .main-box .left-part h1 {
     text-align: center;
     font-size: 5vw;
     padding-bottom: 10px;
+    width: 90%;
   }
 
-  .main-box h3 {
+  .main-box .left-part h3 {
     text-align: center;
     font-size: 3vw;
+    width: 90%;
   }
 
   .main-box img {
+    margin-top: 20%;
     max-width: 90%;
     max-height: auto;
   }
