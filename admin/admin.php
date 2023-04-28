@@ -26,7 +26,7 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
 <html>
 
 <body>
-  <?php require "top-bar.php"; ?>
+  <?php require "../top-bar.php"; ?>
   <div class="wrapper">
     <div class="main-box">
       <form id="mySearch" onsubmit="return doSearch()">
