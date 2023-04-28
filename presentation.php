@@ -82,41 +82,45 @@
           </p>
         </div>
         <div class="equip-div">
-          <div class="equip-grid">
-            <figure>
-              <img class="equip-img" src="/images/sofiane.png" />
-              <figcaption>Sofiane SIFAOUI</figcaption>
-            </figure>
+          <div class="equip-block">
+            <div class="equip-grid">
+              <figure>
+                <img class="equip-img" src="/images/sofiane.png" />
+                <figcaption>Sofiane SIFAOUI</figcaption>
+              </figure>
+            </div>
+            <div class="equip-grid">
+              <figure>
+                <img class="equip-img" src="/images/theo.png" />
+                <figcaption>Théophile WEMAERE</figcaption>
+              </figure>
+            </div>
+            <div class="equip-grid">
+              <figure>
+                <img class="equip-img" src="/images/imad.png" />
+                <figcaption>Imad RACHATI</figcaption>
+              </figure>
+            </div>
           </div>
-          <div class="equip-grid">
-            <figure>
-              <img class="equip-img" src="/images/theo.png" />
-              <figcaption>Théophile WEMAERE</figcaption>
-            </figure>
-          </div>
-          <div class="equip-grid">
-            <figure>
-              <img class="equip-img" src="/images/imad.png" />
-              <figcaption>Imad RACHATI</figcaption>
-            </figure>
-          </div>
-          <div class="equip-grid">
-            <figure>
-              <img class="equip-img" src="/images/maxime.png" />
-              <figcaption>Maxime VETTORATO</figcaption>
-            </figure>
-          </div>
-          <div class="equip-grid">
-            <figure>
-              <img class="equip-img" src="/images/quentin.png" />
-              <figcaption>Quentin VERMONT</figcaption>
-            </figure>
-          </div>
-          <div class="equip-grid">
-            <figure>
-              <img class="equip-img" src="/images/alex.png" />
-              <figcaption>Alexandre MELLE</figcaption>
-            </figure>
+          <div class="equip-block">
+            <div class="equip-grid">
+              <figure>
+                <img class="equip-img" src="/images/maxime.png" />
+                <figcaption>Maxime VETTORATO</figcaption>
+              </figure>
+            </div>
+            <div class="equip-grid">
+              <figure>
+                <img class="equip-img" src="/images/quentin.png" />
+                <figcaption>Quentin VERMONT</figcaption>
+              </figure>
+            </div>
+            <div class="equip-grid">
+              <figure>
+                <img class="equip-img" src="/images/alex.png" />
+                <figcaption>Alexandre MELLE</figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </div>

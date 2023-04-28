@@ -3,7 +3,11 @@
 <?php
 session_start();
 if (isset($_SESSION["name"])) {
-  header("Location: /");
+  if ($_SESSION["role_permission"] == 6) {
+    header("Location: /admin/admin.php");
+  } else {
+    header("Location: /");
+  }
 }
 ?>
 

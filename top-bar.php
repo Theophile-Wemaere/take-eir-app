@@ -4,8 +4,12 @@
     </div>
     <div class="right-items">
         <a href="/produit.php">
-            <button class="page-button" style="margin-right: 10px">
-                Notre produit
+            <?php if ($_SERVER["REQUEST_URI"] != "/produit.php") {
+                echo '<button class="page-button" style="margin-right: 10px">';
+            } else {
+                echo '<button class="page-button current-button" style="margin-right: 10px">';
+            } ?>
+            Notre produit
             </button></a>
         <div class="separator" style="margin-right: 10px"></div>
         <?php if ($_SERVER["REQUEST_URI"] == "/presentation.php") {
