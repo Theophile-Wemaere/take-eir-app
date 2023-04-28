@@ -132,8 +132,6 @@ if (isset($_SESSION["name"])) {
 
           // Check if the insert was successful
           if ($stmt->rowCount() > 0) {
-            echo "User created successfully";
-            session_start();
             $_SESSION["name"] = $name;
             $_SESSION["surname"] = $surname;
             $_SESSION["email"] = $email;
@@ -147,7 +145,7 @@ if (isset($_SESSION["name"])) {
               ->fetch();
             $_SESSION["role_name"] = $row["role_name"];
             $_SESSION["role_permission"] = $row["role_permission"];
-            header("Location: /");
+            echo '<script>window.location.href = "/";</script>';
           } else {
             echo '<p style="color: red;">Error creating user !</p>';
           }
