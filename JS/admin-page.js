@@ -49,8 +49,9 @@ function doSearch() {
           });
           button.addEventListener("click", function () {
             const selectedOption = select.value;
+            const email = r.email;
             const id = r.id_user;
-            const confirmMessage = `Are you sure you want to ${selectedOption} user ${id}?`;
+            const confirmMessage = `Are you sure you want to ${selectedOption} user ${email}?`;
             if (confirm(confirmMessage)) {
               const url = "/admin-controller.php";
               const data = new FormData();

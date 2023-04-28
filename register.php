@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
+<?php
+session_start();
+if (isset($_SESSION["name"])) {
+  header("Location: /");
+}
+?>
 
 <head>
   <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -13,48 +19,13 @@
 </head>
 
 <body>
-  <div class="top-bar">
-    <div class="top-bar-img">
-      <a href="/"><img src="/images/logo-notext.png" /></a>
-    </div>
-    <div class="right-items">
-      <a href="/produit.html">
-        <button class="page-button" style="margin-right: 10px">
-          Notre produit
-        </button></a>
-      <div class="separator" style="margin-right: 10px"></div>
-      <a href="/presentation.html">
-        <button class="page-button" style="margin-right: 10px">
-          Qui sommes nous ?
-        </button></a>
-      <a href="/login.php">
-        <button class="login-button" style="margin-right: 10px">
-          Se connecter
-        </button></a>
-    </div>
-    <span style="pointer-events: auto">
-      <div class="menu-button" href="javascript:void(0);" onclick="toggleMenu()">
-        <div class="sphere" style="background-color: #2d67e0"></div>
-        <div class="sphere" style="background-color: #e0584c"></div>
-        <div class="sphere" style="background-color: #5dd1b7"></div>
-      </div>
-    </span>
-  </div>
-  <div class="drop-menu" id="dropMenu" style="display: none">
-    <a href="/produit.html"><button class="page-button">Notre produit</button></a>
-    <div class="separator"></div>
-    <a href="/presentation.html"><button class="page-button">Qui sommes nous ?</button></a>
-    <div class="separator"></div>
-    <a href="/login.php"><button class="login-button" style="margin-top: 10px">
-        Se connecter
-      </button></a>
-  </div>
+  <?php require "top-bar.php"; ?>
   <div class="wrapper">
     <div class="inscription">
       <h1 class="title_register">INSCRIPTION</h1>
       <form method="POST" class="form_inscription">
         <select name="role" class="type">
-          <option value="select">Choisissez votre statut</option>
+          <option value=3>Choisissez votre statut</option>
           <option value=3>Patient/Famille</option>
           <option value=2>Medecin</option>
         </select>
@@ -90,7 +61,32 @@
         <input class="email" type="email" name="email" placeholder="Email:" required>
         <input id="password" class="mdp" type="password" placeholder="Mot de passe:" required>
         <input id="confirm-password" class="mdp" type="password" name="password" placeholder="Confirmation mot de passe:" required>
-        <button id="submit" type="submit" class="register_button">S'inscrire</button>
+        <div id="password-match-message" style="display:none;color:red;">Passwords doesn't match</div>
+        <button id="submit-button" type="submit" class="register_button">S'inscrire</button>
+        <script>
+          const passwordInput = document.getElementById("password");
+          const confirmPasswordInput = document.getElementById("confirm-password");
+          const submitButton = document.getElementById("submit-button")
+          const message = document.getElementById("password-match-message");
+
+          function checkPasswordMatch() {
+            if (passwordInput.value !== confirmPasswordInput.value) {
+              submitButton.disabled = true;
+              submitButton.style.pointerEvents = 'none';
+              submitButton.style.opacity = '0.5';
+              message.style.display = "block";
+            } else {
+              submitButton.disabled = false;
+              submitButton.style.pointerEvents = 'auto';
+              submitButton.style.opacity = '1';
+              message.style.display = "none";
+            }
+          }
+
+          passwordInput.addEventListener("input", checkPasswordMatch);
+          confirmPasswordInput.addEventListener("input", checkPasswordMatch);
+        </script>
+
       </form>
       <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require "database.php";
@@ -103,53 +99,60 @@
         $id = md5($email);
         $password = $_POST["password"];
 
-        // Generate hashed password using PASSWORD_ARGON2ID algorithm
-        $options = [
-          "memory_cost" => PASSWORD_ARGON2_DEFAULT_MEMORY_COST,
-          "time_cost" => PASSWORD_ARGON2_DEFAULT_TIME_COST,
-          "threads" => PASSWORD_ARGON2_DEFAULT_THREADS,
-        ];
-        $hashedPassword = password_hash($password, PASSWORD_ARGON2ID, $options);
-
-        // Prepare and execute the query to insert the new user into the database
-        $sql =
-          "INSERT INTO users (id_user, name, surname, email, password, id_role, gender) VALUES (:id,:name, :surname, :email, :password, :role, :gender)";
-        $stmt = $_DB->execute($sql, [
+        $stmt = $_DB->execute("SELECT * FROM users WHERE id_user = :id", [
           "id" => $id,
-          "name" => $name,
-          "surname" => $surname,
-          "email" => $email,
-          "password" => $hashedPassword,
-          "role" => $role,
-          "gender" => $gender,
         ]);
-
-        // Check if the insert was successful
         if ($stmt->rowCount() > 0) {
-          echo "User created successfully";
+          echo '<p style="color: red;">Error, user with this email already exist !</p>';
         } else {
-          echo "Error creating user";
+          // Generate hashed password using PASSWORD_ARGON2ID algorithm
+          $options = [
+            "memory_cost" => PASSWORD_ARGON2_DEFAULT_MEMORY_COST,
+            "time_cost" => PASSWORD_ARGON2_DEFAULT_TIME_COST,
+            "threads" => PASSWORD_ARGON2_DEFAULT_THREADS,
+          ];
+          $hashedPassword = password_hash(
+            $password,
+            PASSWORD_ARGON2ID,
+            $options
+          );
+
+          // Prepare and execute the query to insert the new user into the database
+          $sql =
+            "INSERT INTO users (id_user, name, surname, email, password, id_role, gender) VALUES (:id,:name, :surname, :email, :password, :role, :gender)";
+          $stmt = $_DB->execute($sql, [
+            "id" => $id,
+            "name" => $name,
+            "surname" => $surname,
+            "email" => $email,
+            "password" => $hashedPassword,
+            "role" => $role,
+            "gender" => $gender,
+          ]);
+
+          // Check if the insert was successful
+          if ($stmt->rowCount() > 0) {
+            echo "User created successfully";
+            session_start();
+            $_SESSION["name"] = $name;
+            $_SESSION["surname"] = $surname;
+            $_SESSION["email"] = $email;
+            $row = $_DB
+              ->execute(
+                "SELECT role_name,role_permission from roles where id_role = :id",
+                [
+                  "id" => $role,
+                ]
+              )
+              ->fetch();
+            $_SESSION["role_name"] = $row["role_name"];
+            $_SESSION["role_permission"] = $row["role_permission"];
+          } else {
+            echo '<p style="color: red;">Error creating user !</p>';
+          }
         }
       } ?>
 
-      <script>
-        const passwordInput = document.getElementById('password');
-        const confirmPasswordInput = document.getElementById('confirm-password');
-        const submitButton = document.getElementById('submit');
-
-        function checkPasswords() {
-          if (passwordInput.value === confirmPasswordInput.value) {
-            submitButton.disabled = false;
-          } else {
-            submitButton.disabled = true;
-          }
-        }
-
-        passwordInput.addEventListener('input', checkPasswords);
-        confirmPasswordInput.addEventListener('input', checkPasswords);
-
-        checkPasswords();
-      </script>
     </div>
   </div>
   <div class="bottom-bar">
