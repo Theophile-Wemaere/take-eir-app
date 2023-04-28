@@ -147,6 +147,7 @@ if (isset($_SESSION["name"])) {
               ->fetch();
             $_SESSION["role_name"] = $row["role_name"];
             $_SESSION["role_permission"] = $row["role_permission"];
+            header("Location: /");
           } else {
             echo '<p style="color: red;">Error creating user !</p>';
           }
