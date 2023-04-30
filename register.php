@@ -25,9 +25,9 @@ if (isset($_SESSION["name"])) {
       <h1 class="title_register">INSCRIPTION</h1>
       <form method="POST" class="form_inscription">
         <select name="role" class="type">
-          <option value=3>Choisissez votre statut</option>
-          <option value=3>Patient/Famille</option>
-          <option value=2>Medecin</option>
+          <option value=select>Choisissez votre statut</option>
+          <option value=famille>Patient/Famille</option>
+          <option value=medecin>Medecin</option>
         </select>
 
         <div class="gender">
@@ -90,8 +90,18 @@ if (isset($_SESSION["name"])) {
       </form>
       <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require "database.php";
-        // Get the email and password from the form
-        $role = $_POST["role"] == null ? 2 : $_POST["role"];
+        $role = null;
+        switch ($_POST["role"]) {
+          case "famille":
+            $role = 2;
+            break;
+          case "medecin":
+            $role = 3;
+            break;
+          default:
+            $role = 2;
+            break;
+        }
         $gender = $_POST["gender"];
         $name = htmlspecialchars($_POST["name"]);
         $surname = htmlspecialchars($_POST["surname"]);
