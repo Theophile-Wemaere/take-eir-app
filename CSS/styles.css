@@ -20,7 +20,8 @@ body {
 /* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_-_-_-_-_-_-_-_-_ */
 .top-bar {
   background-color: #ffffff;
-  position: relative;
+  position: fixed;
+  z-index: 20;
   top: 2%;
   left: 2%;
   right: 2%;
