@@ -1,0 +1,392 @@
+
+.top-bar {
+  background-color: #ffffff;
+  position: fixed;
+  z-index: 5;
+  top: 2%;
+  left: 2%;
+  right: 2%;
+  margin-bottom: 30px;
+  display: flex;
+  width: 96%;
+  min-height: 80px;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: right;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.top-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: right;
+  height: 50px;
+  color: #2d67e0;
+  margin-right: 10px;
+  text-decoration: none;
+  border-radius: 15px;
+  font-family: "Krona One", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.top-bar-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 2%;
+}
+
+.top-bar-img img {
+  width: auto;
+  height: 100%;
+}
+
+.right-items {
+  visibility: visible;
+  float: right;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.right-items a {
+  margin-right: 0;
+}
+
+@media (max-width: 790px) {
+  .right-items {
+    visibility: hidden;
+  }
+}
+
+.page-button {
+  height: 50px;
+  padding: 10px 10px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  color: #2d67e0;
+  font-family: "Krona One", sans-serif;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  border: 0;
+}
+
+.page-button:hover {
+  background-color: #dde9ff;
+}
+
+.current-button {
+  color: #e0584c;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+}
+
+.login-button {
+  height: 50px;
+  padding: 10px 10px;
+  text-align: right;
+  background-color: #2d67e0;
+  border-radius: 15px;
+  color: #ffffff;
+  font-family: "Krona One", sans-serif;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 100%;
+}
+
+.login-button:hover {
+  background-color: #3f2de1;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.5);
+}
+
+.separator {
+  width: 10px;
+  height: 10px;
+  border-radius: 25px;
+  background-color: #dde9ff;
+}
+
+.sphere {
+  margin: 5px 10px 5px 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 25px;
+  pointer-events: none;
+}
+
+.menu-button {
+  margin-right: 10px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.menu-button:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.drop-menu {
+  position: absolute;
+  z-index: 1000;
+  border-radius: 25px;
+  top: 120px;
+  right: 3%;
+  min-width: 250px;
+  width: 50%;
+  height: auto;
+  background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.drop-menu p {
+  color: red;
+}
+
+@media (min-width: 790px) {
+  .drop-menu {
+    visibility: hidden;
+  }
+
+  .menu-button {
+    pointer-events: none;
+  }
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-content-user {
+  display: none;
+  position: absolute;
+  top: 100%;
+  padding-top: -40px;
+  background-color: #3f2de1;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  border-radius: 0 0 15px 15px;
+  height: fit-content;
+  width: 90%;
+}
+
+.dropdown-content-user a {
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  justify-content: center;
+  margin: 0;
+  max-width: 100%;
+  height: fit-content;
+  font-size: 10px;
+}
+
+.dropdown-content-user p {
+  color: red;
+}
+
+.dropdown-content-user a:hover {
+  color: #dde9ff;
+}
+
+.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+:root {
+  --accent-color: #2D67E0;
+}
+
+body {
+  background-color: #e9f3f9;
+  background-image: url(/images/bg-half.png), url(/images/bg-half2.png);
+  background-position: left top, right top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat";
+}
+
+h1 {
+  font-family: "Nunito";
+  font-weight: 500;
+  font-size: 4vw;
+  letter-spacing: 0.05em;
+  margin: 150px 0 30px;
+  text-align: center;
+  color: var(--accent-color);
+}
+
+.faq-container {
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: rgba(209, 10, 10, 0.1) 0px 4px 12px;
+}
+
+.faq {
+  box-sizing: border-box;
+  background: transparent;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.faq:not(:first-child) {
+  border-top: 1px solid #e6e6e6;
+}
+
+.faq-title {
+  margin: 0 35px 0 0;
+}
+
+.faq-text {
+  margin: 30px 0 0;
+  display: none;
+  line-height: 1.5rem;
+}
+
+.faq.active {
+  background-color: #f8f8f8;
+  box-shadow: inset 4px 0px 0px 0px var(--accent-color);
+}
+
+.faq.active .faq-title {
+  color: var(--accent-color);
+}
+
+.faq.active .faq-text {
+  display: block;
+}
+
+.faq-toggle {
+  background-color: transparent;
+  border: 1px solid #e6e6e6;
+  color: inherit;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  padding-top: 3px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  height: 30px;
+  width: 30px;
+  transition: 0.3s ease;
+}
+
+.faq-toggle:focus {
+  outline: none;
+}
+
+.faq.active .faq-toggle {
+  transform: rotate(180deg);
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #fff;
+}
+
+.bottom-bar {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  padding: 0;
+  margin: 0;
+  margin-top: 20px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  width: 100%;
+  height: 30px;
+  min-height: 30px;
+  background: rgba(0, 102, 255, 0.18);
+  display: flex;
+}
+
+.bottom-bar a {
+  margin-top: auto;
+  margin-bottom: auto;
+  float: left;
+  color: #2d67e0;
+  margin-left: 10px;
+  text-decoration: none;
+  border-radius: 15px;
+  font-family: "Krona One", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.medias {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+  width: 20%;
+  height: 24px;
+  justify-content: space-evenly;
+  align-self: center;
+}
+
+.bottom-bar img {
+  height: 100%;
+  width: 24px;
+}
+
+@media (max-width: 790px) {
+  .bottom-bar a {
+    font-size: 3vw;
+  }
+
+  .medias {
+    width: 40%;
+  }
+
+  .bottom-bar img {
+    width: 70%;
+    max-width: 24px;
+  }
+
+  h1{
+    font-size: 21px;
+  }
+
+  h3{
+    font-size: 15px;
+  }
+
+  p{
+    font-size: 12px;
+  }
+}
