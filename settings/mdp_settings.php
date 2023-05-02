@@ -57,17 +57,17 @@
                 <div class="gauche">
                     <div class="groupe">
                         <label>Mot de passe actuel</label>
-                        <input id="name" type="text" name="name" require>
+                        <input id="name" type="password" name="name" require>
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <div class="groupe">
                         <label>Nouvel mot de passe</label>
-                        <input id="email" type="text" name="email" require>
+                        <input id="email" type="password" name="email" require>
                         <i class="fa-solid fa-key"></i>
                     </div>
                     <div class="groupe">
                         <label>Vérification du mot de passe</label>
-                        <input id="subject" type="text" name="phoneNumber">
+                        <input id="subject" type="password" name="phoneNumber">
                         <i class="fa-solid fa-key"></i>
                     </div>
                 </div>

@@ -57,17 +57,17 @@
                 <div class="gauche">
                     <div class="groupe">
                         <label>E-mail actuel</label>
-                        <input id="name" type="text" name="name" require>
+                        <input id="name" type="email" name="name" require>
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <div class="groupe">
                         <label>Nouvel e-mail</label>
-                        <input id="email" type="text" name="email" require>
+                        <input id="email" type="email" name="email" require>
                         <i class="fa-solid fa-envelope"></i>
                     </div>
                     <div class="groupe">
                         <label>Vérification de l'e-mail</label>
-                        <input id="subject" type="text" name="phoneNumber">
+                        <input id="subject" type="email" name="phoneNumber">
                         <i class="fa-solid fa-envelope"></i>
                     </div>
                 </div>

@@ -62,7 +62,7 @@
                     </div>
                     <div class="groupe">
                         <label>Entrez votre mot de passe</label>
-                        <input id="email" type="text" name="email" require>
+                        <input id="email" type="password" name="email" require>
                         <i class="fa-solid fa-key"></i>
                     </div>
                 </div>
