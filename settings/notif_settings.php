@@ -7,7 +7,7 @@
     <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/styles.css" />
-    <link rel="stylesheet" href="../CSS/settings.css">
+    <link rel="stylesheet" href="../CSS/notif_settings.css">
     <script src="/JS/scripts.js"></script>
     <title>Activer les notifications</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -48,8 +48,8 @@
                             <a href="notif_settings.php"><label> <span class="email">Notifications</span></label></a>
                         </div>
                         <div class="test">
-                            <a href=""><i class="fa-solid fa-user-minus"></i></a>
-                            <a href=""><label><span class="supprimer">Supprimer le compte</span></label></a>
+                            <a href="delete_settings.php"><i class="fa-solid fa-user-minus"></i></a>
+                            <a href="delete_settings.php"><label><span class="supprimer">Supprimer le compte</span></label></a>
                         </div>
                     </div>
                 </div>

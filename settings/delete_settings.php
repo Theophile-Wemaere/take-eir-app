@@ -7,9 +7,9 @@
     <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/styles.css" />
-    <link rel="stylesheet" href="../CSS/settings.css">
+    <link rel="stylesheet" href="../CSS/mdp_settings.css">
     <script src="/JS/scripts.js"></script>
-    <title>Modifier son e-mail</title>
+    <title>Supprimer son compte</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,7 +25,7 @@
     <div class="wrapper">
         <h4 class="sent-notification"></h4>
         <form id="myForm">
-            <h1>Modifiez votre adresse e-mail :</h1>
+            <h1>Modifiez votre mot de passe :</h1>
             <div class="separation"></div>
 
             <div class="corps-formulaire">
@@ -36,46 +36,41 @@
                             <a href=""><label>Profil</label></a>
                         </div>
                         <div class="test">
-                            <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                            <a href="#"><label> <span class="email"> E-mail</span> </label></a>
+                            <a href="settings.php"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="settings.php"><label> E-mail </label></a>
                         </div>
                         <div class="test">
                             <a href="mdp_settings.php"><i class="fa-solid fa-key"></i></a>
-                            <a href="mdp_settings.php"><label>Mot de passe</label></a>
+                            <a href="mdp_settings.php"><label> Mot de passe </label></a>
                         </div>
                         <div class="test">
                             <a href="notif_settings.php"><i class="fa-solid fa-comment"></i></a>
                             <a href="notif_settings.php"><label>Notifications</label></a>
                         </div>
                         <div class="test">
-                            <a href="delete_settings.php"><i class="fa-solid fa-user-minus"></i></a>
-                            <a href="delete_settings.php"><label><span class="supprimer">Supprimer le compte</span></label></a>
+                            <a href="#"><i class="fa-solid fa-user-minus"></i></a>
+                            <a href="#"><label><span class="supprimer">Supprimer le compte</span></label></a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="gauche">
                     <div class="groupe">
-                        <label>E-mail actuel</label>
+                        <label> Raison de supprimer le compte ?</label>
                         <input id="name" type="text" name="name" require>
-                        <i class="fa-solid fa-user"></i>
+                        <i class="fa-solid fa-question"></i>
                     </div>
                     <div class="groupe">
-                        <label>Nouvel e-mail</label>
+                        <label>Entrez votre mot de passe</label>
                         <input id="email" type="text" name="email" require>
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
-                    <div class="groupe">
-                        <label>Vérification de l'e-mail</label>
-                        <input id="subject" type="text" name="phoneNumber">
-                        <i class="fa-solid fa-envelope"></i>
+                        <i class="fa-solid fa-key"></i>
                     </div>
                 </div>
             </div>
 
             <center>
                 <div class="pied-formulaire">
-                    <button type="button" onclick="sendEmail()" value="Send An Email">Confirmer</button>
+                    <button type="button" onclick="sendEmail()" value="Send An Email">Supprimer votre compte</button>
                 </div>
             </center>
 
