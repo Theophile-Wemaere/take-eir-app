@@ -317,6 +317,11 @@ h1 {
   color: #fff;
 }
 
+.noResponse h3{
+  color: red;
+  padding: 2Opx;
+}
+
 .bottom-bar {
   position: relative;
   left: 0;
