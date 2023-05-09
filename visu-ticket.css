@@ -22,6 +22,44 @@ body {
     border-radius: 25px;
 }
 
+.main-box h1 {
+    justify-self: center; /* center the item horizontally in its cell */
+    align-self: center; /* center the item vertically in its cell */
+    grid-row: 1;
+    grid-column: 1;
+    color: #2d67e0;
+    font-family: "Montserrat", sans-serif;
+    font-size: medium;
+    font-weight: 700;
+    font-size: 50px;
+    letter-spacing: 0.1em;
+}
+
+.main-box h3 {
+    justify-self: center; /* center the item horizontally in its cell */
+    align-self: center; /* center the item vertically in its cell */
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column: 1;
+    color: #2d67e0;
+    font-family: "Nunito", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: 0.1em;
+}
+
+.main-box img {
+    border-radius: 25px;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column: 2;
+    justify-self: center; /* center the item horizontally in its cell */
+    align-self: center; /* center the item vertically in its cell */
+    width: 70%;
+    height: auto;
+}
+
 .top-bar {
     background-color: #ffffff;
     position: absolute;
@@ -87,7 +125,7 @@ body {
     background-color: #dde9ff;
 }
 
-.login-button {
+.admin-button {
     height: 50px;
     float: right;
     padding: 10px 10px;
@@ -121,4 +159,174 @@ body {
     width: 20px;
     height: 20px;
     border-radius: 25px;
+}
+
+/* Case texte */
+
+.tickets {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 40%;
+    height: 8%;
+    left: 30%;
+    right: 30%;
+    top: 25%;
+
+    background: #2D67E0;
+    border: 2px solid #2D67E0;
+    border-radius: 22px;
+}
+
+.tickets h2{
+    font-family: 'Krona One';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    align: self;
+    color: #FFFFFF;
+}
+
+.ticket_reçu {
+
+    position: absolute;
+    width: 60%;
+    height: 30%;
+    left: 20%;
+    right: 20%;
+    top: 40%;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+
+}
+
+.ticket_reçu h3{
+
+    font-family: 'Krona One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    /* identical to box height */
+
+    margin-left: 2%;
+    align: self;
+
+    color: #000000;
+
+}
+
+.ticket_reçu p{
+
+    font-family: 'Krona One';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 80%;
+    line-height: 25px;
+    /* identical to box height */
+
+    margin-left: 2%;
+    align: self;
+
+    color: #000000;
+}
+
+.reponse{
+
+    position: absolute;
+    width: 60%;
+    height: 40%;
+    left: 20%;
+    right: 20%;
+    top: 75%;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.reponse input{
+
+    font-family: 'Krona One';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 80%;
+    line-height: 25px;
+    /* identical to box height */
+
+    margin-left: 2%;
+    align: self;
+
+    color: #000000;
+
+    display: block;
+    border: none;
+    outline: none;
+    width: 85%;
+    padding: 1%;
+    margin-top: 2%;
+
+}
+
+
+.button a{
+
+    display: inline-block;
+
+    border: 2px solid #2D67E0;
+    border-radius: 15px;
+
+}
+
+.button_reponse{
+
+    position: absolute;
+    width: 10%;
+    height: 5%;
+    left: 30%;
+    top: 120%;
+    background: #5DD1B7;
+
+    font-family: 'Krona One';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 9px;
+    line-height: 25px;
+
+    text-decoration: none;
+    /* identical to box height */
+
+    text-align: center;
+    align: self;
+
+    color: #000000;
+
+}
+
+.button_close{
+
+    position: absolute;
+    width: 10%;
+    height: 5%;
+    left: 50%;
+    top: 120%;
+    background: #E0584C;
+
+    font-family: 'Krona One';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 9px;
+    line-height: 25px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #000000;
+    text-decoration: none;
+    align: self;
+
 }

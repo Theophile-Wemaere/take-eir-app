@@ -3,13 +3,13 @@
 <head>
     <title>health-eir</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet"  />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="visu-ticket.css">
 </head>
 <body>
 
@@ -20,7 +20,7 @@
     <button class="page-button">Notre produit</button>
     <div class="separator"></div>
     <button class="page-button">Qui somme nous ?</button>
-    <button class="login-button">Se connecter</button>
+    <button class="admin-button">Administrateur</button>
     <div class="sphere" style="background-color: #2d67e0"></div>
     <div class="sphere" style="background-color: #e0584c"></div>
     <div class="sphere" style="background-color: #5dd1b7"></div>
@@ -35,9 +35,23 @@
     <p>L’écran led de mon appareil n’affiche plus rien mais les capteurs fonctionnent toujours.<br>Que faire ?</p>
 </div>
 
-<button>Envoyer réponse</button>
-<button>Fermer le ticket</button>
+<div class="reponse">
+    <form action="post">
+        <div class="left">
+            <input type="text"
+                   placeholder="Veuillez écrire la réponse ici..."
+                   id="reponse_ticket"
+                   name="reponse_ticket"/>
+        </div>
+    </form>
+</div>
 
+
+
+<div class="button">
+    <a class="button_reponse" href="#">Envoyer réponse</a>
+    <a class="button_close" href="#">Fermer le ticket</a>
+</div>
 
 
 </body>
