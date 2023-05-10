@@ -95,8 +95,11 @@
     </p>
     </div>
 
+    <?php echo "Vous êtes le visiteur n°" . $nbre_visiteurs; ?>
     </div>
 
+    
+    
 
 </body>
 </html>
