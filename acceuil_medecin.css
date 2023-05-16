@@ -151,7 +151,6 @@ body{
     background: #2D67E0;
     font-family: 'Krona One';
     border-radius: 15px;
-    text-align-last: center;
 }
 
 .docteur img{
@@ -190,15 +189,14 @@ hr{
 .patient-box{
     position: absolute;
     flex-direction: column;
-    display: flex;
     width: 50%;
     height: 95%;
     right: 120px;
     top: 164px;
     font-family: 'Krona One', sans-serif;
-    background-color: white;
     border-radius: 15px;
     border-color:rgb(7, 100, 158);
+    background-color: #dde9ff;
 
 }
 .patient-box H1{
@@ -215,5 +213,23 @@ hr{
     background: #2D67E0;
     font-family: 'Krona One';
     border-radius: 15px;
-    text-align-last: center;
+
 }
+.patient-box input[type="text"], button {
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 30%;
+    margin-right: 10%;
+  }
+.patient-box input{
+    width:80%;
+}
+  
+.patient-box button {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+  }
