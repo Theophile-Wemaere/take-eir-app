@@ -42,6 +42,7 @@
             </tr>
             </table>
       </div>
+    <?php require "bottom-bar.php"; ?>
     </body>
 
 </html>
