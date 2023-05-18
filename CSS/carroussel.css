@@ -23,8 +23,13 @@ body {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  animation: rotate360 60s infinite forwards linear;
+  animation: rotate360 55s infinite forwards linear;
 }
+
+.carousel:hover {
+  animation-play-state: paused;
+}
+
 .carousel__face {
   position: absolute;
   width: 300px;
