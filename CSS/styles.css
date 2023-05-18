@@ -347,6 +347,7 @@ body {
   height: auto;
   background: rgba(0, 102, 255, 0.18);
   display: flex;
+  min-height: 30px;
 }
 
 .bottom-bar a {
@@ -407,6 +408,7 @@ body {
 
   .bottom-bar {
     flex-direction: column;
+    min-height: auto;
   }
 
   .medias {
