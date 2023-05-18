@@ -43,7 +43,7 @@
         </button>
       </div>
 
-      <div class="faq active">
+      <div class="faq">
         <h3 class="faq-title">
           Comment puis-je accéder aux données de santé de mon proche hospitalisé à domicile ?
         </h3>

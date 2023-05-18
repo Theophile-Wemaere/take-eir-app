@@ -1,11 +1,13 @@
 <div class="bottom-bar">
-    <a href="/mentions.php">© TAKE-EIR</a>
-    <div class="separator"></div>
-    <a href="/cgu.php"> CGU </a>
-    <div class="separator"></div>
-    <a href="/FAQ/faq.php"> FAQ </a>
-    <div class="separator"></div>
-    <a href="/contact/contact.php">Nous contacter</a>
+    <div class="left-items">
+        <a href="/mentions.php">© TAKE-EIR</a>
+        <div class="separator"></div>
+        <a href="/cgu.php"> CGU </a>
+        <div class="separator"></div>
+        <a href="/FAQ/faq.php"> FAQ </a>
+        <div class="separator"></div>
+        <a href="/contact/contact.php">Nous contacter</a>
+    </div>
     <div class="medias">
         <!-- https://icons8.com/icons/set/social-media -->
         <a href="https://linkedin.com/"><img src="/images/icons8-linkedin-24.png" />
