@@ -36,12 +36,12 @@ if (isset($_SESSION["name"])) {
         <div class="gauche">
           <div class="groupe">
             <label>Email</label>
-            <input type="email" name="email" placeholder="Email:" />
+            <input type="email" name="email"/>
             <i class="fa-solid fa-envelope"></i>
           </div>
           <div class="groupe">
             <label>Mot de passe</label>
-            <input type="password" name="password" placeholder="Mot de passe:" />
+            <input type="password" name="password"/>
             <i class="fa-solid fa-key"></i>
           </div>
 
@@ -80,7 +80,6 @@ if (isset($_SESSION["name"])) {
               $row = $stmt->fetch();
               $password_hash = $row["password"];
               if (password_verify($password, $password_hash)) {
-                echo "Password is valid!";
                 session_start();
                 $_SESSION["name"] = $row["name"];
                 $_SESSION["surname"] = $row["surname"];
@@ -88,9 +87,9 @@ if (isset($_SESSION["name"])) {
                 $_SESSION["role_name"] = $row["role_name"];
                 $_SESSION["role_permission"] = $row["role_permission"];
                 if ($_SESSION["role_permission"] == 6) {
-                  header("Location: /admin/admin.php");
+                  echo '<script>window.location.href = "/admin/admin.php";</script>';
                 } else {
-                  header("Location: /");
+                  echo '<script>window.location.href = "/";</script>';
                 }
               } else {
                 echo '<p style="color: red;">Error, invalid password !</p>';

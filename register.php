@@ -98,7 +98,7 @@ if (isset($_SESSION["name"])) {
 
           <div id="password-match-message" style="margin-top:20px;display:none;color:red;">Passwords doesn't match</div>
           <div class="pied-formulaire">
-            <button id="submit-btn" type="submit">S'inscrire'</button>
+            <button id="submit-btn" type="submit">S'inscrire</button>
             <script>
               const passwordInput = document.getElementById("password");
               const confirmPasswordInput = document.getElementById("confirm-password");
