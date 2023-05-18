@@ -137,7 +137,7 @@
 <!-- partial -->
   <script  src="./faq.js"></script>
 
-  <?php require "bottom-bar.php"; ?>
+  <?php require "../bottom-bar.php"; ?>
 </div>
 
 </body>

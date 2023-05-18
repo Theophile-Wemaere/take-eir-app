@@ -102,7 +102,7 @@
             }
         </script>
     </div>
-    <?php require "bottom-bar.php"; ?>
+    <?php require "../bottom-bar.php"; ?>
 </body>
 
 </html>

@@ -39,7 +39,7 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
       </script>
     </div>
   </div>
-  <?php require "bottom-bar.php"; ?>
+  <?php require "../bottom-bar.php"; ?>
 </body>
 
 </html>
