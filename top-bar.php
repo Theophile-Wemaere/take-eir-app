@@ -1,3 +1,4 @@
+<div class="fake-top-bar"></div>
 <div class="top-bar">
     <div class="top-bar-img">
         <a href="/"><img src="/images/logo-notext.png" /></a>

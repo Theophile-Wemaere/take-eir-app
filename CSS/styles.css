@@ -18,9 +18,17 @@ body {
 }
 
 /* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_-_-_-_-_-_-_-_-_ */
+
+.fake-top-bar {
+  position: relative;
+  margin-bottom: 30px;
+  min-height: 80px;
+  top: 2%;
+}
+
 .top-bar {
   background-color: #ffffff;
-  position: relative;
+  position: fixed;
   top: 2%;
   left: 2%;
   right: 2%;
@@ -32,6 +40,7 @@ body {
   align-items: center;
   justify-content: right;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
 }
 
 .top-bar a {
