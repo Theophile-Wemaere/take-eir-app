@@ -142,7 +142,7 @@ if (isset($_SESSION["name"])) {
         <div class="separation" style="margin-top: 20px;margin-bottom: 20px;"></div>
         <div class="droite">
           <a>J'ai déjà un compte</a>
-          <a class="link" href="/login.php">Me connecter</a>
+          <a class="link" href="/index.php/login">Me connecter</a>
         </div>
       </div>
     <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {

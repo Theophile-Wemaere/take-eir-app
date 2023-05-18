@@ -4,8 +4,8 @@
         <a href="/"><img src="/images/logo-notext.png" /></a>
     </div>
     <div class="right-items">
-        <a href="/produit.php">
-            <?php if ($_SERVER["REQUEST_URI"] != "/produit.php") {
+        <a href="/index.php/produit">
+            <?php if (strpos(basename($_SERVER["PHP_SELF"]),"produit") === false) {
                 echo '<button class="page-button" style="margin-right: 10px">';
             } else {
                 echo '<button class="page-button current-button" style="margin-right: 10px">';
@@ -13,10 +13,10 @@
             Notre produit
             </button></a>
         <div class="separator" style="margin-right: 10px"></div>
-        <?php if ($_SERVER["REQUEST_URI"] == "/presentation.php") {
+        <?php if (strpos(basename($_SERVER["PHP_SELF"]),"presentation") !== false) {
             echo '      
 <div class="dropdown">
-            <a href="/presentation.php"> <button id="menu-btn" onmouseenter="dropMenuPres()" onmouseleave="dropMenuPres()" class="dropbtn current-button">
+            <a href="/index.php/presentation"> <button id="menu-btn" onmouseenter="dropMenuPres()" onmouseleave="dropMenuPres()" class="dropbtn current-button">
                     Qui sommes nous ?
                 </button></a>
             <div id="myDropdown" onmouseleave="dropMenuPres()" class="dropdown-content">
@@ -26,13 +26,13 @@
             </div>
         </div>';
         } else {
-            echo '<a href="/presentation.php">
+            echo '<a href="/index.php/presentation">
             <button class="page-button" style="margin-right: 10px">
                 Qui sommes nous ?
             </button></a>';
         } ?>
         <div class="dropdown">
-            <a href="/login.php">
+            <a href="/index.php/login">
                 <button class="login-button" id="user-menu" onmouseenter="dropMenuUser()" onmouseleave="dropMenuUser()">
                     <?php
                     session_start();
@@ -49,7 +49,7 @@
             <?php if (isset($_SESSION["email"])) {
                 echo '<div id="userDropdown" onmouseleave="dropMenuUser()" class="dropdown-content-user">';
                 echo "<p>" . $_SESSION["role_name"] . "</p>";
-                echo '<a href="/monitor.php">HEALTH-EIR View</a>
+                echo '<a href="/index.php/monitor">HEALTH-EIR View</a>
           <a href="#" onclick="logout()">Se deconnecter</a>
         </div>';
             } ?>
@@ -81,7 +81,7 @@
         </button></a>
     <?php if (isset($_SESSION["email"])) {
         echo "<p>" . $_SESSION["role_name"] . "</p>";
-        echo '<a href="/monitor.php"><button class="page-button">HEALTH-EIR View</button></a>
+        echo '<a href="/index.php/monitor"><button class="page-button">HEALTH-EIR View</button></a>
           <a href="#" onclick="logout()"><button class="page-button">Se deconnecter</button></a>';
     } ?>
 

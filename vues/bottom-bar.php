@@ -4,7 +4,7 @@
         <div class="separator"></div>
         <a href="/cgu.php"> CGU </a>
         <div class="separator"></div>
-        <a href="/FAQ/faq.php"> FAQ </a>
+        <a href="/faq/faq.php"> FAQ </a>
         <div class="separator"></div>
         <a href="/contact/contact.php">Nous contacter</a>
     </div>

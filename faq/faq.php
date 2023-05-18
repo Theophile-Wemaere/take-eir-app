@@ -23,7 +23,7 @@
   <!--=============== FONT AWESOME ===============-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 
-  <?php require "../top-bar.php"; ?>
+  <?php require "../vues/top-bar.php"; ?>
   <div class="wrapper">
 
 
@@ -151,7 +151,7 @@
     <!-- partial -->
     <script src="./faq.js"></script>
   </div>
-  <?php require "../bottom-bar.php"; ?>
+  <?php require "../vues/bottom-bar.php"; ?>
 
 </body>
 

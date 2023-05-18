@@ -103,7 +103,7 @@ if (isset($_SESSION["name"])) {
         <div class="separation" style="margin-top: 20px;margin-bottom: 20px;"></div>
         <div class="droite">
           <a>Je n'ai pas encore de compte</a>
-          <a class="link" href="/register.php">M'inscrire</a>
+          <a class="link" href="/index.php/register">M'inscrire</a>
         </div>
       </div>
     </form>
