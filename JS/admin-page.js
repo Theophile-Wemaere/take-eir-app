@@ -79,3 +79,27 @@ function doSearch() {
 
   return false;
 }
+
+function createArticle() {
+  console.log("here pls");
+  const subject = document.getElementById("subject");
+  const body = document.getElementById("body");
+
+  const data = new FormData();
+  data.append("create_faq", "true");
+  data.append("subject", subject.value);
+  data.append("body", body.value);
+
+  fetch("/admin-controller.php", {
+    method: "POST",
+    body: data,
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res !== null) {
+      }
+    });
+
+  subject.value = "";
+  body.value = "";
+}

@@ -39,4 +39,9 @@ if (isset($_POST["action"])) {
         )
         ->fetchAll();
     echo json_encode(count($results) == 0 ? null : $results);
+} elseif (isset($_POST["create_faq"])) {
+    $subject = $_POST["subject"];
+    $body = $_POST["body"];
+    $results = $_DB->execute("INSERT INTO faq (subject, body) VALUES(:subject, :body)", ["subject" => $subject, "body" => $body])->fetchAll();
+    echo json_encode(count($results) == 0 ? null : $results);
 }

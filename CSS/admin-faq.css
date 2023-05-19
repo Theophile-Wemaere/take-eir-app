@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+
+form {
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  min-width: 250px;
+  padding: 20px 50px 20px 50px;
+  border-radius: 10px;
+}
+
+form h1 {
+  font-size: 20px;
+  text-align: center;
+}
+
+form div.separation {
+  background-color: #e0584c;
+  height: 1px;
+  width: 100%;
+}
+
+form div.corps-formulaire {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+form .corps-formulaire div.groupe {
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+form .gauche {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form div.groupe input {
+  margin-top: 5px;
+  padding: 10px 5px 10px 5px;
+  border: 1px solid #c9c9c9;
+  outline-color: #b9d0ff;
+  border-radius: 5px;
+}
+
+form .corps-formulaire textarea {
+  margin-top: 5px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border: 2px solid #b9d0ff;
+  outline: none;
+  border-radius: 5px;
+  color: grey;
+  resize: vertical;
+  height: 100px;
+  max-height: 330px;
+}
+
+
+form .pied-formulaire {
+  display: flex;
+  justify-content: center;
+}
+
+form .pied-formulaire button {
+  margin-top: 10px;
+  background-color: #e0584c;
+  color: white;
+  font-size: 15px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form .pied-formulaire button:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
