@@ -11,8 +11,9 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
   <title>health-eir</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="/CSS/styles.css" />
-  <link rel="stylesheet" href="/CSS/admin-faq.css" />
   <link rel="stylesheet" href="/CSS/faq.css">
+  <link rel="stylesheet" href="/CSS/admin-faq.css" />
+  <link rel="stylesheet" href="/CSS/admin.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,8 +32,13 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
 <body>
   <?php require "../vues/top-bar.php"; ?>
   <div class="wrapper">
+  <div class="tabs">
+      <a href="/admin/admin-faq.php" class="page-button active">Gérer FAQ</a>  
+      <a href="/admin/admin-users.php"  class="page-button">Gérer utilisateurs</a>  
+      <a href="" class="page-button">Gérer tickets</a>  
+  </div>
     <form>
-      <h1>Créer un article</h1>
+      <p class="h1alt">Créer un article</p>
       <div class="separation"></div>
       <div class="corps-formulaire">
         <div class="groupe">
@@ -47,8 +53,8 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
     </form>
 <div id="faq" class="faq-container">
 <script>
-fetchFAQ_user()
-</script>
+fetchFAQ_admin()
+  </script>
     </div>
 
   </div>

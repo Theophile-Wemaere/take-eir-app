@@ -11,6 +11,7 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
   <title>health-eir</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="/CSS/styles.css" />
+  <link rel="stylesheet" href="/CSS/admin-users.css" />
   <link rel="stylesheet" href="/CSS/admin.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
@@ -28,6 +29,11 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
 <body>
   <?php require "../vues/top-bar.php"; ?>
   <div class="wrapper">
+    <div class="tabs">
+      <a href="/admin/admin-faq.php" class="page-button">Gérer FAQ</a>  
+      <a href="/admin/admin-users.php"  class="page-button active">Gérer utilisateurs</a>  
+      <a href="" class="page-button">Gérer tickets</a>  
+    </div>
     <div class="main-box">
       <form id="mySearch" onsubmit="return doSearch()">
         <input type="text" name="search" />

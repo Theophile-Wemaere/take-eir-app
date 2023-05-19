@@ -34,6 +34,12 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
                 ]
             );
             break;
+
+        case "delete_faq":
+            $_DB->execute("DELETE FROM faq WHERE id_post = ?", [
+                $_POST["id_post"],
+            ]);
+            break;
         }
     } elseif (isset($_POST["search"])) {
         $_DB->execute("SET @search = :var", ["var" => "%{$_POST["search"]}%"]);

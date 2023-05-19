@@ -15,7 +15,7 @@ form {
   border-radius: 10px;
 }
 
-form h1 {
+form .h1alt {
   font-size: 20px;
   text-align: center;
 }
@@ -88,4 +88,27 @@ form .pied-formulaire button:hover {
   opacity: 0.8;
   transform: scale(1.1);
   transition: 0.3s ease-in-out;
+}
+
+.faq-title {
+  margin-right: 65px;
+}
+
+.faq-delete {
+  background-color: transparent;
+  border: 1px solid #e6e6e6;
+  color: inherit;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  padding-top: 3px;
+  position: absolute;
+  top: 30px;
+  right: 65px;
+  height: 30px;
+  width: 30px;
+  transition: 0.3s ease;
 }
