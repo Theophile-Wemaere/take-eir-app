@@ -47,7 +47,7 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
     </form>
 <div id="faq" class="faq-container">
 <script>
-fetchFAQ()
+fetchFAQ_user()
 </script>
     </div>
 

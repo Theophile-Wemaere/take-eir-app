@@ -1,8 +1,12 @@
 <?php
-require "../database.php";
-
-if (isset($_POST["action"])) {
-    switch ($_POST["action"]) {
+session_start();
+if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
+    error_log("not allowed");
+    header("Location: /");
+} else {
+    require "../database.php";
+    if (isset($_POST["action"])) {
+        switch ($_POST["action"]) {
         case "delete":
             $_DB->execute("DELETE FROM users WHERE id_user = ?", [
                 $_POST["id_user"],
@@ -30,18 +34,19 @@ if (isset($_POST["action"])) {
                 ]
             );
             break;
+        }
+    } elseif (isset($_POST["search"])) {
+        $_DB->execute("SET @search = :var", ["var" => "%{$_POST["search"]}%"]);
+        $results = $_DB
+            ->execute(
+                "SELECT id_user, name, surname, email, created_at, gender, roles.role_name from users join roles on users.id_role = roles.id_role WHERE name LIKE @search OR surname LIKE @search OR email LIKE @searcho ORDER BY created_at ASC"
+            )
+            ->fetchAll();
+        echo json_encode(count($results) == 0 ? null : $results);
+    } elseif (isset($_POST["create_faq"])) {
+        $subject = $_POST["subject"];
+        $body = $_POST["body"];
+        $results = $_DB->execute("INSERT INTO faq (subject, body) VALUES(:subject, :body)", ["subject" => $subject, "body" => $body])->fetchAll();
+        echo json_encode(count($results) == 0 ? null : $results);
     }
-} elseif (isset($_POST["search"])) {
-    $_DB->execute("SET @search = :var", ["var" => "%{$_POST["search"]}%"]);
-    $results = $_DB
-        ->execute(
-            "SELECT id_user, name, surname, email, created_at, gender, roles.role_name from users join roles on users.id_role = roles.id_role WHERE name LIKE @search OR surname LIKE @search OR email LIKE @searcho ORDER BY created_at ASC"
-        )
-        ->fetchAll();
-    echo json_encode(count($results) == 0 ? null : $results);
-} elseif (isset($_POST["create_faq"])) {
-    $subject = $_POST["subject"];
-    $body = $_POST["body"];
-    $results = $_DB->execute("INSERT INTO faq (subject, body) VALUES(:subject, :body)", ["subject" => $subject, "body" => $body])->fetchAll();
-    echo json_encode(count($results) == 0 ? null : $results);
 }

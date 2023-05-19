@@ -30,7 +30,7 @@
     <h1>Foire aux questions</h1>
     <div id="faq" class="faq-container">
 <script>
-fetchFAQ()
+fetchFAQ_user()
 </script>
     </div>
     <h3 class="noResponse" style="color: #3f2de1; padding: 10px 20px;">Vous n'avez pas trouvé de réponse à votre

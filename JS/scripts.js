@@ -191,7 +191,7 @@ function doRegister() {
   }
 }
 
-function fetchFAQ() {
+function fetchFAQ_user() {
   fetch("/controllers/faq-controller.php", {
     method: "GET",
   })
