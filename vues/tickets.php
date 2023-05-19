@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>F.A.Q</title>
   <link rel="stylesheet" href="/CSS/styles.css">
-  <link rel="stylesheet" href="/CSS/tickets.css">
   <link rel="stylesheet" href="/CSS/form.css">
+  <link rel="stylesheet" href="/CSS/tickets.css">
   <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,18 +22,17 @@
   <?php require "top-bar.php"; ?>
   <div class="wrapper">
     <h1>Vos tickets</h1>
-    <div class="form">
-      <div class="corps-formulaire">
-        <div class="gauche">
+    <div class="main-box">
+        <div class="left-part">
           <div id="tickets" class="tickets-container">
             <script>getTickets()</script>
           </div>
+          <div class="pied-formulaire">
+            <a href="/index.php/create-ticket"><button type="button">Ouvrir un ticket</button></a>
+          </div>
         </div>
-        <div class="droite">
-          <div id="conv" class="conv">
+        <div id="conv" class="conv">
         </div>
-      </div>
-      </div>
     </div>
   </div>
   <?php require "bottom-bar.php"; ?>

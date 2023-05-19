@@ -259,22 +259,36 @@ function getTickets() {
         const ticketDiv = document.createElement("div");
         ticketDiv.classList.add("ticket");
 
-        const titleH3 = document.createElement("h3");
-        titleH3.classList.add("ticket-title");
-        titleH3.textContent = item.subject;
+        const title = document.createElement("p");
+        title.classList.add("ticket-title");
+        title.textContent = item.subject;
+
+        const tag = document.createElement("p");
+        tag.classList.add("ticket-tag");
+        tag.textContent = item.tag_name;
 
         const stateSpan = document.createElement("span");
         stateSpan.classList.add("ticket-state");
         stateSpan.textContent = item.state;
+        if (item.state === "OPEN") {
+          stateSpan.style.color = "green";
+        } else {
+          stateSpan.style.color = "purple";
+        }
 
         const timestampSpan = document.createElement("span");
         timestampSpan.classList.add("ticket-timestamp");
         const createdAt = new Date(item.created_at);
         timestampSpan.textContent = createdAt.toLocaleString();
 
-        ticketDiv.appendChild(titleH3);
+        ticketDiv.appendChild(title);
+        ticketDiv.appendChild(tag);
         ticketDiv.appendChild(stateSpan);
         ticketDiv.appendChild(timestampSpan);
+
+        ticketDiv.addEventListener("click", function () {
+          focusConversation(item.tickets_id);
+        });
 
         container.appendChild(ticketDiv);
       });
@@ -282,6 +296,99 @@ function getTickets() {
     .catch((error) => {
       console.error("Error:", error);
     });
+}
+
+function focusConversation(ticket_id) {
+  const focus = document.getElementById("conv");
+  focus.innerHTML = "";
+  const conv = document.createElement("div");
+  conv.classList.add("conversation");
+  fetch("/controllers/tickets-controller.php?action=conv&id=" + ticket_id, {
+    method: "GET",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const messages = data.body.split("]");
+      messages.forEach((message) => {
+        const sender = message.split("[")[0];
+        const content = message.split("[")[1];
+
+        const messageElement = document.createElement("div");
+        messageElement.classList.add("messagerow");
+        messageElement.textContent =
+          sender + " : " + unicodeBase64Decode(content);
+
+        if (sender === "you") {
+          messageElement.style.textAlign = "left";
+        } else {
+          messageElement.style.textAlign = "right";
+        }
+
+        conv.appendChild(messageElement);
+      });
+      focus.appendChild(conv);
+      conv.scrollTop = conv.scrollHeight;
+
+      const resp = document.createElement("div");
+      resp.classList.add("respbox");
+
+      const inputElement = document.createElement("textarea");
+      inputElement.classList.add("messagebox");
+
+      const buttonElement = document.createElement("button");
+      buttonElement.classList.add("send-btn");
+      buttonElement.innerHTML = "<i class='fa fa-arrow-right'></i>";
+
+      buttonElement.addEventListener("click", function () {
+        const newMessage = inputElement.value;
+        sendMessage(newMessage, ticket_id);
+        inputElement.value = "";
+        focusConversation(ticket_id);
+      });
+
+      resp.appendChild(inputElement);
+      resp.appendChild(buttonElement);
+      focus.appendChild(resp);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+
+function sendMessage(newMessage, ticket_id) {
+  const data = new FormData();
+  data.append("edit_ticket", "true");
+  data.append("id", ticket_id);
+  data.append("message", newMessage);
+
+  fetch("/controllers/tickets-controller.php", {
+    method: "POST",
+    body: data,
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      return true;
+    });
+}
+
+function unicodeBase64Decode(content) {
+  try {
+    var text = content
+      .replace(/\s+/g, "")
+      .replace(/\-/g, "+")
+      .replace(/\_/g, "/");
+
+    return decodeURIComponent(
+      Array.prototype.map
+        .call(window.atob(text), function (c) {
+          return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+        })
+        .join("")
+    );
+  } catch (error) {
+    console.error("Error decoding Base64:", error);
+    return ""; // Return a fallback value or handle the error accordingly
+  }
 }
 
 function createTicket() {

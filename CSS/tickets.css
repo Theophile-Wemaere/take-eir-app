@@ -18,18 +18,69 @@ h1 {
   color: var(--accent-color);
 }
 
-.tickets-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 10px;
+.main-box {
   border-radius: 10px;
   background-color: #fff;
-  overflow: hidden;
-  box-shadow: rgba(209, 10, 10, 0.1) 0px 4px 12px;
+  padding: 10px;
+}
+
+.tickets-container {
+  width: 100%;
+  margin: 0 auto;
+  padding-right: 10px;
+  max-height: 410px;
+  overflow: scroll;
 }
 
 .conv {
   flex-grow: 1;
+  border-radius: 10px;
+  border: solid 1px #e0584c;
+  margin-left: 10px;
+  max-width: 50%;
+  max-height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.conversation {
+  overflow: scroll;
+  max-height: 85%;
+  flex-grow: 1;
+}
+
+.messagerow {
+  font-weight: normal;
+  margin-bottom: 2px;
+}
+
+.respbox {
+  border-top: solid 1px #e0584c;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  height: 15%;
+  padding: 5px;
+}
+
+.messagebox {
+  width: 90%;
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 10px;
+  resize: none;
+  height: 80%;
+}
+
+.send-btn {
+  padding: 0;
+  flex-grow: 1;
+  height: 80%;
+}
+
+.left-part {
+  max-width: 80%;
 }
 
 .ticket {
@@ -44,11 +95,21 @@ h1 {
 
 .ticket-title {
   margin: 0 35px 0 0;
+  font-weight: bold;
+}
+
+.ticket-tag {
+  font-weight: normal;
+  font-style: italic;
 }
 
 .ticket-state {
   font-weight: bold;
   margin-right: 10px;
+}
+
+.ticket-timestamp {
+  font-weight: normal;
 }
 
 .corps-formulaire {

@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 break;
         }
         $subject = $_POST["subject"];
-        $body = $_POST["body"];
+        $body = base64_encode($_POST["body"]);
         $results = $_DB
             ->execute(
                 "INSERT INTO tickets (id_user, state,id_tag, subject, body) 
@@ -33,8 +33,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     "id" => md5($_SESSION["email"]),
                     "tag" => $tag,
                     "subject" => $subject, 
-                    "body" => $body
+                    "body" => "you[" . $body . "]"
                 ])->fetchAll();
+        echo json_encode(count($results) == 0 ? null : $results);
+    } elseif(isset($_POST["edit_ticket"])) {
+        $message = base64_encode($_POST["message"]);
+        $ticket_id = $_POST["id"];
+        $results = $_DB->execute(
+                    "UPDATE tickets SET body = CONCAT(body, :message) WHERE tickets_id = :ticket_id AND id_user = :id_user", 
+                    [
+                        "message" => "you[" . $message . "]",
+                        "ticket_id" => $ticket_id,
+                        "id_user" => md5($_SESSION["email"])
+                    ])->fetch();
+
         echo json_encode(count($results) == 0 ? null : $results);
     }
 } else {
@@ -45,11 +57,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo json_encode(count($results) == 0 ? null : $results);
             break;
         case "tickets":
-            $id_user = md5($_SESSION["email"]);
             $results = $_DB->execute(
-                "SELECT * from tickets where id_user = :id", 
-                ["id" => $id_user])
-                           ->fetchAll();
+                "SELECT tickets.*, tags.tag_name
+                FROM tickets
+                JOIN tags ON tickets.id_tag = tags.id_tag WHERE tickets.id_user = :id", 
+                ["id" => md5($_SESSION["email"])
+                ])->fetchAll();
+            echo json_encode(count($results) == 0 ? null : $results);
+            break;
+        case "conv":
+            $results = $_DB->execute(
+                "SELECT * from tickets where tickets_id = :id_ticket AND id_user = :id", 
+                [
+                    "id_ticket" => $_GET["id"],
+                    "id" => md5($_SESSION["email"])
+                ])->fetch();
             echo json_encode(count($results) == 0 ? null : $results);
         }
     }
