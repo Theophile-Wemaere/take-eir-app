@@ -23,7 +23,7 @@
   <!--=============== FONT AWESOME ===============-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 
-  <?php require "../vues/top-bar.php"; ?>
+  <?php require "top-bar.php"; ?>
   <div class="wrapper">
 
 
@@ -37,7 +37,7 @@ fetchFAQ()
       question ? <a href="../contact/contact.php" style="text-decoration:none; color:#e0584c;">Contactez-nous !</a></h3>
     <!-- partial -->
   </div>
-  <?php require "../vues/bottom-bar.php"; ?>
+  <?php require "bottom-bar.php"; ?>
 
 </body>
 

@@ -27,14 +27,14 @@ if (isset($_SESSION["name"])) {
 <body>
   <?php require "top-bar.php"; ?>
   <div class="wrapper">
-    <form action="" method="POST">
+    <form action="">
       <h1>INSCRIPTION</h1>
       <div class="separation"></div>
       <div class="corps-formulaire">
 
         <div class="gauche">
 
-          <select name="role" class="type">
+          <select id="role" name="role" class="type">
             <option value=select>Choisissez votre statut</option>
             <option value=famille>Patient/Famille</option>
             <option value=medecin>Medecin</option>
@@ -67,38 +67,40 @@ if (isset($_SESSION["name"])) {
           </script>
 
           <div class="groupe">
-            <label>Prénom</label>
-            <input type="text" name="name" required>
+            <label>* Prénom</label>
+            <input id="name" type="text" name="name" required>
             <i class="fa-solid fa-user"></i>
           </div>
 
           <div class="groupe">
-            <label>Nom</label>
-            <input type="text" name="surname" required>
+            <label>* Nom</label>
+            <input id="surname" type="text" name="surname" required>
             <i class="fa-solid fa-user"></i>
           </div>
 
           <div class="groupe">
-            <label>Email</label>
-            <input type="email" name="email" />
+            <label>* Email</label>
+            <input id="email" type="email" name="email" required/>
             <i class="fa-solid fa-envelope"></i>
+            <p id="emailError" style="color:red;font-size: 14px;margin-top: 5px;display: none;">Please enter a valid email</p>
           </div>
+          <script>checkEmail()</script>
 
           <div class="groupe">
-            <label>Mot de passe</label>
-            <input id="password" type="password" name="password" />
+            <label>* Mot de passe</label>
+            <input id="password" type="password" name="password" required/>
             <i class="fa-solid fa-key"></i>
           </div>
 
           <div class="groupe">
-            <label>Confirmation du mot de passe</label>
+            <label>* Confirmation du mot de passe</label>
             <input id="confirm-password" type="password" name="password" required>
             <i class="fa-solid fa-key"></i>
           </div>
 
           <div id="password-match-message" style="margin-top:20px;display:none;color:red;">Passwords doesn't match</div>
           <div class="pied-formulaire">
-            <button id="submit-btn" type="submit">S'inscrire</button>
+            <button id="submit-btn" type="button" onclick=doRegister()>S'inscrire</button>
             <script>
               const passwordInput = document.getElementById("password");
               const confirmPasswordInput = document.getElementById("confirm-password");
@@ -107,7 +109,6 @@ if (isset($_SESSION["name"])) {
 
               function checkPasswordMatch() {
                 if (passwordInput.value !== confirmPasswordInput.value) {
-                  console.log(passwordInput.value)
                   submitButton.disabled = true;
                   submitButton.style.pointerEvents = 'none';
                   submitButton.style.opacity = '0.5';
@@ -137,7 +138,7 @@ if (isset($_SESSION["name"])) {
               }, 2000); // Temps en millisecondes avant de cacher le loader
             });
           </script>
-
+          <p id="error-msg" style="color: red;display: none;"></p> 
         </div>
         <div class="separation" style="margin-top: 20px;margin-bottom: 20px;"></div>
         <div class="droite">
@@ -145,80 +146,7 @@ if (isset($_SESSION["name"])) {
           <a class="link" href="/index.php/login">Me connecter</a>
         </div>
       </div>
-    <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      require "database.php";
-      $role = null;
-      switch ($_POST["role"]) {
-        case "famille":
-          $role = 3;
-          break;
-        case "medecin":
-          $role = 2;
-          break;
-        default:
-          $role = 3;
-          break;
-      }
-      $gender = $_POST["gender"];
-      $name = htmlspecialchars($_POST["name"]);
-      $surname = htmlspecialchars($_POST["surname"]);
-      $email = htmlspecialchars($_POST["email"]);
-      $id = md5($email);
-      $password = $_POST["password"];
-
-      $stmt = $_DB->execute("SELECT * FROM users WHERE id_user = :id", [
-        "id" => $id,
-      ]);
-      if ($stmt->rowCount() > 0) {
-        echo '<p style="color: red;text-align: center;">Error, user with this email already exist !</p>';
-      } else {
-        // Generate hashed password using PASSWORD_ARGON2ID algorithm
-        $options = [
-          "memory_cost" => PASSWORD_ARGON2_DEFAULT_MEMORY_COST,
-          "time_cost" => PASSWORD_ARGON2_DEFAULT_TIME_COST,
-          "threads" => PASSWORD_ARGON2_DEFAULT_THREADS,
-        ];
-        $hashedPassword = password_hash(
-          $password,
-          PASSWORD_ARGON2ID,
-          $options
-        );
-
-        // Prepare and execute the query to insert the new user into the database
-        $sql =
-          "INSERT INTO users (id_user, name, surname, email, password, id_role, gender) VALUES (:id,:name, :surname, :email, :password, :role, :gender)";
-        $stmt = $_DB->execute($sql, [
-          "id" => $id,
-          "name" => $name,
-          "surname" => $surname,
-          "email" => $email,
-          "password" => $hashedPassword,
-          "role" => $role,
-          "gender" => $gender,
-        ]);
-
-        // Check if the insert was successful
-        if ($stmt->rowCount() > 0) {
-          $_SESSION["name"] = $name;
-          $_SESSION["surname"] = $surname;
-          $_SESSION["email"] = $email;
-          $row = $_DB
-            ->execute(
-              "SELECT role_name,role_permission from roles where id_role = :id",
-              [
-                "id" => $role,
-              ]
-            )
-            ->fetch();
-          $_SESSION["role_name"] = $row["role_name"];
-          $_SESSION["role_permission"] = $row["role_permission"];
-          echo '<script>window.location.href = "/";</script>';
-        } else {
-          echo '<p style="color: red;text-align: center;">Error creating user !</p>';
-        }
-      }
-    } ?>
-
+    
     </form>
   </div>
   <?php require "bottom-bar.php"; ?>

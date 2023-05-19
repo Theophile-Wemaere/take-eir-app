@@ -12,6 +12,7 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
   <meta charset="utf-8" />
   <link rel="stylesheet" href="/CSS/styles.css" />
   <link rel="stylesheet" href="/CSS/admin-faq.css" />
+  <link rel="stylesheet" href="/CSS/faq.css">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,6 +23,7 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
   <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Nunito&display=swap"
     rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 </head>
 
 <html>
@@ -43,6 +45,12 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
             <button id="btn" type="button" onclick=createArticle()>Créer l'article</button>
       </div>
     </form>
+<div id="faq" class="faq-container">
+<script>
+fetchFAQ()
+</script>
+    </div>
+
   </div>
   <?php require "../vues/bottom-bar.php"; ?>
 </body>

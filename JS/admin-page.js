@@ -7,7 +7,7 @@ function doSearch() {
   var data = new FormData(document.getElementById("mySearch"));
 
   // (A2) AJAX - USE HTTP:// NOT FILE://
-  fetch("/admin-controller.php", {
+  fetch("/controllers/admin-controller.php", {
     method: "POST",
     body: data,
   })
@@ -90,7 +90,7 @@ function createArticle() {
   data.append("subject", subject.value);
   data.append("body", body.value);
 
-  fetch("/admin-controller.php", {
+  fetch("/controllers/admin-controller.php", {
     method: "POST",
     body: data,
   })

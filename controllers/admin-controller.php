@@ -1,5 +1,5 @@
 <?php
-require "database.php";
+require "../database.php";
 
 if (isset($_POST["action"])) {
     switch ($_POST["action"]) {

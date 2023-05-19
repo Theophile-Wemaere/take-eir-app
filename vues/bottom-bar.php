@@ -1,10 +1,10 @@
 <div class="bottom-bar">
     <div class="left-items">
-        <a href="/mentions.php">© TAKE-EIR</a>
+        <a href="/index.php/mentions">© TAKE-EIR</a>
         <div class="separator"></div>
-        <a href="/cgu.php"> CGU </a>
+        <a href="/index.php/cgu"> CGU </a>
         <div class="separator"></div>
-        <a href="/faq/faq.php"> FAQ </a>
+        <a href="/index.php/faq"> FAQ </a>
         <div class="separator"></div>
         <a href="/contact/contact.php">Nous contacter</a>
     </div>

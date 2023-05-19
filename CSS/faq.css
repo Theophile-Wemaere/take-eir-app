@@ -15,7 +15,7 @@ body {
   font-family: "Montserrat";
 }
 
-h1 {
+.faq-container h1 {
   font-family: "Nunito";
   font-weight: 500;
   font-size: 4vw;
@@ -111,7 +111,7 @@ h1 {
 }
 
 @media (max-width: 790px) {
-  h1 {
+  .faq-container h1 {
     font-size: 21px;
   }
 
