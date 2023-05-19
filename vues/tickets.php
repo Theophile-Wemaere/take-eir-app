@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>F.A.Q</title>
+  <link rel="stylesheet" href="/CSS/styles.css">
+  <link rel="stylesheet" href="/CSS/tickets.css">
+  <link rel="stylesheet" href="/CSS/form.css">
+  <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="/JS/scripts.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Nunito&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+</head>
+
+<body>
+  <?php require "top-bar.php"; ?>
+  <div class="wrapper">
+    <h1>Vos tickets</h1>
+    <div class="form">
+      <div class="corps-formulaire">
+        <div class="gauche">
+          <div id="tickets" class="tickets-container">
+            <script>getTickets()</script>
+          </div>
+        </div>
+        <div class="droite">
+          <div id="conv" class="conv">
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <?php require "bottom-bar.php"; ?>
+</body>
+
+</html>

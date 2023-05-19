@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
     error_log("not allowed");
     header("Location: /");
+    exit();
 } else {
     require "../database.php";
     if (isset($_POST["action"])) {

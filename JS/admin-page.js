@@ -81,7 +81,6 @@ function doSearch() {
 }
 
 function createArticle() {
-  console.log("here pls");
   const subject = document.getElementById("subject");
   const body = document.getElementById("body");
 

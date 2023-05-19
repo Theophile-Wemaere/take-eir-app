@@ -1,0 +1,71 @@
+:root {
+  --accent-color: #2d67e0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat";
+}
+
+h1 {
+  font-family: "Nunito";
+  font-weight: 500;
+  font-size: 4vw;
+  letter-spacing: 0.05em;
+  margin-top: 30px;
+  text-align: center;
+  color: var(--accent-color);
+}
+
+.tickets-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: rgba(209, 10, 10, 0.1) 0px 4px 12px;
+}
+
+.conv {
+  flex-grow: 1;
+}
+
+.ticket {
+  box-sizing: border-box;
+  background: transparent;
+  padding: 20px;
+  position: relative;
+  border: solid 1px #e0584c;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ticket-title {
+  margin: 0 35px 0 0;
+}
+
+.ticket-state {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.corps-formulaire {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 790px) {
+  .tickets-container h1 {
+    font-size: 21px;
+  }
+
+  h3 {
+    font-size: 15px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+}

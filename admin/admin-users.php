@@ -34,7 +34,7 @@ if (!isset($_SESSION["role_permission"])) {
     <div class="tabs">
       <a href="/admin/admin-faq.php" class="page-button">Gérer FAQ</a>  
       <a href="/admin/admin-users.php"  class="page-button active">Gérer utilisateurs</a>  
-      <a href="" class="page-button">Gérer tickets</a>  
+      <a href="/admin/admin-tickets.php" class="page-button">Gérer tickets</a>  
     </div>
     <div class="main-box">
       <form id="mySearch" onsubmit="return doSearch()">

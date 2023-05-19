@@ -106,7 +106,7 @@ function checkLogin() {
       .then((data) => {
         switch (data.trim()) {
           case "redirect_admin":
-            window.location.href = "/admin/admin.php";
+            window.location.href = "/admin/admin-users.php";
             break;
           case "redirect_user":
             window.location.href = "/";
@@ -227,4 +227,91 @@ function fetchFAQ_user() {
     .catch((error) => {
       console.error("Error:", error);
     });
+}
+
+function getTags() {
+  const tags = document.getElementById("tag");
+  fetch("/controllers/tickets-controller.php?action=tag", {
+    method: "GET",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((item) => {
+        option = document.createElement("option");
+        option.value = item.id_tag;
+        option.innerHTML = item.tag_name;
+        tags.appendChild(option);
+      });
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+
+function getTickets() {
+  fetch("/controllers/tickets-controller.php?action=tickets", {
+    method: "GET",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const container = document.getElementById("tickets");
+      data.forEach((item) => {
+        const ticketDiv = document.createElement("div");
+        ticketDiv.classList.add("ticket");
+
+        const titleH3 = document.createElement("h3");
+        titleH3.classList.add("ticket-title");
+        titleH3.textContent = item.subject;
+
+        const stateSpan = document.createElement("span");
+        stateSpan.classList.add("ticket-state");
+        stateSpan.textContent = item.state;
+
+        const timestampSpan = document.createElement("span");
+        timestampSpan.classList.add("ticket-timestamp");
+        const createdAt = new Date(item.created_at);
+        timestampSpan.textContent = createdAt.toLocaleString();
+
+        ticketDiv.appendChild(titleH3);
+        ticketDiv.appendChild(stateSpan);
+        ticketDiv.appendChild(timestampSpan);
+
+        container.appendChild(ticketDiv);
+      });
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+
+function createTicket() {
+  const tag = document.getElementById("tag");
+  const subject = document.getElementById("subject");
+  const body = document.getElementById("body");
+
+  const error = document.getElementById("error-msg");
+  error.style.display = "none";
+
+  if (subject.value !== "" && body.value !== "") {
+    const data = new FormData();
+    data.append("create_ticket", "true");
+    data.append("tag", tag.value);
+    data.append("subject", subject.value);
+    data.append("body", body.value);
+
+    fetch("/controllers/tickets-controller.php", {
+      method: "POST",
+      body: data,
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        window.location.href = "/index.php/tickets";
+      });
+
+    subject.value = "";
+    body.value = "";
+  } else {
+    error.style.display = "block";
+    error.textContent = "Merci de remplir tout les champs";
+  }
 }
