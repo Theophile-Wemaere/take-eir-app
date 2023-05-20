@@ -1,26 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 body {
-	font-family: "Roboto", sans-serif;
-	font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
 }
 
 .wrapper {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 form {
-	background-color: white;
-	margin-left: auto;
-	margin-right: auto;
-	width: 40%;
-	max-height: 500px;
-	min-width: 250px;
-	padding: 20px 50px 20px 50px;
-	border-radius: 10px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  max-height: 500px;
+  min-width: 250px;
+  padding: 20px 50px 20px 50px;
+  border-radius: 10px;
 }
 
 .form_log {
@@ -31,14 +31,14 @@ form {
 }
 
 form h1 {
-	font-size: 20px;
-  	text-align: center;
+  font-size: 20px;
+  text-align: center;
 }
 
 form div.separation {
-	background-color: #e0584c;
-	height: 1px;
-	width: 100%;
+  background-color: #e0584c;
+  height: 1px;
+  width: 100%;
 }
 
 form div.corps-formulaire div.separation {
@@ -46,32 +46,33 @@ form div.corps-formulaire div.separation {
 }
 
 form div.corps-formulaire {
-	display: flex;
+  display: flex;
   flex-direction: row;
-	margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 form .corps-formulaire div.groupe {
-	position: relative;
-	margin-top: 20px;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 form .gauche {
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 form div.gauche div.groupe input {
-	margin-top: 5px;
-	padding: 10px 5px 10px 30px;
-	border: 1px solid #c9c9c9;
-	outline-color: #b9d0ff;
-	border-radius: 5px;
+  margin-top: 5px;
+  padding: 10px 5px 10px 30px;
+  border: 1px solid #c9c9c9;
+  outline-color: #b9d0ff;
+  border-radius: 5px;
 }
 
 form label {
@@ -79,11 +80,11 @@ form label {
 }
 
 form div.gauche div.groupe i {
-	position: absolute;
-	color: #e0584c;
-	left: 0;
-	top: 25px;
-	padding: 9px 8px;
+  position: absolute;
+  color: #e0584c;
+  left: 0;
+  top: 25px;
+  padding: 9px 8px;
 }
 
 form .droite {
@@ -92,6 +93,7 @@ form .droite {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+  max-width: 50%;
 }
 
 form .pied-formulaire {
@@ -100,20 +102,20 @@ form .pied-formulaire {
 }
 
 form .pied-formulaire button {
-	margin-top: 10px;
-	background-color: #e0584c;
-	color: white;
-	font-size: 15px;
-	border: none;
-	padding: 10px 20px;
-	border-radius: 5px;
-	cursor: pointer;
+  margin-top: 10px;
+  background-color: #e0584c;
+  color: white;
+  font-size: 15px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 form .pied-formulaire button:hover {
-	opacity: 0.8;
-	transform: scale(1.1);
-	transition: 0.3s ease-in-out;
+  opacity: 0.8;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
 }
 
 .link {
@@ -167,13 +169,13 @@ form .pied-formulaire button:hover {
 }
 
 @media screen and (max-width: 1015px) {
-	body {
-		font-size: 14px;
-	}
+  body {
+    font-size: 14px;
+  }
 
   form div.corps-formulaire {
-		flex-direction: column;
-	}
+    flex-direction: column;
+  }
 
   form div.corps-formulaire div.separation {
     display: block;
