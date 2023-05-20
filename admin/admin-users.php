@@ -29,7 +29,7 @@ if (!isset($_SESSION["role_permission"])) {
 <html>
 
 <body>
-  <?php require "../vues/top-bar.php"; ?>
+  <?php require "../views/top-bar.php"; ?>
   <div class="wrapper">
     <div class="tabs">
       <a href="/admin/admin-faq.php" class="page-button">Gérer FAQ</a>  
@@ -47,7 +47,7 @@ if (!isset($_SESSION["role_permission"])) {
       </script>
     </div>
   </div>
-  <?php require "../vues/bottom-bar.php"; ?>
+  <?php require "../views/bottom-bar.php"; ?>
 </body>
 
 </html>

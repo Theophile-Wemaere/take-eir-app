@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <?php require "../vues/top-bar.php"; ?>
+    <?php require "../views/top-bar.php"; ?>
     <div class="wrapper">
         <h4 class="sent-notification"></h4>
         <form id="myForm">
@@ -100,7 +100,7 @@
             }
         </script>
     </div>
-    <?php require "../vues/bottom-bar.php"; ?>
+    <?php require "../views/bottom-bar.php"; ?>
 </body>
 
 </html>

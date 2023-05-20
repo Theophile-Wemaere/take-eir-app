@@ -5,11 +5,11 @@
   $filename = basename($path);
   
   if ($filename == "index.php") {
-    require "vues/home.php";
+    require "views/home.php";
   } else {
     if (in_array($filename, $whitelist, true)) {
       $name = $whitelist[array_search($filename, $whitelist, true)];
-      require "vues/$name.php";
+      require "views/$name.php";
     } else {
       echo "stop trying to hack me pls";
     }

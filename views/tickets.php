@@ -5,6 +5,10 @@ if (!isset($_SESSION["email"])) {
     header("Location: /index.php/login");
     exit();
 }
+
+if ($_SESSION["role_permission"] == 6) {
+  header("Location: /admin/admin-tickets.php");
+}
 ?>
 <html lang="en">
 <head>

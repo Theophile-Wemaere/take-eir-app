@@ -216,4 +216,8 @@ form .pied-formulaire button:hover {
   form div.corps-formulaire div.separation {
     display: block;
   }
+
+  form div.droite {
+    max-width: 100%;
+  }
 }
