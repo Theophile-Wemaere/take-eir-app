@@ -50,8 +50,9 @@
                 echo '<div id="userDropdown" onmouseleave="dropMenuUser()" class="dropdown-content-user">';
                 echo "<p>" . $_SESSION["role_name"] . "</p>";
                 echo '<a href="/index.php/monitor">HEALTH-EIR View</a>
-          <a href="#" onclick="logout()">Se deconnecter</a>
-        </div>';
+                      <a href="/index.php/tickets">Voir vos tickets</a>
+                      <a href="#" onclick="logout()">Se deconnecter</a>
+                      </div>';
             } ?>
         </div>
 
@@ -65,11 +66,11 @@
     </span>
 </div>
 <div class="drop-menu" id="dropMenu" style="display: none">
-    <a href="/produit.php"><button class="page-button">Notre produit</button></a>
+    <a href="/index.php/produit"><button class="page-button">Notre produit</button></a>
     <div class="separator"></div>
-    <a href="/presentation.php"><button class="page-button">Qui sommes nous ?</button></a>
+    <a href="/index.php/presentation"><button class="page-button">Qui sommes nous ?</button></a>
     <div class="separator"></div>
-    <a href="/login.php"><button class="login-button" style="margin-top: 10px;margin-bottom: 10px;">
+    <a href="/index.php/login"><button class="login-button" style="margin-top: 10px;margin-bottom: 10px;">
             <?php
             session_start();
             if (isset($_SESSION["email"])) {
@@ -82,6 +83,7 @@
     <?php if (isset($_SESSION["email"])) {
         echo "<p>" . $_SESSION["role_name"] . "</p>";
         echo '<a href="/index.php/monitor"><button class="page-button">HEALTH-EIR View</button></a>
+          <a href="/index.php/tickets"><button class="page-button">Voir vos tickets</button></a>
           <a href="#" onclick="logout()"><button class="page-button">Se deconnecter</button></a>';
     } ?>
 

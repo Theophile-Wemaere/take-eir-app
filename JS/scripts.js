@@ -261,7 +261,7 @@ function getTickets() {
 
         const title = document.createElement("p");
         title.classList.add("ticket-title");
-        title.textContent = item.subject;
+        title.textContent = `[${item.name} ${item.surname}] ${item.subject}`;
 
         const tag = document.createElement("p");
         tag.classList.add("ticket-tag");
@@ -272,6 +272,8 @@ function getTickets() {
         stateSpan.textContent = item.state;
         if (item.state === "OPEN") {
           stateSpan.style.color = "green";
+        } else if (item.state === "IN PROGRESS") {
+          stateSpan.style.color = "red";
         } else {
           stateSpan.style.color = "purple";
         }
@@ -287,9 +289,25 @@ function getTickets() {
         ticketDiv.appendChild(timestampSpan);
 
         ticketDiv.addEventListener("click", function () {
+          var ticketDivs = document.querySelectorAll("div.ticket");
+          ticketDivs.forEach(function (div) {
+            if (div.classList.contains("current-ticket")) {
+              div.classList.remove("current-ticket");
+            }
+          });
+          ticketDiv.classList.add("current-ticket");
           focusConversation(item.tickets_id);
         });
-
+        const button = document.createElement("button");
+        button.style.marginLeft = "5px";
+        button.textContent = "Close ticket";
+        button.addEventListener("click", function () {
+          const confirmMessage = "Close ticket ?";
+          if (confirm(confirmMessage)) {
+            sendMessage("", item.tickets_id, "CLOSED");
+          }
+        });
+        ticketDiv.appendChild(button);
         container.appendChild(ticketDiv);
       });
     })
@@ -313,18 +331,21 @@ function focusConversation(ticket_id) {
         const sender = message.split("[")[0];
         const content = message.split("[")[1];
 
-        const messageElement = document.createElement("div");
-        messageElement.classList.add("messagerow");
-        messageElement.textContent =
-          sender + " : " + unicodeBase64Decode(content);
+        if (content != null) {
+          const messageElement = document.createElement("div");
+          messageElement.classList.add("messagerow");
+          messageElement.textContent =
+            sender + " : " + unicodeBase64Decode(content);
 
-        if (sender === "you") {
-          messageElement.style.textAlign = "left";
-        } else {
-          messageElement.style.textAlign = "right";
+          const you = data.surname + " " + data.name;
+          if (sender == you) {
+            messageElement.style.fontWeight = "bold";
+          } else {
+            messageElement.style.fontWeight = "normal";
+          }
+
+          conv.appendChild(messageElement);
         }
-
-        conv.appendChild(messageElement);
       });
       focus.appendChild(conv);
       conv.scrollTop = conv.scrollHeight;
@@ -341,7 +362,7 @@ function focusConversation(ticket_id) {
 
       buttonElement.addEventListener("click", function () {
         const newMessage = inputElement.value;
-        sendMessage(newMessage, ticket_id);
+        sendMessage(newMessage, ticket_id, "IN PROGRESS");
         inputElement.value = "";
         focusConversation(ticket_id);
       });
@@ -355,11 +376,12 @@ function focusConversation(ticket_id) {
     });
 }
 
-function sendMessage(newMessage, ticket_id) {
+function sendMessage(newMessage, ticket_id, state) {
   const data = new FormData();
   data.append("edit_ticket", "true");
   data.append("id", ticket_id);
   data.append("message", newMessage);
+  data.append("state", state);
 
   fetch("/controllers/tickets-controller.php", {
     method: "POST",

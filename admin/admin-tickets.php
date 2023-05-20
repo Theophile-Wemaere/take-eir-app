@@ -1,12 +1,6 @@
 <!DOCTYPE html>
-<?php 
-session_start();
-if (!isset($_SESSION["email"])) {
-    header("Location: /index.php/login");
-    exit();
-}
-?>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,10 +8,12 @@ if (!isset($_SESSION["email"])) {
   <link rel="stylesheet" href="/CSS/styles.css">
   <link rel="stylesheet" href="/CSS/form.css">
   <link rel="stylesheet" href="/CSS/tickets.css">
+  <link rel="stylesheet" href="/CSS/admin.css" />
   <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <script src="/JS/scripts.js"></script>
+  <script src="/JS/admin-page.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Nunito&display=swap"
     rel="stylesheet" />
@@ -25,16 +21,17 @@ if (!isset($_SESSION["email"])) {
 </head>
 
 <body>
-  <?php require "top-bar.php"; ?>
+  <?php require "../vues/top-bar.php"; ?>
   <div class="wrapper">
-    <h1>Vos tickets</h1>
+    <div class="tabs">
+      <a href="/admin/admin-faq.php" class="page-button">Gérer FAQ</a>  
+      <a href="/admin/admin-users.php"  class="page-button">Gérer utilisateurs</a>  
+      <a href="/admin/admin-tickets.php" class="page-button active">Gérer tickets</a>  
+    </div>
     <div class="main-box">
         <div class="left-part">
           <div id="tickets" class="tickets-container">
             <script>getTickets()</script>
-          </div>
-          <div class="pied-formulaire">
-            <a href="/index.php/create-ticket"><button type="button">Ouvrir un ticket</button></a>
           </div>
         </div>
         <div id="conv" class="conv">
@@ -42,7 +39,7 @@ if (!isset($_SESSION["email"])) {
         </div>
     </div>
   </div>
-  <?php require "bottom-bar.php"; ?>
+  <?php require "../vues/bottom-bar.php"; ?>
 </body>
 
 </html>
