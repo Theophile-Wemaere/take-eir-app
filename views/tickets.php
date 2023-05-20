@@ -35,13 +35,14 @@ if ($_SESSION["role_permission"] == 6) {
     <div class="main-box">
         <div class="left-part">
           <div id="tickets" class="tickets-container">
+            <p style="text-align: center;height: 200px;">Vous n'avez aucun ticket :(</p>
             <script>getTickets()</script>
           </div>
           <div class="pied-formulaire">
             <a href="/index.php/create-ticket"><button type="button">Ouvrir un ticket</button></a>
           </div>
         </div>
-        <div id="conv" class="conv">
+        <div id="conv" class="conv" style="display: none;">
           <p style="text-align: center;">Cliquer sur un ticket pour afficher la conversation</p>
         </div>
     </div>

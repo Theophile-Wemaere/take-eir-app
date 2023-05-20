@@ -255,61 +255,79 @@ function getTickets() {
     .then((response) => response.json())
     .then((data) => {
       const container = document.getElementById("tickets");
-      data.forEach((item) => {
-        const ticketDiv = document.createElement("div");
-        ticketDiv.classList.add("ticket");
+      if (data !== null) {
+        const conv = document.getElementById("conv");
+        container.innerHTML = "";
+        conv.style.display = "flex";
+        data.forEach((item) => {
+          const ticketDiv = document.createElement("div");
+          ticketDiv.classList.add("ticket");
 
-        const title = document.createElement("p");
-        title.classList.add("ticket-title");
-        title.textContent = `[${item.name} ${item.surname}] ${item.subject}`;
+          const title = document.createElement("p");
+          title.classList.add("ticket-title");
+          title.textContent = `[${item.name} ${item.surname}] ${item.subject}`;
 
-        const tag = document.createElement("p");
-        tag.classList.add("ticket-tag");
-        tag.textContent = item.tag_name;
+          const tag = document.createElement("p");
+          tag.classList.add("ticket-tag");
+          tag.textContent = item.tag_name;
 
-        const stateSpan = document.createElement("span");
-        stateSpan.classList.add("ticket-state");
-        stateSpan.textContent = item.state;
-        if (item.state === "OPEN") {
-          stateSpan.style.color = "green";
-        } else if (item.state === "IN PROGRESS") {
-          stateSpan.style.color = "red";
-        } else {
-          stateSpan.style.color = "purple";
-        }
+          const stateSpan = document.createElement("span");
+          stateSpan.classList.add("ticket-state");
+          stateSpan.textContent = item.state;
+          if (item.state === "OPEN") {
+            stateSpan.style.color = "green";
+          } else if (item.state === "IN PROGRESS") {
+            stateSpan.style.color = "red";
+          } else {
+            stateSpan.style.color = "purple";
+          }
 
-        const timestampSpan = document.createElement("span");
-        timestampSpan.classList.add("ticket-timestamp");
-        const createdAt = new Date(item.created_at);
-        timestampSpan.textContent = createdAt.toLocaleString();
+          const timestampSpan = document.createElement("span");
+          timestampSpan.classList.add("ticket-timestamp");
+          const createdAt = new Date(item.created_at);
+          timestampSpan.textContent = createdAt.toLocaleString();
 
-        ticketDiv.appendChild(title);
-        ticketDiv.appendChild(tag);
-        ticketDiv.appendChild(stateSpan);
-        ticketDiv.appendChild(timestampSpan);
+          ticketDiv.appendChild(title);
+          ticketDiv.appendChild(tag);
+          ticketDiv.appendChild(stateSpan);
+          ticketDiv.appendChild(timestampSpan);
 
-        ticketDiv.addEventListener("click", function () {
-          var ticketDivs = document.querySelectorAll("div.ticket");
-          ticketDivs.forEach(function (div) {
-            if (div.classList.contains("current-ticket")) {
-              div.classList.remove("current-ticket");
+          ticketDiv.addEventListener("click", function () {
+            var ticketDivs = document.querySelectorAll("div.ticket");
+            ticketDivs.forEach(function (div) {
+              if (div.classList.contains("current-ticket")) {
+                div.classList.remove("current-ticket");
+              }
+            });
+            ticketDiv.classList.add("current-ticket");
+            focusConversation(item.tickets_id);
+          });
+
+          const buttonClose = document.createElement("button");
+          buttonClose.style.marginLeft = "5px";
+          buttonClose.textContent = "close";
+          buttonClose.addEventListener("click", function () {
+            const confirmMessage = "Close ticket ?";
+            if (confirm(confirmMessage)) {
+              sendMessage("", item.tickets_id, "CLOSED");
             }
           });
-          ticketDiv.classList.add("current-ticket");
-          focusConversation(item.tickets_id);
+          ticketDiv.appendChild(buttonClose);
+
+          const buttonDelete = document.createElement("button");
+          buttonDelete.style.marginLeft = "5px";
+          buttonDelete.textContent = "delete";
+          buttonDelete.addEventListener("click", function () {
+            const confirmMessage = "Delete ticket ?";
+            if (confirm(confirmMessage)) {
+              sendMessage("", item.tickets_id, "DELETED");
+            }
+          });
+          ticketDiv.appendChild(buttonDelete);
+
+          container.appendChild(ticketDiv);
         });
-        const button = document.createElement("button");
-        button.style.marginLeft = "5px";
-        button.textContent = "Close ticket";
-        button.addEventListener("click", function () {
-          const confirmMessage = "Close ticket ?";
-          if (confirm(confirmMessage)) {
-            sendMessage("", item.tickets_id, "CLOSED");
-          }
-        });
-        ticketDiv.appendChild(button);
-        container.appendChild(ticketDiv);
-      });
+      }
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -391,6 +409,7 @@ function sendMessage(newMessage, ticket_id, state) {
     .then((res) => {
       return true;
     });
+  getTickets();
 }
 
 function unicodeBase64Decode(content) {

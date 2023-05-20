@@ -70,7 +70,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       JOIN tags ON tickets.id_tag = tags.id_tag
                       JOIN users ON tickets.id_user = users.id_user";
             if(!$admin) {
-               $query = $query . " WHERE tickets.id_user = :id";
+               $query = $query . " WHERE tickets.id_user = :id AND tickets.state != 'DELETED'";
+            } else {
+                $query = $query . " WHERE tickets.state != 'DELETED'";
             }
                 
             $query = $query . " ORDER BY tickets.created_at DESC";
