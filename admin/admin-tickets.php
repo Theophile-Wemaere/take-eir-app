@@ -39,6 +39,7 @@ if (!isset($_SESSION["role_permission"])) {
     <div class="main-box">
         <div class="left-part">
           <div id="tickets" class="tickets-container">
+            <p style="text-align: center;height: 200px;">Aucun tickets :(</p>
             <script>getTickets()</script>
           </div>
         </div>
