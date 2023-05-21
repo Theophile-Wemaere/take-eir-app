@@ -138,8 +138,7 @@ box-sizing: border-box;
 position: absolute;
 width: auto;
 height: 2.5%;
-margin-left: 40%;
-margin-top: 5%;
+margin-left: 90%;
 font-style: normal;
 color: white;
 font-weight: 400px;
@@ -147,12 +146,12 @@ font-size: 24px;
 background: #2D67E0;
 font-family: 'Krona One';
 border-radius: 15px;
+transform: rotate(90deg);
 }
 
 .infoPatient{
-    margin-left: 33%;
-    margin-top: 10%;
-    font-size: 20px;
+    margin-left: 85%;
+  font-size: 20px;
 }
 
 hr{
@@ -176,10 +175,10 @@ hr{
 
 .title_card_graph {
     font-family: 'Krona One';
-    width: 30%;
+    width: 45%;
     height: 15%;
-    margin-left: 7%;
-    margin-top: 2%;
+    margin-left: 15%;
+    margin-top: 7%;
     text-align: center;
     background: #E0584C;
     border-radius: 15px;
@@ -308,10 +307,10 @@ hr{
 
 
 .infoCardiacGraph{
-    margin-left: 26%;
+    margin-left: 23%;
     height: auto;
     width:45%;
-    font-size: 20px;
+    font-size: 1.1em;
     background-color: #E0584C;
     border-radius: 15px;
     color: #ffffff;
@@ -331,10 +330,39 @@ hr{
 
 }
 
-.heartPlot{
-   margin-top: 2%;
-   margin-left: 2%;
+.tab-registers{
+  display: flex;
 }
+
+img{
+    width: 50%;
+    height: 80%;
+}
+.Plot{
+   margin-top: 2%;
+   margin-left: 5%;
+   margin-bottom: 5%;
+}
+
+.infoGraph{
+    margin-left: 10%;
+    padding: 5px;
+}
+
+#meanCard, #sdCard{
+    font-size: 1em;
+}
+
+#sdCard{
+    color: #fdc1c5;
+}
+
+#meanCard{
+    color: #FF6961;
+}
+
+
+
 
 @media(max-width:800px){
     

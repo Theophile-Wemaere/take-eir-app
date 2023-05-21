@@ -32,7 +32,7 @@
     $noise = fromDataToString($data, "noise_rate");
     $co2 = fromDataToString($data, "co2_rate");
     $dust = fromDataToString($data, "dust_rate");
-   ?>
+?>
 
 
 <!DOCTYPE html>
@@ -63,56 +63,57 @@
         <div class="sphere" style="background-color: #5dd1b7"></div>
 </div>
 
-<div id="date_data" style="display: none;">
-                    <?php
-                        
-                        echo htmlspecialchars($date);
-                    ?>
-        </div>
+<div id="date_data" style="display: none;"><?php echo htmlspecialchars($date);?></div>
 
-<div id="heart_data" style="display: none;">
-                    <?php
-                        
-                        echo htmlspecialchars($heart); 
-                    ?>
-</div>
+<div id="heart_data" style="display: none;"><?php echo htmlspecialchars($heart);?></div>
 
-<div id="temp_data" style="display: none;">
-                    <?php
-                        
-                        echo htmlspecialchars($temp); 
-                    ?>
-</div>
+<div id="temp_data" style="display: none;"><?php echo htmlspecialchars($temp);?></div>
 
-<div id="noise_data" style="display: none;">
-                    <?php
-                        
-                        echo htmlspecialchars($noise); 
-                    ?>
-</div>
+<div id="noise_data" style="display: none;"><?php echo htmlspecialchars($noise); ?></div>
 
-<div id="co2_data" style="display: none;">
-                    <?php
-                        
-                        echo htmlspecialchars($co2); 
-                    ?>
-</div>
+<div id="co2_data" style="display: none;"><?php echo htmlspecialchars($co2);?></div>
 
-<div id="dust_data" style="display: none;">
-                    <?php
-                        
-                        echo htmlspecialchars($dust); 
-                    ?>
-</div>
+<div id="dust_data" style="display: none;"><?php echo htmlspecialchars($dust); ?></div>
+
 
 <div class="globalMonitoring">
 
+    <div class="tab-registers">
+        <button class="active-tab"><img src = "/take-eir-app/Vues/images/logo_card.png"></button>
+        <button><img src = "/take-eir-app/Vues/images/temperature.png"></button>
+        <button><img src = "/take-eir-app/Vues/images/monter-le-son.png"></button>
+        <button><img src = "/take-eir-app/Vues/images/poussiere.png"></button>
+        <button><img src = "/take-eir-app/Vues/images/co2.png"></button>
+    </div>
+    
+    <div class="tab-bodies">
 
+        <div style="display:block;">
+            <h3 id="titleHeartPlot" class="title_card_graph"></h2>
+            <div class = "infoGraph"> <p id="meanCard"></p> <p id="sdCard"></p> </div>
+            <div id = "cardiacGraph" class = "Plot"></div>
+        </div>
+        <div style="display:none;">
+            Contenu Tab 2
+        </div>
+        <div style="display:none;">
+            Contenu Tab 3
+        </div>
+        <div style="display:none;">
+            Contenu Tab 4
+        </div>
+        <div style="display:none;">
+            Contenu Tab 5
+        </div>
+    </div>
 
-    <h2 id="titleHeartPlot" class="title_card_graph"></h2>
-    <div id = "cardiacGraph" class = "heartPlot"></div>
-
+    
+   
 </div>
+
+
+
+
 
 
 
@@ -174,23 +175,38 @@ for (i = 0; i < heartRateSplit.length; i++) {
 
 
 // Fin de la récupération des données
+
+//Initialisation de fonction qui nous servirons a données des informations primaire sur les données
+
+//Moyenne
+function Average(a) {
+  var b = a.length,
+      c = 0, i;
+  for (i = 0; i < b; i++){
+    c += a[i];
+  }
+  return c/b;
+}
+
+//Variance
+function Variance(a) {
+  var b = a.length,
+      c = 0, i,
+      moy =Average(a);
+  for (i = 0; i < b; i++){
+    c += Math.pow((a[i]-moy),2);
+  }
+  return c/(b-1);
+}
+
 // set the dimensions and margins of the graph
 const margin = { top: 40, right: 30, bottom: 40, left: 60 },
-  width = 600 - margin.left - margin.right,
-  height = 540 - margin.top - margin.bottom;
+  width = 1000 - margin.left - margin.right,
+  height = 700 - margin.top - margin.bottom;
 
-// append the svg object to the body of the page
-const svg = d3
-  .select("#cardiacGraph")
-  .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-  .attr("transform", `translate(${margin.left},${margin.top})`);
-
-//On conserve les dix dernière minutes
-var convertDate = convertDate.slice(-10);
-var convertHeartRate = convertHeartRate.slice(-10);
+  //On conserve les données des X dernières minutes
+var convertDate = convertDate.slice(-15);
+var convertHeartRate = convertHeartRate.slice(-15);
 const nomsMois = [
   'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
   'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'
@@ -198,6 +214,18 @@ const nomsMois = [
 // Format the data
 const data = convertDate.map((date, i) => ({ date: date, cardiac: convertHeartRate[i] }));
 
+
+//--------------------------------------------Crétion du graphique suivant l'évolution du rythme cardiaque--------------------------------------
+// append the svg object to the body of the page
+const svg = d3
+  .select("#cardiacGraph")
+  .append("svg")
+  .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+  .attr("preserveAspectRatio", "xMidYMid meet")
+  .attr("width", "70%")
+  .attr("height", "40%")
+  .append("g")
+  .attr("transform", `translate(${margin.left},${margin.top})`);
 
 // Create the scale for the horizontal axis (time)
 const x = d3.scaleTime()
@@ -264,8 +292,6 @@ const mouseleave = function (event, d) {
   Tooltip.style("opacity", 0);
 };
 
-
-
 // Add the points
 svg.append("g")
   .selectAll("dot")
@@ -282,11 +308,6 @@ svg.append("g")
   .on("mouseover", mouseover)
   .on("mousemove", mousemove)
   .on("mouseleave", mouseleave);
-
-  
-
-//Ajout du titre au graphique
-document.getElementById("titleHeartPlot").innerHTML = "Evolution du rythme cardiaque lors du "+ data[data.length-1].date.getDate() + " " + nomsMois[data[data.length-1].date.getMonth()] + " " + data[data.length-1].date.getFullYear();
 
 // Ajouter un label à l'axe X
 svg.append("text")
@@ -305,7 +326,11 @@ svg.append("text")
   .style("font-size", "12px")
   .text("Rythme cardiaque (en bpm)");
 
-
+//Ajout du titre au graphique et de la moyenne et de l'écart type
+document.getElementById("titleHeartPlot").innerHTML = "Evolution du rythme cardiaque pour les " +convertDate.length + " dernière minutes, pour la journée du "+ data[data.length-1].date.getDate() + " " + nomsMois[data[data.length-1].date.getMonth()] + " " + data[data.length-1].date.getFullYear();
+document.getElementById("meanCard").innerHTML = "Rythme cardiaque moyen sur les "+convertDate.length+ " dernières minutes : <strong>"+ Math.round(Average(convertHeartRate))+ " bpm</strong>";
+document.getElementById("sdCard").innerHTML = "Ecart entre deux pulsations sur les "+convertDate.length+ " dernières minutes : <strong>"+Math.round(Math.pow(Variance(convertHeartRate),0.5))+ " bpm </strong>";
+//--------------------------------------------Fin du code création du graph sur les données cardiaque--------------------------------------
 </script>
 
 </body>
