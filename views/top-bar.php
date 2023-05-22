@@ -5,7 +5,7 @@
     </div>
     <div class="right-items">
         <a href="/index.php/produit">
-            <?php if (strpos(basename($_SERVER["PHP_SELF"]),"produit") === false) {
+            <?php if (strpos(basename($_SERVER["PHP_SELF"]), "produit") === false) {
                 echo '<button class="page-button" style="margin-right: 10px">';
             } else {
                 echo '<button class="page-button current-button" style="margin-right: 10px">';
@@ -13,7 +13,7 @@
             Notre produit
             </button></a>
         <div class="separator" style="margin-right: 10px"></div>
-        <?php if (strpos(basename($_SERVER["PHP_SELF"]),"presentation") !== false) {
+        <?php if (strpos(basename($_SERVER["PHP_SELF"]), "presentation") !== false) {
             echo '      
 <div class="dropdown">
             <a href="/index.php/presentation"> <button id="menu-btn" onmouseenter="dropMenuPres()" onmouseleave="dropMenuPres()" class="dropbtn current-button">
@@ -51,7 +51,7 @@
                 echo "<p>" . $_SESSION["role_name"] . "</p>";
                 echo '<a href="/index.php/monitor">HEALTH-EIR View</a>
                       <a href="/index.php/tickets">Voir vos tickets</a>
-                      <a href="#" onclick="logout()">Se deconnecter</a>
+                      <a href="#" onclick="logout()">Se déconnecter</a>
                       </div>';
             } ?>
         </div>
@@ -84,7 +84,7 @@
         echo "<p>" . $_SESSION["role_name"] . "</p>";
         echo '<a href="/index.php/monitor"><button class="page-button">HEALTH-EIR View</button></a>
           <a href="/index.php/tickets"><button class="page-button">Voir vos tickets</button></a>
-          <a href="#" onclick="logout()"><button class="page-button">Se deconnecter</button></a>';
+          <a href="#" onclick="logout()"><button class="page-button">Se déconnecter</button></a>';
     } ?>
 
 </div>
