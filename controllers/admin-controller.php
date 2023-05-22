@@ -8,39 +8,43 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
     require "../database.php";
     if (isset($_POST["action"])) {
         switch ($_POST["action"]) {
-        case "delete":
-            $_DB->execute("DELETE FROM users WHERE id_user = ?", [
-                $_POST["id_user"],
-            ]);
-            break;
+            case "delete":
+                $_DB->execute("DELETE FROM tickets WHERE id_user = ?", [
+                    $_POST["id_user"],
+                ]);
 
-        case "reset":
-            // Generate hashed password using PASSWORD_ARGON2ID algorithm
-            $options = [
-                "memory_cost" => PASSWORD_ARGON2_DEFAULT_MEMORY_COST,
-                "time_cost" => PASSWORD_ARGON2_DEFAULT_TIME_COST,
-                "threads" => PASSWORD_ARGON2_DEFAULT_THREADS,
-            ];
-            $hashedPassword = password_hash(
-                "take-eir",
-                PASSWORD_ARGON2ID,
-                $options
-            );
+                $_DB->execute("DELETE FROM users WHERE id_user = ?", [
+                    $_POST["id_user"],
+                ]);
+                break;
 
-            $_DB->execute(
-                "UPDATE users SET password = :hash WHERE id_user = :id",
-                [
-                    "hash" => $hashedPassword,
-                    "id" => $_POST["id_user"],
-                ]
-            );
-            break;
+            case "reset":
+                // Generate hashed password using PASSWORD_ARGON2ID algorithm
+                $options = [
+                    "memory_cost" => PASSWORD_ARGON2_DEFAULT_MEMORY_COST,
+                    "time_cost" => PASSWORD_ARGON2_DEFAULT_TIME_COST,
+                    "threads" => PASSWORD_ARGON2_DEFAULT_THREADS,
+                ];
+                $hashedPassword = password_hash(
+                    "take-eir",
+                    PASSWORD_ARGON2ID,
+                    $options
+                );
 
-        case "delete_faq":
-            $_DB->execute("DELETE FROM faq WHERE id_post = ?", [
-                $_POST["id_post"],
-            ]);
-            break;
+                $_DB->execute(
+                    "UPDATE users SET password = :hash WHERE id_user = :id",
+                    [
+                        "hash" => $hashedPassword,
+                        "id" => $_POST["id_user"],
+                    ]
+                );
+                break;
+
+            case "delete_faq":
+                $_DB->execute("DELETE FROM faq WHERE id_post = ?", [
+                    $_POST["id_post"],
+                ]);
+                break;
         }
     } elseif (isset($_POST["search"])) {
         $_DB->execute("SET @search = :var", ["var" => "%{$_POST["search"]}%"]);
