@@ -1,8 +1,8 @@
-html{
+html {
     font-family: 'Krona One', sans-serif;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,8 +59,8 @@ body{
     transition: transform 0.5s ease-in-out;
 }
 
-.top-bar-img img:hover{
-    transform:translateY(-50%);
+.top-bar-img img:hover {
+    transform: translateY(-50%);
     transform: translateX(20%);
 }
 
@@ -75,7 +75,7 @@ body{
     border-radius: 15px;
     color: #2d67e0;
     font-style: normal;
-    font-family: 'Krona One',sans-serif;
+    font-family: 'Krona One', sans-serif;
     font-weight: 400;
     font-size: 15px;
     border: 0;
@@ -95,7 +95,7 @@ body{
     border-radius: 15px;
     color: #ffffff;
     font-style: normal;
-    font-family: 'Krona One',sans-serif;
+    font-family: 'Krona One', sans-serif;
     font-weight: 400;
     font-size: 15px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -121,7 +121,39 @@ body{
     border-radius: 25px;
 }
 
-.globalMonitoring{
+.tabs{
+font-size: 20px;
+}
+
+.tabs .tab-registers {
+display: flex;
+background-color: RGB(255, 255, 255);
+}
+
+
+.tabs button {
+padding: 0.5em;
+background-color: RGB(255, 255, 255);
+border: none;
+font: inherit;
+}
+
+.tabs .tab-registers button:hover {
+cursor: pointer;
+}
+
+.tabs .tab-bodies {
+padding: 0.5em;
+background-color: RGB(235, 235, 235);
+flex-grow: 1;
+overflow-y: auto;
+}
+
+.tabs button.active-tab {
+background-color: rgb(235, 235, 235);
+}
+
+.globalMonitoring {
     position: absolute;
     width: 82%;
     height: hv;
@@ -133,285 +165,159 @@ body{
     border-radius: 15px;
 }
 
-.boutonPatient{
-box-sizing: border-box;
-position: absolute;
-width: auto;
-height: 2.5%;
-margin-left: 90%;
-font-style: normal;
-color: white;
-font-weight: 400px;
-font-size: 24px;
-background: #2D67E0;
-font-family: 'Krona One';
-border-radius: 15px;
-transform: rotate(90deg);
+.boutonPatient {
+    box-sizing: border-box;
+    position: absolute;
+    width: auto;
+    height: 2.5%;
+    margin-left: 90%;
+    font-style: normal;
+    color: white;
+    font-weight: 400px;
+    font-size: 24px;
+    background: #2D67E0;
+    font-family: 'Krona One';
+    border-radius: 15px;
+    transform: rotate(90deg);
 }
 
-.infoPatient{
+.infoPatient {
     margin-left: 85%;
-  font-size: 20px;
+    font-size: 20px;
 }
 
-hr{
+hr {
     border-width: 0px;
 }
 
-.champ1 {
-    display: flex;
-    margin-top: 2.5%;
-}
-
-.champ2{
-    display: flex;
-}
-
-.cardiacData, .tempData, .noiseData, .co2Data, .dustData{
-    align-items: center;
-    flex-basis: 50%;
-	box-sizing: border-box;
-}
-
-.title_card_graph {
+.title {
     font-family: 'Krona One';
     width: 45%;
     height: 15%;
     margin-left: 15%;
     margin-top: 7%;
     text-align: center;
-    background: #E0584C;
     border-radius: 15px;
-    color:white;
+    color: white;
     font-size: 1.15em;
 }
 
-.title_dust_graph {
-    font-family: 'Krona One';
-    width: 50%;
-    height: 15%;
-    margin-left: 20%;
-    margin-top: 10%;
-    background: #67B4C5;
-    border-radius: 15px;
-    color:white;
+#titleHeartPlot {
+    background: #E0584C;
+
 }
 
-.title_temp_graph {
-    font-family: 'Krona One';
-    width: 50%;
-    height: 20%;
-    margin-left: 20%;
-    top: 25%;
+#titleTempPlot {
     background: #5DD1B7;
-    border-radius: 15px;
-    color:white;
+
 }
 
-.title_noise_graph{
-    font-family: 'Krona One';
-    width: 20%;
-    height: 15%;
-    margin-left: 40%;
-    margin-top: 8%;
+#titleNoisePlot {
     background: #712DE0;
-    border-radius: 15px;
-    color:white;
-}
-
-.title_co2_graph{
-    font-family: 'Krona One';
-    width: 50%;
-    height: 15%;
-    margin-left: 23%;
-    margin-top: 10%;
-    background: rgb(11, 1, 1,0.75);
-    border-radius: 15px;
-    color:white;
-}
-
-
-
-.cardiacData img {
-    width: 65%;
-    height: 65%;
-    margin-top: 2.5%;
-    margin-left: 15%;
-}
-
-.tempData img {
-    width: 65%;
-    height: 65%;
-    margin-top: 2.5%;
-    margin-left: 12%;
-}
-
-.noiseData img {
-    width: 37%;
-    height: 30%;
-    margin-top: 2.5%;
-    margin-left: 31%;
-}
-
-.co2Data img {
-    width: 65%;
-    height: 50%;
-    margin-left: 15%;
-    margin-top: 5%;
-}
-
-.dustData img {
-    width: 65%;
-    height: 49%;
-    margin-top: 2.5%;
-    margin-left: 12%;
-}
-
-
-.infoTempGraph{
-    height: auto;
-    width:45%;
-    font-size: 20px;
-    margin-left: 21%;
-    background-color: #39EFC6;
-    border-radius: 15px;
-    color: #ffffff;
-    font-family: 'Krona One',sans-serif;
 
 }
 
-.infoNoiseGraph{
-    height: auto;
-    width:45%;
-    font-size: 20px;
-    margin-left: 28%;
-    background-color: #B671FC;
-    border-radius: 15px;
-    color: #ffffff;
-    font-family: 'Krona One',sans-serif;
+#titleDustPlot {
+    background: #67B4C5;
+
+}
+
+#titleCo2Plot {
+    background: rgb(11, 1, 1, 0.75);
 
 }
 
 
-.infoCo2Graph{
-    height: auto;
-    width:45%;
-    font-size: 20px;
-    margin-left: 25%;
-    background-color: #AA9E9E;
-    border-radius: 15px;
-    color: #ffffff;
-    font-family: 'Krona One',sans-serif;
 
-}
-
-
-.infoCardiacGraph{
-    margin-left: 23%;
-    height: auto;
-    width:45%;
-    font-size: 1.1em;
-    background-color: #E0584C;
-    border-radius: 15px;
-    color: #ffffff;
-    font-family: 'Krona One',sans-serif;
-
-}
-
-.infoDustGraph{
-    height: auto;
-    width:60%;
-    font-size: 20px;
-    margin-left: 17%;
-    background-color: #75BED6;
-    border-radius: 15px;
-    color: #ffffff;
-    font-family: 'Krona One',sans-serif;
-
-}
-
-.tab-registers{
-  display: flex;
-}
-
-img{
+img {
     width: 50%;
     height: 80%;
 }
-.Plot{
-   margin-top: 2%;
-   margin-left: 5%;
-   margin-bottom: 5%;
+
+
+.Plot {
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-bottom: 5%;
 }
 
-.infoGraph{
+.info {
     margin-left: 10%;
     padding: 5px;
 }
 
-#meanCard, #sdCard{
+#meanCard,
+#sdCard {
     font-size: 1em;
 }
 
-#sdCard{
+#sdCard {
     color: #fdc1c5;
 }
 
-#meanCard{
+#meanCard {
     color: #FF6961;
 }
 
 
 
 
-@media(max-width:800px){
-    
-    .champ1, .champ2{
+@media(max-width:800px) {
+
+    .champ1,
+    .champ2 {
         flex-direction: column;
     }
 
-    .boutonPatient{
+    .boutonPatient {
         margin-bottom: 5%;
         margin-left: 22%;
     }
-    .infoPatient{
+
+    .infoPatient {
         margin-left: 2%;
     }
-    
-    .title_card_graph, .title_temp_graph, .title_co2_graph, .title_dust_graph, .title_noise_graph{
-        margin-left:25%;
+
+    .title_card_graph,
+    .title_temp_graph,
+    .title_co2_graph,
+    .title_dust_graph,
+    .title_noise_graph {
+        margin-left: 25%;
         margin-top: 5%;
         width: 50%;
         height: 25%;
 
     }
 
-    .infoCardiacGraph, .infoTempGraph, .infoNoiseGraph{
+    .infoCardiacGraph,
+    .infoTempGraph,
+    .infoNoiseGraph {
         margin-left: 25%;
     }
 
-    .title_noise_graph{
+    .title_noise_graph {
         width: 50%;
         height: 20%;
         margin-left: 25%;
     }
 
-    .dustData img{
+    .dustData img {
         margin-left: 19%;
     }
 
-    .tempData img{
+    .tempData img {
         margin-left: 20%;
         width: 60%;
         height: 70%;
 
     }
 
-    .infoDustGraph{
+    .infoDustGraph {
         margin-left: 20%;
     }
 
-    .infoCo2Graph{
+    .infoCo2Graph {
         width: 60%;
         margin-left: 20%;
     }
