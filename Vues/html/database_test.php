@@ -3,7 +3,7 @@
         include_once("C:/Users/imadr/OneDrive/Documents/ISEP/Projet_syst_num/informatique/xampp/htdocs/take-eir-app/Models/infoDB.php");
         $conn = connectionToDB();
         $sql = "
-        SELECT * FROM sensors_data sd ORDER BY sd.measure_date 
+        SELECT * FROM sensors_data sd ORDER BY sd.timestamp 
                 ";
 
         $commande = $conn->prepare($sql);
@@ -26,7 +26,7 @@
         return $result;
     }
 
-    $date = fromDataToString($data, "measure_date");
+    $date = fromDataToString($data, "timestamp");
     $heart = fromDataToString($data, "heart_rate");
     $temp = fromDataToString($data, "temp_rate");
     $noise = fromDataToString($data, "noise_rate");

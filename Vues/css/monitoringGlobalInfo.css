@@ -165,34 +165,31 @@ background-color: rgb(235, 235, 235);
     border-radius: 15px;
 }
 
-.boutonPatient {
-    box-sizing: border-box;
-    position: absolute;
-    width: auto;
-    height: 2.5%;
-    margin-left: 90%;
-    font-style: normal;
-    color: white;
-    font-weight: 400px;
-    font-size: 24px;
-    background: #2D67E0;
-    font-family: 'Krona One';
-    border-radius: 15px;
-    transform: rotate(90deg);
-}
+
 
 .infoPatient {
-    margin-left: 85%;
-    font-size: 20px;
+    margin-top: 3%;
+    font-size: 1vw;
+    margin-bottom: 3%;
+    margin-left: 7%;
+    display: flex;
+}
+.infoPatient p {
+    background: #1e3f5a;
+    color:white;
+
 }
 
-hr {
-    border-width: 0px;
+
+.infoPatient > *{
+    margin-right: 9vw;
 }
+
+
 
 .title {
     font-family: 'Krona One';
-    width: 45%;
+    width: 70%;
     height: 15%;
     margin-left: 15%;
     margin-top: 7%;
@@ -239,86 +236,120 @@ img {
     margin-top: 2%;
     margin-left: 5%;
     margin-bottom: 5%;
+    width: 90%;
+    height: 70%;
 }
 
 .info {
     margin-left: 10%;
     padding: 5px;
+    font-size: 1em;
+
 }
 
-#meanCard,
-#sdCard {
-    font-size: 1em;
-}
+
 
 #sdCard {
     color: #fdc1c5;
+}
+#sdTemp {
+    color: lawngreen;
+}
+#sdNoise {
+    color: #324ab2;
+}
+#sdDust {
+    color: #77b5fe;
+}
+#sdCo2 {
+    color: #4a5a6a;
 }
 
 #meanCard {
     color: #FF6961;
 }
+#meanTemp {
+    color: #34a853;
+}
+#meanNoise {
+    color: #7f00ff;
+}
+#meanDust {
+    color: #22427c;
+}
+#meanCo2 {
+    color: #2a303d;
+}
 
+.slider-box{
+    width:15%;
+    height: -10%;
+    transform:translate(-50, -50%);
+    left:1%;
+    top:25%;
+    background: #9c83f6;
+    padding: 3.3vw;
+    border-radius:10px;
+}
 
+label, input{
+    border:none; 
+    display:inline-block;
+}
+label{
+  font-size: 0.75em;
+  color: #b4f2ee;
+  font-weight: bold;
+  text-align: center;
+}
+input{
+    width: 100%;
+    text-align: center;
+    margin-top:2%;
+    font-weight: 900;
+    outline:none;
+}
+.ul-slider-horizontal{
+    height: 0.2em!important;
+}
+.ui-widget-header{
+    background: #c0e9ef!important;
+}
 
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+    background: #c0e9ef!important;
+    font-weight: normal;
+    border-radius: 10px!important;
+    margin-top: -3px!important;
+    outline: none;
+}
 
 @media(max-width:800px) {
 
-    .champ1,
-    .champ2 {
-        flex-direction: column;
-    }
-
-    .boutonPatient {
-        margin-bottom: 5%;
-        margin-left: 22%;
-    }
-
     .infoPatient {
-        margin-left: 2%;
+        margin-top: 50%;
+        font-size: 1vw;
     }
+    
 
-    .title_card_graph,
-    .title_temp_graph,
-    .title_co2_graph,
-    .title_dust_graph,
-    .title_noise_graph {
-        margin-left: 25%;
-        margin-top: 5%;
-        width: 50%;
-        height: 25%;
 
-    }
-
-    .infoCardiacGraph,
-    .infoTempGraph,
-    .infoNoiseGraph {
-        margin-left: 25%;
-    }
-
-    .title_noise_graph {
-        width: 50%;
-        height: 20%;
-        margin-left: 25%;
-    }
-
-    .dustData img {
-        margin-left: 19%;
-    }
-
-    .tempData img {
-        margin-left: 20%;
+    img {
         width: 60%;
+        height: 90%;
+    }
+    
+    .info{
+        margin-left: 10%;
+        font-size: 0.5em;
+    }
+
+    .Plot{
+        width: 100%;
         height: 70%;
-
     }
 
-    .infoDustGraph {
-        margin-left: 20%;
+    .graph{
+        width:100%;
     }
 
-    .infoCo2Graph {
-        width: 60%;
-        margin-left: 20%;
-    }
 }
