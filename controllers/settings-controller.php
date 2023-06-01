@@ -13,7 +13,6 @@ if($_SESSION["role_permission"] == 6) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
     if(isset($_POST["action"])) {
         switch($_POST["action"]) {
             case "edit_email":
@@ -53,6 +52,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         ->execute($query, ["new_password" => $new_password, "id" => $_SESSION["id"]])->fetchAll();
                     echo "success";
                 }
+                break;
+
+            case "update_notif":
+                $notif = "";
+                switch($_POST["notif"]){
+                    case "N":
+                        $notif = "N";
+                        break;
+                    case "Y":
+                        $notif = "Y";
+                        break;
+                    default:
+                        $notif = "Y";
+                        break;
+                }
+                $results = $_DB->execute("UPDATE users SET notification = :notif WHERE id_user = :id", 
+                    ["notif" => $notif, "id" => $_SESSION["id"]
+                    ]);
+                echo "success";
+                break;
+        }
+    }
+} else {
+    if(isset($_GET["action"])) {
+        switch($_GET["action"]) {
+            case "notification":
+                $results = $_DB->execute("SELECT notification FROM users where id_user = :id",["id" => $_SESSION["id"]])->fetch();
+                echo $results["notification"];
                 break;
         }
     }

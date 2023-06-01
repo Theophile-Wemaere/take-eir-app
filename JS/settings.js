@@ -52,7 +52,6 @@ function changePassword() {
     })
       .then((res) => res.text())
       .then((res) => {
-        console.log(res);
         if (res === "bad_password") {
           error.style.display = "block";
         } else if (res === "success") {
@@ -60,4 +59,45 @@ function changePassword() {
         }
       });
   }
+}
+
+function getNotification() {
+  const switcher = document.getElementById("switchA1");
+
+  fetch("/controllers/settings-controller.php?action=notification", {
+    method: "GET",
+  })
+    .then((response) => response.text())
+    .then((response) => {
+      if (response === "Y") {
+        switcher.checked = true;
+      } else {
+        switcher.checked = false;
+      }
+    });
+}
+
+function updateNotification() {
+  const switcher = document.getElementById("switchA1");
+  const data = new FormData();
+  const success = document.getElementById("success-msg");
+  success.style.display = "none";
+
+  data.append("action", "update_notif");
+  if (switcher.checked) {
+    data.append("notif", "Y");
+  } else {
+    data.append("notif", "N");
+  }
+
+  fetch("/controllers/settings-controller.php", {
+    method: "POST",
+    body: data,
+  })
+    .then((res) => res.text())
+    .then((res) => {
+      if (res === "success") {
+        success.style.display = "block";
+      }
+    });
 }

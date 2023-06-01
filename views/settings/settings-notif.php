@@ -17,6 +17,7 @@ if (!isset($_SESSION["email"])) {
     <link rel="stylesheet" href="/CSS/styles.css" />
     <link rel="stylesheet" href="/CSS/notif_settings.css">
     <script src="/JS/scripts.js"></script>
+    <script src="/JS/settings.js"></script>
     <title>Activer les notifications</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -76,14 +77,30 @@ if (!isset($_SESSION["email"])) {
                                 <input type="checkbox" name="" id="switchA1" class="control" checked>
                                 <span class="label"></span>
                             </label>
+                            <script>getNotification()</script>
                         </div>
                     </div>
+                <div id="success-msg" class="error-match" style="color: green">Notifications mises à jour !</div>
                 </div>
             </div>
 
             <center>
                 <div class="pied-formulaire">
-                    <button type="button" onclick="sendEmail()" value="Send An Email">Confirmer</button>
+                    <button type="button" id="submit-btn" onclick="updateNotification()" >Confirmer</button>
+                    <div id="loader" class="loader"></div>
+                    <script>
+                        const btn = document.getElementById("submit-btn");
+                        const loader = document.getElementById("loader");
+
+                        btn.addEventListener("click", () => {
+                            console.log('test')
+                            loader.style.display = "block";
+                            // Code pour lancer une requête ou une opération qui prend du temps
+                            setTimeout(() => {
+                                loader.style.display = "none";
+                            }, 2000); // Temps en millisecondes avant de cacher le loader
+                        });
+                    </script>
                 </div>
             </center>
 
