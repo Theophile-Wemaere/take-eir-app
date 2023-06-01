@@ -17,6 +17,7 @@ if (!isset($_SESSION["email"])) {
     <link rel="stylesheet" href="/CSS/styles.css" />
     <link rel="stylesheet" href="/CSS/mdp_settings.css">
     <script src="/JS/scripts.js"></script>
+    <script src="/JS/settings.js"></script>
     <title>Modifier son mot de passe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -71,25 +72,45 @@ if (!isset($_SESSION["email"])) {
                 <div class="gauche">
                     <div class="groupe">
                         <label>Mot de passe actuel</label>
-                        <input id="name" type="password" name="name" require>
+                        <input id="current-password" type="password" name="name" require>
                         <i class="fa-solid fa-user"></i>
+                        <div id="error-msg" class="error-match">Mot de passe incorrect !</div>
                     </div>
                     <div class="groupe">
                         <label>Nouveau mot de passe</label>
-                        <input id="email" type="password" name="email" require>
+                        <input id="password" type="password" name="email" require>
                         <i class="fa-solid fa-key"></i>
                     </div>
                     <div class="groupe">
                         <label>Vérification du mot de passe</label>
-                        <input id="subject" type="password" name="phoneNumber">
+                        <input id="confirm-password" type="password" name="phoneNumber">
                         <i class="fa-solid fa-key"></i>
                     </div>
+                    <div id="password-match-message" class="error-match">Mot de passe différents !</div>
+                    <div id="success-msg" class="error-match" style="color: green">Mot de passe mis à jour !</div>
                 </div>
             </div>
 
             <center>
                 <div class="pied-formulaire">
-                    <button type="button" onclick="sendEmail()" value="Send An Email">Confirmer</button>
+                    <button type="button" id="submit-btn" onclick="changePassword()">Confirmer</button>
+                    <div id="loader" class="loader"></div>
+                    <script>
+                        const btn = document.getElementById("submit-btn");
+                        const loader = document.getElementById("loader");
+
+                        btn.addEventListener("click", () => {
+                            loader.style.display = "block";
+                            // Code pour lancer une requête ou une opération qui prend du temps
+                            setTimeout(() => {
+                                loader.style.display = "none";
+                            }, 2000); // Temps en millisecondes avant de cacher le loader
+                        });
+                        const passwordInput = document.getElementById("password");
+                        const confirmPasswordInput = document.getElementById("confirm-password");
+                        passwordInput.addEventListener("input", checkPasswordMatch);
+                        confirmPasswordInput.addEventListener("input", checkPasswordMatch);
+                    </script>
                 </div>
             </center>
 

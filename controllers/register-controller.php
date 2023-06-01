@@ -77,6 +77,7 @@ if ($stmt->rowCount() > 0) {
             ->fetch();
         $_SESSION["role_name"] = $row["role_name"];
         $_SESSION["role_permission"] = $row["role_permission"];
+        $_SESSION["id"] = $id;
         echo 'redirect_user';
     } else {
         echo 'error_creation';

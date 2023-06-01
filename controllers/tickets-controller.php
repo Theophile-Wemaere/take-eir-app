@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 "INSERT INTO tickets (id_user, state,id_tag, subject, body) 
                 VALUES(:id, 'OPEN', :tag, :subject, :body)", 
                 [
-                    "id" => md5($_SESSION["email"]),
+                    "id" => $_SESSION["id"],
                     "tag" => $tag,
                     "subject" => $subject, 
                     "body" => $surname . " " .  $name . "[" . $body . "]"
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         $results = $_DB->execute($query, $admin ? 
                     ["message" => $message,"state" => $state, "ticket_id" => $ticket_id] : 
-                    ["message" => $message,"state" => $state, "ticket_id" => $ticket_id,"id_user" => md5($_SESSION["email"])]
+                    ["message" => $message,"state" => $state, "ticket_id" => $ticket_id,"id_user" => $_SESSION["id"]]
         )->fetchAll();
         echo json_encode(count($results) == 0 ? null : $results);
     }
@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 
             $query = $query . " ORDER BY tickets.created_at DESC";
 
-            $results = $_DB->execute($query, $admin ? null : ["id" => md5($_SESSION["email"])
+            $results = $_DB->execute($query, $admin ? null : ["id" => $_SESSION["id"]
                 ])->fetchAll();
             echo json_encode(count($results) == 0 ? null : $results);
             break;
@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(!$admin) {
                 $query = $query . " AND tickets.id_user = :id"; 
             }   
-            $results = $_DB->execute($query,["id_ticket" => $_GET["id"],"id" => md5($_SESSION["email"])])->fetch();
+            $results = $_DB->execute($query,["id_ticket" => $_GET["id"],"id" => $_SESSION["id"]])->fetch();
             echo json_encode(count($results) == 0 ? null : $results);
         }
     }

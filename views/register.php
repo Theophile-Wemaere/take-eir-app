@@ -81,15 +81,15 @@ if (isset($_SESSION["name"])) {
 
           <div class="groupe">
             <label>* Email</label>
-            <input id="email" type="email" name="email" required/>
+            <input id="email" type="email" name="email" required />
             <i class="fa-solid fa-envelope"></i>
-            <p id="emailError" style="color:red;font-size: 14px;margin-top: 5px;display: none;">Please enter a valid email</p>
+            <p id="emailError" class="error-match">Please enter a valid email</p>
           </div>
-          <script>checkEmail()</script>
+          <script>checkEmail("email")</script>
 
           <div class="groupe">
             <label>* Mot de passe</label>
-            <input id="password" type="password" name="password" required/>
+            <input id="password" type="password" name="password" required />
             <i class="fa-solid fa-key"></i>
           </div>
 
@@ -99,35 +99,20 @@ if (isset($_SESSION["name"])) {
             <i class="fa-solid fa-key"></i>
           </div>
 
-          <div id="password-match-message" style="margin-top:20px;display:none;color:red;">Passwords doesn't match</div>
+          <div id="password-match-message" style="margin-top:20px;display:none;color:red;">Mots de passe différents!
+          </div>
           <div class="pied-formulaire">
             <button id="submit-btn" type="button" onclick=doRegister()>S'inscrire</button>
             <script>
               const passwordInput = document.getElementById("password");
               const confirmPasswordInput = document.getElementById("confirm-password");
-              const submitButton = document.getElementById("submit-btn")
-              const message = document.getElementById("password-match-message");
-
-              function checkPasswordMatch() {
-                if (passwordInput.value !== confirmPasswordInput.value) {
-                  submitButton.disabled = true;
-                  submitButton.style.pointerEvents = 'none';
-                  submitButton.style.opacity = '0.5';
-                  message.style.display = "block";
-                } else {
-                  submitButton.disabled = false;
-                  submitButton.style.pointerEvents = 'auto';
-                  submitButton.style.opacity = '1';
-                  message.style.display = "none";
-                }
-              }
-
               passwordInput.addEventListener("input", checkPasswordMatch);
               confirmPasswordInput.addEventListener("input", checkPasswordMatch);
             </script>
           </div>
           <div id="loader" class="loader"></div>
           <script>
+
             const btn = document.getElementById("submit-btn");
             const loader = document.getElementById("loader");
 
@@ -139,7 +124,7 @@ if (isset($_SESSION["name"])) {
               }, 2000); // Temps en millisecondes avant de cacher le loader
             });
           </script>
-          <p id="error-msg" style="color: red;display: none;"></p> 
+          <p id="error-msg" style="color: red;display: none;"></p>
         </div>
         <div class="separation" style="margin-top: 20px;margin-bottom: 20px;"></div>
         <div class="droite">
@@ -147,7 +132,7 @@ if (isset($_SESSION["name"])) {
           <a class="link" href="/index.php/login">Me connecter</a>
         </div>
       </div>
-    
+
     </form>
   </div>
   <?php require "bottom-bar.php"; ?>

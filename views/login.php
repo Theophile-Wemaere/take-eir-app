@@ -41,7 +41,7 @@ if (isset($_SESSION["name"])) {
             <i class="fa-solid fa-envelope"></i>
             <p id="emailError" style="color:red;font-size: 14px;margin-top: 5px;display: none;">Please enter a valid email</p>
           </div>
-          <script>checkEmail()</script>
+          <script>checkEmail("email")</script>
           
           <div class="groupe">
             <label>Mot de passe</label>

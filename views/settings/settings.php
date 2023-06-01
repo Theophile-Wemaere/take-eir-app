@@ -17,6 +17,8 @@ if (!isset($_SESSION["email"])) {
     <link rel="stylesheet" href="/CSS/styles.css" />
     <link rel="stylesheet" href="/CSS/settings.css">
     <script src="/JS/scripts.js"></script>
+    <script src="/JS/users.js"></script>
+    <script src="/JS/settings.js"></script>
     <title>Modifier son e-mail</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -70,25 +72,51 @@ if (!isset($_SESSION["email"])) {
                 <div class="gauche">
                     <div class="groupe">
                         <label>E-mail actuel</label>
-                        <input id="name" type="email" name="name" value=<?php echo $_SESSION["email"];?> disabled="disabled" require>
+                        <input type="email" id="email" value=<?php echo $_SESSION["email"]; ?> disabled="disabled"
+                            required>
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <div class="groupe">
                         <label>Nouvel e-mail</label>
-                        <input id="email" type="email" name="email" require>
+                        <input id="password" name="email" required>
                         <i class="fa-solid fa-envelope"></i>
+                        <p id="emailError" class="error-match">Merci d'entrer un email valide</p>
                     </div>
                     <div class="groupe">
                         <label>Vérification de l'e-mail</label>
-                        <input id="subject" type="email" name="phoneNumber">
+                        <input id="confirm-password" type="email" name="confirm-email" required>
                         <i class="fa-solid fa-envelope"></i>
                     </div>
+                    <script>
+                        checkEmail("password");
+                    </script>
+                    <div id="password-match-message" class="error-match">Emails différents!</div>
+                    <div id="error-msg" class="error-match">Cet email est déjà utilisé</div>
+                    <div id="success-msg" class="error-match" style="color: green">Email mis à jour !</div>
                 </div>
             </div>
 
             <center>
                 <div class="pied-formulaire">
-                    <button type="button" onclick="sendEmail()" value="Send An Email">Confirmer</button>
+                    <button type="button" id='submit-btn' onclick="changeEmail()">Confirmer</button>
+                    <div id="loader" class="loader"></div>
+                    <script>
+                        const btn = document.getElementById("submit-btn");
+                        const loader = document.getElementById("loader");
+
+                        btn.addEventListener("click", () => {
+                            console.log('test')
+                            loader.style.display = "block";
+                            // Code pour lancer une requête ou une opération qui prend du temps
+                            setTimeout(() => {
+                                loader.style.display = "none";
+                            }, 2000); // Temps en millisecondes avant de cacher le loader
+                        });
+                        const passwordInput = document.getElementById("password");
+                        const confirmPasswordInput = document.getElementById("confirm-password");
+                        passwordInput.addEventListener("input", checkPasswordMatch);
+                        confirmPasswordInput.addEventListener("input", checkPasswordMatch);
+                    </script>
                 </div>
             </center>
         </form>

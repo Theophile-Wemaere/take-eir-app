@@ -63,8 +63,8 @@ window.onclick = function (event) {
   }
 };
 
-function checkEmail() {
-  const emailInput = document.getElementById("email");
+function checkEmail(id) {
+  const emailInput = document.getElementById(id);
   const emailError = document.getElementById("emailError");
   emailInput.addEventListener("input", function () {
     const email = emailInput.value;
@@ -81,5 +81,23 @@ function checkEmail() {
 function logout() {
   if (confirm("Êtes-vous sûr(e) de vouloir vous déconnecter ?")) {
       window.location.href = "/controllers/logout.php";
+  }
+}
+
+function checkPasswordMatch() {
+  const passwordInput = document.getElementById("password");
+  const confirmPasswordInput = document.getElementById("confirm-password");
+  const submitButton = document.getElementById("submit-btn")
+  const message = document.getElementById("password-match-message");
+  if (passwordInput.value !== confirmPasswordInput.value) {
+    submitButton.disabled = true;
+    submitButton.style.pointerEvents = 'none';
+    submitButton.style.opacity = '0.5';
+    message.style.display = "block";
+  } else {
+    submitButton.disabled = false;
+    submitButton.style.pointerEvents = 'auto';
+    submitButton.style.opacity = '1';
+    message.style.display = "none";
   }
 }

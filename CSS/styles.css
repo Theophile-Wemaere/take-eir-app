@@ -17,6 +17,13 @@ body {
   flex-grow: 1;
 }
 
+.error-match {
+  margin-top: 20px;
+  display: none;
+  color: red;
+  text-align: center;
+}
+
 /* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_-_-_-_-_-_-_-_-_ */
 
 .fake-top-bar {
@@ -426,4 +433,40 @@ body {
   .bottom-bar .left-items {
     justify-content: center;
   }
+}
+
+.loader {
+  margin-top: 20px;
+  margin-bottom: 3%;
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #3498db;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+::-webkit-input-placeholder {
+  color: rgb(26, 35, 232, 0.73);
+  font-weight: bold;
+}
+::-moz-placeholder {
+  color: rgb(26, 35, 232, 0.73);
+  font-weight: bold;
+}
+
+:-ms-input-placeholder {
+  color: rgb(26, 35, 232, 0.73);
+  font-weight: bold;
+}
+:-moz-placeholder {
+  color: rgb(26, 35, 232, 0.73);
+  font-weight: bold;
 }

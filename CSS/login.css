@@ -164,10 +164,6 @@ form .pied-formulaire button:hover {
   font-weight: bold;
 }
 
-.sphere:hover {
-  transform: translateY(-50%);
-}
-
 @media screen and (max-width: 1015px) {
   body {
     font-size: 14px;
