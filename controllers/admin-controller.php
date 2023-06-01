@@ -50,7 +50,8 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
         $_DB->execute("SET @search = :var", ["var" => "%{$_POST["search"]}%"]);
         $results = $_DB
             ->execute(
-                "SELECT id_user, name, surname, email, created_at, gender, roles.role_name from users join roles on users.id_role = roles.id_role WHERE name LIKE @search OR surname LIKE @search OR email LIKE @searcho ORDER BY created_at ASC"
+                "SELECT id_user, name, surname, email, created_at, gender, roles.role_name from users join roles on users.id_role = roles.id_role 
+                WHERE name LIKE @search OR surname LIKE @search OR email LIKE @search OR gender LIKE @search OR roles.role_name LIKE @search ORDER BY created_at ASC"
             )
             ->fetchAll();
         echo json_encode(count($results) == 0 ? null : $results);

@@ -16,6 +16,7 @@ if (!isset($_SESSION["email"])) {
     <link rel="stylesheet" href="/CSS/styles.css" />
     <link rel="stylesheet" href="/CSS/mdp_settings.css">
     <script src="/JS/scripts.js"></script>
+    <script src="/JS/settings.js"></script>
     <title>Supprimer son compte</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -36,7 +37,7 @@ if (!isset($_SESSION["email"])) {
     <div class="wrapper">
         <h4 class="sent-notification"></h4>
         <form id="myForm">
-            <h1>Modifiez votre mot de passe :</h1>
+            <h1>Supprimer votre compte :</h1>
             <div class="separation"></div>
 
             <div class="corps-formulaire">
@@ -68,20 +69,35 @@ if (!isset($_SESSION["email"])) {
                 <div class="gauche">
                     <div class="groupe">
                         <label> Raison de supprimer le compte ?</label>
-                        <input id="name" type="text" name="name" require>
+                        <textarea id="reason" type="text" name="name"></textarea>
                         <i class="fa-solid fa-question"></i>
                     </div>
                     <div class="groupe">
                         <label>Entrez votre mot de passe</label>
-                        <input id="email" type="password" name="email" require>
+                        <input id="password" type="password">
                         <i class="fa-solid fa-key"></i>
+                        <div id="error-password" class="error-match">Mot de passe incorrect !</div>
+                        <div id="error-msg" class="error-match">Merci de remplir tout les champs</div>
                     </div>
                 </div>
             </div>
 
             <center>
                 <div class="pied-formulaire">
-                    <button type="button" onclick="sendEmail()" value="Send An Email">Supprimer votre compte</button>
+                    <button type="button" id="submit-btn" onclick="deleteAccount()">Supprimer votre compte</button>
+                    <div id="loader" class="loader"></div>
+                    <script>
+                        const btn = document.getElementById("submit-btn");
+                        const loader = document.getElementById("loader");
+
+                        btn.addEventListener("click", () => {
+                            loader.style.display = "block";
+                            // Code pour lancer une requête ou une opération qui prend du temps
+                            setTimeout(() => {
+                                loader.style.display = "none";
+                            }, 2000); // Temps en millisecondes avant de cacher le loader
+                        });
+                    </script>
                 </div>
             </center>
 

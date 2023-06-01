@@ -101,3 +101,38 @@ function updateNotification() {
       }
     });
 }
+
+function deleteAccount() {
+  const msg = "Êtes-vous sure de vouloir supprimer votre compte ?";
+  const msg2 = "Dernière chance ?";
+  const password = document.getElementById("password").value;
+  const reason = document.getElementById("reason").value;
+  const error = document.getElementById("error-msg");
+  error.style.display = "none";
+
+  const errorPassword = document.getElementById("error-password");
+  errorPassword.style.display = "none";
+
+  if (password !== "" && reason != "") {
+    if (confirm(msg) && confirm(msg2)) {
+      data = new FormData();
+      data.append("action", "delete_user");
+      data.append("reason", reason);
+      data.append("password", password);
+      fetch("/controllers/settings-controller.php", {
+        method: "POST",
+        body: data,
+      })
+        .then((res) => res.text())
+        .then((res) => {
+          if (res === "success") {
+            logout(false);
+          } else if (res === "bad_password") {
+            errorPassword.style.display = "block";
+          }
+        });
+    }
+  } else {
+    error.style.display = "block";
+  }
+}

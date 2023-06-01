@@ -28,7 +28,7 @@ margin-bottom: 20px;
 }
 
 .left-part {
-width: 50%;
+max-width: 50%;
 align-items: center;
 justify-content: center;
 }
@@ -43,7 +43,7 @@ justify-content: center;
             <div class="left-part">
                 <h1>Oh non, cette page n'existe pas :(</h1>
                 <h3>
-                    Rassurez-vous, notre développeur basé à San Francisco va fixer ce problème en rien de temps
+                    Rassurez-vous, notre développeur basé à San Francisco va fixer ce problème en un rien de temps
                 </h3>
             </div>
             <img src="/images/404.png" />

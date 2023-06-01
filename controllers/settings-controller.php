@@ -72,6 +72,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ]);
                 echo "success";
                 break;
+
+            case "delete_user":
+                $password = $_POST["password"];
+                $reason = htmlspecialchars($_POST["reason"]);
+                $stmt = $_DB->execute("SELECT password FROM users WHERE id_user = :id",["id" => $_SESSION["id"]])->fetch();
+                if (!password_verify($password,$stmt["password"])) {
+                    echo 'bad_password';
+                } else {
+                    $_DB->delete_user($_SESSION["id"]);
+                    $results = $_DB->execute("INSERT INTO deleted_users VALUES (:reason)",["reason" => $reason]);
+                    echo "success";
+                }
+
         }
     }
 } else {

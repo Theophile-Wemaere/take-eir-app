@@ -41,7 +41,6 @@ window.onclick = function (event) {
 
 function dropMenuUser() {
   document.getElementById("userDropdown").classList.toggle("show");
-  console.log("here");
 }
 
 window.onclick = function (event) {
@@ -78,26 +77,32 @@ function checkEmail(id) {
   });
 }
 
-function logout() {
-  if (confirm("Êtes-vous sûr(e) de vouloir vous déconnecter ?")) {
-      window.location.href = "/controllers/logout.php";
+function logout(confirmation = true) {
+  var ok = false;
+  if (confirmation) {
+    ok = confirm("Êtes-vous sûr(e) de vouloir vous déconnecter ?");
+  } else {
+    ok = true;
+  }
+  if (ok) {
+    window.location.href = "/controllers/logout.php";
   }
 }
 
 function checkPasswordMatch() {
   const passwordInput = document.getElementById("password");
   const confirmPasswordInput = document.getElementById("confirm-password");
-  const submitButton = document.getElementById("submit-btn")
+  const submitButton = document.getElementById("submit-btn");
   const message = document.getElementById("password-match-message");
   if (passwordInput.value !== confirmPasswordInput.value) {
     submitButton.disabled = true;
-    submitButton.style.pointerEvents = 'none';
-    submitButton.style.opacity = '0.5';
+    submitButton.style.pointerEvents = "none";
+    submitButton.style.opacity = "0.5";
     message.style.display = "block";
   } else {
     submitButton.disabled = false;
-    submitButton.style.pointerEvents = 'auto';
-    submitButton.style.opacity = '1';
+    submitButton.style.pointerEvents = "auto";
+    submitButton.style.opacity = "1";
     message.style.display = "none";
   }
 }
