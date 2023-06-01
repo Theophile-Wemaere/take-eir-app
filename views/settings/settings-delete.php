@@ -6,21 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/styles.css" />
-    <link rel="stylesheet" href="../CSS/mdp_settings.css">
+    <link rel="stylesheet" href="/CSS/styles.css" />
+    <link rel="stylesheet" href="/CSS/mdp_settings.css">
     <script src="/JS/scripts.js"></script>
     <title>Supprimer son compte</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Nunito&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Nunito&display=swap"
+        rel="stylesheet" />
 </head>
 
 <body>
-<?php require "../top-bar.php"; ?>
-
+    <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/top-bar.php"; ?>
 
     <div class="wrapper">
         <h4 class="sent-notification"></h4>
@@ -32,28 +36,28 @@
                 <div class="droite">
                     <div class="groupe">
                         <div class="test">
-                            <a href="../index.php"><i class="fa-solid fa-user"></i></a>
+                            <a href="/"><i class="fa-solid fa-user"></i></a>
                             <a href=""><label>Profil</label></a>
                         </div>
                         <div class="test">
-                            <a href="settings.php"><i class="fa-solid fa-envelope"></i></a>
-                            <a href="settings.php"><label> E-mail </label></a>
+                            <a href="/index.php/settings"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="/index.php/settings"><label>E-mail</label></a>
                         </div>
                         <div class="test">
-                            <a href="mdp_settings.php"><i class="fa-solid fa-key"></i></a>
-                            <a href="mdp_settings.php"><label> Mot de passe </label></a>
+                            <a href="/index.php/settings-mdp"><i class="fa-solid fa-key"></i></a>
+                            <a href="/index.php/settings-mdp"><label>Mot de passe</label></a>
                         </div>
                         <div class="test">
-                            <a href="notif_settings.php"><i class="fa-solid fa-comment"></i></a>
-                            <a href="notif_settings.php"><label>Notifications</label></a>
+                            <a href="/index.php/settings-notif"><i class="fa-solid fa-comment"></i></a>
+                            <a href="/index.php/settings-notif"><label>Notifications</label></a>
                         </div>
                         <div class="test">
-                            <a href="#"><i class="fa-solid fa-user-minus"></i></a>
-                            <a href="#"><label><span class="supprimer">Supprimer le compte</span></label></a>
+                            <a href="#"><i class="fa-solid fa-trash"></i></a>
+                            <a href="#"><label><span class="current">Supprimer le compte</span></label></a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="gauche">
                     <div class="groupe">
                         <label> Raison de supprimer le compte ?</label>
@@ -77,7 +81,7 @@
 
         </form>
 
-        
+
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script type="text/javascript">
             function sendEmail() {
@@ -97,7 +101,7 @@
                             subject: subject.val(),
                             body: body.val()
                         },
-                        success: function(response) {
+                        success: function (response) {
                             $('#myForm')[0].reset();
                             $('.sent-notification').text("Message envoyé avec succès !");
                         }
@@ -116,20 +120,7 @@
             }
         </script>
     </div>
-    <div class="bottom-bar">
-        <a>© take-eir</a>
-        <a href="/contact/contact.php">Nous contacter</a>
-        <div class="medias">
-            <!-- https://icons8.com/icons/set/social-media -->
-            <a href="https://linkedin.com/"><img src="/images/icons8-linkedin-24.png" />
-            </a>
-            <a href="https://youtube.com/"><img src="/images/icons8-youtube-logo-24.png" /></a>
-            <a href="https://twitter.com/"><img src="/images/icons8-twitter-24.png" />
-            </a>
-            <a href="https://instagram.com/"><img src="/images/icons8-instagram-24.png" />
-            </a>
-        </div>
-    </div>
+    <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/bottom-bar.php"; ?>
 </body>
 
 </html>

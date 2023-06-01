@@ -1,209 +1,274 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 body {
-	font-family: "Roboto", sans-serif;
-	font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
 }
 
-.droite .test a{
-    text-decoration: none;
+.droite .test a {
+  text-decoration: none;
 }
 
 .wrapper {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 form {
-	background-color: white;
-	margin-left: auto;
-	margin-right: auto;
-	width: 40%;
-	max-height: 500px;
-	min-width: 250px;
-	padding: 50px;
-	border-radius: 10px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  max-height: 500px;
+  min-width: 250px;
+  padding: 50px;
+  border-radius: 10px;
 }
 
 form h1 {
-	font-size: 22px;
-    color: #e0584c;
+  font-size: 22px;
+  color: #e0584c;
 }
 
 form div.separation {
-	background-color: #e0584c;
-	height: 1px;
-	width: 100%;
+  background-color: #e0584c;
+  height: 1px;
+  width: 100%;
 }
 
 form div.corps-formulaire {
-	display: flex;
-	flex-wrap: wrap;
-	margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px;
 }
 
 form .corps-formulaire div.groupe {
-	position: relative;
-	margin-top: 20px;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
-form .corps-formulaire .droite .groupe label{
-    padding: 12px 20px;
-    margin-bottom: 15px;
-    color: #73AEF0;
-    font-size: 18px;
+form .corps-formulaire .droite .groupe label {
+  padding: 12px 20px;
+  margin-bottom: 15px;
+  color: #73aef0;
+  font-size: 18px;
 }
 
-i{
-    color: #3f2de1;
+i {
+  color: #3f2de1;
 }
 
-.test span.email{
-    color: #3f2de1;
+.test span.current {
+  color: #3f2de1;
 }
 
-.test span.supprimer{
-    color: #e0584c;
+.test span.supprimer {
+  color: #e0584c;
 }
 
-.test span.supprimer:hover{
-    color: red;
+.test span.supprimer:hover {
+  color: red;
 }
 
-
-.test{
-    padding: 20px 0;
-    color: #e0584c;
+.test {
+  padding: 20px 0;
+  color: #e0584c;
 }
 
-
-form .corps-formulaire .droite .groupe label:hover{
-    color: #3f2de1;
-    cursor: pointer;
+form .corps-formulaire .droite .groupe label:hover {
+  color: #3f2de1;
+  cursor: pointer;
 }
 
 form div.gauche div.groupe input {
-	margin-top: 5px;
-	padding: 10px 20px 10px 30px;
-    width: 190px;
-	border: 1px solid #c9c9c9;
-	outline-color: #b9d0ff;
-	border-radius: 5px;
+  margin-top: 5px;
+  padding: 10px 20px 10px 30px;
+  width: 190px;
+  border: 1px solid #c9c9c9;
+  outline-color: #b9d0ff;
+  border-radius: 5px;
 }
 
 form div.gauche div.groupe label {
-	font-size: 18px;
+  font-size: 18px;
 }
 
 form div.gauche div.groupe i {
-	position: absolute;
-	color: #e0584c;
-	left: 0;
-	top: 25px;
-	padding: 9px 8px;
+  position: absolute;
+  color: #e0584c;
+  left: 0;
+  top: 25px;
+  padding: 9px 8px;
 }
 
-.gauche{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.gauche {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
 
 form .corps-formulaire .droite {
-	margin-left: 3px;
-    margin-right: 80px;
+  margin-left: 3px;
+  margin-right: 80px;
 }
 
 form .corps-formulaire .droite .groupe {
-	height: 100%;
+  height: 100%;
 }
 
 form .corps-formulaire .droite .groupe textarea {
-	margin-top: 5px;
-	padding: 10px;
-	background-color: #f8f8f8;
-	border: 2px solid #b9d0ff;
-	outline: none;
-	border-radius: 5px;
-	color: grey;
-	resize: none;
-	height: 72%;
+  margin-top: 5px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border: 2px solid #b9d0ff;
+  outline: none;
+  border-radius: 5px;
+  color: grey;
+  resize: none;
+  height: 72%;
 }
 
 form .pied-formulaire button {
-	margin-top: 10px;
-	background-color: #e0584c;
-	color: white;
-	font-size: 15px;
-	border: none;
-	padding: 12px 25px;
-	border-radius: 5px;
-	cursor: pointer;
+  margin-top: 10px;
+  background-color: #e0584c;
+  color: white;
+  font-size: 15px;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 form .pied-formulaire button:hover {
-	opacity: 0.8;
-	transform: scale(1.15);
-	transition: 0.3s ease-in-out;
+  opacity: 0.8;
+  transform: scale(1.15);
+  transition: 0.3s ease-in-out;
 }
 
 @media screen and (max-width: 850px) {
-    form .corps-formulaire .droite .groupe label,
-    form div.gauche div.groupe label {
-        font-size: 14px;
-    }
 
-    form h1{
-        font-size: 16px;
-    }
+  form div.corps-formulaire {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    form .corps-formulaire .droite .groupe label{
-        display: none;
-    }
+  form .corps-formulaire .droite {
+    margin: 0;
+  }
 
-    .droite i{
-        padding: 5px;
-        margin-right: 24px;
-        color: #73AEF0;
-    }
+  form .corps-formulaire .droite .groupe label,
+  form div.gauche div.groupe label {
+    font-size: 14px;
+  }
 
-    .droite i.fa-comment{
-        color: #3f2de1;
-    }
+  form h1 {
+    font-size: 16px;
+  }
 
-    .droite i.fa-user-minus{
-        color: #e0584c;
-    }
+  form .corps-formulaire .droite .groupe label {
+    display: none;
+  }
 
-    .droite{
-        width: 100%;
-        height: 100px;
-        display: flex;
-        align-content: center;
-    }
+  .droite i {
+    padding: 5px;
+    margin-right: 24px;
+    color: #73aef0;
+  }
 
-    .label:before{
-        font-size: 14px;
-    }
+  .droite i.fa-comment {
+    color: #3f2de1;
+  }
+
+  .droite i.fa-user-minus {
+    color: #e0584c;
+  }
+
+  .droite {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-content: center;
+  }
+
+  .groupe {
+    width: 100%;
+  }
+
+  .label:before {
+    font-size: 14px;
+  }
 }
-  
-.wrap {display: flex; flex-direction: column; height: 49%; align-items: left; justify-content: center; margin-top: 20px;}
-.switch-item {display: block;}
-.switch-item .label {margin-left: 4px; vertical-align: middle; font-size: 16px; color: #000;}
-.switch-item .control[type='checkbox'] {appearance: none; position: relative; width: 52px; height: 34px; padding: 3px; border-radius: 34px; background-color: #aaa; vertical-align: middle; transition: all .3s cubic-bezier(.4, 0, .1, 1.4);}
-.switch-item .control[type='checkbox']:after {content: ''; position: relative; display: block; left: 0; width: 60.9%; height: 100%; border-radius: 28px; background-color: #fff; transition: left .3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding .3s ease, margin .3s ease; box-sizing: content-box;}
-.switch-item .control[type='checkbox']:active:after {padding-right: 8px;}
-.switch-item .control[type='checkbox']:checked {background-color: green;}
-.switch-item .control[type='checkbox']:checked:after {left: 39.1%;}
-.switch-item .control[type='checkbox']:checked:active:after {margin-left: -8px;}
-.switch-item .control[type='checkbox'] ~ .label:before {content: 'Notifications désactivées'; color: #e0584c;}
-.switch-item .control[type='checkbox']:checked ~ .label:before {content: 'Notifications activées'; color: green;}
-.switch-item .control[type='checkbox']:disabled {opacity: .3;}
-.switch-item .control[type='checkbox']:disabled:active:after {padding-right: 0; margin-left: 0;}
 
+.wrap {
+  display: flex;
+  flex-direction: column;
+  height: 49%;
+  align-items: left;
+  justify-content: center;
+  margin-top: 20px;
+}
+.switch-item {
+  display: block;
+}
+.switch-item .label {
+  margin-left: 4px;
+  vertical-align: middle;
+  font-size: 16px;
+  color: #000;
+}
+.switch-item .control[type="checkbox"] {
+  appearance: none;
+  position: relative;
+  width: 52px;
+  height: 34px;
+  padding: 3px;
+  border-radius: 34px;
+  background-color: #aaa;
+  vertical-align: middle;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.1, 1.4);
+}
+.switch-item .control[type="checkbox"]:after {
+  content: "";
+  position: relative;
+  display: block;
+  left: 0;
+  width: 60.9%;
+  height: 100%;
+  border-radius: 28px;
+  background-color: #fff;
+  transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    padding 0.3s ease, margin 0.3s ease;
+  box-sizing: content-box;
+}
+.switch-item .control[type="checkbox"]:active:after {
+  padding-right: 8px;
+}
+.switch-item .control[type="checkbox"]:checked {
+  background-color: green;
+}
+.switch-item .control[type="checkbox"]:checked:after {
+  left: 39.1%;
+}
+.switch-item .control[type="checkbox"]:checked:active:after {
+  margin-left: -8px;
+}
+.switch-item .control[type="checkbox"] ~ .label:before {
+  content: "Notifications désactivées";
+  color: #e0584c;
+}
+.switch-item .control[type="checkbox"]:checked ~ .label:before {
+  content: "Notifications activées";
+  color: green;
+}
+.switch-item .control[type="checkbox"]:disabled {
+  opacity: 0.3;
+}
+.switch-item .control[type="checkbox"]:disabled:active:after {
+  padding-right: 0;
+  margin-left: 0;
+}
