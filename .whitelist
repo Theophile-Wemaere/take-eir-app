@@ -1,12 +1,21 @@
+# informations
 home
 presentation
 produit
-login
-register
-monitor
 mentions
 cgu
 faq
 contact
+
+# users functions
+login
+register
+monitor
 tickets
 create-ticket
+
+# settings
+settings-delete
+settings-mdp
+settings-notif
+settings
