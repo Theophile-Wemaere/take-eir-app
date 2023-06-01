@@ -1,35 +1,37 @@
 <?php 
-    function getData(){
-        include_once("C:/Users/imadr/OneDrive/Documents/ISEP/Projet_syst_num/informatique/xampp/htdocs/take-eir-app/Models/infoDB.php");
-        $conn = connectionToDB();
-        $sql = "
-        SELECT * FROM sensors_data sd ORDER BY sd.timestamp 
-                ";
+   // Paramètres de connexion à la base de données
+   $servername = "localhost";
+   $username = "root";
+   $password = "";
+   $dbname = "take-eir";
+   
+   // Connexion à la base de données
+   $conn = new mysqli($servername, $username, $password, $dbname);
+   
+   // Vérifier la connexion
+   if ($conn->connect_error) {
+       die("Erreur de connexion à la base de données : " . $conn->connect_error);
+   }
+   
+   // Récupérer toutes les données de la table
+   $query = "
+   SELECT metrics_type, entry_time, value FROM metrics
+   ";
+   $result = $conn->query($query);
+   
+   // Récupérer les données dans un tableau associatif
+   $data = array();
+   while ($row = $result->fetch_assoc()) {
+       $data[] = $row;
+   }
+   
+   //$data = json_encode($data);
+   //print_r($data);
+   // Fermer la connexion à la base de données
+   $conn->close();
+   
+   // Renvoyer les données au format JSON
+   echo json_encode($data);
 
-        $commande = $conn->prepare($sql);
-        $bool = $commande->execute();
-
-        $resultat = $commande->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
-        return $resultat;
-
-    }
-    
-    $data = getData();
-
-    function fromDataToString($datam, $key){
-        $result =  '[';
-        $columnValue = array_column($datam, $key);
-        for ($i=0; $i < count($datam)-1; $i++){
-            $result = $result . '"' . strval($columnValue[$i]). '", ';
-        }
-        $result = $result . '"'. strval($columnValue[count($datam)-1]). '"]';
-        return $result;
-    }
-
-    $date = fromDataToString($data, "timestamp");
-    $heart = fromDataToString($data, "heart_rate");
-    $temp = fromDataToString($data, "temp_rate");
-    $noise = fromDataToString($data, "noise_rate");
-    $co2 = fromDataToString($data, "co2_rate");
-    $dust = fromDataToString($data, "dust_rate");
-?>
+   ?>
+   

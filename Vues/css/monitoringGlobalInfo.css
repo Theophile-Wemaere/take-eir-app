@@ -287,7 +287,7 @@ img {
     transform:translate(-50, -50%);
     left:1%;
     top:25%;
-    background: #9c83f6;
+    background: #0f056b;
     padding: 3.3vw;
     border-radius:10px;
 }
@@ -298,7 +298,7 @@ label, input{
 }
 label{
   font-size: 0.75em;
-  color: #b4f2ee;
+  color: white;
   font-weight: bold;
   text-align: center;
 }
@@ -307,17 +307,21 @@ input{
     text-align: center;
     margin-top:2%;
     font-weight: 900;
+    margin-bottom: 2%;
     outline:none;
+    background: none;
+    color: whitesmoke;
+    font-family: 'Krona One';
 }
 .ul-slider-horizontal{
     height: 0.2em!important;
 }
 .ui-widget-header{
-    background: #c0e9ef!important;
+    background: white!important;
 }
 
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
-    background: #c0e9ef!important;
+    background: white!important;
     font-weight: normal;
     border-radius: 10px!important;
     margin-top: -3px!important;
