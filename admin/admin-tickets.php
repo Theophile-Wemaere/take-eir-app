@@ -21,7 +21,8 @@ if (!isset($_SESSION["role_permission"])) {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <script src="/JS/scripts.js"></script>
-  <script src="/JS/admin-page.js"></script>
+  <script src="/JS/admin-tickets.js"></script>
+  <script src="/JS/tickets.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Nunito&display=swap"
     rel="stylesheet" />

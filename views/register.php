@@ -22,6 +22,7 @@ if (isset($_SESSION["name"])) {
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Register</title>
   <script src="/JS/scripts.js"></script>
+  <script src="/JS/users.js"></script>
 </head>
 
 <body>

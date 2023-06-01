@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+session_start();
+if (!isset($_SESSION["email"])) {
+    header("Location: /index.php/login");
+    exit();
+}
+?>
+
 <html lang="en">
 
 <head>
@@ -67,7 +75,7 @@
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <div class="groupe">
-                        <label>Nouvel mot de passe</label>
+                        <label>Nouveau mot de passe</label>
                         <input id="email" type="password" name="email" require>
                         <i class="fa-solid fa-key"></i>
                     </div>
@@ -87,45 +95,6 @@
 
 
         </form>
-
-
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript">
-            function sendEmail() {
-                var name = $("#name");
-                var email = $("#email");
-                var subject = $("#subject");
-                var body = $("#body");
-
-                if (isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(subject) && isNotEmpty(body)) {
-                    $.ajax({
-                        url: 'sendEmail.php',
-                        method: 'POST',
-                        dataType: 'json',
-                        data: {
-                            name: name.val(),
-                            email: email.val(),
-                            subject: subject.val(),
-                            body: body.val()
-                        },
-                        success: function (response) {
-                            $('#myForm')[0].reset();
-                            $('.sent-notification').text("Message envoyé avec succès !");
-                        }
-                    });
-                }
-            }
-
-            function isNotEmpty(caller) {
-                if (caller.val() == "") {
-                    caller.css('border', '1px solid red');
-                    return false;
-                } else
-                    caller.css('border', '');
-
-                return true;
-            }
-        </script>
     </div>
     <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/bottom-bar.php"; ?>
 </body>
