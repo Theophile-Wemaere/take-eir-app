@@ -203,8 +203,11 @@ body {
 }
 
 .reglage{
-    margin-left: 75%;
-    margin-top: 10%;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 45%;
+    top: 85%;
 }
 
 
@@ -270,3 +273,4 @@ hr{
     color: white;
     cursor: pointer;
   }
+
