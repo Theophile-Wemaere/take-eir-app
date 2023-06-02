@@ -1,12 +1,17 @@
 <div class="bottom-bar">
     <div class="left-items">
-        <a href="/index.php/mentions">© TAKE-EIR</a>
-        <div class="separator"></div>
-        <a href="/index.php/cgu"> CGU </a>
-        <div class="separator"></div>
-        <a href="/index.php/faq"> FAQ </a>
-        <div class="separator"></div>
-        <a href="/index.php/contact">Nous contacter</a>
+        <div class="links">
+            <a href="/index.php/mentions">&#9737; © TAKE-EIR</a>
+            <a href="/index.php/cgu">&#9737; CGU </a>
+            <a href="/index.php/faq">&#9737; FAQ </a>
+            <a href="/index.php/contact">&#9737; Nous contacter</a>
+        </div>
+        <div class="links">
+            <a href="/index.php/mentions">&#9737; © TAKE-EIR</a>
+            <a href="/index.php/cgu">&#9737; CGU </a>
+            <a href="/index.php/faq">&#9737; FAQ </a>
+            <a href="/index.php/contact">&#9737; Nous contacter</a>
+        </div>
     </div>
     <div class="medias">
         <!-- https://icons8.com/icons/set/social-media -->

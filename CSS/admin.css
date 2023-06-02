@@ -16,7 +16,7 @@
   text-decoration: none;
 }
 
-.active {
+.active-tab {
   color: white;
   background-color: #2d67e0;
   pointer-events: none;

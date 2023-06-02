@@ -35,7 +35,7 @@ if (!isset($_SESSION["role_permission"])) {
     <div class="tabs">
       <a href="/admin/admin-faq.php" class="page-button">Gérer FAQ</a>  
       <a href="/admin/admin-users.php"  class="page-button">Gérer utilisateurs</a>  
-      <a href="/admin/admin-tickets.php" class="page-button active">Gérer tickets</a>  
+      <a href="/admin/admin-tickets.php" class="page-button active-tab">Gérer tickets</a>  
     </div>
     <div class="main-box">
         <div class="left-part">
