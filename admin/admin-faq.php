@@ -35,7 +35,7 @@ if (!isset($_SESSION["role_permission"])) {
   <?php require "../views/top-bar.php"; ?>
   <div class="wrapper">
   <div class="tabs">
-      <a href="/admin/admin-faq.php" class="page-button active">Gérer FAQ</a>  
+      <a href="/admin/admin-faq.php" class="page-button active-tab">Gérer FAQ</a>  
       <a href="/admin/admin-users.php"  class="page-button">Gérer utilisateurs</a>  
       <a href="/admin/admin-tickets.php" class="page-button">Gérer tickets</a>  
   </div>
