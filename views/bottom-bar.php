@@ -6,7 +6,7 @@
         <div class="separator"></div>
         <a href="/index.php/faq"> FAQ </a>
         <div class="separator"></div>
-        <a href="/contact/contact.php">Nous contacter</a>
+        <a href="/index.php/contact">Nous contacter</a>
     </div>
     <div class="medias">
         <!-- https://icons8.com/icons/set/social-media -->

@@ -115,7 +115,7 @@ function deleteAccount() {
 
   if (password !== "" && reason != "") {
     if (confirm(msg) && confirm(msg2)) {
-      data = new FormData();
+      const data = new FormData();
       data.append("action", "delete_user");
       data.append("reason", reason);
       data.append("password", password);

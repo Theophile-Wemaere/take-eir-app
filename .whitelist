@@ -8,6 +8,8 @@ faq
 contact
 
 # users functions
+reset-passwd
+new-passwd
 login
 register
 monitor

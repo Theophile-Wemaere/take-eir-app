@@ -106,3 +106,60 @@ function checkPasswordMatch() {
     message.style.display = "none";
   }
 }
+
+function resetPassword() {
+  const email = document.getElementById("email");
+
+  const error = document.getElementById("error-msg");
+  error.style.display = "none";
+
+  const success = document.getElementById("success-msg");
+  success.style.display = "none";
+
+  if (email.value !== "") {
+    const data = new FormData();
+    data.append("reset_passwd", "true");
+    data.append("email", email.value);
+    fetch("/controllers/email-controller.php", {
+      method: "POST",
+      body: data,
+    })
+      .then((res) => res.text())
+      .then((res) => {
+        if (res === "email_not_found") {
+          error.style.display = "block";
+        } else if (res === "success") {
+          success.style.display = "block";
+          email.value = "";
+        }
+      });
+  }
+}
+
+function newPassword() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const token = urlParams.get("token");
+  const password = document.getElementById("confirm-password").value;
+
+  const error = document.getElementById("error-msg");
+  error.style.display = "none";
+
+  if (password !== "") {
+    const data = new FormData();
+    data.append("reset_passwd", "true");
+    data.append("password", password);
+    data.append("token", token);
+    fetch("/controllers/password-controller.php", {
+      method: "POST",
+      body: data,
+    })
+      .then((res) => res.text())
+      .then((res) => {
+        if (res === "invalid_token") {
+          error.style.display = "block";
+        } else if (res === "success") {
+          window.location.href = "/index.php/login";
+        }
+      });
+  }
+}

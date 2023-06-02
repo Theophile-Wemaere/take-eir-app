@@ -35,7 +35,7 @@ fetchFAQ_user()
 </script>
     </div>
     <h3 class="noResponse" style="color: #3f2de1; padding: 10px 20px;">Vous n'avez pas trouvé de réponse à votre
-      question ? <a href="../contact/contact.php" style="text-decoration:none; color:#e0584c;">Contactez-nous !</a></h3>
+      question ? <a href="/index.php/contact" style="text-decoration:none; color:#e0584c;">Contactez-nous !</a></h3>
     <!-- partial -->
   </div>
   <?php require "bottom-bar.php"; ?>

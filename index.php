@@ -13,11 +13,13 @@ $filename = basename($path);
       $name = $whitelist[array_search($filename, $whitelist, true)];
       if (strpos($name,"settings") !== false) {
         require "views/settings/$name.php";
+      } elseif ($name == "contact") {
+        require "views/contact/contact.php";
       } else {
         require "views/$name.php";
       }
     } else {
-      echo "stop trying to hack me pls";
+      require "views/404.php";
     }
   }
 ?>

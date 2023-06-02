@@ -1,12 +1,4 @@
 <!DOCTYPE html>
-<?php
-session_start();
-if (!isset($_SESSION["email"])) {
-    header("Location: /index.php/login");
-    exit();
-}
-?>
-
 <html lang="en">
 
 <head>
@@ -17,7 +9,6 @@ if (!isset($_SESSION["email"])) {
     <link rel="stylesheet" href="/CSS/styles.css" />
     <link rel="stylesheet" href="/CSS/mdp_settings.css">
     <script src="/JS/scripts.js"></script>
-    <script src="/JS/settings.js"></script>
     <title>Modifier son mot de passe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -32,6 +23,24 @@ if (!isset($_SESSION["email"])) {
         rel="stylesheet" />
 </head>
 
+<style>
+    form div.corps-formulaire {
+        flex-direction: column;
+    }
+
+    form {
+        width: 30%;
+        min-width: 250px;
+    }
+
+    .gauche {
+        max-width: 100%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
 <body>
     <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/top-bar.php"; ?>
 
@@ -43,39 +52,7 @@ if (!isset($_SESSION["email"])) {
             <div class="separation"></div>
 
             <div class="corps-formulaire">
-                <div class="droite">
-                    <div class="groupe">
-                        <div class="test">
-                            <a href="/"><i class="fa-solid fa-user"></i></a>
-                            <a href=""><label>Profil</label></a>
-                        </div>
-                        <div class="test">
-                            <a href="/index.php/settings"><i class="fa-solid fa-envelope"></i></a>
-                            <a href="/index.php/settings"><label> E-mail </label></a>
-                        </div>
-                        <div class="test">
-                            <a href="#"><i class="fa-solid fa-key"></i></a>
-                            <a href="#"><label><span class="current">Mot de passe</span></label></a>
-                        </div>
-                        <div class="test">
-                            <a href="/index.php/settings-notif"><i class="fa-solid fa-comment"></i></a>
-                            <a href="/index.php/settings-notif"><label>Notifications</label></a>
-                        </div>
-                        <div class="test">
-                            <a href="/index.php/settings-delete"><i class="fa-solid fa-trash"></i></a>
-                            <a href="/index.php/settings-delete"><label><span class="supprimer">Supprimer le
-                                        compte</span></label></a>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="gauche">
-                    <div class="groupe">
-                        <label>Mot de passe actuel</label>
-                        <input id="current-password" type="password" name="name" require>
-                        <i class="fa-solid fa-user"></i>
-                        <div id="error-msg" class="error-match">Mot de passe incorrect !</div>
-                    </div>
                     <div class="groupe">
                         <label>Nouveau mot de passe</label>
                         <input id="password" type="password" name="email" require>
@@ -87,14 +64,13 @@ if (!isset($_SESSION["email"])) {
                         <i class="fa-solid fa-key"></i>
                     </div>
                     <div id="password-match-message" class="error-match">Mot de passe différents !</div>
-                    <div id="success-msg" class="error-match" style="color: green">Mot de passe mis à jour !</div>
-                    <a style="margin-top:20px;" href="/index.php/reset-passwd">Mot de passe oublié ?</a>
+                    <div id="error-msg" class="error-match">Erreur, ce token n'est plus valide ou est incorrect</div>
                 </div>
             </div>
 
             <center>
                 <div class="pied-formulaire">
-                    <button type="button" id="submit-btn" onclick="changePassword()">Confirmer</button>
+                    <button type="button" id="submit-btn" onclick="newPassword()">Confirmer</button>
                     <div id="loader" class="loader"></div>
                     <script>
                         const btn = document.getElementById("submit-btn");

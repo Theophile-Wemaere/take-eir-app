@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <?php require "../views/top-bar.php"; ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/top-bar.php"; ?>
     <div class="wrapper">
         <h4 class="sent-notification"></h4>
         <form id="myForm">
@@ -72,7 +72,7 @@
 
                 if (isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(subject) && isNotEmpty(body)) {
                     $.ajax({
-                        url: 'sendEmail.php',
+                        url: '/controllers/email-controller.php',
                         method: 'POST',
                         dataType: 'json',
                         data: {
@@ -100,7 +100,7 @@
             }
         </script>
     </div>
-    <?php require "../views/bottom-bar.php"; ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/bottom-bar.php"; ?>
 </body>
 
 </html>

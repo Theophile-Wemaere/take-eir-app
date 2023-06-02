@@ -49,7 +49,7 @@ if (isset($_SESSION["name"])) {
             <i class="fa-solid fa-key"></i>
           </div>
 
-          <a class="link" href="">Mot de passe oublié ?</a>
+          <a class="link" href="/index.php/reset-passwd">Mot de passe oublié ?</a>
           <div class="remember">
             <input type="checkbox" id="rememberme" name="check" checked />
             <label for="check">Se souvenir de moi</label>
