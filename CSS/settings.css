@@ -80,6 +80,25 @@ i {
   color: #e0584c;
 }
 
+.gender {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.type {
+  padding: 10px;
+  height: 40px;
+  width: 105%;
+  border-radius: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  color: black;
+  background-color: transparent;
+  text-align: center;
+  margin-top: 20px;
+}
+
 form .corps-formulaire .droite .groupe label:hover {
   color: #3f2de1;
   cursor: pointer;

@@ -17,9 +17,8 @@ if (!isset($_SESSION["email"])) {
     <link rel="stylesheet" href="/CSS/styles.css" />
     <link rel="stylesheet" href="/CSS/settings.css">
     <script src="/JS/scripts.js"></script>
-    <script src="/JS/users.js"></script>
     <script src="/JS/settings.js"></script>
-    <title>Modifier son e-mail</title>
+    <title>Modifier son profil</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -32,26 +31,25 @@ if (!isset($_SESSION["email"])) {
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Nunito&display=swap"
         rel="stylesheet" />
 </head>
-
 <body>
     <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/top-bar.php"; ?>
 
     <div class="wrapper">
         <h4 class="sent-notification"></h4>
         <form id="myForm">
-            <h1>Modifiez votre adresse e-mail :</h1>
+            <h1>Modifiez votre profil :</h1>
             <div class="separation"></div>
 
             <div class="corps-formulaire">
                 <div class="droite">
                     <div class="groupe">
                         <div class="test">
-                            <a href="/"><i class="fa-solid fa-user"></i></a>
-                            <a href=""><label>Profil</label></a>
+                            <a href="#"><i class="fa-solid fa-user"></i></a>
+                            <a href="#"><label><span class="current">Profil</span></label></a>
                         </div>
                         <div class="test">
-                            <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                            <a href="#"><label> <span class="current"> E-mail</span> </label></a>
+                            <a href="/index.php/settings-email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="/index.php/settings-email"><label>E-mail</label></a>
                         </div>
                         <div class="test">
                             <a href="/index.php/settings-mdp"><i class="fa-solid fa-key"></i></a>
@@ -70,52 +68,75 @@ if (!isset($_SESSION["email"])) {
                 </div>
 
                 <div class="gauche">
+
+                    <select id="role" name="role" class="type">
+                        <option value=select>Choisissez votre statut</option>
+                        <option value=famille>Patient/Famille</option>
+                        <option value=medecin>Medecin</option>
+                    </select>
+
+                    <div class="gender">
+                        <div class="h">
+                            <input type="checkbox" id="h" name="gender" value="M" checked>
+                            <label for="h">Homme</label>
+                        </div>
+
+                        <div class="f">
+                            <input type="checkbox" id="f" name="gender" value="F">
+                            <label for="f">Femme</label>
+                        </div>
+                    </div>
+
+                    <script>
+                        const checkboxes = document.querySelectorAll('input[name="gender"]');
+
+                        checkboxes.forEach((checkbox) => {
+                            checkbox.addEventListener("change", (event) => {
+                                checkboxes.forEach((cb) => {
+                                    if (cb !== event.target) {
+                                        cb.checked = false;
+                                    }
+                                });
+                            });
+                        });
+                    </script>
+
                     <div class="groupe">
-                        <label>E-mail actuel</label>
-                        <input type="email" id="email" value=<?php echo $_SESSION["email"]; ?> disabled="disabled"
-                            required>
+                        <label>Prénom</label>
+                        <input id="name" value=<?php echo $_SESSION["name"]; ?> required>
                         <i class="fa-solid fa-user"></i>
                     </div>
+
                     <div class="groupe">
-                        <label>Nouvel e-mail</label>
-                        <input id="password" name="email" required>
-                        <i class="fa-solid fa-envelope"></i>
-                        <p id="emailError" class="error-match">Merci d'entrer un email valide</p>
+                        <label>Nom de famille</label>
+                        <input id="surname" value=<?php echo $_SESSION["surname"]; ?> required>
+                        <i class="fa-solid fa-user"></i>
                     </div>
-                    <div class="groupe">
-                        <label>Vérification de l'e-mail</label>
-                        <input id="confirm-password" type="email" name="confirm-email" required>
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
+
                     <script>
-                        checkEmail("password");
+                        getProfil();
                     </script>
-                    <div id="password-match-message" class="error-match">Emails différents!</div>
-                    <div id="error-msg" class="error-match">Cet email est déjà utilisé</div>
-                    <div id="success-msg" class="error-match" style="color: green">Email mis à jour !</div>
+                    <div id="error-msg" class="error-match">Merci de remplir tous les champs</div>
+                    <div id="error-upload" class="error-match">Merci image</div>
+                    <div id="success-msg" class="error-match" style="color: green">Profil mis à jour !</div>
                 </div>
             </div>
 
             <center>
                 <div class="pied-formulaire">
-                    <button type="button" id='submit-btn' onclick="changeEmail()">Confirmer</button>
+                    <button type="button" id='submit-btn' onclick="updateProfil()">Confirmer</button>
                     <div id="loader" class="loader"></div>
                     <script>
                         const btn = document.getElementById("submit-btn");
                         const loader = document.getElementById("loader");
 
                         btn.addEventListener("click", () => {
-                            console.log('test')
                             loader.style.display = "block";
                             // Code pour lancer une requête ou une opération qui prend du temps
                             setTimeout(() => {
                                 loader.style.display = "none";
                             }, 2000); // Temps en millisecondes avant de cacher le loader
                         });
-                        const passwordInput = document.getElementById("password");
-                        const confirmPasswordInput = document.getElementById("confirm-password");
-                        passwordInput.addEventListener("input", checkPasswordMatch);
-                        confirmPasswordInput.addEventListener("input", checkPasswordMatch);
                     </script>
                 </div>
             </center>

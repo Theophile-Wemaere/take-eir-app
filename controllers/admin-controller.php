@@ -9,13 +9,8 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
     if (isset($_POST["action"])) {
         switch ($_POST["action"]) {
             case "delete":
-                $_DB->execute("DELETE FROM tickets WHERE id_user = ?", [
-                    $_POST["id_user"],
-                ]);
-
-                $_DB->execute("DELETE FROM users WHERE id_user = ?", [
-                    $_POST["id_user"],
-                ]);
+                $_DB->delete_user($_POST["id_user"]);
+                $_DB->execute("INSERT INTO deleted_users VALUES ('deleted by admin')");
                 break;
 
             case "reset":

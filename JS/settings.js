@@ -136,3 +136,81 @@ function deleteAccount() {
     error.style.display = "block";
   }
 }
+
+function getProfil() {
+  const M = document.getElementById("h");
+  const F = document.getElementById("f");
+  const role = document.getElementById("role");
+
+  fetch("/controllers/settings-controller.php?action=profil", {
+    method: "GET",
+  })
+    .then((response) => response.json())
+    .then((response) => {
+      if (response !== null) {
+        switch (response.role_name) {
+          case "Doctor":
+            role.value = "medecin";
+            break;
+          case "Family":
+            role.value = "famille";
+            break;
+          default:
+            role.value = "select";
+            break;
+        }
+
+        if (response.gender === "M") {
+          M.checked = true;
+          F.checked = false;
+        } else if (response.gender === "F") {
+          M.checked = false;
+          F.checked = true;
+        }
+      }
+    });
+}
+
+function updateProfil() {
+  const h = document.getElementById("h");
+  const f = document.getElementById("f");
+
+  var gender;
+  if (h.checked) {
+    gender = "M";
+  } else {
+    gender = "F";
+  }
+
+  const role = document.getElementById("role").value;
+  const name = document.getElementById("name").value;
+  const surname = document.getElementById("surname").value;
+
+  const error = document.getElementById("error-msg");
+  error.style.display = "none";
+
+  const success = document.getElementById("success-msg");
+  success.style.display = "none";
+
+  if (name !== "" && surname !== "") {
+    data = new FormData();
+    data.append("action", "update_profil");
+    data.append("name", name);
+    data.append("surname", surname);
+    data.append("gender", gender);
+    data.append("role", role);
+
+    fetch("/controllers/settings-controller.php", {
+      method: "POST",
+      body: data,
+    })
+      .then((res) => res.text())
+      .then((res) => {
+        if (res == "success") {
+          success.style.display = "block";
+        }
+      });
+  } else {
+    error.style.display = "block";
+  }
+}

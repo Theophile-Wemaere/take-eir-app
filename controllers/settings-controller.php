@@ -14,7 +14,9 @@ if ($_SESSION["role_permission"] == 6) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["action"])) {
+
         switch ($_POST["action"]) {
+
             case "edit_email":
                 $email = $_POST["email"];
                 $new_email = htmlspecialchars($_POST["new_email"]);
@@ -102,7 +104,53 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $results = $_DB->execute("INSERT INTO deleted_users VALUES (:reason)", ["reason" => $reason]);
                     echo "success";
                 }
+                break;
 
+            case "update_profil":
+                $role = null;
+                switch ($_POST["role"]) {
+                    case "famille":
+                        $role = 3;
+                        break;
+                    case "medecin":
+                        $role = 2;
+                        break;
+                    default:
+                        $role = 3;
+                        break;
+                }
+                $gender = null;
+                switch ($_POST["gender"]) {
+                    case "M":
+                        $gender = "M";
+                        break;
+                    case "F":
+                        $gender = "F";
+                        break;
+                    default:
+                        $gender = "X";
+                        break;
+                }
+                $name = htmlspecialchars($_POST["name"]);
+                $surname = htmlspecialchars($_POST["surname"]);
+
+                $query = "UPDATE users SET name = :name, surname = :surname, gender = :gender, id_role = :role 
+                    WHERE id_user = :id";
+                $_DB->execute($query,
+                    [
+                        "name" => $name,
+                        "surname" => $surname,
+                        "gender" => $gender,
+                        "role" => $role,
+                        "id" => $_SESSION["id"]
+                    ]);
+
+                $result = $_DB->execute("SELECT role_name, role_permission FROM roles WHERE id_role = :role",
+                        ["role" => $role])->fetch();
+                $_SESSION["role_name"] = $result["role_name"];
+                $_SESSION["role_permission"] = $result["role_permission"];
+
+                echo "success";
         }
     }
 } else {
@@ -111,6 +159,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             case "notification":
                 $results = $_DB->execute("SELECT notification FROM users where id_user = :id", ["id" => $_SESSION["id"]])->fetch();
                 echo $results["notification"];
+                break;
+
+            case "profil":
+                $results = $_DB
+                    ->execute(
+                        "SELECT gender, name, surname, roles.role_name FROM users JOIN roles on users.id_role = roles.id_role WHERE id_user = :id",
+                        ["id" => $_SESSION["id"]]
+                    )->fetch();
+                echo json_encode(count($results) == 0 ? null : $results);
                 break;
         }
     }

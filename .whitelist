@@ -17,7 +17,8 @@ tickets
 create-ticket
 
 # settings
+settings-profil
 settings-delete
 settings-mdp
 settings-notif
-settings
+settings-email

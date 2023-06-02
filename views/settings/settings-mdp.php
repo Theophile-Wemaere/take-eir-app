@@ -46,12 +46,12 @@ if (!isset($_SESSION["email"])) {
                 <div class="droite">
                     <div class="groupe">
                         <div class="test">
-                            <a href="/"><i class="fa-solid fa-user"></i></a>
-                            <a href=""><label>Profil</label></a>
+                            <a href="/index.php/settings-profil"><i class="fa-solid fa-user"></i></a>
+                            <a href="/index.php/settings-profil"><label>Profil</label></a>
                         </div>
                         <div class="test">
-                            <a href="/index.php/settings"><i class="fa-solid fa-envelope"></i></a>
-                            <a href="/index.php/settings"><label> E-mail </label></a>
+                            <a href="/index.php/settings-email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="/index.php/settings-email"><label> E-mail </label></a>
                         </div>
                         <div class="test">
                             <a href="#"><i class="fa-solid fa-key"></i></a>
