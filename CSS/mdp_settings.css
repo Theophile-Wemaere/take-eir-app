@@ -126,6 +126,13 @@ form div.gauche div.groupe i {
   flex-grow: 1;
 }
 
+.reason {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 form .corps-formulaire .droite {
   margin-left: 3px;
   margin-right: 80px;

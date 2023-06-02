@@ -1,8 +1,6 @@
 .corps {
   background-color: #ffffff;
-  left: 2%;
-  right: 2%;
-  width: 96%;
+  width: 70%;
   border-radius: 20px;
   align-items: center;
   justify-content: center;
@@ -23,9 +21,12 @@
 
 .box {
   position: relative;
+  display: flex;
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 85%;
   max-height: 100%;
   height: 100;
@@ -78,7 +79,7 @@ figure figcaption {
 }
 
 .equip-div figcaption {
-  font-size: 2vw;
+  font-size: 1vw;
 }
 
 .equip-grid figure {
@@ -156,8 +157,16 @@ figure figcaption {
     padding: 5px;
   }
 
+  figcaption {
+    font-size: 1vw;
+  }
+
+  .corps .textcorp {
+    font-size: 1vw;
+  }
+
   .equip-img {
-    width: 100%;
+    width: 70%;
   }
 
   h3 {
