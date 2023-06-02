@@ -63,6 +63,7 @@ if (isset($_POST['name']) && isset($_POST['email'])) {
                 "email" => $to_email,
                 "token" => $token
             ]);
+        $url = generateResetUrl($token);
         $body = "
 <html>
     <meta charset='utf-8' />
@@ -71,12 +72,12 @@ if (isset($_POST['name']) && isset($_POST['email'])) {
     <p>Bonjour,</p>
     <p>Voici votre lien de réinitialisation de mot de passe :</p>
     <p>
-        <a href='http://localhost:8080/index.php/new-passwd?token=$token'>
+        <a href='$url'>
             Réinitialiser le mot de passe
         </a>
     </p>
     <p>Si le lien ci-dessus ne fonctionne pas, copier coller celui-ci dans votre navigateur :</p>
-    <p>http://localhost:8080/index.php/new-passwd?token=$token</p></br>
+    <p>$url</p></br>
     <p>Bonne journée à vous,</p>
     <p>L'équipe take-eir</p>
 </body>
@@ -103,3 +104,13 @@ if (isset($_POST['name']) && isset($_POST['email'])) {
     }
 }
 
+function generateResetUrl($token) {
+    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+    $host = $_SERVER['HTTP_HOST'];
+
+    if ($host === 'take-eir') {
+        $host = 'take-eir.fr';
+    }
+
+    return $protocol . '://' . $host . '/index.php/new-passwd?token=' . $token;
+}
