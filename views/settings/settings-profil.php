@@ -68,6 +68,13 @@ if (!isset($_SESSION["email"])) {
                 </div>
 
                 <div class="gauche">
+                    
+                    <div class="groupe img-container">
+                        <img id="profil_picture"/>
+                            <input type="file" accept="image/*" id="picture_file" required>
+                    </div>
+                    <script>getProfilPicture()</script>
+
 
                     <select id="role" name="role" class="type">
                         <option value=select>Choisissez votre statut</option>

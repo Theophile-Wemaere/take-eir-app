@@ -21,7 +21,8 @@ form {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
-  max-height: 500px;
+  max-height: 900px;
+  max-width: 700px;
   min-width: 250px;
   padding: 50px;
   border-radius: 10px;
@@ -89,7 +90,7 @@ i {
 .type {
   padding: 10px;
   height: 40px;
-  width: 105%;
+  width: 230px;
   border-radius: 10px;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
@@ -129,6 +130,8 @@ form div.gauche div.groupe i {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 }
 
 form .corps-formulaire .droite {
@@ -161,6 +164,19 @@ form .pied-formulaire button {
   padding: 12px 25px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+form .groupe img {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+}
+
+form .img-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 form .pied-formulaire button:hover {

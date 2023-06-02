@@ -150,6 +150,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["role_name"] = $result["role_name"];
                 $_SESSION["role_permission"] = $result["role_permission"];
 
+                if (isset($_FILES["picture"]) && $_FILES["picture"]["error"] === UPLOAD_ERR_OK) {
+                    error_log("uploading picture");
+                    $file_path = $_SERVER['DOCUMENT_ROOT'] . "/views/uploads/" . $_SESSION["id"] . ".png";
+                    
+                    $allowed_types = array("image/jpeg", "image/png", "image/gif");
+
+                    if (in_array($_FILES["picture"]["type"], $allowed_types)) {
+                        if (move_uploaded_file($_FILES["picture"]["tmp_name"], $file_path)) {
+                            echo "succes";
+                        } else {
+                            echo "error_upload";
+                        }
+                    } else {
+                        echo "error_file";
+                    }
+                }
+
                 echo "success";
         }
     }
@@ -169,6 +186,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     )->fetch();
                 echo json_encode(count($results) == 0 ? null : $results);
                 break;
+
+            case "picture":
+                $filename = $_SERVER['DOCUMENT_ROOT'] . "/views/uploads/" . $_SESSION["id"] . ".png";
+                $file_path = null;
+                if(file_exists($filename)) {
+                    $file_path = $filename;
+                } else {
+                    $file_path = $_SERVER['DOCUMENT_ROOT'] . "/views/uploads/default.png"; 
+                }
+                header('Content-Type: image/jpeg');
+                readfile($file_path);
         }
     }
 }

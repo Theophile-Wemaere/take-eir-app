@@ -185,6 +185,7 @@ function updateProfil() {
   const role = document.getElementById("role").value;
   const name = document.getElementById("name").value;
   const surname = document.getElementById("surname").value;
+  const picture = document.getElementById("picture_file").files[0];
 
   const error = document.getElementById("error-msg");
   error.style.display = "none";
@@ -199,6 +200,7 @@ function updateProfil() {
     data.append("surname", surname);
     data.append("gender", gender);
     data.append("role", role);
+    data.append("picture", picture);
 
     fetch("/controllers/settings-controller.php", {
       method: "POST",
@@ -206,6 +208,7 @@ function updateProfil() {
     })
       .then((res) => res.text())
       .then((res) => {
+        console.log(res);
         if (res == "success") {
           success.style.display = "block";
         }
@@ -213,4 +216,18 @@ function updateProfil() {
   } else {
     error.style.display = "block";
   }
+}
+
+function getProfilPicture() {
+  const img = document.getElementById("profil_picture");
+  fetch("/controllers/settings-controller.php?action=picture", {
+    method: "GET",
+  })
+    .then((response) => response.blob())
+    .then((blob) => {
+      if (blob !== null) {
+        const imgUrl = URL.createObjectURL(blob);
+        img.src = imgUrl;
+      }
+    });
 }

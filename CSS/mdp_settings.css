@@ -25,6 +25,7 @@ form {
   min-width: 250px;
   padding: 50px;
   border-radius: 10px;
+  max-width: 700px;
 }
 
 form h1 {
@@ -121,6 +122,8 @@ form div.gauche div.groupe i {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 }
 
 form .corps-formulaire .droite {
