@@ -6,6 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
   <script src="https://cdn.anychart.com/releases/8.8.0/js/anychart-base.min.js"></script>
   <script src="https://cdn.anychart.com/releases/8.8.0/js/anychart-data-adapter.min.js"></script>
   <link rel="stylesheet" type="text/css"
@@ -38,7 +39,7 @@
   <!--Création des div invisibles pour récuperer les données de la table en javascript-->
 
   <div class="globalMonitoring">
-    <h3 for="jauge" class="labelJauge">Dernière mesure du patient</h3>
+    <h1 class="labelJauge">Monitoring global</h1>
     <div style="display:flex;" class="jauge">
       <div id="cardGaugeContainer" class="plotJauge" style="width:20%"></div>
       <div id="tempGaugeContainer" class="plotJauge" style="width:20%"></div>
@@ -47,15 +48,15 @@
       <div id="dustGaugeContainer" class="plotJauge" style="width:20%"></div>
       <div id="co2GaugeContainer" class="plotJauge" style="width:20%"></div>
     </div>
-    <h3 for="jauge" class="labelJauge" style="font-size:none">
+    <div class="labelJauge" style="font-size:none">
       <div class="infoPatient">
-        <p>Prenom :</p>
-        <p>Nom :</p>
-        <p>Email :</p>
-        <p>Telephone :</p>
-        <p>Health-Key :</p>
+        <p><span class="cadre"><i>Prénom</i></span><br><br>Luc</p>
+        <p><span class="cadre"><i>Nom</i></span><br><br>Dupond</p>
+        <p><span class="cadre"><i>Email</i></span><br><br>luc.dupond@gmail.com</p>
+        <p><span class="cadre"><i>Téléphone</i></span><br><br>0785623475</p>
+        <div class="hk"><p><span class="cadre"><i>Health-Key</i></span><br><br>1478a7cz54</p></div>
       </div>
-    </h3>
+</div>
     <div class="tabs">
       <div class="tab-registers">
         <button class="active-tab"><img src="/take-eir-app/Vues/images/logo_card.png"></button>
@@ -269,11 +270,11 @@
           Plot(tauxCO2Time, tauxCO2, '#co2Graph', "grey");
 
           // Appeler la fonction createGauge() ici, une fois que les données sont disponibles
-          createGauge("cardGaugeContainer", 0, 120, 'BPM', rythmeCardiaque[rythmeCardiaque.length - 1]);
+          createGauge("cardGaugeContainer", 40, 180, 'BPM', rythmeCardiaque[rythmeCardiaque.length - 1]);
           createGauge("tempGaugeContainer", 0, 40, '°C', temperature[temperature.length - 1]);
-          createGauge("humidityGaugeContainer", 0, 100, '%', humidity[humidity.length - 1]);
+          createGauge("humidityGaugeContainer", 0, 100, '% humidité', humidity[humidity.length - 1]-13);
           createGauge("noiseGaugeContainer", 0, 120, 'DB', niveauSonore[niveauSonore.length - 1]);
-          createGauge("dustGaugeContainer", 0, 250, 'µg/m^3', tauxMicroparticules[tauxMicroparticules.length - 1]);
+          createGauge("dustGaugeContainer", 0, 2500, 'µg/m^3', tauxMicroparticules[tauxMicroparticules.length - 1]);
           createGauge("co2GaugeContainer", 0, 2000, 'PPM', tauxCO2[tauxCO2.length - 1]);
 
 

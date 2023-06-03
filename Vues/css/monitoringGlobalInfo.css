@@ -165,12 +165,15 @@ background-color: rgb(235, 235, 235);
     border-radius: 15px;
 }
 
+.cadre{
+    color: #a5e3f6;
+    font-family: "Comfortaa";
+}
 
 
 .infoPatient {
-    font-size: 1vw;
-    margin-bottom: 3%;
-    margin-left: 13%;
+    font-size: 0.9vw;
+    margin-left: 9%;
     display: flex;
 }
 .infoPatient p {
@@ -194,7 +197,8 @@ background-color: rgb(235, 235, 235);
     text-align: center;
     border-radius: 15px;
     color: white;
-    font-size: 1.15em;
+    padding: 1vw;
+    font-size: 1.25em;
 }
 
 #titleHeartPlot {
@@ -292,10 +296,11 @@ img {
 
 .slider-box{
     width:25%;
+    height: 5%;
     transform:translate(-50, -50%);
     left:1%;
     background: #0f056b;
-    padding: 3.3vw;
+    padding: 1vw;
     border-radius:10px;
 }
 
@@ -306,7 +311,7 @@ label, input{
 label{
   font-size: 0.75em;
   color: white;
-  margin-left: 17%;
+  margin-left: 10%;
   font-weight: bold;
   text-align: center;
 }
@@ -322,7 +327,7 @@ input{
     font-family: 'Montserrat';
 }
 .ul-slider-horizontal{
-    height: 0.2em!important;
+    height: 0.2em;
 }
 .ui-widget-header{
     background: white!important;
@@ -340,16 +345,13 @@ input{
     background-color: #0f056b;
     color: white;
     text-align: center;
+    font-weight: bold;
 }
 
-.long-rectangle {
-    width: 100%;
-    height: 20px;
-    max-width: 500px; /* Limite la largeur maximale du rectangle */
-    margin: 0 auto; /* Centre horizontalement le rectangle */
-    background-color: #0f056b;
-    /* Autres styles pour le rectangle */
-  }
+h1.labelJauge{
+    padding: 20px;
+}
+
 
 .plotJauge text{
     font-size: 2vw;
@@ -362,10 +364,21 @@ input{
 @media(max-width:800px) {
 
     .infoPatient {
-        font-size: 1vw;
+        font-size: 1.15vw;
+        margin-left: 5%;
     }
     .plotJauge{
         width:10%;
+    }
+
+    .info {
+       
+        font-size: 1.5em;
+    
+    }
+    .title {
+        padding: 0.6vw;
+        font-size: 0.8em;
     }
 
     h3{
@@ -380,7 +393,7 @@ input{
     
     .info{
         margin-left: 10%;
-        font-size: 0.5em;
+        font-size: 0.7em;
     }
 
     .Plot{
@@ -390,6 +403,25 @@ input{
 
     .graph{
         width:100%;
+    }
+
+    .slider-box{
+        width:50%;
+        padding: 0.75vw;
+        text-align: center;
+    }
+    
+    label{
+      font-size: 0.5em;
+      margin-left: 1%;
+    }
+    input{
+        
+        font-weight: 700;
+        
+    }
+    .ul-slider-horizontal{
+        height: 0.1em!important;
     }
 
 }
