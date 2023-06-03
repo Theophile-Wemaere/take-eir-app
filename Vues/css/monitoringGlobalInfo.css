@@ -367,10 +367,7 @@ h1.labelJauge{
         font-size: 1.15vw;
         margin-left: 5%;
     }
-    .plotJauge{
-        width:10%;
-    }
-
+    
     .info {
        
         font-size: 1.5em;
@@ -378,7 +375,7 @@ h1.labelJauge{
     }
     .title {
         padding: 0.6vw;
-        font-size: 0.8em;
+        font-size: 0.7em;
     }
 
     h3{

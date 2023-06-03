@@ -97,7 +97,7 @@ function getTimeDifferenceInHours(date1, date2) {
 // set the dimensions and margins of the graph
 const margin = { top: 40, right: 450, bottom: 100, left: 200 },
   width = 3000 - margin.left - margin.right,
-  height = 1000 - margin.top - margin.bottom;
+  height = 1200 - margin.top - margin.bottom;
 
 const nomsMois = [
   'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
