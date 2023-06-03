@@ -38,7 +38,7 @@
   <!--Création des div invisibles pour récuperer les données de la table en javascript-->
 
   <div class="globalMonitoring">
-    <h3 for="jauge" class="labelJauge">Dernières mesures du patients</h3>
+    <h3 for="jauge" class="labelJauge">Dernières mesures du patient</h3>
     <div style="display:flex;" class="jauge">
       <div id="cardGaugeContainer" class="plotJauge" style="width:20%"></div>
       <div id="tempGaugeContainer" class="plotJauge" style="width:20%"></div>

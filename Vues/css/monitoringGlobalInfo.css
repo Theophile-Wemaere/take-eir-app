@@ -237,7 +237,7 @@ img {
 
 .Plot {
     margin-top: 2%;
-    margin-left: 5%;
+    margin-left: 8%;
     margin-bottom: 5%;
     width: 90%;
     height: 70%;
@@ -306,6 +306,7 @@ label, input{
 label{
   font-size: 0.75em;
   color: white;
+  margin-left: 17%;
   font-weight: bold;
   text-align: center;
 }
