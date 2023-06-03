@@ -354,6 +354,7 @@ input{
 .plotJauge text{
     font-size: 2vw;
     font-weight:bold;
+    color:black;
 }
   
 

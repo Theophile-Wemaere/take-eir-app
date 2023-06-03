@@ -8,6 +8,7 @@ function createGauge(containerId, minValue, maxValue, label, newValue) {
         gaugeWidthScale: 0.6,
         counter: true,
         label: label,
+        relativeGaugeSize: true,
         levelColors: ['#00FF00','#FFA500','#FF0000'], // Couleurs des niveaux de la jauge
         levelColorsGradient: true, // Utiliser un dégradé de couleur entre les niveaux
     };

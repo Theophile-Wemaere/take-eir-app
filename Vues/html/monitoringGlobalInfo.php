@@ -38,7 +38,7 @@
   <!--Création des div invisibles pour récuperer les données de la table en javascript-->
 
   <div class="globalMonitoring">
-    <h3 for="jauge" class="labelJauge">Dernières mesures du patient</h3>
+    <h3 for="jauge" class="labelJauge">Dernière mesure du patient</h3>
     <div style="display:flex;" class="jauge">
       <div id="cardGaugeContainer" class="plotJauge" style="width:20%"></div>
       <div id="tempGaugeContainer" class="plotJauge" style="width:20%"></div>
@@ -66,7 +66,7 @@
         <button><img src="/take-eir-app/Vues/images/co2.png"></button>
       </div>
 
-      
+
 
       <div class="tab-bodies">
 
@@ -199,87 +199,94 @@
 
   <script>
     // Code JavaScript avec Ajax
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'database_test.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    function fetchPeriodicData() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'database_test.php', true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    xhr.onload = function () {
-      if (xhr.status === 200) {
-        var data = JSON.parse(xhr.responseText);
-        var rythmeCardiaqueTime = [];
-        var rythmeCardiaque = [];
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          var data = JSON.parse(xhr.responseText);
+          var rythmeCardiaqueTime = [];
+          var rythmeCardiaque = [];
 
-        var temperatureTime = [];
-        var temperature = [];
+          var temperatureTime = [];
+          var temperature = [];
 
-        var humidityTime = [];
-        var humidity = [];
+          var humidityTime = [];
+          var humidity = [];
 
-        var niveauSonoreTime = [];
-        var niveauSonore = [];
+          var niveauSonoreTime = [];
+          var niveauSonore = [];
 
-        var tauxMicroparticulesTime = [];
-        var tauxMicroparticules = [];
+          var tauxMicroparticulesTime = [];
+          var tauxMicroparticules = [];
 
-        var tauxCO2Time = [];
-        var tauxCO2 = [];
+          var tauxCO2Time = [];
+          var tauxCO2 = [];
 
-        // Parcourir les données et les trier en fonction du type de métrique
-        data.forEach(element => {
-          var metricType = element.metrics_type;
-          var entryTime = new Date(element.entry_time);
-          var value = element.value;
+          // Parcourir les données et les trier en fonction du type de métrique
+          data.forEach(element => {
+            var metricType = element.metrics_type;
+            var entryTime = new Date(element.entry_time);
+            var value = element.value;
 
-          // Tri des données en fonction du type de métrique
-          switch (metricType) {
-            case "1":
-              rythmeCardiaqueTime.push(entryTime);
-              rythmeCardiaque.push(parseFloat(value));
-              break;
-            case "2":
-              temperatureTime.push(entryTime);
-              temperature.push(parseFloat(value));
-              break;
-            case "3":
-              niveauSonoreTime.push(entryTime);
-              niveauSonore.push(parseFloat(value));
-              break;
-            case "4":
-              tauxMicroparticulesTime.push(entryTime);
-              tauxMicroparticules.push(parseFloat(value));
-              break;
-            case "5":
-              tauxCO2Time.push(entryTime);
-              tauxCO2.push(parseFloat(value));
-              break;
-            case "6":
-              humidityTime.push(entryTime);
-              humidity.push(parseFloat(value));
-              break;
-          }
-        });
+            // Tri des données en fonction du type de métrique
+            switch (metricType) {
+              case "1":
+                rythmeCardiaqueTime.push(entryTime);
+                rythmeCardiaque.push(parseFloat(value));
+                break;
+              case "2":
+                temperatureTime.push(entryTime);
+                temperature.push(parseFloat(value));
+                break;
+              case "3":
+                niveauSonoreTime.push(entryTime);
+                niveauSonore.push(parseFloat(value));
+                break;
+              case "4":
+                tauxMicroparticulesTime.push(entryTime);
+                tauxMicroparticules.push(parseFloat(value));
+                break;
+              case "5":
+                tauxCO2Time.push(entryTime);
+                tauxCO2.push(parseFloat(value));
+                break;
+              case "6":
+                humidityTime.push(entryTime);
+                humidity.push(parseFloat(value));
+                break;
+            }
+          });
 
-        // Appeler la fonction Plot() ici, une fois que les données sont disponibles
-        Plot(rythmeCardiaqueTime, rythmeCardiaque, '#cardiacGraph', "rgb(224, 88, 76)");
-        Plot(temperatureTime, temperature, '#tempGraph', "#5DD1B7");
-        Plot(humidityTime, humidity, '#humidityGraph', "#6883F5");
-        Plot(niveauSonoreTime, niveauSonore, '#noiseGraph', "#712DE0");
-        Plot(tauxMicroparticulesTime, tauxMicroparticules, '#dustGraph', "#67B4C5");
-        Plot(tauxCO2Time, tauxCO2, '#co2Graph', "grey");
+          // Appeler la fonction Plot() ici, une fois que les données sont disponibles
+          Plot(rythmeCardiaqueTime, rythmeCardiaque, '#cardiacGraph', "rgb(224, 88, 76)");
+          Plot(temperatureTime, temperature, '#tempGraph', "#5DD1B7");
+          Plot(humidityTime, humidity, '#humidityGraph', "#6883F5");
+          Plot(niveauSonoreTime, niveauSonore, '#noiseGraph', "#712DE0");
+          Plot(tauxMicroparticulesTime, tauxMicroparticules, '#dustGraph', "#67B4C5");
+          Plot(tauxCO2Time, tauxCO2, '#co2Graph', "grey");
 
-        // Appeler la fonction createGauge() ici, une fois que les données sont disponibles
-        createGauge("cardGaugeContainer", 0, 120, 'BPM', rythmeCardiaque[rythmeCardiaque.length - 1]);
-        createGauge("tempGaugeContainer", 0, 40, '°C', temperature[temperature.length - 1]);
-        createGauge("humidityGaugeContainer", 0, 100, '%', humidity[humidity.length - 1]);
-        createGauge("noiseGaugeContainer", 0, 120, 'DB', niveauSonore[niveauSonore.length - 1]);
-        createGauge("dustGaugeContainer", 0, 250, 'µg/m^3', tauxMicroparticules[tauxMicroparticules.length - 1]);
-        createGauge("co2GaugeContainer", 0, 2000, 'PPM', tauxCO2[tauxCO2.length - 1]);
+          // Appeler la fonction createGauge() ici, une fois que les données sont disponibles
+          createGauge("cardGaugeContainer", 0, 120, 'BPM', rythmeCardiaque[rythmeCardiaque.length - 1]);
+          createGauge("tempGaugeContainer", 0, 40, '°C', temperature[temperature.length - 1]);
+          createGauge("humidityGaugeContainer", 0, 100, '%', humidity[humidity.length - 1]);
+          createGauge("noiseGaugeContainer", 0, 120, 'DB', niveauSonore[niveauSonore.length - 1]);
+          createGauge("dustGaugeContainer", 0, 250, 'µg/m^3', tauxMicroparticules[tauxMicroparticules.length - 1]);
+          createGauge("co2GaugeContainer", 0, 2000, 'PPM', tauxCO2[tauxCO2.length - 1]);
 
 
-      }
-    };
+        }
+      };
 
-    xhr.send();
+      xhr.send();
+    }
+    // Appeler la fonction initiale pour récupérer les données une première fois
+    fetchPeriodicData();
+
+    // Planifier l'exécution périodique de la fonction
+    //setInterval(fetchPeriodicData, 5000); // Exécuter toutes les 5 secondes (5000 millisecondes)
   </script>
 
 
