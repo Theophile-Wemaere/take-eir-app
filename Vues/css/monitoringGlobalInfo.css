@@ -168,14 +168,12 @@ background-color: rgb(235, 235, 235);
 
 
 .infoPatient {
-    margin-top: 3%;
     font-size: 1vw;
     margin-bottom: 3%;
     margin-left: 13%;
     display: flex;
 }
 .infoPatient p {
-    background: #1e3f5a;
     color:white;
 
 }
@@ -255,7 +253,7 @@ img {
 
 
 #sdCard {
-    color: #fdc1c5;
+    color: #b17074;
 }
 #sdTemp {
     color: lawngreen;
@@ -293,12 +291,9 @@ img {
 }
 
 .slider-box{
-    
-    width:15%;
-    height: -10%;
+    width:25%;
     transform:translate(-50, -50%);
     left:1%;
-    top:25%;
     background: #0f056b;
     padding: 3.3vw;
     border-radius:10px;
@@ -340,16 +335,39 @@ input{
     outline: none;
 }
 
+.labelJauge{
+    background-color: #0f056b;
+    color: white;
+    text-align: center;
+}
+
+.long-rectangle {
+    width: 100%;
+    height: 20px;
+    max-width: 500px; /* Limite la largeur maximale du rectangle */
+    margin: 0 auto; /* Centre horizontalement le rectangle */
+    background-color: #0f056b;
+    /* Autres styles pour le rectangle */
+  }
+
+.plotJauge text{
+    font-size: 2vw;
+    font-weight:bold;
+}
+  
 
 
 @media(max-width:800px) {
 
     .infoPatient {
-        margin-top: 50%;
         font-size: 1vw;
     }
     .plotJauge{
         width:10%;
+    }
+
+    h3{
+        font-size: 2vw;
     }
     
 

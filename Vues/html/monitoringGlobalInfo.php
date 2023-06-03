@@ -38,14 +38,24 @@
   <!--Création des div invisibles pour récuperer les données de la table en javascript-->
 
   <div class="globalMonitoring">
+    <h3 for="jauge" class="labelJauge">Dernières mesures du patients</h3>
     <div style="display:flex;" class="jauge">
-      <div id="cardGaugeContainer"  class ="plotJauge" style="width:20%"></div>
-      <div id="tempGaugeContainer" class ="plotJauge"style="width:20%"></div>
-      <div id="humidityGaugeContainer" class ="plotJauge"style="width:20%"></div>
-      <div id="noiseGaugeContainer" class ="plotJauge"style="width:20%"></div>
-      <div id="dustGaugeContainer" class ="plotJauge"style="width:20%"></div>
-      <div id="co2GaugeContainer" class ="plotJauge"style="width:20%"></div>
+      <div id="cardGaugeContainer" class="plotJauge" style="width:20%"></div>
+      <div id="tempGaugeContainer" class="plotJauge" style="width:20%"></div>
+      <div id="humidityGaugeContainer" class="plotJauge" style="width:20%"></div>
+      <div id="noiseGaugeContainer" class="plotJauge" style="width:20%"></div>
+      <div id="dustGaugeContainer" class="plotJauge" style="width:20%"></div>
+      <div id="co2GaugeContainer" class="plotJauge" style="width:20%"></div>
     </div>
+    <h3 for="jauge" class="labelJauge" style="font-size:none">
+      <div class="infoPatient">
+        <p>Prenom :</p>
+        <p>Nom :</p>
+        <p>Email :</p>
+        <p>Telephone :</p>
+        <p>Health-Key :</p>
+      </div>
+    </h3>
     <div class="tabs">
       <div class="tab-registers">
         <button class="active-tab"><img src="/take-eir-app/Vues/images/logo_card.png"></button>
@@ -56,13 +66,7 @@
         <button><img src="/take-eir-app/Vues/images/co2.png"></button>
       </div>
 
-      <div class="infoPatient">
-        <p>Prenom :</p>
-        <p>Nom :</p>
-        <p>Email :</p>
-        <p>Telephone :</p>
-        <p>Health-Key :</p>
-      </div>
+      
 
       <div class="tab-bodies">
 
