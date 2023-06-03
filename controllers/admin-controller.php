@@ -1,11 +1,12 @@
 <?php
+
+require "../database.php";
 session_start();
 if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
     error_log("not allowed");
     header("Location: /");
     exit();
 } else {
-    require "../database.php";
     if (isset($_POST["action"])) {
         switch ($_POST["action"]) {
             case "delete":
@@ -40,6 +41,22 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
                     $_POST["id_post"],
                 ]);
                 break;
+
+            case "add_device": 
+                $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $id_device = '';
+                for ($i = 0; $i < 3; $i++) {
+                    for ($j = 0; $j < 3; $j++) {
+                        $id_device .= $characters[random_int(0, strlen($characters) - 1)];
+                    }
+                    if ($i < 2) {
+                        $id_device .= '-';
+                    }
+                }
+                $_DB->execute("INSERT INTO devices VALUES(:id_device)",["id_device" => $id_device]);
+                echo "success";
+                
+            
         }
     } elseif (isset($_POST["search"])) {
         $_DB->execute("SET @search = :var", ["var" => "%{$_POST["search"]}%"]);

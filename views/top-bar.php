@@ -49,7 +49,7 @@
             <?php if (isset($_SESSION["email"])) {
                 echo '<div id="userDropdown" onmouseleave="dropMenuUser()" class="dropdown-content-user">';
                 echo "<p>" . $_SESSION["role_name"] . "</p>";
-                echo '<a href="/index.php/monitor">HEALTH-EIR View</a>
+                echo '<a href="/index.php/monitoring">HEALTH-EIR View</a>
                       <a href="/index.php/tickets">Voir vos tickets</a>
                       <a href="/index.php/settings-profil">Paramètres</a>
                       <a href="#" onclick="logout()">Se déconnecter</a>
@@ -83,7 +83,7 @@
         </button></a>
     <?php if (isset($_SESSION["email"])) {
         echo "<p>" . $_SESSION["role_name"] . "</p>";
-        echo '<a href="/index.php/monitor"><button class="page-button">HEALTH-EIR View</button></a>
+        echo '<a href="/index.php/monitoring"><button class="page-button">HEALTH-EIR View</button></a>
           <a href="/index.php/tickets"><button class="page-button">Voir vos tickets</button></a>
           <a href="/index.php/settings-profil"><button class="page-button">Paramètres</button></a>
           <a href="#" onclick="logout()"><button class="page-button">Se déconnecter</button></a>';

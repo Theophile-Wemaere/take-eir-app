@@ -211,6 +211,7 @@ function updateProfil() {
         console.log(res);
         if (res == "success") {
           success.style.display = "block";
+          getProfilPicture();
         }
       });
   } else {
