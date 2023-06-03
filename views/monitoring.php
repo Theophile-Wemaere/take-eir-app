@@ -1,8 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+<?php
+session_start();
+if (!isset($_SESSION["name"])) {
+  header("Location: /");
+}
+?>
 
 <head>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
+  <meta charset="utf-8" />
+  <title>Information globale</title>
+
+  <link rel="stylesheet" href="/CSS/styles.css" />
   <link rel="stylesheet" href="/CSS/monitoring.css" />
+
+
   <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -10,11 +24,14 @@
   <script src="https://cdn.anychart.com/releases/8.8.0/js/anychart-data-adapter.min.js"></script>
   <link rel="stylesheet" type="text/css"
     href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+
   <script src="/JS/monitoring/plot.js"></script>
-  <script src="/JS/monitoring/justgage-master/raphael.min.js"></script>
-  <script src="/JS/monitoring/justgage-master/justgage.js"></script>
+  <!-- <script src="/JS/monitoring/justgage-master/raphael.min.js"></script>
+  <script src="/JS/monitoring/justgage-master/justgage.js"></script> -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.2.9/justgage.min.js"></script>
   <script src="/JS/monitoring/gauge_plot.js"></script>
-  <title>Information globale</title>
+
 </head>
 
 <body>

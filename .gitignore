@@ -1,5 +1,7 @@
 .creds
 .htpasswd
+views/uploads/
+.vscode
 php/
 scripts/
 buttons/

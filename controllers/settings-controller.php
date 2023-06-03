@@ -146,7 +146,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ]);
 
                 $result = $_DB->execute("SELECT role_name, role_permission FROM roles WHERE id_role = :role",
-                        ["role" => $role])->fetch();
+                    ["role" => $role])->fetch();
+                $_SESSION["name"] = $name;
+                $_SESSION["surname"] = $surname;
                 $_SESSION["role_name"] = $result["role_name"];
                 $_SESSION["role_permission"] = $result["role_permission"];
 
@@ -158,16 +160,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     if (in_array($_FILES["picture"]["type"], $allowed_types)) {
                         if (move_uploaded_file($_FILES["picture"]["tmp_name"], $file_path)) {
-                            echo "succes";
+                            echo "success";
                         } else {
                             echo "error_upload";
                         }
                     } else {
                         echo "error_file";
                     }
+                } else {
+                    echo "success";
                 }
-
-                echo "success";
         }
     }
 } else {
