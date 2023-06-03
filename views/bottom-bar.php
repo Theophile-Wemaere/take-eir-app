@@ -20,7 +20,7 @@
     </div>
     <div class="row2">
         Ce site a été réalisé avec <i class="fa fa-heart"></i> par les étudiants de l'ISEP, </br>
-        Institut Supérieur du Numérique, 10 rue de Vanves, 92130 Issy-les-Moulineaux
+        Institut Supérieur d'Électronique de Paris, 10 rue de Vanves, 92130 Issy-les-Moulineaux
     </div>
     <div class="medias">
         <a href="https://linkedin.com/"><i class="fa fa-linkedin-square"></i></a>
