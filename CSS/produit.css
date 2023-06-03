@@ -6,7 +6,6 @@ html {
   color: #2d67e0;
   font-family: "Nunito", sans-serif;
   font-style: normal;
-  font-weight: 100;
   font-size: 4vw;
   letter-spacing: 0.1em;
   text-align: center;
@@ -15,8 +14,8 @@ html {
 .Title_prod h1 {
   font-family: "Nunito", sans-serif;
   margin-top: 7.5%;
-  font-weight: 100;
-  font-size: 2vw;
+  font-weight: bolder;
+  font-size: 3vw;
   letter-spacing: 2em;
 }
 
@@ -264,6 +263,10 @@ p {
 }
 
 @media (max-width: 700px) {
+  .Title_prod {
+    margin-bottom: 30px;
+  }
+
   .introduction,
   .dust-cpt,
   .temp-cpt,
