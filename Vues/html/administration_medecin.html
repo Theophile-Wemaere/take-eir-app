@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/Vues/css/administration_medecin.css" />
+    <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <title>Page administration medecin</title>
+    <div class="top-bar">
+      <div class="top-bar-img">
+        <img src="/Vues/images/logo-notext.png" href="index.html" >
+        <img src="/Vues/images/reglage.png" href = "">
+        <img src="/Vues/images/barre-graphique.png" href="monitoringGlobalInfo.html">
+      </div>
+        
+      <a href="produit.html"><button class="page-button">Notre produit</button></a> 
+      <div class="separator"></div>
+      <button class="page-button">Qui sommes nous ?</button>
+      <a href="login.html"><button class="login-button">Médecin</button></a>
+      <div class="sphere" style="background-color: #2d67e0"></div>
+      <div class="sphere" style="background-color: #e0584c"></div>
+      <div class="sphere" style="background-color: #5dd1b7"></div>
+    </div>
+</head>
+<body>
+   
+    
+<div class="manageMedecin">
+
+  <button>Seuil d'alerte</button>
+
+  <div class ="seuilSon">
+    <img src="/Vues/images/logo_son.png">
+    <div class="sonInfo">
+      <input type="text" name="seuil_db">
+      <p>Notifications désactivées</p>
+    </div>
+  </div>
+
+  <div class ="seuilTemp">
+    <img src="/Vues/images/logo_temp.png">
+    <div class="tempInfo">
+      <input type="text" name="seuil_db">
+      <p>Notifications désactivées</p>
+    </div>
+  </div>
+
+  <div class ="seuilCard">
+    <img src="/Vues/images/logo_card.png">
+    <div class="cardInfo">
+      <input type="text" name="seuil_db">
+      <p>Notifications désactivées</p>
+    </div>
+    <hr>
+
+  </div>
+  <p class="resetPara">Rétablir les paramètre par défault</p>
+
+  
+
+  <script src="/Controller/javascript/db_slider_range.js"></script>
+
+
+
+</div>
+
+</body>
+</html>

@@ -33,19 +33,6 @@ class DB
     $this->stmt->execute($data);
     return $this->stmt;
   }
-
-  function delete_user($id_user)
-  {
-    $query = "DELETE FROM tickets WHERE id_user = :id";
-    $this->stmt = $this->pdo->prepare($query);
-    $this->stmt->execute(["id" => $id_user]);
-    $query = "DELETE FROM devices_users WHERE id_user = :id";
-    $this->stmt = $this->pdo->prepare($query);
-    $this->stmt->execute(["id" => $id_user]);
-    $query = "DELETE FROM users WHERE id_user = :id";
-    $this->stmt = $this->pdo->prepare($query);
-    $this->stmt->execute(["id" => $id_user]);
-  }
 }
 
 define("DB_HOST", "take-eir.fr");
