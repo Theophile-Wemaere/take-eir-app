@@ -5,13 +5,33 @@ function getDevices() {
             const devicesList = document.querySelector(".devices-list");
             devicesList.innerHTML = "";
             data.forEach((row) => {
+
+                const line = document.createElement("div");
+                line.classList.add("row");
+
                 const deviceDiv = document.createElement("div");
                 deviceDiv.classList.add("device");
                 deviceDiv.addEventListener("click", function () {
                     window.location.href = "/index.php/monitoring?device=" + row.id_device;
                 });
 
+                const deleteButton = document.createElement("button");
+                deleteButton.classList.add("delete");
+                deleteButton.addEventListener("click", function () {
+                    deleteDevice(row.id_device);
+                });
+
+
+                const trashIcon = document.createElement("i");
+                trashIcon.classList.add("fa", "fa-trash");
+
+                deleteButton.appendChild(trashIcon);
+
+                line.appendChild(deviceDiv);
+                line.appendChild(deleteButton)
+
                 const keyParagraph = document.createElement("p");
+                keyParagraph.classList.add("health-key");
                 keyParagraph.textContent = row.id_device;
                 deviceDiv.appendChild(keyParagraph);
 
@@ -53,7 +73,7 @@ function getDevices() {
                     }
                 }
             });
-            devicesList.appendChild(deviceDiv);
+            devicesList.appendChild(line);
         });
 
 
@@ -76,4 +96,19 @@ function addKey() {
         .then((res) => { });
     key.value = "";
     getDevices();
+}
+
+function deleteDevice(id_device) {
+    if(confirm("Enlevez cet appareil ?")) {
+        data = new FormData();
+        data.append("action","delete_device");
+        data.append("id_device",id_device);
+        fetch("/controllers/device-controller.php", {
+            method: "POST",
+            body: data,
+        })
+            .then((res) => res.text())
+            .then((res) => { });
+        getDevices();
+    } 
 }

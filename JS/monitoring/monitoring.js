@@ -32,9 +32,10 @@ function fetchPeriodicData() {
                 var metricType = element.metric_type;
                 var entryTime = new Date(element.entry_time);
                 var value = element.value;
+
                 // Tri des données en fonction du type de métrique
-                switch (metricType) {
-                    case "1":
+                switch (parseInt(metricType)) {
+                    case 1:
                         rythmeCardiaqueTime.push(entryTime);
                         rythmeCardiaque.push(parseFloat(value));
                         break;
@@ -98,12 +99,44 @@ function getPatient() {
     })
         .then((response) => response.json())
         .then((data) => {
-            name.textContent += data.name;
-            surname.textContent += data.surname;
-            email.textContent += data.doctor_email;
-            key.textContent += id_device;
+            console.log(data)
+            name.value = data.name;
+            surname.value = data.surname;
+            email.value = data.doctor_email;
+            key.textContent = id_device;
         })
         .catch((error) => {
             console.error("Error:", error);
         });
 }
+
+function updatePatient() {
+
+    const name = document.getElementById("name").value;
+    const surname = document.getElementById("surname").value;
+    const email = document.getElementById("email").value;
+    const urlParams = new URLSearchParams(window.location.search);
+    const id_device = urlParams.get("device");
+
+    const success = document.getElementById("success-msg");
+    success.style.display = "none";
+
+    const data = new FormData()
+    data.append("action","update_patient");
+    data.append("name",name);
+    data.append("surname",surname);
+    data.append("doctor_email",email);
+    data.append("id_device",id_device);
+
+    fetch("/controllers/device-controller.php", {
+        method: "POST",
+        body: data,
+    })
+        .then((res) => res.text())
+        .then((res) => {
+            if(res === "success") {
+                success.style.display = "block";
+            }
+        });
+}
+

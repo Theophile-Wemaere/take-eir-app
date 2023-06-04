@@ -115,7 +115,6 @@ form button:hover {
   text-align: center;
   border-radius: 10px;
   margin-bottom: 30px;
-  overflow-y: scroll;
 }
 
 .devices .devices-list {
@@ -124,10 +123,18 @@ form button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: scroll;
+  max-height: 400px;
+}
+
+.devices .devices-list .row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .devices .device {
-  width: 95%;
+  flex-grow: 1;
   margin-top: 10px;
   background-color: white;
   border-radius: 10px;
@@ -139,6 +146,29 @@ form button:hover {
 
 .devices .device:hover {
   border: solid 3px #1948AA;
+}
+
+.devices .row .delete {
+  width: 7%;
+  margin-top: 10px;
+  height: 70px;
+  background-color: white;
+  margin-left:10px;
+  border-radius: 10px;
+}
+
+.devices .row .delete:hover {
+  border: solid 3px #1948AA;
+}
+
+.devices .row .delete:hover i {
+  color: red;
+}
+
+.devices .device .health-key {
+  font-size: 10px;
+  width: 18%;
+  text-align: center;
 }
 
 .devices .device p {

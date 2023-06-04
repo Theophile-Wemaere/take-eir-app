@@ -28,6 +28,7 @@ if (!isset($_SESSION["name"])) {
   <link rel="stylesheet" href="/CSS/styles.css" />
   <link rel="stylesheet" href="/CSS/monitoring.css" />
 
+
   <script src="/JS/monitoring/plot.js"></script>
   <!-- <script src="/JS/monitoring/justgage-master/raphael.min.js"></script>
   <script src="/JS/monitoring/justgage-master/justgage.js"></script> -->
@@ -50,22 +51,46 @@ if (!isset($_SESSION["name"])) {
     <!--Création des div invisibles pour récuperer les données de la table en javascript-->
 
     <div class="globalMonitoring">
-      <h3 for="jauge" class="labelJauge">Dernière mesure du patient</h3>
-      <div style="display:flex;" class="jauge">
-        <div id="cardGaugeContainer" class="plotJauge" style="width:20%"></div>
-        <div id="tempGaugeContainer" class="plotJauge" style="width:20%"></div>
-        <div id="humidityGaugeContainer" class="plotJauge" style="width:20%"></div>
-        <div id="noiseGaugeContainer" class="plotJauge" style="width:20%"></div>
-        <div id="dustGaugeContainer" class="plotJauge" style="width:20%"></div>
-        <div id="co2GaugeContainer" class="plotJauge" style="width:20%"></div>
+      <h3 for="jauge" class="labelJauge">Monitoring global</h3>
+      <div class="jauge">
+        <div class="groupe">
+          <div id="cardGaugeContainer" class="plotJauge"></div>
+          <div id="tempGaugeContainer" class="plotJauge"></div>
+        </div>
+        <div class="groupe">
+          <div id="humidityGaugeContainer" class="plotJauge"></div>
+          <div id="noiseGaugeContainer" class="plotJauge"></div>
+        </div>
+        <div class="groupe">
+          <div id="dustGaugeContainer" class="plotJauge"></div>
+          <div id="co2GaugeContainer" class="plotJauge"></div>
+        </div>
       </div>
       <h3 for="jauge" class="labelJauge" style="font-size:none">
         <div class="infoPatient">
-          
-        <p id="name">Prénom : </p>
-          <p id="surname">Nom : </p>
-          <p id="email">Email du médecin: </p>
-          <p id="key">Health-Key : </p>
+          <h3 class="labelJauge">Information du patient</h3>
+          <div class="row">
+            <div class="groupe">
+              <p class="title">Prénom : </p>
+              <input id="name">
+            </div>
+            <div class="groupe">
+              <p class="title">Nom : </p>
+              <input id="surname">
+            </div>
+            <div class="groupe">
+              <p class="title">Email du médecin: </p>
+              <input id="email">
+            </div>
+            <div class="groupe">
+              <p class="title">Health-Key : </p>
+              <p id="key" readonly></p>
+            </div>
+          </div>
+          <div class="row">
+            <button onclick=updatePatient()>Confirmer</button>
+          </div>
+          <div id="success-msg" class="error-match" style="display: none;color: green">Profil mis à jour !</div>
         </div>
         <script>getPatient()</script>
       </h3>

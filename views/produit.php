@@ -2,8 +2,8 @@
 <html lang="fr">
 
 <head>
-  <link rel="stylesheet" href="/CSS/styles.css" />
   <link rel="stylesheet" href="/CSS/produit.css" />
+  <link rel="stylesheet" href="/CSS/styles.css" />
   <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta charset="utf-8" />

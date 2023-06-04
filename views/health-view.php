@@ -76,7 +76,13 @@ if (!isset($_SESSION["email"])) {
             </div>
         </form>
         <div class="devices">
-            <p class="patients">Patients</p>
+            <p class="patients"><?php 
+            if($_SESSION["role_permission"] == "3"){
+                echo "Patients";
+            }else{
+                echo "Mes appareils";
+            }?>
+            </p>
 
             <div class="devices-list">
                 <!--                 
