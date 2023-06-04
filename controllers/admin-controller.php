@@ -6,7 +6,7 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
     error_log("not allowed");
     header("Location: /");
     exit();
-} else {
+} elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["action"])) {
         switch ($_POST["action"]) {
             case "delete":
@@ -42,21 +42,28 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
                 ]);
                 break;
 
-            case "add_device": 
-                $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                $id_device = '';
-                for ($i = 0; $i < 3; $i++) {
-                    for ($j = 0; $j < 3; $j++) {
-                        $id_device .= $characters[random_int(0, strlen($characters) - 1)];
+            case "add_devices":
+                $number = intval($_POST["number"]);
+                $keys = array();
+                for($k = 0; $k < $number;$k++) {
+                    $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                    $id_device = '';
+                    for ($i = 0; $i < 3; $i++) {
+                        for ($j = 0; $j < 3; $j++) {
+                            $id_device .= $characters[random_int(0, strlen($characters) - 1)];
+                        }
+                        if ($i < 2) {
+                            $id_device .= '-';
+                        }
                     }
-                    if ($i < 2) {
-                        $id_device .= '-';
+                    if (!in_array($id_device, $keys)) {
+                        $keys[] = $id_device;          
+                        $_DB->execute("INSERT INTO devices VALUES(:id_device)",["id_device" => $id_device]);
+                    } else {
+                        $k--;
                     }
                 }
-                $_DB->execute("INSERT INTO devices VALUES(:id_device)",["id_device" => $id_device]);
-                echo "success";
-                
-            
+                echo "success";            
         }
     } elseif (isset($_POST["search"])) {
         $_DB->execute("SET @search = :var", ["var" => "%{$_POST["search"]}%"]);
@@ -72,5 +79,14 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
         $body = $_POST["body"];
         $results = $_DB->execute("INSERT INTO faq (subject, body) VALUES(:subject, :body)", ["subject" => $subject, "body" => $body])->fetchAll();
         echo json_encode(count($results) == 0 ? null : $results);
+    }
+} elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
+    if(isset($_GET["action"])) {
+        switch($_GET["action"]) {
+            case "get_devices":
+                $results = $_DB->execute("SELECT * FROM devices")->fetchAll();
+                echo json_encode(count($results) == 0 ? null : $results);
+                break;
+        }
     }
 }

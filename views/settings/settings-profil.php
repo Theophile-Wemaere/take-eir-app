@@ -44,7 +44,7 @@ if (!isset($_SESSION["email"])) {
                 <div class="droite">
                     <div class="groupe">
                         <div class="test">
-                            <a href="#"><i class="fa-solid fa-user"></i></a>
+                            <a href="#"><i class="fa-solid fa-user current"></i></a>
                             <a href="#"><label><span class="current">Profil</span></label></a>
                         </div>
                         <div class="test">

@@ -50,7 +50,7 @@ if (!isset($_SESSION["email"])) {
                             <a href="/index.php/settings-profil"><label>Profil</label></a>
                         </div>
                         <div class="test">
-                            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="#"><i class="fa-solid fa-envelope current"></i></a>
                             <a href="#"><label> <span class="current"> E-mail</span> </label></a>
                         </div>
                         <div class="test">

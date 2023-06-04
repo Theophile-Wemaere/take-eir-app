@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <?php
 session_start();
 if (!isset($_SESSION["name"])) {
   header("Location: /");
+} elseif (!isset($_GET["device"])) {
+  header("Location: /index.php/health-view");
 }
+
 ?>
 
 <head>
@@ -12,10 +16,6 @@ if (!isset($_SESSION["name"])) {
   <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
   <meta charset="utf-8" />
   <title>Information globale</title>
-
-  <link rel="stylesheet" href="/CSS/styles.css" />
-  <link rel="stylesheet" href="/CSS/monitoring.css" />
-
 
   <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -25,12 +25,20 @@ if (!isset($_SESSION["name"])) {
   <link rel="stylesheet" type="text/css"
     href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
 
+  <link rel="stylesheet" href="/CSS/styles.css" />
+  <link rel="stylesheet" href="/CSS/monitoring.css" />
+
   <script src="/JS/monitoring/plot.js"></script>
   <!-- <script src="/JS/monitoring/justgage-master/raphael.min.js"></script>
   <script src="/JS/monitoring/justgage-master/justgage.js"></script> -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.2.9/justgage.min.js"></script>
   <script src="/JS/monitoring/gauge_plot.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+  <script src="/JS/monitoring/slider.js"></script>
+  <script src="/JS/scripts.js"></script>
+  <script src="/JS/monitoring/monitoring.js"></script>
 
 </head>
 
@@ -53,12 +61,13 @@ if (!isset($_SESSION["name"])) {
       </div>
       <h3 for="jauge" class="labelJauge" style="font-size:none">
         <div class="infoPatient">
-          <p>Prenom :</p>
-          <p>Nom :</p>
-          <p>Email :</p>
-          <p>Telephone :</p>
-          <p>Health-Key :</p>
+          
+        <p id="name">Prénom : </p>
+          <p id="surname">Nom : </p>
+          <p id="email">Email du médecin: </p>
+          <p id="key">Health-Key : </p>
         </div>
+        <script>getPatient()</script>
       </h3>
       <div class="tabs">
         <div class="tab-registers">
@@ -74,14 +83,7 @@ if (!isset($_SESSION["name"])) {
 
         <div class="tab-bodies">
 
-          <div style="display:block;" class="graph">
-            <!--slider html code-->
-            <div class="slider-box">
-              <label for="heartPathRange">Seuil d'alerte du rythme cardiaque</label>
-              <br>
-              <input type="text" id="heartRange" readonly>
-              <div id="heart-range" class="slider"></div>
-            </div>
+          <div style="display:flex;" class="graph graph-container">
             <!--line graph html code-->
             <h3 id="titleHeartPlot" class="title"></h3>
             <div class="info">
@@ -89,9 +91,17 @@ if (!isset($_SESSION["name"])) {
               <p id="sdCard"></p>
             </div>
             <div id="cardiacGraph" class="Plot"></div>
+            <!--slider html code-->
+            <div class="slider-box">
+              <label for="heartPathRange">Seuil d'alerte du rythme cardiaque</label>
+              <br>
+              <input type="text" id="heartRange" readonly>
+              <div id="heart-range" class="slider"></div>
+              <button onclick="setThreshold('#heart-range',1)">Confirmer</button>
+            </div>
           </div>
 
-          <div style="display:none;" class="graph">
+          <div style="display:none;" class="graph graph-container">
             <!--slider html code-->
             <!--<div class="slider-box">
             <label for="tempPathRange">Seuil d'alerte pour la temperature</label>
@@ -109,7 +119,7 @@ if (!isset($_SESSION["name"])) {
             <div id="tempGraph" class="Plot"></div>
           </div>
 
-          <div style="display:none;" class="graph">
+          <div style="display:none;" class="graph graph-container">
             <!--slider html code-->
             <!--<div class="slider-box">
             <label for="humidityPathRange">Seuil d'alerte pour l'humidité</label>
@@ -129,7 +139,7 @@ if (!isset($_SESSION["name"])) {
 
 
 
-          <div style="display:none;" class="graph">
+          <div style="display:none;" class="graph graph-container">
 
             <!--slider html code-->
             <!--<div class="slider-box">
@@ -148,7 +158,7 @@ if (!isset($_SESSION["name"])) {
             <div id="noiseGraph" class="Plot"></div>
           </div>
 
-          <div style="display:none;" class="graph">
+          <div style="display:none;" class="graph graph-container">
             <!--slider html code-->
             <!--<div class="slider-box">
             <label for="dustPathRange">Seuil d'alerte du taux de microparticulle</label>
@@ -166,7 +176,7 @@ if (!isset($_SESSION["name"])) {
             <div id="dustGraph" class="Plot"></div>
           </div>
 
-          <div style="display:none;" class="graph">
+          <div style="display:none;" class="graph graph-container">
             <!--slider html code-->
             <!--<div class="slider-box">
             <label for="co2PathRange">Seuil d'alerte du taux de CO2</label>
@@ -189,12 +199,6 @@ if (!isset($_SESSION["name"])) {
     </div>
     <script src="/JS/monitoring/onglet.js"></script>
 
-
-
-
-
-
-
     <!--Code Javascript pour plot les data-->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://d3js.org/d3.v4.js"></script>
@@ -202,112 +206,23 @@ if (!isset($_SESSION["name"])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
     <script>
-      // Code JavaScript avec Ajax
-      function fetchPeriodicData() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'database_test.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-        xhr.onload = function () {
-          if (xhr.status === 200) {
-            var data = JSON.parse(xhr.responseText);
-            var rythmeCardiaqueTime = [];
-            var rythmeCardiaque = [];
-
-            var temperatureTime = [];
-            var temperature = [];
-
-            var humidityTime = [];
-            var humidity = [];
-
-            var niveauSonoreTime = [];
-            var niveauSonore = [];
-
-            var tauxMicroparticulesTime = [];
-            var tauxMicroparticules = [];
-
-            var tauxCO2Time = [];
-            var tauxCO2 = [];
-
-            // Parcourir les données et les trier en fonction du type de métrique
-            data.forEach(element => {
-              var metricType = element.metrics_type;
-              var entryTime = new Date(element.entry_time);
-              var value = element.value;
-
-              // Tri des données en fonction du type de métrique
-              switch (metricType) {
-                case "1":
-                  rythmeCardiaqueTime.push(entryTime);
-                  rythmeCardiaque.push(parseFloat(value));
-                  break;
-                case "2":
-                  temperatureTime.push(entryTime);
-                  temperature.push(parseFloat(value));
-                  break;
-                case "3":
-                  niveauSonoreTime.push(entryTime);
-                  niveauSonore.push(parseFloat(value));
-                  break;
-                case "4":
-                  tauxMicroparticulesTime.push(entryTime);
-                  tauxMicroparticules.push(parseFloat(value));
-                  break;
-                case "5":
-                  tauxCO2Time.push(entryTime);
-                  tauxCO2.push(parseFloat(value));
-                  break;
-                case "6":
-                  humidityTime.push(entryTime);
-                  humidity.push(parseFloat(value));
-                  break;
-              }
-            });
-
-            // Appeler la fonction Plot() ici, une fois que les données sont disponibles
-            Plot(rythmeCardiaqueTime, rythmeCardiaque, '#cardiacGraph', "rgb(224, 88, 76)");
-            Plot(temperatureTime, temperature, '#tempGraph', "#5DD1B7");
-            Plot(humidityTime, humidity, '#humidityGraph', "#6883F5");
-            Plot(niveauSonoreTime, niveauSonore, '#noiseGraph', "#712DE0");
-            Plot(tauxMicroparticulesTime, tauxMicroparticules, '#dustGraph', "#67B4C5");
-            Plot(tauxCO2Time, tauxCO2, '#co2Graph', "grey");
-
-            // Appeler la fonction createGauge() ici, une fois que les données sont disponibles
-            createGauge("cardGaugeContainer", 0, 120, 'BPM', rythmeCardiaque[rythmeCardiaque.length - 1]);
-            createGauge("tempGaugeContainer", 0, 40, '°C', temperature[temperature.length - 1]);
-            createGauge("humidityGaugeContainer", 0, 100, '%', humidity[humidity.length - 1]);
-            createGauge("noiseGaugeContainer", 0, 120, 'DB', niveauSonore[niveauSonore.length - 1]);
-            createGauge("dustGaugeContainer", 0, 250, 'µg/m^3', tauxMicroparticules[tauxMicroparticules.length - 1]);
-            createGauge("co2GaugeContainer", 0, 2000, 'PPM', tauxCO2[tauxCO2.length - 1]);
-
-
-          }
-        };
-
-        xhr.send();
-      }
       // Appeler la fonction initiale pour récupérer les données une première fois
       fetchPeriodicData();
+
 
     // Planifier l'exécution périodique de la fonction
     //setInterval(fetchPeriodicData, 5000); // Exécuter toutes les 5 secondes (5000 millisecondes)
     </script>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-    <script src="/JS/monitoring/slider.js"></script>
-
     <!--Code Javascript pour le slider range-->
     <script>
-      sliderRange("#heart-range", "#heartRange", 1, 0, 120);
+      getThreshold();
     //sliderRange("#temp-range", "#tempRange", 1, -10, 40);
     //sliderRange("#humidity-range", "#humidityRange", 1, 0, 100);
     //sliderRange("#noise-range", "#noiseRange", 1, 0, 120);
     //sliderRange("#dust-range", "#dustRange", 50, 0, 250);
     //sliderRange("#co2-range", "#co2Range", 100, 0, 2000);
-    </script>
 
+    </script>
   </div>
   <?php require "bottom-bar.php"; ?>
 </body>

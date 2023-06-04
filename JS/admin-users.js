@@ -1,7 +1,7 @@
 function doSearch() {
   const existingTable = document.getElementById("results-table");
   if (existingTable) {
-    existingTable.remove(); 
+    existingTable.remove();
   }
 
   var data = new FormData(document.getElementById("mySearch"));
@@ -77,4 +77,41 @@ function doSearch() {
     });
 
   return false;
+}
+
+function addDevices() {
+  const num = document.getElementById("number").value;
+  data = new FormData();
+  data.append("action", "add_devices");
+  data.append("number", num);
+  fetch("/controllers/admin-controller.php", {
+    method: "POST",
+    body: data,
+  })
+    .then((res) => res.text())
+    .then((res) => { });
+  getDevices();
+}
+
+function getDevices() {
+  fetch("/controllers/admin-controller.php?action=get_devices")
+    .then((res) => res.json())
+    .then((res) => {
+      if (res !== null) {
+        console.log(res);
+        const container = document.getElementById("container");
+        container.innerHTML = "";
+        const table = document.createElement("table");
+        res.forEach((device) => {
+          const row = document.createElement("tr");
+          const idCell = document.createElement("td");
+          idCell.textContent = device.id_device;
+          row.appendChild(idCell);
+          table.appendChild(row);
+        });
+        container.appendChild(table);
+      } else {
+        console.log("null");
+      }
+    });
 }

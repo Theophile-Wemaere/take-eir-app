@@ -218,17 +218,3 @@ function updateProfil() {
     error.style.display = "block";
   }
 }
-
-function getProfilPicture() {
-  const img = document.getElementById("profil_picture");
-  fetch("/controllers/settings-controller.php?action=picture", {
-    method: "GET",
-  })
-    .then((response) => response.blob())
-    .then((blob) => {
-      if (blob !== null) {
-        const imgUrl = URL.createObjectURL(blob);
-        img.src = imgUrl;
-      }
-    });
-}

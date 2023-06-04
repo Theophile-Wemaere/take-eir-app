@@ -16,11 +16,10 @@ Array.from(document.querySelectorAll('.tabs')).forEach((tab_container, TabID) =>
   })
 })
 
-
 function changeBody(registers, bodies, activeRegister) {
     Array.from(registers.children).forEach((el, i) => {
         if (bodies.children[i]) {
-            bodies.children[i].style.display = el == activeRegister ? 'block' : 'none'
+            bodies.children[i].style.display = el == activeRegister ? 'flex' : 'none'
         }
 
         el.setAttribute('aria-expanded', el == activeRegister ? 'true' : 'false')

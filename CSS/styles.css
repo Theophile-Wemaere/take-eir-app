@@ -408,6 +408,7 @@ body {
 }
 
 .bottom-bar .links .title {
+  width: auto;
   font-size: 15px;
   font-weight: bolder;
 }

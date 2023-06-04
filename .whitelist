@@ -12,6 +12,7 @@ reset-passwd
 new-passwd
 login
 register
+health-view
 monitoring
 tickets
 create-ticket
