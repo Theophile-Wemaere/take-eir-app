@@ -60,10 +60,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         ]
                     );
 
-                    $_DB->execute("INSERT INTO alert_threshold VALUES(:id_device,1,'60:100'",
-                    [
-                        "id_device" => $id_device
-                    ]);
+                    $_DB->execute(
+                        "INSERT INTO alert_threshold VALUES(:id_device,1,'60:100'",
+                        [
+                            "id_device" => $id_device
+                        ]
+                    );
                     echo "success";
                 }
 
@@ -75,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $id_device = $_POST['id_device'];
                 $id_user = $_SESSION['id'];
                 $query = "DELETE FROM devices_users WHERE id_device = :id_device AND id_user = :id_user";
-                $_DB->execute($query,["id_device" => $id_device, "id_user" => $id_user]);
+                $_DB->execute($query, ["id_device" => $id_device, "id_user" => $id_user]);
 
                 // check if the device is still associated with an account
                 $stmt = $_DB->execute("SELECT * FROM devices_users WHERE id_device = :id", [
@@ -83,8 +85,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ]);
                 if ($stmt->rowCount() == 0) {
                     // if no the delete the patient and all metrics
-                    $_DB->execute("DELETE FROM patients WHERE id_device = :id_device",["id_device" => $id_device]);
-                    $_DB->execute("DELETE FROM metrics WHERE id_device = :id_device",["id_device" => $id_device]);
+                    $_DB->execute("DELETE FROM patients WHERE id_device = :id_device", ["id_device" => $id_device]);
+                    $_DB->execute("DELETE FROM metrics WHERE id_device = :id_device", ["id_device" => $id_device]);
                 }
                 break;
         }
@@ -93,14 +95,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_GET["action"])) {
         switch ($_GET["action"]) {
             case "devices":
-                $query = "SELECT patients.doctor_email, patients.name, patients.surname, patients.id_device FROM patients
-                        JOIN devices_users ON patients.id_device = devices_users.id_device
-                        WHERE devices_users.id_user = :id";
-                $results = $_DB->execute(
-                    $query,
-                    ["id" => $_SESSION["id"]]
-                )->fetchAll();
-                echo json_encode(count($results) == 0 ? null : $results);
+                if ($_GET["search"] == "") {
+                    $query = "SELECT patients.doctor_email, patients.name, patients.surname, patients.id_device FROM patients
+                            JOIN devices_users ON patients.id_device = devices_users.id_device
+                            WHERE devices_users.id_user = :id";
+
+                    $results = $_DB->execute(
+                        $query,
+                        ["id" => $_SESSION["id"]]
+                    )->fetchAll();
+                    echo json_encode(count($results) == 0 ? null : $results);
+                } else {
+                    $_DB->execute("SET @search = :var", ["var" => "%{$_GET["search"]}%"]);
+                    $query = "SELECT patients.doctor_email, patients.name, patients.surname, patients.id_device FROM patients
+                            JOIN devices_users ON patients.id_device = devices_users.id_device
+                            WHERE devices_users.id_user = :id 
+                            AND (patients.doctor_email LIKE @search 
+                            OR patients.name LIKE @search 
+                            OR patients.surname LIKE @search 
+                            OR patients.id_device LIKE @search)";
+                    $results = $_DB->execute(
+                        $query,
+                        ["id" => $_SESSION["id"]]
+                    )->fetchAll();
+                    echo json_encode(count($results) == 0 ? null : $results);
+                }
                 break;
 
             case "status":
@@ -109,8 +128,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             WHERE devices_users.id_user = :id AND metrics.id_device = :id_device AND metrics.metric_type = 1 ORDER BY entry_time DESC LIMIT 1";
                 $results = $_DB->execute(
                     $query,
-                    ["id" => $_SESSION["id"],
-                     "id_device" => $_GET["device"]]
+                    [
+                        "id" => $_SESSION["id"],
+                        "id_device" => $_GET["device"]
+                    ]
                 )->fetch();
                 echo json_encode(count($results) == 0 ? null : $results);
                 break;
