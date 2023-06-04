@@ -61,9 +61,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     );
 
                     $_DB->execute(
-                        "INSERT INTO alert_threshold VALUES(:id_device,1,'60:100'",
+                        "INSERT INTO alert_threshold VALUES (:id_device,1,'60:100')",
                         [
-                            "id_device" => $id_device
+                            "id_device" => $key
                         ]
                     );
                     echo "success";
@@ -87,6 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // if no the delete the patient and all metrics
                     $_DB->execute("DELETE FROM patients WHERE id_device = :id_device", ["id_device" => $id_device]);
                     $_DB->execute("DELETE FROM metrics WHERE id_device = :id_device", ["id_device" => $id_device]);
+                    $_DB->execute("DELETE FROM alert_threshold WHERE id_device = :id_device", ["id_device" => $id_device]);
                 }
                 break;
         }
