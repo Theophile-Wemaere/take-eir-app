@@ -58,7 +58,7 @@ if (!isset($_SESSION["email"])) {
                             <a href="/index.php/settings-mdp"><label>Mot de passe</label></a>
                         </div>
                         <div class="test">
-                            <a href="#"><i class="fa-solid fa-comment"></i></a>
+                            <a href="#"><i class="fa-solid fa-comment current"></i></a>
                             <a href="#"><label><span class="current">Notifications</span></label></a>
                         </div>
                         <div class="test">

@@ -100,6 +100,8 @@ form button:hover {
   flex-direction: column;
   align-items: center;
   width: 60%;
+  font-family: "Krona One", sans-serif;
+  color: black;
 }
 
 .devices .patients {
@@ -120,8 +122,8 @@ form button:hover {
   flex-grow: 1;
   width: 95%;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .devices .device {
@@ -156,6 +158,11 @@ form button:hover {
   font-size: 3vw;
 }
 
+.devices .device .patient {
+  text-align: center;
+  flex-grow: 1;
+}
+
 .devices .device .good {
   color: #5DD1B7;
   margin-left: 10px;
@@ -174,16 +181,55 @@ form button:hover {
   font-size: 2vw;
 }
 
-
-
 .devices .device .value {
   background-color: white;
   font-weight: normal;
   font-size: 2vw;
 }
 
+.devices .add {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 10px;
+  width: 95%;
+  height: 50px;
+  align-items: center;
+  font-size: 1vw;
+  margin-top: 30px;
+}
+
+.devices .add p {
+  margin-left: 10px;
+  margin-right: 20px;  
+}
+
+.devices .add input {
+  text-align: center;
+  border-radius: 10px;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.devices .add button {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
 
 
-@media screen and (max-width: 850px) {
+@media (max-width: 800px) {
+  .wrapper {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
 
+  form {
+    margin: 20px 0 0 0;
+  }
+
+  .devices {
+    width: 90%;
+  }
 }

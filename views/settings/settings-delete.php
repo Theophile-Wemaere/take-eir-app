@@ -55,7 +55,7 @@ if (!isset($_SESSION["email"])) {
                             <a href="/index.php/settings-notif"><label>Notifications</label></a>
                         </div>
                         <div class="test">
-                            <a href="#"><i class="fa-solid fa-trash"></i></a>
+                            <a href="#"><i class="fa-solid fa-trash current"></i></a>
                             <a href="#"><label><span class="current">Supprimer le compte</span></label></a>
                         </div>
                     </div>

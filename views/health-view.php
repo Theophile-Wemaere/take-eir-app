@@ -79,7 +79,7 @@ if (!isset($_SESSION["email"])) {
             <p class="patients">Patients</p>
 
             <div class="devices-list">
-<!--                 
+                <!--                 
                 <div class="device">
                     <p id="key">123-456-789</p>
                     <p id="patient">Etienne Delorme</p>
@@ -89,8 +89,15 @@ if (!isset($_SESSION["email"])) {
                     <p class="value">Good</p>
                 </div> -->
             </div>
+            <script>getDevices()</script>
+
+            <div class="add">
+                <p>Entrer votre health-key pour ajouter un appareil</p>
+                <input type="text" id="health-key" placeholder="XXX-XXX-XXX">
+                <button type="button" onclick="addKey()"><i class="fa fa-arrow-circle-right"></i></button>
+            </div>
         </div>
-        <script>getDevices()</script>
+
     </div>
     <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/bottom-bar.php"; ?>
 </body>

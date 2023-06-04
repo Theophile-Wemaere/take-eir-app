@@ -5,6 +5,8 @@
 session_start();
 if (!isset($_SESSION["name"])) {
   header("Location: /");
+} elseif (!isset($_GET["device"])) {
+  header("Location: /index.php/health-view");
 }
 
 ?>

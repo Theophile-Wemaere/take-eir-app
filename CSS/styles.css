@@ -21,7 +21,6 @@ body {
   margin-top: 20px;
   display: none;
   color: red;
-         echo json_encode($results);
   text-align: center;
 }
 
