@@ -23,7 +23,7 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "GET" and isset($_GET["action"])) {
             ]
          )->fetchAll();
 
-         echo json_encode($results);
+         echo json_encode(count($results) == 0 ? null : $results);
          break;
 
       case "threshold":
@@ -35,7 +35,7 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "GET" and isset($_GET["action"])) {
             "id_device" => $_GET["device"],
             "id_user" => $_SESSION["id"]
          ])->fetchAll();
-         echo json_encode($results);
+         echo json_encode(count($results) == 0 ? null : $results);
          break;
 
    case "patient": 
@@ -46,7 +46,7 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "GET" and isset($_GET["action"])) {
             "id_device" => $_GET["device"],
             "id_user" => $_SESSION["id"]
          ])->fetch();
-         echo json_encode($results);
+         echo json_encode(count($results) == 0 ? null : $results);
          break;
    }
 } elseif ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["action"])) {

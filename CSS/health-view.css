@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+
+.droite .test a {
+  text-decoration: none;
+}
+
+.wrapper {
+  display: flex;
+  align-items: left;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+form {
+  background-color: white;
+  margin-left: 5%;
+  max-height: 900px;
+  width: 250px;
+  padding: 50px;
+  border-radius: 10px;
+}
+
+form div.separation {
+  background-color: #e0584c;
+  height: 1px;
+  width: 100%;
+}
+
+form .groupe {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+form i {
+  color: #e0584c;
+  padding-right: 10px;
+}
+
+form label {
+  font-weight: bolder;
+  margin-right: 5px;
+} 
+
+form .role {
+  text-align: center;
+  font-weight: bolder;
+  color: #278978;
+}
+
+form .link {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+}
+
+form p {
+  margin: 0;
+  font-weight: lighter;
+}
+
+form button {
+  margin-top: 10px;
+  background-color: #e0584c;
+  color: white;
+  font-size: 15px;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form .groupe img {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+}
+
+form .img-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form button:hover {
+  opacity: 0.8;
+  transform: scale(1.15);
+  transition: 0.3s ease-in-out;
+}
+
+.devices {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+}
+
+.devices .patients {
+  background-color: #1948AA;
+  color: white;
+  font-family: "Krona One", sans-serif;
+  font-weight: 400;
+  font-size: 2vw;
+  width: 95%;
+  padding: 10px 0 10px 0;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  overflow-y: scroll;
+}
+
+.devices .devices-list {
+  flex-grow: 1;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.devices .device {
+  width: 95%;
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 10px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.devices .device:hover {
+  border: solid 3px #1948AA;
+}
+
+.devices .device p {
+  color: black;
+  font-family: "Krona One", sans-serif;
+  font-weight: 400;
+  font-size: 1vw;
+  margin-left: 10px;
+  background-color: #BED9F9;
+  padding: 10px 5px 10px 5px;
+  border-radius: 10px;
+}
+
+.devices .device i {
+  color: red;
+  margin-left: 10px;
+  font-size: 3vw;
+}
+
+.devices .device .good {
+  color: #5DD1B7;
+  margin-left: 10px;
+  font-size: 2vw;
+}
+
+.devices .device .medium {
+  color: #2D67E0;
+  margin-left: 10px;
+  font-size: 2vw;
+}
+
+.devices .device .bad {
+  color: #E0584C;
+  margin-left: 10px;
+  font-size: 2vw;
+}
+
+
+
+.devices .device .value {
+  background-color: white;
+  font-weight: normal;
+  font-size: 2vw;
+}
+
+
+
+@media screen and (max-width: 850px) {
+
+}

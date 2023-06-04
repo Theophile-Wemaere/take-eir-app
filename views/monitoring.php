@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <?php
 session_start();
 if (!isset($_SESSION["name"])) {
   header("Location: /");
 }
+
 ?>
 
 <head>
@@ -57,7 +59,8 @@ if (!isset($_SESSION["name"])) {
       </div>
       <h3 for="jauge" class="labelJauge" style="font-size:none">
         <div class="infoPatient">
-          <p id="name">Prénom : </p>
+          
+        <p id="name">Prénom : </p>
           <p id="surname">Nom : </p>
           <p id="email">Email du médecin: </p>
           <p id="key">Health-Key : </p>

@@ -6,7 +6,7 @@ if (isset($_SESSION["name"])) {
   if ($_SESSION["role_permission"] == 6) {
     header("Location: /admin/admin-users.php");
   } else {
-    header("Location: /");
+    header("Location: /index.php/health-view");
   }
 }
 ?>
