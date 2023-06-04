@@ -16,7 +16,6 @@ Array.from(document.querySelectorAll('.tabs')).forEach((tab_container, TabID) =>
   })
 })
 
-
 function changeBody(registers, bodies, activeRegister) {
     Array.from(registers.children).forEach((el, i) => {
         if (bodies.children[i]) {

@@ -37,6 +37,17 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "GET" and isset($_GET["action"])) {
          ])->fetchAll();
          echo json_encode($results);
          break;
+
+   case "patient": 
+         $query = "SELECT name, surname, doctor_email FROM patients
+                  JOIN devices_users ON patients.id_device = devices_users.id_device
+                  WHERE patients.id_device = :id_device AND devices_users.id_user = :id_user";
+         $results = $_DB->execute($query,[
+            "id_device" => $_GET["device"],
+            "id_user" => $_SESSION["id"]
+         ])->fetch();
+         echo json_encode($results);
+         break;
    }
 } elseif ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["action"])) {
    switch ($_POST["action"]) {

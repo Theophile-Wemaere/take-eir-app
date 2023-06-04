@@ -55,18 +55,15 @@
 
 .infoPatient {
     font-size: 0.9vw;
-    margin-left: 9%;
     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
 }
 
 .infoPatient p {
     color: white;
 
-}
-
-
-.infoPatient>* {
-    margin-right: 9vw;
 }
 
 .ui-slider .ui-slider-handle {

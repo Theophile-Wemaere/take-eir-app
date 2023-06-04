@@ -34,6 +34,7 @@ if (!isset($_SESSION["name"])) {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
   <script src="/JS/monitoring/slider.js"></script>
   <script src="/JS/scripts.js"></script>
+  <script src="/JS/monitoring/monitoring.js"></script>
 
 </head>
 
@@ -56,11 +57,12 @@ if (!isset($_SESSION["name"])) {
       </div>
       <h3 for="jauge" class="labelJauge" style="font-size:none">
         <div class="infoPatient">
-          <p id="name">Prénom :</p>
-          <p id="surname">Nom :</p>
-          <p id="email">Email :</p>
-          <p id="key">Health-Key :</p>
+          <p id="name">Prénom : </p>
+          <p id="surname">Nom : </p>
+          <p id="email">Email du médecin: </p>
+          <p id="key">Health-Key : </p>
         </div>
+        <script>getPatient()</script>
       </h3>
       <div class="tabs">
         <div class="tab-registers">
@@ -199,92 +201,6 @@ if (!isset($_SESSION["name"])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
     <script>
-      // Code JavaScript avec Ajax
-      function fetchPeriodicData() {
-        var xhr = new XMLHttpRequest();
-        const urlParams = new URLSearchParams(window.location.search);
-        const id_device = urlParams.get("device");
-        xhr.open('POST', '/controllers/monitor-controller.php?action=metrics&device=' + id_device, true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-        xhr.onload = function () {
-          if (xhr.status === 200) {
-            var data = JSON.parse(xhr.responseText);
-            var rythmeCardiaqueTime = [];
-            var rythmeCardiaque = [];
-
-            var temperatureTime = [];
-            var temperature = [];
-
-            var humidityTime = [];
-            var humidity = [];
-
-            var niveauSonoreTime = [];
-            var niveauSonore = [];
-
-            var tauxMicroparticulesTime = [];
-            var tauxMicroparticules = [];
-
-            var tauxCO2Time = [];
-            var tauxCO2 = [];
-
-            // Parcourir les données et les trier en fonction du type de métrique
-            data.forEach(element => {
-
-              var metricType = element.metric_type;
-              var entryTime = new Date(element.entry_time);
-              var value = element.value;
-              // Tri des données en fonction du type de métrique
-              switch (metricType) {
-                case 1:
-                  rythmeCardiaqueTime.push(entryTime);
-                  rythmeCardiaque.push(parseFloat(value));
-                  break;
-                case 2:
-                  temperatureTime.push(entryTime);
-                  temperature.push(parseFloat(value));
-                  break;
-                case 3:
-                  niveauSonoreTime.push(entryTime);
-                  niveauSonore.push(parseFloat(value));
-                  break;
-                case 4:
-                  tauxMicroparticulesTime.push(entryTime);
-                  tauxMicroparticules.push(parseFloat(value));
-                  break;
-                case 5:
-                  tauxCO2Time.push(entryTime);
-                  tauxCO2.push(parseFloat(value));
-                  break;
-                case 6:
-                  humidityTime.push(entryTime);
-                  humidity.push(parseFloat(value));
-                  break;
-              }
-            });
-
-            // Appeler la fonction Plot() ici, une fois que les données sont disponibles
-            Plot(rythmeCardiaqueTime, rythmeCardiaque, '#cardiacGraph', "rgb(224, 88, 76)");
-            Plot(temperatureTime, temperature, '#tempGraph', "#5DD1B7");
-            Plot(humidityTime, humidity, '#humidityGraph', "#6883F5");
-            Plot(niveauSonoreTime, niveauSonore, '#noiseGraph', "#712DE0");
-            Plot(tauxMicroparticulesTime, tauxMicroparticules, '#dustGraph', "#67B4C5");
-            Plot(tauxCO2Time, tauxCO2, '#co2Graph', "grey");
-
-            // Appeler la fonction createGauge() ici, une fois que les données sont disponibles
-            createGauge("cardGaugeContainer", 0, 120, 'BPM', rythmeCardiaque[rythmeCardiaque.length - 1]);
-            createGauge("tempGaugeContainer", 0, 40, '°C', temperature[temperature.length - 1]);
-            createGauge("humidityGaugeContainer", 0, 100, '%', humidity[humidity.length - 1]);
-            createGauge("noiseGaugeContainer", 0, 120, 'DB', niveauSonore[niveauSonore.length - 1]);
-            createGauge("dustGaugeContainer", 0, 250, 'µg/m^3', tauxMicroparticules[tauxMicroparticules.length - 1]);
-            createGauge("co2GaugeContainer", 0, 2000, 'PPM', tauxCO2[tauxCO2.length - 1]);
-
-
-          }
-        };
-
-        xhr.send();
-      }
       // Appeler la fonction initiale pour récupérer les données une première fois
       fetchPeriodicData();
 
