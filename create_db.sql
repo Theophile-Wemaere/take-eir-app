@@ -47,7 +47,7 @@ CREATE TABLE `metrics` (
 
 CREATE TABLE `metrics_type` (
   `metric_type` integer PRIMARY KEY AUTO_INCREMENT,
-  `metrics_name` varchar(255)
+  `metric_name` varchar(255)
 );
 
 CREATE TABLE `faq` (
@@ -83,7 +83,7 @@ CREATE TABLE `deleted_users` (
 CREATE TABLE `alert_threshold` (
   `id_device` varchar(255),
   `metric_type` integer,
-  `id_threshold` varchar(255) PRIMARY KEY
+  `value` varchar(255)
 );
 
 ALTER TABLE `tickets` ADD FOREIGN KEY (`id_tag`) REFERENCES `tags` (`id_tag`);

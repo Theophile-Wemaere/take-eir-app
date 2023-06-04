@@ -18,6 +18,7 @@ padding: 0.5em;
 background-color: RGB(255, 255, 255);
 border: none;
 font: inherit;
+border-radius: 15px 15px 0px 0px;
 }
 
 .tabs .tab-registers button:hover {
@@ -67,7 +68,9 @@ background-color: rgb(235, 235, 235);
     margin-right: 9vw;
 }
 
-
+.ui-slider .ui-slider-handle {
+    height: 1.5em;
+}
 
 .title {
     font-family: 'Montserrat';
@@ -181,7 +184,7 @@ img {
     transform:translate(-50, -50%);
     left:1%;
     background: #0f056b;
-    padding: 1vw;
+    padding: 2vw;
     border-radius:10px;
 }
 

@@ -22,12 +22,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ]);
                 if ($stmt->rowCount() == 0) {
                     $_DB->execute(
-                        "INSERT INTO patients VALUES (:id, :name, :surname, :doctor_email)",
+                        "INSERT INTO patients VALUES (:id, :name, :surname, :doctor_email, :id_device)",
                         [
                             "id" => $id,
                             "name" => $name,
                             "surname" => $surname,
-                            "doctor_email" => $doctor_email
+                            "doctor_email" => $doctor_email,
+                            "id_device" => $id_device
                         ]
                     );
                     echo "success";

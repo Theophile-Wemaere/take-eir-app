@@ -13,10 +13,6 @@ if (!isset($_SESSION["name"])) {
   <meta charset="utf-8" />
   <title>Information globale</title>
 
-  <link rel="stylesheet" href="/CSS/styles.css" />
-  <link rel="stylesheet" href="/CSS/monitoring.css" />
-
-
   <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -25,12 +21,16 @@ if (!isset($_SESSION["name"])) {
   <link rel="stylesheet" type="text/css"
     href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
 
+  <link rel="stylesheet" href="/CSS/styles.css" />
+  <link rel="stylesheet" href="/CSS/monitoring.css" />
+
   <script src="/JS/monitoring/plot.js"></script>
   <!-- <script src="/JS/monitoring/justgage-master/raphael.min.js"></script>
   <script src="/JS/monitoring/justgage-master/justgage.js"></script> -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.2.9/justgage.min.js"></script>
   <script src="/JS/monitoring/gauge_plot.js"></script>
+  <script src="/JS/scripts.js"></script>
 
 </head>
 
@@ -189,12 +189,6 @@ if (!isset($_SESSION["name"])) {
     </div>
     <script src="/JS/monitoring/onglet.js"></script>
 
-
-
-
-
-
-
     <!--Code Javascript pour plot les data-->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://d3js.org/d3.v4.js"></script>
@@ -205,9 +199,9 @@ if (!isset($_SESSION["name"])) {
       // Code JavaScript avec Ajax
       function fetchPeriodicData() {
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'database_test.php', true);
+        xhr.open('POST', '/controllers/monitor-controller.php?action=metrics&device=123-456-789', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
+        
         xhr.onload = function () {
           if (xhr.status === 200) {
             var data = JSON.parse(xhr.responseText);
@@ -228,36 +222,36 @@ if (!isset($_SESSION["name"])) {
 
             var tauxCO2Time = [];
             var tauxCO2 = [];
-
+            
             // Parcourir les données et les trier en fonction du type de métrique
             data.forEach(element => {
-              var metricType = element.metrics_type;
+              
+              var metricType = element.metric_type;
               var entryTime = new Date(element.entry_time);
               var value = element.value;
-
               // Tri des données en fonction du type de métrique
               switch (metricType) {
-                case "1":
+                case 1:
                   rythmeCardiaqueTime.push(entryTime);
                   rythmeCardiaque.push(parseFloat(value));
                   break;
-                case "2":
+                case 2:
                   temperatureTime.push(entryTime);
                   temperature.push(parseFloat(value));
                   break;
-                case "3":
+                case 3:
                   niveauSonoreTime.push(entryTime);
                   niveauSonore.push(parseFloat(value));
                   break;
-                case "4":
+                case 4:
                   tauxMicroparticulesTime.push(entryTime);
                   tauxMicroparticules.push(parseFloat(value));
                   break;
-                case "5":
+                case 5:
                   tauxCO2Time.push(entryTime);
                   tauxCO2.push(parseFloat(value));
                   break;
-                case "6":
+                case 6:
                   humidityTime.push(entryTime);
                   humidity.push(parseFloat(value));
                   break;
@@ -288,6 +282,7 @@ if (!isset($_SESSION["name"])) {
       }
       // Appeler la fonction initiale pour récupérer les données une première fois
       fetchPeriodicData();
+    
 
     // Planifier l'exécution périodique de la fonction
     //setInterval(fetchPeriodicData, 5000); // Exécuter toutes les 5 secondes (5000 millisecondes)
@@ -300,14 +295,14 @@ if (!isset($_SESSION["name"])) {
 
     <!--Code Javascript pour le slider range-->
     <script>
-      sliderRange("#heart-range", "#heartRange", 1, 0, 120);
+      getThreshold();
     //sliderRange("#temp-range", "#tempRange", 1, -10, 40);
     //sliderRange("#humidity-range", "#humidityRange", 1, 0, 100);
     //sliderRange("#noise-range", "#noiseRange", 1, 0, 120);
     //sliderRange("#dust-range", "#dustRange", 50, 0, 250);
     //sliderRange("#co2-range", "#co2Range", 100, 0, 2000);
+    
     </script>
-
   </div>
   <?php require "bottom-bar.php"; ?>
 </body>
