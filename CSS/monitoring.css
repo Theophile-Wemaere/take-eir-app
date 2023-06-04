@@ -3,37 +3,37 @@
     justify-content: center;
 }
 
-.tabs{
-font-size: 20px;
+.tabs {
+    font-size: 20px;
 }
 
 .tabs .tab-registers {
-display: flex;
-background-color: RGB(255, 255, 255);
+    display: flex;
+    background-color: RGB(255, 255, 255);
 }
 
 
 .tabs button {
-padding: 0.5em;
-background-color: RGB(255, 255, 255);
-border: none;
-font: inherit;
-border-radius: 15px 15px 0px 0px;
+    padding: 0.5em;
+    background-color: RGB(255, 255, 255);
+    border: none;
+    font: inherit;
+    border-radius: 15px 15px 0px 0px;
 }
 
 .tabs .tab-registers button:hover {
-cursor: pointer;
+    cursor: pointer;
 }
 
 .tabs .tab-bodies {
-padding: 0.5em;
-background-color: RGB(235, 235, 235);
-flex-grow: 1;
-overflow-y: auto;
+    padding: 0.5em;
+    background-color: RGB(235, 235, 235);
+    flex-grow: 1;
+    overflow-y: auto;
 }
 
 .tabs button.active-tab {
-background-color: rgb(235, 235, 235);
+    background-color: rgb(235, 235, 235);
 }
 
 .globalMonitoring {
@@ -47,7 +47,7 @@ background-color: rgb(235, 235, 235);
     border-radius: 15px;
 }
 
-.cadre{
+.cadre {
     color: #a5e3f6;
     font-family: "Comfortaa";
 }
@@ -58,13 +58,14 @@ background-color: rgb(235, 235, 235);
     margin-left: 9%;
     display: flex;
 }
+
 .infoPatient p {
-    color:white;
+    color: white;
 
 }
 
 
-.infoPatient > *{
+.infoPatient>* {
     margin-right: 9vw;
 }
 
@@ -76,13 +77,12 @@ background-color: rgb(235, 235, 235);
     font-family: 'Montserrat';
     width: 70%;
     height: 15%;
-    margin-left: 15%;
     margin-top: 3%;
     text-align: center;
     border-radius: 15px;
     color: white;
     padding: 1vw;
-    font-size: 1.25em;
+    font-size: 1em;
 }
 
 #titleHeartPlot {
@@ -132,10 +132,8 @@ img {
 }
 
 .info {
-    margin-left: 10%;
     padding: 5px;
     font-size: 1em;
-
 }
 
 
@@ -143,18 +141,23 @@ img {
 #sdCard {
     color: #b17074;
 }
+
 #sdTemp {
     color: lawngreen;
 }
+
 #sdHumidity {
     color: #88d8f9;
 }
+
 #sdNoise {
     color: #324ab2;
 }
+
 #sdDust {
     color: #77b5fe;
 }
+
 #sdCo2 {
     color: #4a5a6a;
 }
@@ -162,87 +165,132 @@ img {
 #meanCard {
     color: #FF6961;
 }
+
 #meanTemp {
     color: #34a853;
 }
+
 #meanHumidity {
     color: #80CEE1;
 }
+
 #meanNoise {
     color: #7f00ff;
 }
+
 #meanDust {
     color: #22427c;
 }
+
 #meanCo2 {
     color: #2a303d;
 }
 
-.slider-box{
-    width:25%;
+.slider-box {
+    width: 70%;
     height: 5%;
-    transform:translate(-50, -50%);
-    left:1%;
+    transform: translate(-50, -50%);
     background: #0f056b;
     padding: 2vw;
-    border-radius:10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-label, input{
-    border:none; 
-    display:inline-block;
+.slider-box input {
+    margin-bottom: 10px;
 }
-label{
-  font-size: 0.75em;
-  color: white;
-  margin-left: 10%;
-  font-weight: bold;
-  text-align: center;
+
+.graph-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-input{
+
+.slider-box button {
+    margin-top: 20px;
+    background-color: #e0584c;
+    color: white;
+    font-size: 15px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 120px;
+}
+
+.slider-box button:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+}
+
+label,
+input {
+    border: none;
+    display: inline-block;
+}
+
+label {
+    font-size: 0.75em;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+input {
     width: 100%;
     text-align: center;
-    margin-top:2%;
+    margin-top: 2%;
     font-weight: 900;
     margin-bottom: 2%;
-    outline:none;
+    outline: none;
     background: none;
     color: whitesmoke;
     font-family: 'Montserrat';
 }
-.ul-slider-horizontal{
+
+.ul-slider-horizontal {
     height: 0.2em;
 }
-.ui-widget-header{
-    background: white!important;
+
+.ui-widget-header {
+    background: white !important;
 }
 
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
-    background: white!important;
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    background: white !important;
     font-weight: normal;
-    border-radius: 10px!important;
-    margin-top: -3px!important;
+    border-radius: 10px !important;
+    margin-top: -3px !important;
     outline: none;
 }
 
-.labelJauge{
+.labelJauge {
     background-color: #0f056b;
     color: white;
     text-align: center;
     font-weight: bold;
 }
 
-h1.labelJauge{
+h1.labelJauge {
     padding: 20px;
 }
 
 
-.plotJauge text{
+.plotJauge text {
     font-size: 2vw;
-    font-weight:bold;
-    color:black;
+    font-weight: bold;
+    color: black;
 }
-  
+
 
 
 @media(max-width:800px) {
@@ -251,58 +299,61 @@ h1.labelJauge{
         font-size: 1.15vw;
         margin-left: 5%;
     }
-    
+
     .info {
-       
+
         font-size: 1.5em;
-    
+
     }
+
     .title {
         padding: 0.6vw;
         font-size: 0.7em;
     }
 
-    h3{
+    h3 {
         font-size: 2vw;
     }
-    
+
 
     img {
         width: 60%;
         height: 90%;
     }
-    
-    .info{
+
+    .info {
         margin-left: 10%;
         font-size: 0.7em;
     }
 
-    .Plot{
+    .Plot {
         width: 100%;
         height: 70%;
     }
 
-    .graph{
-        width:100%;
+    .graph {
+        width: 100%;
     }
 
-    .slider-box{
-        width:50%;
+    .slider-box {
+        width: 50%;
         padding: 0.75vw;
         text-align: center;
     }
-    
-    label{
-      font-size: 0.5em;
-      margin-left: 1%;
+
+    label {
+        font-size: 0.5em;
+        margin-left: 1%;
     }
-    input{
-        
+
+    input {
+
         font-weight: 700;
-        
+
     }
-    .ul-slider-horizontal{
-        height: 0.1em!important;
+
+    .ul-slider-horizontal {
+        height: 0.1em !important;
     }
 
 }

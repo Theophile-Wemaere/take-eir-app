@@ -150,6 +150,7 @@ form .pied-formulaire button:hover {
   color: rgb(26, 35, 232, 0.73);
   font-weight: bold;
 }
+
 ::-moz-placeholder {
   color: rgb(26, 35, 232, 0.73);
   font-weight: bold;
@@ -159,6 +160,7 @@ form .pied-formulaire button:hover {
   color: rgb(26, 35, 232, 0.73);
   font-weight: bold;
 }
+
 :-moz-placeholder {
   color: rgb(26, 35, 232, 0.73);
   font-weight: bold;

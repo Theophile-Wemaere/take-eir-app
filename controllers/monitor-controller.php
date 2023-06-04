@@ -38,5 +38,20 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "GET" and isset($_GET["action"])) {
          echo json_encode($results);
          break;
    }
+} elseif ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["action"])) {
+   switch ($_POST["action"]) {
+      case "set_threshold":
+         $min = $_POST["min"];
+         $max = $_POST["max"];
+         $type = $_POST["type"];
+         $id_device = $_POST["device"];
+         $query = "INSERT INTO alert_threshold VALUES (:id_device, :type, :values)";
+         $_DB->execute($query,[
+            "id_device" => $id_device,
+            "type" => $type,
+            "values" => $min . ":" . $max
+         ]);
+         break;
+   }
 }
 ?>

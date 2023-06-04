@@ -19,8 +19,6 @@ function sliderRange(idRange, idValue, step,v1,v2, min, max) {
                 }
             }
         });
-        console.log(unit);
-        $(idValue).val($(idRange).slider("values", 0) + "DB" + " - " + $(idRange).slider("values", 1));
     });
     var unit = "";
     if (idRange.includes("heart")) {
@@ -36,7 +34,9 @@ function sliderRange(idRange, idValue, step,v1,v2, min, max) {
 }
 
 function getThreshold() {
-    fetch("/controllers/monitor-controller.php?action=threshold&device=123-456-789", {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id_device = urlParams.get("device");
+    fetch("/controllers/monitor-controller.php?action=threshold&device=" + id_device, {
         method: "GET",
       })
         .then((response) => response.json())
@@ -52,4 +52,24 @@ function getThreshold() {
             });
           }
         });
+}
+
+function setThreshold(idRange,type) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id_device = urlParams.get("device");
+    const min = $(idRange).slider("values", 0);
+    const max = $(idRange).slider("values", 1);
+    
+    data = new FormData();
+    data.append("action","set_threshold");
+    data.append("type",type);
+    data.append("min",min);
+    data.append("max",max);
+    data.append("device",id_device);
+    fetch("/controllers/monitor-controller.php", {
+        method: "POST",
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((res) => {});
 }

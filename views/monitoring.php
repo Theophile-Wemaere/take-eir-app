@@ -30,6 +30,9 @@ if (!isset($_SESSION["name"])) {
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.2.9/justgage.min.js"></script>
   <script src="/JS/monitoring/gauge_plot.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+  <script src="/JS/monitoring/slider.js"></script>
   <script src="/JS/scripts.js"></script>
 
 </head>
@@ -53,11 +56,10 @@ if (!isset($_SESSION["name"])) {
       </div>
       <h3 for="jauge" class="labelJauge" style="font-size:none">
         <div class="infoPatient">
-          <p>Prenom :</p>
-          <p>Nom :</p>
-          <p>Email :</p>
-          <p>Telephone :</p>
-          <p>Health-Key :</p>
+          <p id="name">Prénom :</p>
+          <p id="surname">Nom :</p>
+          <p id="email">Email :</p>
+          <p id="key">Health-Key :</p>
         </div>
       </h3>
       <div class="tabs">
@@ -74,14 +76,7 @@ if (!isset($_SESSION["name"])) {
 
         <div class="tab-bodies">
 
-          <div style="display:block;" class="graph">
-            <!--slider html code-->
-            <div class="slider-box">
-              <label for="heartPathRange">Seuil d'alerte du rythme cardiaque</label>
-              <br>
-              <input type="text" id="heartRange" readonly>
-              <div id="heart-range" class="slider"></div>
-            </div>
+          <div style="display:flex;" class="graph graph-container">
             <!--line graph html code-->
             <h3 id="titleHeartPlot" class="title"></h3>
             <div class="info">
@@ -89,9 +84,17 @@ if (!isset($_SESSION["name"])) {
               <p id="sdCard"></p>
             </div>
             <div id="cardiacGraph" class="Plot"></div>
+            <!--slider html code-->
+            <div class="slider-box">
+              <label for="heartPathRange">Seuil d'alerte du rythme cardiaque</label>
+              <br>
+              <input type="text" id="heartRange" readonly>
+              <div id="heart-range" class="slider"></div>
+              <button onclick="setThreshold('#heart-range',1)">Confirmer</button>
+            </div>
           </div>
 
-          <div style="display:none;" class="graph">
+          <div style="display:none;" class="graph graph-container">
             <!--slider html code-->
             <!--<div class="slider-box">
             <label for="tempPathRange">Seuil d'alerte pour la temperature</label>
@@ -109,7 +112,7 @@ if (!isset($_SESSION["name"])) {
             <div id="tempGraph" class="Plot"></div>
           </div>
 
-          <div style="display:none;" class="graph">
+          <div style="display:none;" class="graph graph-container">
             <!--slider html code-->
             <!--<div class="slider-box">
             <label for="humidityPathRange">Seuil d'alerte pour l'humidité</label>
@@ -129,7 +132,7 @@ if (!isset($_SESSION["name"])) {
 
 
 
-          <div style="display:none;" class="graph">
+          <div style="display:none;" class="graph graph-container">
 
             <!--slider html code-->
             <!--<div class="slider-box">
@@ -148,7 +151,7 @@ if (!isset($_SESSION["name"])) {
             <div id="noiseGraph" class="Plot"></div>
           </div>
 
-          <div style="display:none;" class="graph">
+          <div style="display:none;" class="graph graph-container">
             <!--slider html code-->
             <!--<div class="slider-box">
             <label for="dustPathRange">Seuil d'alerte du taux de microparticulle</label>
@@ -166,7 +169,7 @@ if (!isset($_SESSION["name"])) {
             <div id="dustGraph" class="Plot"></div>
           </div>
 
-          <div style="display:none;" class="graph">
+          <div style="display:none;" class="graph graph-container">
             <!--slider html code-->
             <!--<div class="slider-box">
             <label for="co2PathRange">Seuil d'alerte du taux de CO2</label>
@@ -199,9 +202,11 @@ if (!isset($_SESSION["name"])) {
       // Code JavaScript avec Ajax
       function fetchPeriodicData() {
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/controllers/monitor-controller.php?action=metrics&device=123-456-789', true);
+        const urlParams = new URLSearchParams(window.location.search);
+        const id_device = urlParams.get("device");
+        xhr.open('POST', '/controllers/monitor-controller.php?action=metrics&device=' + id_device, true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        
+
         xhr.onload = function () {
           if (xhr.status === 200) {
             var data = JSON.parse(xhr.responseText);
@@ -222,10 +227,10 @@ if (!isset($_SESSION["name"])) {
 
             var tauxCO2Time = [];
             var tauxCO2 = [];
-            
+
             // Parcourir les données et les trier en fonction du type de métrique
             data.forEach(element => {
-              
+
               var metricType = element.metric_type;
               var entryTime = new Date(element.entry_time);
               var value = element.value;
@@ -282,17 +287,11 @@ if (!isset($_SESSION["name"])) {
       }
       // Appeler la fonction initiale pour récupérer les données une première fois
       fetchPeriodicData();
-    
+
 
     // Planifier l'exécution périodique de la fonction
     //setInterval(fetchPeriodicData, 5000); // Exécuter toutes les 5 secondes (5000 millisecondes)
     </script>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-    <script src="/JS/monitoring/slider.js"></script>
-
     <!--Code Javascript pour le slider range-->
     <script>
       getThreshold();
@@ -301,7 +300,7 @@ if (!isset($_SESSION["name"])) {
     //sliderRange("#noise-range", "#noiseRange", 1, 0, 120);
     //sliderRange("#dust-range", "#dustRange", 50, 0, 250);
     //sliderRange("#co2-range", "#co2Range", 100, 0, 2000);
-    
+
     </script>
   </div>
   <?php require "bottom-bar.php"; ?>
