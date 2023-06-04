@@ -170,7 +170,9 @@ body {
 }
 
 .drop-menu {
-  position: absolute;
+  font-family: "Krona One", sans-serif;
+  font-weight: 400;
+  position: fixed;
   z-index: 1000;
   border-radius: 25px;
   top: 120px;
@@ -211,6 +213,8 @@ body {
 }
 
 .dropdown-content-user {
+  font-family: "Krona One", sans-serif;
+  font-size: 13px;
   display: none;
   position: absolute;
   top: 100%;

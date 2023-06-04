@@ -23,7 +23,7 @@
         Institut Supérieur d'Électronique de Paris, 10 rue de Vanves, 92130 Issy-les-Moulineaux
     </div>
     <div class="medias">
-        <a href="https://linkedin.com/"><i class="fa fa-linkedin-square"></i></a>
+        <a href="https://www.linkedin.com/in/take-eir-048796279/"><i class="fa fa-linkedin-square"></i></a>
         <a href="https://www.youtube.com/channel/UC3f1jId2z3_HXsk8x94_dGA"><i class="fa fa-youtube-square"></i></a>
         <a href="https://twitter.com/Take_Eir"><i class="fa fa-twitter-square"></i></a>
         <a href="https://instagram.com/take_eir"><i class="fa fa-instagram"></i></a>

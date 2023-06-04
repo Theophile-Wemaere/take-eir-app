@@ -375,7 +375,7 @@ h1.labelJauge {
 
     .title {
         padding: 0.6vw;
-        font-size: 0.7em;
+        font-size: 3vw;
     }
 
     h3 {
@@ -390,7 +390,7 @@ h1.labelJauge {
 
     .info {
         margin-left: 10%;
-        font-size: 0.7em;
+        font-size: 2.5vw;
     }
 
     .Plot {
@@ -444,10 +444,6 @@ h1.labelJauge {
     }
 
     .slider-box {
-        width: 80%;
-    }
-
-    .ui-slider .ui-slider-handle {
-        width: 10px;
+        display: none;
     }
 }
