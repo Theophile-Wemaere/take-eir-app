@@ -4,6 +4,7 @@ function getDevices() {
         .then((data) => {
             const devicesList = document.querySelector(".devices-list");
             devicesList.innerHTML = "";
+          
             data.forEach((row) => {
 
                 const line = document.createElement("div");
@@ -59,7 +60,7 @@ function getDevices() {
                 fetch("/controllers/device-controller.php?action=status&device=" + row.id_device)
                     .then((response) => response.json())
                     .then((data) => {
-                        if (data !== null) {
+                        if (data !== false) {
                     heartbeatValue.textContent = data.value + " bpm";
                     if (data.value < 50 || data.value > 100) {
                         smileIcon.classList.add("fa", "fa-frown-o", "bad");

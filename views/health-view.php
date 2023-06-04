@@ -80,7 +80,7 @@ if (!isset($_SESSION["email"])) {
             if($_SESSION["role_permission"] == "3"){
                 echo "Patients";
             }else{
-                echo "Mes appareils";
+                echo "Vos appareils";
             }?>
             </p>
 
