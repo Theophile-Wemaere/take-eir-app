@@ -29,33 +29,32 @@ function fetchPeriodicData() {
 
             // Parcourir les données et les trier en fonction du type de métrique
             data.forEach(element => {
-
                 var metricType = element.metric_type;
                 var entryTime = new Date(element.entry_time);
                 var value = element.value;
                 // Tri des données en fonction du type de métrique
                 switch (metricType) {
-                    case 1:
+                    case "1":
                         rythmeCardiaqueTime.push(entryTime);
                         rythmeCardiaque.push(parseFloat(value));
                         break;
-                    case 2:
+                    case "2":
                         temperatureTime.push(entryTime);
                         temperature.push(parseFloat(value));
                         break;
-                    case 3:
+                    case "3":
                         niveauSonoreTime.push(entryTime);
                         niveauSonore.push(parseFloat(value));
                         break;
-                    case 4:
+                    case "4":
                         tauxMicroparticulesTime.push(entryTime);
                         tauxMicroparticules.push(parseFloat(value));
                         break;
-                    case 5:
+                    case "5":
                         tauxCO2Time.push(entryTime);
                         tauxCO2.push(parseFloat(value));
                         break;
-                    case 6:
+                    case "6":
                         humidityTime.push(entryTime);
                         humidity.push(parseFloat(value));
                         break;
