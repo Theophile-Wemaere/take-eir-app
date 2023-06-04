@@ -376,7 +376,7 @@ body {
 .bottom-bar .row2 {
   margin-top: 20px;
   text-align: center;
-  width: 50%;
+  width: 60%;
   text-align: center;
   color: #2d67e0;
   text-decoration: none;
@@ -427,27 +427,21 @@ body {
   justify-content: space-evenly;
 }
 
-.bottom-bar img {
-  height: 100%;
-  width: 24px;
-}
-
-.bottom-bar .separator {
-  background-color: #0066ff;
-  margin-left: 10px;
-}
-
-.bottom-bar .left-items a {
-  margin-bottom: 10px;
-}
-
 .bottom-bar a:hover {
   text-decoration: underline;
 }
 
 @media (max-width: 790px) {
-  .bottom-bar a {
+  .bottom-bar .links .title {
     font-size: 3vw;
+  }
+
+  .bottom-bar .links a {
+    font-size: 2vw;
+  }
+
+  .bottom-bar .row2 {
+    font-size: 2vw;
   }
 
   .medias {

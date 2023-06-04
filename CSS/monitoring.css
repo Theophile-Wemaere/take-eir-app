@@ -275,10 +275,11 @@ input {
     color: white;
     text-align: center;
     font-weight: bold;
+    padding: 20px;
 }
 
 h1.labelJauge {
-    padding: 20px;
+    padding: 20px 0 20px 0;
 }
 
 

@@ -33,8 +33,9 @@ function fetchPeriodicData() {
                 var metricType = element.metric_type;
                 var entryTime = new Date(element.entry_time);
                 var value = element.value;
+
                 // Tri des données en fonction du type de métrique
-                switch (metricType) {
+                switch (parseInt(metricType)) {
                     case 1:
                         rythmeCardiaqueTime.push(entryTime);
                         rythmeCardiaque.push(parseFloat(value));
@@ -99,10 +100,10 @@ function getPatient() {
     })
         .then((response) => response.json())
         .then((data) => {
-            name.textContent += data.name;
-            surname.textContent += data.surname;
-            email.textContent += data.doctor_email;
-            key.textContent += id_device;
+            name.textContent = data.name;
+            surname.textContent = data.surname;
+            email.textContent = data.doctor_email;
+            key.textContent = id_device;
         })
         .catch((error) => {
             console.error("Error:", error);

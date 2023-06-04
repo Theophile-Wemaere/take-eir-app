@@ -51,9 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     "id" => $key,
                 ]);
                 if ($stmt->rowCount() == 0) {
-                    $name = $_SESSION["name"];
-                    $surname = $_SESSION["surname"];
-                    $doctor_email = $_SESSION["email"];
+                    $name = "nom";
+                    $surname = "prenom";
+                    $doctor_email = "email medecin";
                     $id = md5($name . $surname . $doctor_email . $id_device . bin2hex(random_bytes(5)));
                     $_DB->execute(
                         "INSERT INTO patients VALUES (:id, :name, :surname, :doctor_email, :id_device)",
@@ -70,6 +70,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 echo "success";
+                break;
+
+            case "delete_device":
+                $id_device = $_POST['id_device'];
+                $id_user = $_SESSION['id'];
+                $query = "DELETE FROM devices_users WHERE id_device = :id_device AND id_user = :id_user";
+                $_DB->execute($query,["id_device" => $id_device, "id_user" => $id_user]);
+
+                // check if the device is still associated with an account
+                $stmt = $_DB->execute("SELECT * FROM devices_users WHERE id_device = :id", [
+                    "id" => $id_device,
+                ]);
+                if ($stmt->rowCount() == 0) {
+                    // if no the delete the patient and all metrics
+                    $_DB->execute("DELETE FROM patients WHERE id_device = :id_device",["id_device" => $id_device]);
+                    $_DB->execute("DELETE FROM metrics WHERE id_device = :id_device",["id_device" => $id_device]);
+                }
                 break;
         }
     }

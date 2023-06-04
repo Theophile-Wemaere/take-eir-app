@@ -50,7 +50,7 @@ if (!isset($_SESSION["name"])) {
     <!--Création des div invisibles pour récuperer les données de la table en javascript-->
 
     <div class="globalMonitoring">
-      <h3 for="jauge" class="labelJauge">Dernière mesure du patient</h3>
+      <h3 for="jauge" class="labelJauge">Monitoring global</h3>
       <div style="display:flex;" class="jauge">
         <div id="cardGaugeContainer" class="plotJauge" style="width:20%"></div>
         <div id="tempGaugeContainer" class="plotJauge" style="width:20%"></div>
@@ -61,11 +61,14 @@ if (!isset($_SESSION["name"])) {
       </div>
       <h3 for="jauge" class="labelJauge" style="font-size:none">
         <div class="infoPatient">
-          
-        <p id="name">Prénom : </p>
-          <p id="surname">Nom : </p>
-          <p id="email">Email du médecin: </p>
+          <p>Prénom : </p>
+          <p id="name"></p>
+          <p>Nom : </p>
+          <p id="surname"></p>
+          <p>Email du médecin: </p>
+          <p id="email"></p>
           <p id="key">Health-Key : </p>
+          <p id="key"></p>
         </div>
         <script>getPatient()</script>
       </h3>

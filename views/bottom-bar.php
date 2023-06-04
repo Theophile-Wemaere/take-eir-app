@@ -24,7 +24,7 @@
     </div>
     <div class="medias">
         <a href="https://linkedin.com/"><i class="fa fa-linkedin-square"></i></a>
-        <a href="https://youtube.com/"><i class="fa fa-youtube-square"></i></a>
+        <a href="https://www.youtube.com/channel/UC3f1jId2z3_HXsk8x94_dGA"><i class="fa fa-youtube-square"></i></a>
         <a href="https://twitter.com/Take_Eir"><i class="fa fa-twitter-square"></i></a>
         <a href="https://instagram.com/take_eir"><i class="fa fa-instagram"></i></a>
     </div>
