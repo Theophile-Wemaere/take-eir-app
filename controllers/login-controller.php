@@ -4,7 +4,7 @@ require "../database.php";
 $email = $_POST["email"];
 $password = $_POST["password"];
 $stmt = $_DB->execute(
-    "SELECT id_user, password, surname, name, roles.role_name, roles.role_permission FROM users JOIN roles on users.id_role = roles.id_role WHERE email = :email",
+    "SELECT id_user, password, surname, name, users.id_role, roles.role_name, roles.role_permission FROM users JOIN roles on users.id_role = roles.id_role WHERE email = :email",
     ["email" => $email]
 );
 if ($stmt->rowCount() > 0) {
@@ -17,6 +17,7 @@ if ($stmt->rowCount() > 0) {
         $_SESSION["email"] = $email;
         $_SESSION["role_name"] = $row["role_name"];
         $_SESSION["role_permission"] = $row["role_permission"];
+        $_SESSION["id_role"] = $row["id_role"];
         $_SESSION["id"] = $row["id_user"];
 
         if ($_SESSION["role_permission"] == 6) {

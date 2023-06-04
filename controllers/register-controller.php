@@ -75,6 +75,7 @@
                     ]
                 )
                 ->fetch();
+            $_SESSION["id_role"] = $role;
             $_SESSION["role_name"] = $row["role_name"];
             $_SESSION["role_permission"] = $row["role_permission"];
             $_SESSION["id"] = $id;

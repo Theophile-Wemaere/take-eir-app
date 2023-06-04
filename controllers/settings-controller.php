@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $role = 2;
                         break;
                     default:
-                        $role = 3;
+                        $role = $_SESSION["id_role"];
                         break;
                 }
                 $gender = null;

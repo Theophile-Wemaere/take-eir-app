@@ -10,31 +10,25 @@ require "../database.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["action"])) {
         switch ($_POST["action"]) {
-            case "set_patient":
+            case "update_patient":
                 $name = htmlspecialchars($_POST["name"]);
                 $surname = htmlspecialchars($_POST["surname"]);
                 $doctor_email = htmlspecialchars($_POST["doctor_email"]);
                 $id_device = $_POST["id_device"];
-                $id = md5($name . $surname . $doctor_email . $id_device . bin2hex(random_bytes(5)));
-
-                $stmt = $_DB->execute("SELECT * FROM patients WHERE id_patient = :id", [
-                    "id" => $id,
-                ]);
-                if ($stmt->rowCount() == 0) {
-                    $_DB->execute(
-                        "INSERT INTO patients VALUES (:id, :name, :surname, :doctor_email, :id_device)",
-                        [
-                            "id" => $id,
-                            "name" => $name,
-                            "surname" => $surname,
-                            "doctor_email" => $doctor_email,
-                            "id_device" => $id_device
-                        ]
-                    );
-                    echo "success";
-                } else {
-                    echo "patient_exist";
-                }
+                $_DB->execute(
+                    "UPDATE patients 
+                    JOIN devices_users ON patients.id_device = devices_users.id_device
+                    SET patients.name = :name, patients.surname = :surname, patients.doctor_email = :doctor_email
+                    WHERE patients.id_device = :id_device AND devices_users.id_user = :id_user",
+                    [
+                        "name" => $name,
+                        "surname" => $surname,
+                        "doctor_email" => $doctor_email,
+                        "id_device" => $id_device,
+                        "id_user" => $_SESSION["id"]
+                    ]
+                );
+                echo "success";
                 break;
 
             case "add_key":
@@ -65,6 +59,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             "id_device" => $key
                         ]
                     );
+
+                    $_DB->execute("INSERT INTO alert_threshold VALUES(:id_device,1,'60:100'",
+                    [
+                        "id_device" => $id_device
+                    ]);
                     echo "success";
                 }
 

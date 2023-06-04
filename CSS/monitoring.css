@@ -12,6 +12,20 @@
     background-color: RGB(255, 255, 255);
 }
 
+.jauge {
+    display: flex;
+    flex-direction: row;
+}
+
+.jauge .groupe {
+    display: flex;
+    flex-direction: row;
+    width: 33%;
+}
+
+.jauge .plotJauge {
+    width: 50%;
+}
 
 .tabs button {
     padding: 0.5em;
@@ -54,16 +68,76 @@
 
 
 .infoPatient {
-    font-size: 0.9vw;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    
+    flex-direction: column;
 }
 
 .infoPatient p {
     color: white;
+    font-size: 1.5vw;
+    margin: 10px;
+}
 
+.infoPatient input {
+    font-size: 1.5vw;
+    color: white;
+    cursor: pointer;
+    margin:  10px;
+}
+
+.infoPatient input:focus {
+    border-radius: 5px;
+    border: solid 1px #BFD9FA;
+    background-color: #5DD1B7;
+    color: black;
+}
+
+.infoPatient h3 {
+    margin: 0;
+}
+
+.infoPatient .groupe {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoPatient .title {
+    color: #BFD9FA;
+    font-style: italic;
+    font-size: 1.5vw;
+    margin: 0;
+    width: auto;
+}
+
+.infoPatient .row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.infoPatient button {
+    margin-top: 20px;
+    background-color: #e0584c;
+    color: white;
+    font-size: 15px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 120px;
+}
+
+.infoPatient button:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
 }
 
 .ui-slider .ui-slider-handle {
@@ -293,11 +367,6 @@ h1.labelJauge {
 
 @media(max-width:800px) {
 
-    .infoPatient {
-        font-size: 1.15vw;
-        margin-left: 5%;
-    }
-
     .info {
 
         font-size: 1.5em;
@@ -310,7 +379,7 @@ h1.labelJauge {
     }
 
     h3 {
-        font-size: 2vw;
+        font-size: 3vw;
     }
 
 
@@ -354,4 +423,31 @@ h1.labelJauge {
         height: 0.1em !important;
     }
 
+    .infoPatient .title {
+        font-size: 2vw;
+    }
+
+    .infoPatient input {
+        font-size: 2vw;
+    }
+
+    .infoPatient p {
+        font-size: 2vw;
+    }
+
+    .jauge {
+        flex-direction: column;
+    }
+
+    .jauge .groupe {
+        width: 100%;
+    }
+
+    .slider-box {
+        width: 80%;
+    }
+
+    .ui-slider .ui-slider-handle {
+        width: 10px;
+    }
 }
