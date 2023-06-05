@@ -7,7 +7,7 @@ function prepare_mail()
     require "PHPMailer/SMTP.php";
     require "PHPMailer/Exception.php";
     
-    $credentials = file_get_contents('.credentials');
+    $credentials = file_get_contents('../.credentials');
     $dictionary = json_decode($credentials, true);
 
     //smtp settings
@@ -47,7 +47,7 @@ if (isset($_POST['name']) && isset($_POST['email'])) {
 
 } elseif (isset($_POST["reset_passwd"])) {
 
-    require "../database.php";
+    require "../model/database.php";
 
     $to_email = $_POST["email"];
     $email = "contact.healtheir@gmail.com";
@@ -111,7 +111,7 @@ if (isset($_POST['name']) && isset($_POST['email'])) {
     }
 } elseif (isset($_POST["action"]) and $_POST["action"] == "add_key") {
 
-    require "../database.php";
+    require "../model/database.php";
     session_start();
     if (isset($_SESSION["id"])) {
 

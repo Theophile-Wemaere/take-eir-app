@@ -6,7 +6,7 @@ if (!isset($_SESSION["email"])) {
     exit();
 }
 
-require "../database.php";
+require "../model/database.php";
 $admin = false;
 if ($_SESSION["role_permission"] == 6) {
     $admin = true;

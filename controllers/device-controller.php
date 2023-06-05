@@ -6,7 +6,7 @@ if (!isset($_GET["token"])) {
         exit();
     }
 
-    require "../database.php";
+    require "../model/database.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST["action"])) {
@@ -151,7 +151,7 @@ if (!isset($_GET["token"])) {
         }
     }
 } else {
-    require "../database.php";
+    require "../model/database.php";
     $token = $_GET["token"];
     $stmt = $_DB->execute("SELECT * FROM confirm_device WHERE token = :token", ["token" => $token])->fetch();
     if (isset($stmt) and $stmt["token"] == $token) { // token is valid, we can add the user

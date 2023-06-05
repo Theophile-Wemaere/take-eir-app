@@ -6,7 +6,7 @@ if (!isset($_SESSION["email"])) {
    exit();
 }
 
-require "../database.php";
+require "../model/database.php";
 
 if (isset($_SERVER["REQUEST_METHOD"]) == "GET" and isset($_GET["action"])) {
    switch ($_GET["action"]) {

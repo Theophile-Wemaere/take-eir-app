@@ -1,5 +1,5 @@
 <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require "../database.php";
+    require "../model/database.php";
     $role = null;
     switch ($_POST["role"]) {
         case "famille":

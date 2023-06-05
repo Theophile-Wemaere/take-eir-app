@@ -1,6 +1,6 @@
 <?php
 
-require "../database.php";
+require "../model/database.php";
 session_start();
 if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
     error_log("not allowed");

@@ -1,5 +1,5 @@
 <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
-require "../database.php";
+require "../model/database.php";
 // Get the email and password from the form
 $email = $_POST["email"];
 $password = $_POST["password"];
