@@ -1,5 +1,6 @@
 .creds
 .credentials
+docker-compose.yml
 .htpasswd
 views/uploads/
 .vscode

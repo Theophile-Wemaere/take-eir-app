@@ -81,7 +81,7 @@ if (!isset($_SESSION["email"])) {
                         <input id="password" type="password" name="email" require>
                         <i class="fa-solid fa-key"></i>
                         <p id="passwordError" class="error-match">8 caractères minimum avec :</br>
-               une majuscule,</br> un nombre</br> et un caractère spéciale</p>
+               une majuscule,</br> un nombre</br> et un caractère spéciale (@$!%*?&)</p>
                     </div>
                     <div class="groupe">
                         <label>Vérification du mot de passe</label>

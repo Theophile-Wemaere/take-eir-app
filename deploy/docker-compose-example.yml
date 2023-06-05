@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  apache:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www/html
+      - ./deploy/php.ini:/etc/php/8.0/apache2/php.ini
+
+  mysql:
+    image: mariadb:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=your_root_password
+      - MYSQL_DATABASE=take_eir
+      - MYSQL_USER=take_eir_user
+      - MYSQL_PASSWORD=your_password
+    volumes:
+      - ./deploy/create_db.sql:/docker-entrypoint-initdb.d/create_db.sql
+
+  phpmyadmin:
+    image: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    networks:
+        - default
