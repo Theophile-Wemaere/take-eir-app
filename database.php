@@ -51,12 +51,9 @@ class DB
 define("DB_HOST", "take-eir.fr");
 define("DB_NAME", "take_eir");
 define("DB_CHARSET", "utf8mb4");
-$creds = file(".creds");
-$creds_line = $creds[0];
-$creds_parts = explode(":", $creds_line);
-$username = $creds_parts[0];
-$password = str_replace("\n", "", $creds_parts[1]);
-define("DB_USER", $username);
-define("DB_PASSWORD", $password);
+$credentials = file_get_contents('.credentials');
+$dictionary = json_decode($credentials, true);
+define("DB_USER", $dictionary["mysql_user"]);
+define("DB_PASSWORD", $dictionary["mysql_password"]);
 $_DB = new DB();
 ?>

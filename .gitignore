@@ -1,4 +1,5 @@
 .creds
+.credentials
 .htpasswd
 views/uploads/
 .vscode

@@ -6,14 +6,17 @@ function prepare_mail()
     require "PHPMailer/PHPMailer.php";
     require "PHPMailer/SMTP.php";
     require "PHPMailer/Exception.php";
+    
+    $credentials = file_get_contents('.credentials');
+    $dictionary = json_decode($credentials, true);
 
     //smtp settings
     $mail = new PHPMailer();
     $mail->isSMTP();
     $mail->Host = "smtp.gmail.com";
     $mail->SMTPAuth = true;
-    $mail->Username = "contact.healtheir@gmail.com";
-    $mail->Password = 'xuxzhbgbwtyqeoco';
+    $mail->Username = $dictionary["email_username"];
+    $mail->Password = $dictionary["email_password"];
     $mail->Port = 465;
     $mail->SMTPSecure = "ssl";
     return $mail;
