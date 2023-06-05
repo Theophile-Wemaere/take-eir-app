@@ -4,7 +4,7 @@
 
 This repository contains the entire codebase for the website of the fictionnal medical start-up "TAKE-EIR". 
 
-It allow users to discover the product of TAKE-EIR and also manage their owns devices by login into the website, to preview sensors datas, interact with the website administrators, and more !
+It allows users to discover the product of TAKE-EIR and also manage their owns devices by login into the website, to preview sensors datas, interact with the website administrators, and more !
 
 You can find a working version of this code here -> [https://take-eir.fr/](https://take-eir.fr/)
 
