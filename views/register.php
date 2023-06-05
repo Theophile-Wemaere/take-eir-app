@@ -92,7 +92,7 @@ if (isset($_SESSION["name"])) {
             <input id="password" type="password" name="password" required />
             <i class="fa-solid fa-key"></i>
             <p id="passwordError" class="error-match">8 caractères minimum avec :</br>
-               une majuscule,</br> un nombre</br> et un caractère spéciale</p>
+              une majuscule,</br> un nombre</br> et un caractère spéciale</p>
           </div>
 
           <div class="groupe">
@@ -109,7 +109,7 @@ if (isset($_SESSION["name"])) {
           <script>
             setupPasswordValidation();
             checkValidity();
-            
+
             const btn = document.getElementById("submit-btn");
             const loader = document.getElementById("loader");
 
