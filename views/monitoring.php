@@ -68,7 +68,7 @@ if (!isset($_SESSION["name"])) {
       </div>
       <h3 for="jauge" class="labelJauge" style="font-size:none">
         <div class="infoPatient">
-          <h3 class="labelJauge">Information du patient</h3>
+          <h3 class="labelJauge">Informations du patient</h3>
           <div class="row">
             <div class="groupe">
               <p class="title">Prénom : </p>

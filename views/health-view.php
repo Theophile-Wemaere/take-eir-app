@@ -76,14 +76,26 @@ if (!isset($_SESSION["email"])) {
             </div>
         </form>
         <div class="devices">
-            <p class="patients"><?php 
-            if($_SESSION["role_permission"] == "3"){
-                echo "Patients";
-            }else{
-                echo "Mes appareils";
-            }?>
+            <p class="patients">
+                <?php
+                if ($_SESSION["role_permission"] == "3") {
+                    echo "Patients";
+                } else {
+                    echo "Vos appareils";
+                } ?>
             </p>
 
+            <div class="search">
+                <input type="text" id="search" placeholder="Rechercher par nom, prénom, ..." onkeydown="handleKeyDown(event)">
+                <button type="button" onclick="getDevices()"><i class="fa fa-search"></i></button>
+            </div>
+            <script>
+                function handleKeyDown(event) {
+                    if (event.key === "Enter") {
+                        getDevices();
+                    }
+                }
+            </script>
             <div class="devices-list">
                 <!--                 
                 <div class="device">

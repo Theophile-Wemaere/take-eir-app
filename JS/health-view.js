@@ -1,9 +1,12 @@
 function getDevices() {
-    fetch("/controllers/device-controller.php?action=devices")
+    const devicesList = document.querySelector(".devices-list");
+    devicesList.innerHTML = "";
+
+    const search = document.getElementById("search").value;
+    fetch("/controllers/device-controller.php?action=devices&search=" + search)
         .then((response) => response.json())
         .then((data) => {
-            const devicesList = document.querySelector(".devices-list");
-            devicesList.innerHTML = "";
+
             data.forEach((row) => {
 
                 const line = document.createElement("div");
@@ -59,28 +62,28 @@ function getDevices() {
                 fetch("/controllers/device-controller.php?action=status&device=" + row.id_device)
                     .then((response) => response.json())
                     .then((data) => {
-                        if (data !== null) {
-                    heartbeatValue.textContent = data.value + " bpm";
-                    if (data.value < 50 || data.value > 100) {
-                        smileIcon.classList.add("fa", "fa-frown-o", "bad");
-                        statusValue.textContent = "bad";
-                    } else if (data.value > 50 && data.value < 60) {
-                        smileIcon.classList.add("fa", "fa-meh-o", "medium");
-                        statusValue.textContent = "medium";
-                    } else {
-                        smileIcon.classList.add("fa", "fa-smile-o", "good");
-                        statusValue.textContent = "good";
-                    }
-                }
+                        if (data !== false) {
+                            heartbeatValue.textContent = data.value + " bpm";
+                            if (data.value < 50 || data.value > 100) {
+                                smileIcon.classList.add("fa", "fa-frown-o", "bad");
+                                statusValue.textContent = "bad";
+                            } else if (data.value > 50 && data.value < 60) {
+                                smileIcon.classList.add("fa", "fa-meh-o", "medium");
+                                statusValue.textContent = "medium";
+                            } else {
+                                smileIcon.classList.add("fa", "fa-smile-o", "good");
+                                statusValue.textContent = "good";
+                            }
+                        }
+                    });
+                devicesList.appendChild(line);
             });
-            devicesList.appendChild(line);
+
+
+        })
+        .catch((error) => {
+            console.error(error);
         });
-
-
-})
-        .catch ((error) => {
-    console.error(error);
-});
 }
 
 function addKey() {
@@ -93,16 +96,29 @@ function addKey() {
         body: data,
     })
         .then((res) => res.text())
-        .then((res) => { });
+        .then((res) => {
+            if (res === "to_confirm") {
+                fetch("/controllers/email-controller.php", {
+                    method: "POST",
+                    body: data,
+                })
+                    .then((res) => res.text())
+                    .then((res) => {
+                        if (res === "success") {
+                            alert("Votre demande d'ajout a été envoyé par mail au propriétaire de la clé");
+                        }
+                    });
+            }
+        });
     key.value = "";
     getDevices();
 }
 
 function deleteDevice(id_device) {
-    if(confirm("Enlevez cet appareil ?")) {
+    if (confirm("Enlevez cet appareil ?")) {
         data = new FormData();
-        data.append("action","delete_device");
-        data.append("id_device",id_device);
+        data.append("action", "delete_device");
+        data.append("id_device", id_device);
         fetch("/controllers/device-controller.php", {
             method: "POST",
             body: data,
@@ -110,5 +126,5 @@ function deleteDevice(id_device) {
             .then((res) => res.text())
             .then((res) => { });
         getDevices();
-    } 
+    }
 }
