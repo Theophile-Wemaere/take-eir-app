@@ -40,6 +40,14 @@ if (!isset($_SESSION["name"])) {
   <script src="/JS/monitoring/slider.js"></script>
   <script src="/JS/scripts.js"></script>
   <script src="/JS/monitoring/monitoring.js"></script>
+<script src="/JS/monitoring/onglet.js"></script>
+
+<!--Code Javascript pour plot les data-->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
 
 </head>
 
@@ -222,31 +230,9 @@ if (!isset($_SESSION["name"])) {
         </div>
       </div>
     </div>
-    <script src="/JS/monitoring/onglet.js"></script>
-
-    <!--Code Javascript pour plot les data-->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://d3js.org/d3.v4.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-
     <script>
-      // Appeler la fonction initiale pour récupérer les données une première fois
       fetchPeriodicData();
-
-
-    // Planifier l'exécution périodique de la fonction
-    //setInterval(fetchPeriodicData, 5000); // Exécuter toutes les 5 secondes (5000 millisecondes)
-    </script>
-    <!--Code Javascript pour le slider range-->
-    <script>
       getThreshold();
-    //sliderRange("#temp-range", "#tempRange", 1, -10, 40);
-    //sliderRange("#humidity-range", "#humidityRange", 1, 0, 100);
-    //sliderRange("#noise-range", "#noiseRange", 1, 0, 120);
-    //sliderRange("#dust-range", "#dustRange", 50, 0, 250);
-    //sliderRange("#co2-range", "#co2Range", 100, 0, 2000);
-
     </script>
   </div>
   <?php require "bottom-bar.php"; ?>

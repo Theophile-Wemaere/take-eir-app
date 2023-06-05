@@ -43,7 +43,7 @@ function getThreshold() {
         .then((response) => {
           if (response !== null) {
             response.forEach(element => {
-                if(element.metric_type === 1) {
+                if(parseInt(element.metric_type) === 1) {
                     const [min, max] = element.value.split(":");
                     const minValue = parseInt(min, 10);
                     const maxValue = parseInt(max, 10);
