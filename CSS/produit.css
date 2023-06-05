@@ -75,7 +75,7 @@ a {
   margin-top: 20%;
 }
 
-body p {
+.main-box p {
   padding: 10px;
   font-family: "Nunito", sans-serif;
 }
@@ -102,7 +102,7 @@ body p {
   text-align: justify;
 }
 
-p {
+.main-box p {
   text-align: justify;
 }
 

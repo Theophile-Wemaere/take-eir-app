@@ -41,7 +41,6 @@ if (!isset($_SESSION["email"])) {
         <form id="myForm">
             <h1>Modifiez votre adresse e-mail :</h1>
             <div class="separation"></div>
-
             <div class="corps-formulaire">
                 <div class="droite">
                     <div class="groupe">

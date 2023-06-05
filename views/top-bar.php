@@ -15,7 +15,7 @@
         <div class="separator" style="margin-right: 10px"></div>
         <?php if (strpos(basename($_SERVER["PHP_SELF"]), "presentation") !== false) {
             echo '      
-<div class="dropdown">
+<div class="dropdownPres">
             <a href="/index.php/presentation"> <button id="menu-btn" onmouseenter="dropMenuPres()" onmouseleave="dropMenuPres()" class="dropbtn current-button">
                     Qui sommes nous ?
                 </button></a>

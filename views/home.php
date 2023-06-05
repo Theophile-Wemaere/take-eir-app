@@ -34,7 +34,7 @@
                     physiologiques.
                 </h3>
             </div>
-            <img src="/images/ai-render.png" />
+            <img src="/images/health_eir.png" />
         </div>
         <div class="container">
             <div class="carousel">

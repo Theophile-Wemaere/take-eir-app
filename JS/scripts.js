@@ -40,7 +40,7 @@ window.onclick = function (event) {
 };
 
 function dropMenuUser() {
-  document.getElementById("userDropdown").classList.toggle("show");
+  document.getElementById("userDropdown").classList.toggle("showMenu");
 }
 
 window.onclick = function (event) {

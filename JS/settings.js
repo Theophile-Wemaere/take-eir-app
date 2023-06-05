@@ -1,19 +1,21 @@
 function changeEmail() {
-  const email = document.getElementById("email").value;
-  const new_email = document.getElementById("confirm-password").value;
+  const email = document.getElementById("email");
+  const new_email = document.getElementById("confirm-password");
+
   const error = document.getElementById("error-msg");
   error.style.display = "none";
+
   const errorEmail = document.getElementById("emailError");
   errorEmail.style.display = "none";
 
   const success = document.getElementById("success-msg");
   success.style.display = "none";
 
-  if (new_email !== "" && email !== "" && email !== new_email) {
+  if (new_email.value !== "" && email.value !== "" && email.value !== new_email.value) {
     const data = new FormData();
     data.append("action", "edit_email");
-    data.append("email", email);
-    data.append("new_email", new_email);
+    data.append("email", email.value);
+    data.append("new_email", new_email.value);
 
     fetch("/controllers/settings-controller.php", {
       method: "POST",
@@ -25,6 +27,9 @@ function changeEmail() {
           error.style.display = "block";
         } else if (res == "success") {
           success.style.display = "block";
+          email.value = new_email.value;
+          new_email.value = "";
+          document.getElementById("password").value = "";
         }
       });
   } else {

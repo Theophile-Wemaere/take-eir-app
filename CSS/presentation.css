@@ -110,7 +110,7 @@ figure figcaption {
   background-color: #dde9ff;
 }
 
-.dropdown {
+.dropdownPres {
   position: relative;
   display: inline-block;
 }
@@ -139,7 +139,7 @@ figure figcaption {
   height: fit-content;
 }
 
-.dropdown a:hover {
+.dropdownPres a:hover {
   background-color: #dde9ff;
 }
 

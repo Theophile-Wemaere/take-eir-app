@@ -50,24 +50,21 @@ if (!isset($_SESSION["email"])) {
                 </p>
 
                 <div class="groupe">
-                    <i class="fa-solid fa-user"></i>
-                    <label>Prénom : </label>
+                    <label><i class="fa-solid fa-user"></i>Prénom : </label>
                     <p>
                         <?php echo $_SESSION["name"]; ?>
                     </p>
                 </div>
 
                 <div class="groupe">
-                    <i class="fa-solid fa-user"></i>
-                    <label>Nom de famille : </label>
+                    <label><i class="fa-solid fa-user"></i>Nom de famille : </label>
                     <p>
                         <?php echo $_SESSION["surname"]; ?>
                     </p>
                 </div>
 
                 <div class="groupe">
-                    <i class="fa-solid fa-envelope"></i>
-                    <label>Email : </label>
+                    <label><i class="fa-solid fa-envelope"></i>Email : </label>
                     <p>
                         <?php echo $_SESSION["email"]; ?>
                     </p>
@@ -86,7 +83,8 @@ if (!isset($_SESSION["email"])) {
             </p>
 
             <div class="search">
-                <input type="text" id="search" placeholder="Rechercher par nom, prénom, ..." onkeydown="handleKeyDown(event)">
+                <input type="text" id="search" placeholder="Rechercher par nom, prénom, ..."
+                    onkeydown="handleKeyDown(event)">
                 <button type="button" onclick="getDevices()"><i class="fa fa-search"></i></button>
             </div>
             <script>

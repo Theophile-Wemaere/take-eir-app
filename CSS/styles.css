@@ -253,7 +253,7 @@ body {
   color: #dde9ff;
 }
 
-.show {
+.showMenu {
   display: flex;
   justify-content: left;
   align-items: left;
