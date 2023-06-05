@@ -4,7 +4,7 @@ services:
   apache:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./deploy/Dockerfile
     ports:
       - "80:80"
       - "443:443"
