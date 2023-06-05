@@ -23,9 +23,19 @@
     width: 33%;
 }
 
-.jauge .plotJauge {
+.jauge .jauge-container {
+    display: flex;
+    flex-direction: column;
     width: 50%;
 }
+
+.jauge .jauge-container p {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 1vw;
+}
+
 
 .tabs button {
     padding: 0.5em;

@@ -54,18 +54,37 @@ if (!isset($_SESSION["name"])) {
       <h3 for="jauge" class="labelJauge">Monitoring global</h3>
       <div class="jauge">
         <div class="groupe">
-          <div id="cardGaugeContainer" class="plotJauge"></div>
-          <div id="tempGaugeContainer" class="plotJauge"></div>
+          <div class="jauge-container">
+            <div id="cardGaugeContainer" class="plotJauge"></div>
+            <p> Rythme Cardiaque </p>
+          </div>
+          <div class="jauge-container">
+            <div id="tempGaugeContainer" class="plotJauge"></div>
+            <p> Température </p>
+          </div>
         </div>
         <div class="groupe">
-          <div id="humidityGaugeContainer" class="plotJauge"></div>
-          <div id="noiseGaugeContainer" class="plotJauge"></div>
+          <div class="jauge-container">
+            <div id="humidityGaugeContainer" class="plotJauge"></div>
+            <p> Humidité </p>
+          </div>
+          <div class="jauge-container">
+            <div id="noiseGaugeContainer" class="plotJauge"></div>
+            <p> Niveau de bruit </p>
+          </div>
         </div>
         <div class="groupe">
-          <div id="dustGaugeContainer" class="plotJauge"></div>
-          <div id="co2GaugeContainer" class="plotJauge"></div>
+          <div class="jauge-container">
+            <div id="dustGaugeContainer" class="plotJauge"></div>
+            <p> Poussières </p>
+          </div>
+          <div class="jauge-container">
+            <div id="co2GaugeContainer" class="plotJauge"></div>
+            <p> CO2 </p>
+          </div>
         </div>
       </div>
+
       <h3 for="jauge" class="labelJauge" style="font-size:none">
         <div class="infoPatient">
           <h3 class="labelJauge">Informations du patient</h3>
@@ -233,8 +252,6 @@ if (!isset($_SESSION["name"])) {
     <script>
       // Appeler la fonction initiale pour récupérer les données une première fois
       fetchPeriodicData();
-
-
     // Planifier l'exécution périodique de la fonction
     //setInterval(fetchPeriodicData, 5000); // Exécuter toutes les 5 secondes (5000 millisecondes)
     </script>
