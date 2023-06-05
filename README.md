@@ -1,4 +1,4 @@
-# Take-eir website
+# Take-eir website deployment manual
 
 ## What is it ?
 
@@ -6,7 +6,7 @@ This repository contains the entire codebase for the website of the fictionnal m
 
 It allow users to discover the product of TAKE-EIR and also manage their owns devices by login into the website, to preview sensors datas, interact with the website administrators, and more !
 
-You can find a working version of this code here -> https://take-eir.fr/
+You can find a working version of this code here -> [https://take-eir.fr/](https://take-eir.fr/)
 
 ## How to install
 
