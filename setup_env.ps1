@@ -1,4 +1,3 @@
-Copy-Item -Path deploy/Dockerfile -Destination .
 Copy-Item -Path deploy/docker-compose-example.yml -Destination docker-compose.yml
 Copy-Item -Path deploy/credentials -Destination .credentials
 

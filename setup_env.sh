@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cp deploy/Dockerfile .
 cp deploy/docker-compose-example.yml docker-compose.yml
 cp deploy/credentials .credentials
 
