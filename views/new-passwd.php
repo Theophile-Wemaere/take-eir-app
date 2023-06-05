@@ -57,6 +57,8 @@
                         <label>Nouveau mot de passe</label>
                         <input id="password" type="password" name="email" require>
                         <i class="fa-solid fa-key"></i>
+                        <p id="passwordError" class="error-match">8 caractères minimum avec :</br>
+               une majuscule,</br> un nombre</br> et un caractère spéciale</p>
                     </div>
                     <div class="groupe">
                         <label>Vérification du mot de passe</label>
@@ -83,10 +85,8 @@
                                 loader.style.display = "none";
                             }, 2000); // Temps en millisecondes avant de cacher le loader
                         });
-                        const passwordInput = document.getElementById("password");
-                        const confirmPasswordInput = document.getElementById("confirm-password");
-                        passwordInput.addEventListener("input", checkPasswordMatch);
-                        confirmPasswordInput.addEventListener("input", checkPasswordMatch);
+                        setupPasswordValidation();
+                        checkValidity();
                     </script>
                 </div>
             </center>

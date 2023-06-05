@@ -7,7 +7,7 @@ if (!isset($_SESSION["email"])) {
 }
 ?>
 
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -80,6 +80,8 @@ if (!isset($_SESSION["email"])) {
                         <label>Nouveau mot de passe</label>
                         <input id="password" type="password" name="email" require>
                         <i class="fa-solid fa-key"></i>
+                        <p id="passwordError" class="error-match">8 caractères minimum avec :</br>
+               une majuscule,</br> un nombre</br> et un caractère spéciale</p>
                     </div>
                     <div class="groupe">
                         <label>Vérification du mot de passe</label>
@@ -97,6 +99,9 @@ if (!isset($_SESSION["email"])) {
                     <button type="button" id="submit-btn" onclick="changePassword()">Confirmer</button>
                     <div id="loader" class="loader"></div>
                     <script>
+                        setupPasswordValidation();
+                        checkValidity();
+                        
                         const btn = document.getElementById("submit-btn");
                         const loader = document.getElementById("loader");
 
@@ -107,10 +112,6 @@ if (!isset($_SESSION["email"])) {
                                 loader.style.display = "none";
                             }, 2000); // Temps en millisecondes avant de cacher le loader
                         });
-                        const passwordInput = document.getElementById("password");
-                        const confirmPasswordInput = document.getElementById("confirm-password");
-                        passwordInput.addEventListener("input", checkPasswordMatch);
-                        confirmPasswordInput.addEventListener("input", checkPasswordMatch);
                     </script>
                 </div>
             </center>

@@ -20,7 +20,9 @@ if (isset($_SESSION["name"])) {
   <title id="connexion">Login</title>
   <script src="/JS/scripts.js"></script>
   <script src="/JS/users.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet" />
@@ -36,15 +38,16 @@ if (isset($_SESSION["name"])) {
         <div class="gauche">
           <div class="groupe">
             <label>Email</label>
-            <input id="email" type="email" name="email" required/>
+            <input id="email" type="email" name="email" required />
             <i class="fa-solid fa-envelope"></i>
-            <p id="emailError" style="color:red;font-size: 14px;margin-top: 5px;display: none;">Please enter a valid email</p>
+            <p id="emailError" style="color:red;font-size: 14px;margin-top: 5px;display: none;">Merci d'entrer un email
+              valide</p>
           </div>
-          <script>checkEmail("email")</script>
-          
+
+
           <div class="groupe">
             <label>Mot de passe</label>
-            <input id="password" type="password" name="password" required/>
+            <input id="password" type="password" name="password" required />
             <i class="fa-solid fa-key"></i>
           </div>
 
@@ -58,6 +61,21 @@ if (isset($_SESSION["name"])) {
           </div>
           <div id="loader" class="loader"></div>
           <script>
+            checkEmail("email")
+            const input = document.getElementById("email");
+            input.addEventListener("input", function () {
+              const error = document.getElementById("emailError");
+              const btn = document.getElementById("btn");
+              if (error.style.display == "none") {
+                btn.disabled = false;
+                btn.style.pointerEvents = "auto";
+                btn.style.opacity = "1";
+              } else {
+                btn.disabled = true;
+                btn.style.pointerEvents = "none";
+                btn.style.opacity = "0.5";
+              }
+            });
             const btn = document.getElementById("btn");
             const loader = document.getElementById("loader");
 
@@ -69,7 +87,7 @@ if (isset($_SESSION["name"])) {
               }, 2000); // Temps en millisecondes avant de cacher le loader
             });
           </script>
-          <p id="error-msg" style="color: red;display: none;"></p> 
+          <p id="error-msg" style="color: red;display: none;"></p>
         </div>
         <div class="separation" style="margin-top: 20px;margin-bottom: 20px;"></div>
         <div class="droite">

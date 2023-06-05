@@ -77,6 +77,21 @@ function checkEmail(id) {
   });
 }
 
+function checkPassword(id) {
+  const passwordInput = document.getElementById(id);
+  const passwordError = document.getElementById("passwordError");
+  passwordInput.addEventListener("input", function () {
+    // at least 8 char with min, maj, number and special char
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    if (passwordRegex.test(password)) {
+      passwordError.style.display = "none";
+    } else {
+      passwordError.style.display = "block";
+    }
+  });
+}
+
 function logout(confirmation = true) {
   var ok = false;
   if (confirmation) {
@@ -86,6 +101,50 @@ function logout(confirmation = true) {
   }
   if (ok) {
     window.location.href = "/controllers/logout.php";
+  }
+}
+
+function setupPasswordValidation() {
+  const passwordInput = document.getElementById("password");
+  const confirmPasswordInput = document.getElementById("confirm-password");
+  const passwordError = document.getElementById("passwordError");
+  const submitButton = document.getElementById("submit-btn");
+  const matchMessage = document.getElementById("password-match-message");
+
+  passwordInput.addEventListener("input", function () {
+    const password = passwordInput.value;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    if (passwordRegex.test(password)) {
+      passwordError.style.display = "none";
+    } else {
+      passwordError.style.display = "block";
+    }
+
+    checkValidity();
+  });
+
+  confirmPasswordInput.addEventListener("input", function () {
+    checkValidity();
+  });
+
+  function checkValidity() {
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+    const passwordMatch = password === confirmPassword;
+    const passwordPolicyMet = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password);
+
+    if (passwordMatch && passwordPolicyMet) {
+      submitButton.disabled = false;
+      submitButton.style.pointerEvents = "auto";
+      submitButton.style.opacity = "1";
+      matchMessage.style.display = "none";
+    } else {
+      submitButton.disabled = true;
+      submitButton.style.pointerEvents = "none";
+      submitButton.style.opacity = "0.5";
+      matchMessage.style.display = "block";
+    }
   }
 }
 

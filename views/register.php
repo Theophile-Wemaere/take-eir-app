@@ -83,7 +83,7 @@ if (isset($_SESSION["name"])) {
             <label>* Email</label>
             <input id="email" type="email" name="email" required />
             <i class="fa-solid fa-envelope"></i>
-            <p id="emailError" class="error-match">Please enter a valid email</p>
+            <p id="emailError" class="error-match">Merci d'entrer un email valide!</p>
           </div>
           <script>checkEmail("email")</script>
 
@@ -91,6 +91,8 @@ if (isset($_SESSION["name"])) {
             <label>* Mot de passe</label>
             <input id="password" type="password" name="password" required />
             <i class="fa-solid fa-key"></i>
+            <p id="passwordError" class="error-match">8 caractères minimum avec :</br>
+               une majuscule,</br> un nombre</br> et un caractère spéciale</p>
           </div>
 
           <div class="groupe">
@@ -99,20 +101,15 @@ if (isset($_SESSION["name"])) {
             <i class="fa-solid fa-key"></i>
           </div>
 
-          <div id="password-match-message" style="margin-top:20px;display:none;color:red;">Mots de passe différents!
-          </div>
+          <div id="password-match-message" class="error-match">Mots de passe différents!</div>
           <div class="pied-formulaire">
             <button id="submit-btn" type="button" onclick=doRegister()>S'inscrire</button>
-            <script>
-              const passwordInput = document.getElementById("password");
-              const confirmPasswordInput = document.getElementById("confirm-password");
-              passwordInput.addEventListener("input", checkPasswordMatch);
-              confirmPasswordInput.addEventListener("input", checkPasswordMatch);
-            </script>
           </div>
           <div id="loader" class="loader"></div>
           <script>
-
+            setupPasswordValidation();
+            checkValidity();
+            
             const btn = document.getElementById("submit-btn");
             const loader = document.getElementById("loader");
 

@@ -10,13 +10,18 @@
     <link rel="stylesheet" href="/CSS/contact.css">
     <script src="/JS/scripts.js"></script>
     <title>Nous contacter</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://kit.fontawesome.com/bc424452bc.css" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Nunito&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Nunito&display=swap"
+        rel="stylesheet" />
 </head>
 
 <body>
@@ -38,6 +43,7 @@
                         <label>Votre adresse e-mail</label>
                         <input id="email" type="text" name="email" require>
                         <i class="fa-solid fa-envelope"></i>
+                        <p id="emailError" class="error-match">Merci d'entrer un email valide</p>
                     </div>
                     <div class="groupe">
                         <label>Votre téléphone</label>
@@ -56,7 +62,24 @@
 
             <center>
                 <div class="pied-formulaire">
-                    <button type="button" onclick="sendEmail()" value="Send An Email">Envoyer le message</button>
+                    <button type="button" onclick="sendEmail()" id="submit-btn" value="Send An Email">Envoyer le message</button>
+                    <script>
+                        checkEmail("email")
+                        const input = document.getElementById("email");
+                        input.addEventListener("input", function () {
+                            const error = document.getElementById("emailError");
+                            const btn = document.getElementById("submit-btn");
+                            if (error.style.display == "none") {
+                                btn.disabled = false;
+                                btn.style.pointerEvents = "auto";
+                                btn.style.opacity = "1";
+                            } else {
+                                btn.disabled = true;
+                                btn.style.pointerEvents = "none";
+                                btn.style.opacity = "0.5";
+                            }
+                        });
+                    </script>
                 </div>
             </center>
 
@@ -81,7 +104,7 @@
                             subject: subject.val(),
                             body: body.val()
                         },
-                        success: function(response) {
+                        success: function (response) {
                             $('#myForm')[0].reset();
                             $('.sent-notification').text("Message envoyé avec succès !");
                         }
