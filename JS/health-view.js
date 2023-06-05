@@ -3,7 +3,7 @@ function getDevices() {
     devicesList.innerHTML = "";
 
     const search = document.getElementById("search").value;
-    fetch("/controllers/device-controller.php?action=devices&search="+search)
+    fetch("/controllers/device-controller.php?action=devices&search=" + search)
         .then((response) => response.json())
         .then((data) => {
 
@@ -96,7 +96,20 @@ function addKey() {
         body: data,
     })
         .then((res) => res.text())
-        .then((res) => { });
+        .then((res) => {
+            if (res === "to_confirm") {
+                fetch("/controllers/email-controller.php", {
+                    method: "POST",
+                    body: data,
+                })
+                    .then((res) => res.text())
+                    .then((res) => {
+                        if (res === "success") {
+                            alert("Votre demande d'ajout a été envoyé par mail au propriétaire de la clé");
+                        }
+                    });
+            }
+        });
     key.value = "";
     getDevices();
 }

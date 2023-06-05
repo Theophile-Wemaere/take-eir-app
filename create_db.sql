@@ -3,7 +3,8 @@ CREATE DATABASE take_eir;
 use take_eir;
 
 CREATE TABLE `devices` (
-  `id_device` varchar(255) PRIMARY KEY
+  `id_device` varchar(255) PRIMARY KEY,
+  email varchar(255)
 );
 
 CREATE TABLE `patients` (
@@ -29,7 +30,7 @@ CREATE TABLE `users` (
   `id_role` integer,
   `created_at` timestamp,
   `gender` char,
-  `notification` char
+  `notification` char DEFAULT 'Y'
 );
 
 CREATE TABLE `roles` (
@@ -84,6 +85,12 @@ CREATE TABLE `alert_threshold` (
   `id_device` varchar(255),
   `metric_type` integer,
   `value` varchar(255)
+);
+
+CREATE TABLE `confirm_device` (
+  `id_device` varchar(255),
+  `id_user` varchar(255),
+  `token` varchar(255)
 );
 
 ALTER TABLE `tickets` ADD FOREIGN KEY (`id_tag`) REFERENCES `tags` (`id_tag`);
