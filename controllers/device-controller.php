@@ -15,21 +15,24 @@ if (!isset($_GET["token"])) {
                     $name = htmlspecialchars($_POST["name"]);
                     $surname = htmlspecialchars($_POST["surname"]);
                     $doctor_email = htmlspecialchars($_POST["doctor_email"]);
-                    $id_device = $_POST["id_device"];
-                    $_DB->execute(
-                        "UPDATE patients 
+                    $regex = "/^[^\s@]+@[^\s@]+\.[^\s@]+$/";
+                    if (preg_match($regex, $doctor_email)) {
+                        $id_device = $_POST["id_device"];
+                        $_DB->execute(
+                            "UPDATE patients 
                     JOIN devices_users ON patients.id_device = devices_users.id_device
                     SET patients.name = :name, patients.surname = :surname, patients.doctor_email = :doctor_email
                     WHERE patients.id_device = :id_device AND devices_users.id_user = :id_user",
-                        [
-                            "name" => $name,
-                            "surname" => $surname,
-                            "doctor_email" => $doctor_email,
-                            "id_device" => $id_device,
-                            "id_user" => $_SESSION["id"]
-                        ]
-                    );
-                    echo "success";
+                            [
+                                "name" => $name,
+                                "surname" => $surname,
+                                "doctor_email" => $doctor_email,
+                                "id_device" => $id_device,
+                                "id_user" => $_SESSION["id"]
+                            ]
+                        );
+                        echo "success";
+                    }
                     break;
 
                 case "add_key":
@@ -163,7 +166,7 @@ if (!isset($_GET["token"])) {
                 "id_device" => $stmt["id_device"]
             ]
         );
-        $_DB->execute("DELETE FROM confirm_device WHERE token = :token",["token" => $token]);
+        $_DB->execute("DELETE FROM confirm_device WHERE token = :token", ["token" => $token]);
     }
     header("Location: /index.php/login");
 }

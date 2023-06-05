@@ -100,6 +100,10 @@ if (!isset($_SESSION["name"])) {
             <div class="groupe">
               <p class="title">Email du médecin: </p>
               <input id="email">
+              <p id="emailError" style="color:red;font-size: 14px;margin-top: 5px;display: none;">Merci d'entrer un
+                email
+                valide</p>
+              <script>checkEmail("email")</script>
             </div>
             <div class="groupe">
               <p class="title">Health-Key : </p>
