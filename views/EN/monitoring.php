@@ -8,7 +8,7 @@ if (!isset($_SESSION["name"])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 
 <head>

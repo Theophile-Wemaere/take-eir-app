@@ -4,7 +4,7 @@ if (!isset($_SESSION["email"])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
   <title>health-eir</title>
