@@ -1,7 +1,7 @@
-<?php 
+<?php
 if (!isset($_SESSION["email"])) {
-    header("Location: /index.php/login");
-    exit();
+  header("Location: /index.php/login");
+  exit();
 }
 
 if ($_SESSION["role_permission"] == 6) {
@@ -33,18 +33,28 @@ if ($_SESSION["role_permission"] == 6) {
   <div class="wrapper">
     <h1>Vos tickets</h1>
     <div class="main-box">
-        <div class="left-part">
-          <div id="tickets" class="tickets-container">
-            <p style="text-align: center;height: 200px;">Vous n'avez aucun ticket :(</p>
-            <script>getTickets()</script>
-          </div>
-          <div class="pied-formulaire">
-            <a href="/index.php/create-ticket"><button type="button">Ouvrir un ticket</button></a>
-          </div>
+      <div class="left-part">
+        <select id="tags-filter">
+          <option value=select>Choisissez un tag</option>
+        </select>
+        <script>
+          getTags("tags-filter")
+          const selectElement = document.getElementById("tags-filter");
+          selectElement.addEventListener("change", function () {
+            getTickets();
+          });
+        </script>
+        <div id="tickets" class="tickets-container">
+          <p style="text-align: center;height: 200px;">Vous n'avez aucun ticket :(</p>
+          <script>getTickets()</script>
         </div>
-        <div id="conv" class="conv" style="display: none;">
-          <p style="text-align: center;">Cliquer sur un ticket pour afficher la conversation</p>
+        <div class="pied-formulaire">
+          <a href="/index.php/create-ticket"><button type="button">Ouvrir un ticket</button></a>
         </div>
+      </div>
+      <div id="conv" class="conv" style="display: none;">
+        <p style="text-align: center;">Cliquer sur un ticket pour afficher la conversation</p>
+      </div>
     </div>
   </div>
   <?php require "bottom-bar.php"; ?>
