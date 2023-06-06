@@ -38,6 +38,16 @@ if (!isset($_SESSION["role_permission"])) {
     </div>
     <div class="main-box">
       <div class="left-part">
+        <select id="tags-filter">
+          <option value=select>Choisissez un tag</option>
+        </select>
+        <script>
+          getTags("tags-filter")
+          const selectElement = document.getElementById("tags-filter");
+          selectElement.addEventListener("change", function () {
+            getTickets();
+          });
+        </script>
         <div id="tickets" class="tickets-container">
           <p style="text-align: center;height: 200px;">Aucun tickets :(</p>
           <script>getTickets()</script>

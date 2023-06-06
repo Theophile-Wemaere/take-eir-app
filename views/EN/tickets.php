@@ -35,7 +35,7 @@ if ($_SESSION["role_permission"] == 6) {
     <div class="main-box">
       <div class="left-part">
         <select id="tags-filter">
-          <option value=select>Choisissez un tag</option>
+          <option value=select>Choose a tag</option>
         </select>
         <script>
           getTags("tags-filter")
