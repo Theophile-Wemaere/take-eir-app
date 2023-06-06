@@ -58,7 +58,7 @@ if (!isset($_SESSION["role_permission"]) || $_SESSION["role_permission"] < 6) {
                     }
                     if (!in_array($id_device, $keys)) {
                         $keys[] = $id_device;          
-                        $_DB->execute("INSERT INTO devices VALUES(:id_device)",["id_device" => $id_device]);
+                        $_DB->execute("INSERT INTO devices(id_device) VALUES(:id_device)",["id_device" => $id_device]);
                     } else {
                         $k--;
                     }

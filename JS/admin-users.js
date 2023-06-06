@@ -89,7 +89,8 @@ function addDevices() {
     body: data,
   })
     .then((res) => res.text())
-    .then((res) => { });
+    .then((res) => { 
+    });
   getDevices();
 }
 

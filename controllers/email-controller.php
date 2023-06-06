@@ -19,21 +19,21 @@ function prepare_mail()
     $mail->Password = $dictionary["email_password"];
     $mail->Port = 465;
     $mail->SMTPSecure = "ssl";
-    return $mail;
+    return array($mail,$dictionary["email_username"]);
 }
 
 if (isset($_POST['name']) && isset($_POST['email'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $subject = $_POST['subject'];
+    $tel = $_POST['subject'];
     $body = $_POST['body'];
 
-    $mail = prepare_mail();
+    list($mail,$username) = prepare_mail();
     //email settings
     $mail->isHTML(true);
     $mail->setFrom($email, $name);
-    $mail->addAddress("contact.healtheir@gmail.com");
-    $mail->Subject = ("Vous avez un message de la part de : $email (Tel : $subject)");
+    $mail->addAddress($username);
+    $mail->Subject = ("Vous avez un message de la part de : $email (Tel : $tel)");
     $mail->Body = $body;
 
     if ($mail->send()) {
@@ -91,9 +91,9 @@ if (isset($_POST['name']) && isset($_POST['email'])) {
 </html>
 ";
         //email settings
-        $mail = prepare_mail();
+        list($mail,$username) = prepare_mail();
         $mail->isHTML(true);
-        $mail->setFrom($email, $name);
+        $mail->setFrom($username, $name);
         $mail->addAddress($to_email);
         $mail->Subject = ("Reinitialisation de votre mot de passe");
         $mail->Body = $body;
@@ -114,6 +114,8 @@ if (isset($_POST['name']) && isset($_POST['email'])) {
     require "../model/database.php";
     session_start();
     if (isset($_SESSION["id"])) {
+
+        list($mail,$username) = prepare_mail();
 
         $stmt = $_DB->execute("SELECT * FROM devices WHERE id_device = :id_device", [
             "id_device" => $_POST["key"],
@@ -163,10 +165,11 @@ if (isset($_POST['name']) && isset($_POST['email'])) {
     </html>
     ";
             //email settings
-            $to_email = "contact.healtheir@gmail.com"; // replace with email in device table on prod
-            $email = "contact.healtheir@gmail.com";
+            $to_email = $username;
+            //$to_email = "contact.healtheir@gmail.com"; // replace with email in device table on prod
+            $email = $username;
             $name = "Support TAKE-EIR";
-            $mail = prepare_mail();
+            
             $mail->isHTML(true);
             $mail->setFrom($email, $name);
             $mail->addAddress($to_email);

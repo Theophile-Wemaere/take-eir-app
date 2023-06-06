@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (!isset($_SESSION["role_permission"])) {
   header("Location: /index.php/login");
 } elseif ($_SESSION["role_permission"] < 6) {
@@ -43,7 +44,7 @@ if (!isset($_SESSION["role_permission"])) {
 <html>
 
 <body>
-  <?php require "../views/top-bar.php"; ?>
+<?php require $_SERVER['DOCUMENT_ROOT'] . "/views/top-bar.php"; ?>
   <div class="wrapper">
     <div class="main-box">
       <form>
@@ -68,7 +69,7 @@ if (!isset($_SESSION["role_permission"])) {
     </div>
 
   </div>
-  <?php require "../views/bottom-bar.php"; ?>
+  <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/top-bar.php"; ?>
 </body>
 
 </html>
