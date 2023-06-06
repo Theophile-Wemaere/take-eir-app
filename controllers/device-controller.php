@@ -37,53 +37,62 @@ if (!isset($_GET["token"])) {
 
                 case "add_key":
                     $key = $_POST["key"];
-
-                    $stmt = $_DB->execute("SELECT * FROM devices_users WHERE id_device = :id", [
+                    $stmt = $_DB->execute("SELECT * FROM devices_users WHERE id_device = :id AND id_user = :id_user", [
                         "id" => $key,
+                        "id_user" => $_SESSION["id"]
                     ]);
-                    if ($stmt->rowCount() == 0) { // no user use this device yet
-                        $_DB->execute("UPDATE devices SET email = :email WHERE id_device = :id", [
-                            //"email" => $_SESSION["email"],
-                            "email" => $_SESSION["contact.healtheir@gmail.com"],
-                            "id" => $key
-                        ]);
-                        $_DB->execute(
-                            "INSERT INTO devices_users VALUES(:id,:id_user,:id_device)",
-                            [
-                                "id" => md5($key . $_SESSION["id"]),
-                                "id_user" => $_SESSION["id"],
-                                "id_device" => $key
-                            ]
-                        );
-                        $stmt = $_DB->execute("SELECT * FROM patients WHERE id_device = :id", [
+                    if ($stmt->rowCount() == 0) {
+
+                        $stmt = $_DB->execute("SELECT * FROM devices_users WHERE id_device = :id", [
                             "id" => $key,
                         ]);
-                        if ($stmt->rowCount() == 0) {
-                            $name = "nom";
-                            $surname = "prenom";
-                            $doctor_email = "email medecin";
-                            $id = md5($name . $surname . $doctor_email . $id_device . bin2hex(random_bytes(5)));
-                            $_DB->execute(
-                                "INSERT INTO patients VALUES (:id, :name, :surname, :doctor_email, :id_device)",
-                                [
-                                    "id" => $id,
-                                    "name" => $name,
-                                    "surname" => $surname,
-                                    "doctor_email" => $doctor_email,
-                                    "id_device" => $key
-                                ]
-                            );
 
+                        $credentials = file_get_contents('../.credentials');
+                        $dictionary = json_decode($credentials, true);
+                        if ($stmt->rowCount() == 0 or $dictionary["email_username"] == "") { // no user use this device yet or no mail 
+                            $_DB->execute("UPDATE devices SET email = :email WHERE id_device = :id", [
+                                //"email" => $_SESSION["email"],
+                                "email" => $_SESSION["contact.healtheir@gmail.com"],
+                                "id" => $key
+                            ]);
                             $_DB->execute(
-                                "INSERT INTO alert_threshold VALUES (:id_device,1,'60:100')",
+                                "INSERT INTO devices_users VALUES(:id,:id_user,:id_device)",
                                 [
+                                    "id" => md5($key . $_SESSION["id"]),
+                                    "id_user" => $_SESSION["id"],
                                     "id_device" => $key
                                 ]
                             );
-                            echo "success";
+                            $stmt = $_DB->execute("SELECT * FROM patients WHERE id_device = :id", [
+                                "id" => $key,
+                            ]);
+                            if ($stmt->rowCount() == 0) {
+                                $name = "nom";
+                                $surname = "prenom";
+                                $doctor_email = "email medecin";
+                                $id = md5($name . $surname . $doctor_email . $id_device . bin2hex(random_bytes(5)));
+                                $_DB->execute(
+                                    "INSERT INTO patients VALUES (:id, :name, :surname, :doctor_email, :id_device)",
+                                    [
+                                        "id" => $id,
+                                        "name" => $name,
+                                        "surname" => $surname,
+                                        "doctor_email" => $doctor_email,
+                                        "id_device" => $key
+                                    ]
+                                );
+
+                                $_DB->execute(
+                                    "INSERT INTO alert_threshold VALUES (:id_device,1,'60:100')",
+                                    [
+                                        "id_device" => $key
+                                    ]
+                                );
+                                echo "success";
+                            }
+                        } else {
+                            echo "to_confirm";
                         }
-                    } else {
-                        echo "to_confirm";
                     }
                     break;
 
