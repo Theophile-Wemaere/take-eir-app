@@ -60,6 +60,12 @@ function setThreshold(idRange, type) {
     const min = $(idRange).slider("values", 0);
     const max = $(idRange).slider("values", 1);
 
+    const error = document.getElementById("error-msg");
+    error.style.display = "none";
+
+    const success = document.getElementById("success-msg2");
+    success.style.display = "none";
+
     if (confirm("Mettre à jour le seuil d'alerte ?")) {
         data = new FormData();
         data.append("action", "set_threshold");
@@ -72,7 +78,14 @@ function setThreshold(idRange, type) {
             body: data,
         })
             .then((res) => res.text())
-            .then((res) => { 
+            .then((res) => {
+                
+                if(res === "success") {
+                    success.style.display = "block";
+                    console.log(success.style.display);
+                } else if (res === "error_doctor") {
+                    error.style.display = "block";
+                }
 
             });
     }

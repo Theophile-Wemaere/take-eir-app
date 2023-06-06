@@ -1,6 +1,6 @@
 <?php
+session_start();
 //ini_set('display_errors', '0');
-ini_set('output_buffering', 'Off');
 
 $whitelist = file(".whitelist", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 $whitelist = array_filter($whitelist, function($line) {

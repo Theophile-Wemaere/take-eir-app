@@ -147,6 +147,8 @@ if (!isset($_SESSION["name"])) {
               <input type="text" id="heartRange" readonly>
               <div id="heart-range" class="slider"></div>
               <button onclick="setThreshold('#heart-range',1)">Confirmer</button>
+              <div id="success-msg2" class="error-match" style="color: green">seuil mis à jour!</div>
+              <div id="error-msg" class="error-match">Vous n'avez pas le droit de modifier ces valeurs</div>
             </div>
           </div>
 
