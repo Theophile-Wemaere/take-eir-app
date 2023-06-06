@@ -7,7 +7,7 @@
   <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta charset="utf-8" />
-  <title id="Pres_prod">Notre produit HEALTH EIR</title>
+  <title id="Pres_prod">Our HEALTH EIR product</title>
   <script src="/JS/scripts.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" />
@@ -18,23 +18,23 @@
   <div class="wrapper">
     <div class="main-box">
       <div class="text-container">
-        <h1 class="Title_prod">Notre dispositif Health-Eir</h1>
+        <h1 class="Title_prod">Our Health-Eir system</h1>
       </div>
       <div class="introduction">
         <p>
-          La crise de la Covid-19 a démocratisé la télémédecine en entrainant
-          une hausse historique des téléconsultations et des hospitalisations
-          à domicile.
+        The Covid-19 crisis has democratized telemedicine, leading to
+          teleconsultations and hospitalizations at home.
+          at home.
           <br />
-          C’est pourquoi nous développons le dispositif Health-Eir. Notre
-          produit est destiné à monitorer l'état de santé d'un patient
-          hospitalisé à domicile. Il permet non seulement d'évaluer la qualité
-          environnementale de la chambre d'hospitalisation, mais aussi suivre
-          en temps réel l'état de santé du patient, grâce à divers capteurs.
+          That's why we're developing the Health-Eir system. Our
+          product is designed to monitor a patient's state of health
+          at home. In addition to assessing the environmental quality
+          the environmental quality of the hospital room, but also to monitor
+          the patient's state of health in real time, thanks to a range of sensors.
           <br />
           <br />
-          Nous travaillons en étroite collaboration avec le corps médical pour
-          vous proposer la meilleure solution possible!
+          We work closely with the medical profession to offer you the best possible
+          to offer you the best possible solution!
         </p>
         <div class="image-prod"></div>
       </div>
@@ -47,20 +47,20 @@
 
       <div class="text-container">
         <h2 class="texte-milieu" id="ancrage">
-          Notre dispositif embarque les capteurs suivants :
+        Our device is equipped with the following sensors:
         </h2>
       </div>
 
       <div class="dust-cpt">
         <p>
-          Le suivi de la qualité de l’air et de sa concentration en
-          microparticules est nécessaire, afin de favoriser le bien-être et la
-          guérison des patients. Pour cela, le capteur SHARP récolte les
-          données liées au taux de microparticules dans l’air.
+        Monitoring air quality and its concentration of microparticles
+          microparticles is necessary to promote patient well-being and
+          healing of patients. To achieve this, the SHARP sensor collects data
+          microparticle levels in the air.
           <br />
           <br />
-          Ce capteur détecte les microparticules grâce à une technologie
-          infrarouge innovante et fournit des mesures de grande précision !
+          This sensor detects microparticles using innovative infrared
+          technology and delivers highly accurate measurements!
         </p>
         <div class="image-dust-cpt"></div>
       </div>
@@ -69,25 +69,25 @@
         <div class="image-co2-cpt"></div>
 
         <p>
-          Couplé à notre capteur de microparticules, le capteur MICS-VZ-89TE
-          permet de mesurer le taux de C02 de la chambre d'hospitalisation.
+        Coupled with our microparticle sensor, the MICS-VZ-89TE
+          sensor measures C02 levels in the hospital room.
           <br />
-          C'est l’indicateur principal qui permet de déterminer à partir de
-          quel moment il faut aérer.
+          It's the main indicator of when you need to ventilate.
+          when it's time to ventilate.
         </p>
       </div>
 
       <div class="temp-cpt">
         <p>
-          De nombreuses études démontrent l’influence directe de la
-          température et de l’humidité sur la qualité de l’air ambiant, ainsi
-          que sur les occupants des lieux intérieurs. La mesure régulière et
-          automatisée de ces deux paramètres constitue alors une bonne
-          estimation de la qualité de l’air intérieur, et permet de limiter
-          l’impact négatif – sur la santé, le bien-être et la productivité –
-          d’un environnement pollué.
+        Numerous studies demonstrate the direct influence of temperature
+          temperature and humidity on indoor air quality, and on the occupants of
+          as well as on the occupants of indoor spaces. Regular, automated measurement
+          of these two parameters is a good way of estimating
+          of indoor air quality, and helps to limit the negative impact
+          the negative impact - on health, well-being and productivity - of a
+          of a polluted environment.
           <br />
-          Le capteur DHT11 permet cette fonctionnalité.
+          The DHT11 sensor makes this possible.
         </p>
         <div class="image-temp-cpt"></div>
       </div>
@@ -96,26 +96,26 @@
         <div class="image-noise-cpt"></div>
 
         <p>
-          Le bruit, même à un faible niveau sonore, peut causer des effets
-          néfastes sur la santé des patients. Dans ce cadre, nous proposons
-          d'évaluer la qualité de l’ambiance sonore de votre pièce
-          d'hospitalisation, grâce à notre capteur audio MAX4466.
+        Noise, even at low levels, can have a detrimental effect on patients' health.
+          on patients' health. In this context, we propose to
+          assess the quality of the sound environment in your hospital room
+          with our MAX4466 audio sensor.
         </p>
       </div>
 
       <div class="heart-cpt">
         <p>
-          Le rythme cardiaque du patient hospitalisé à domicile est mesuré
-          grâce au capteur Grove Ear-Clip Heart Sensor, qui utilise une
-          technique de variation de luminosité induite par la pulsation
-          cardiaque dans un vaisseau sanguin.
+        The heart rate of a patient hospitalized at home is measured
+          with the Grove Ear-Clip Heart Sensor, which uses a pulse-induced
+          light variation technique induced by the heartbeat
+          in a blood vessel.
           <br />
           <br />
-          Cette mesure est particulièrement pertinente dans notre cas
-          d’utilisation, puisqu'elle permet de suivre, en temps réel, l'état
-          de santé du patient hospitalisé. C’est en effet l’un des facteurs
-          que les professionnels de santé regardent en premier lorsqu’ils
-          doivent évaluer l’état de santé d’une personne.
+          This measurement is particularly relevant in our
+          case study, as it enables real-time monitoring of the in-patient's
+          patient's state of health. Indeed, this is one of the factors
+          that healthcare professionals look at first when assessing
+          evaluate a person's state of health.
         </p>
         <div class="image-heart-cpt"></div>
       </div>

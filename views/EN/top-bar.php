@@ -23,7 +23,7 @@
                     About us
                 </button></a>
             <div id="myDropdown" onmouseleave="dropMenuPres()" class="dropdown-content">
-                <a href="#title" class="smooth-scroll">Our client</a>
+                <a href="#title" class="smooth-scroll">Our customer</a>
                 <a href="#sectionNous" class="smooth-scroll">About us</a>
                 <a href="#sectionEquipe" class="smooth-scroll">Our team</a>
             </div>

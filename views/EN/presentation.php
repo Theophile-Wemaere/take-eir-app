@@ -20,7 +20,7 @@
   <?php require "top-bar.php"; ?>
   <div class="wrapper">
     <div class="box">
-      <h3 id="title">Notre Client :</h3>
+      <h3 id="title">Our Customer :</h3>
       <div class="corps">
         <table>
           <tr>
@@ -30,56 +30,56 @@
             <!-- METTRE LA PHOTO INFINITE MEASURES -->
             <td style="float: right">
               <p class="textcorp">
-                Infinite Measure, un client à la recherche de solutions pour
-                l'environnement, a lancé un appel d'offre pour la création
-                d'un capteur modulaire, paramétrable et bon marché pour une
-                diffusion de masse. Nous avons décidé de répondre à leur appel d'offre,
-                et en se basant sur leur cahier des charges.
+              Infinite Measure, a customer looking for environmental
+                environmental solutions, issued a call for tenders to create a
+                a modular, configurable, low-cost sensor for mass distribution.
+                mass distribution. We decided to respond to their call for tenders,
+                based on their specifications.
               </p>
               <p class="textcorp">
-                Nous avons conçu Health-Eir : un dispositif permettant
-                d’optimiser une hospitalisation à domicile.
+              We designed Health-Eir: a device for optimizing
+                optimize hospitalization at home.
               </p>
             </td>
           </tr>
         </table>
       </div>
 
-      <h3 id="sectionNous">Qui sommes-nous ?</h3>
+      <h3 id="sectionNous">About us</h3>
       <div class="corps">
         <center>
           <img id="projet-img" src="/images/logo-whitebg.png" />
         </center>
         <div>
           <p class="textcorp" id="paragraph1">
-            Nous sommes Take Eir, une jeune startup composée d’ingénieurs
-            spécialisés dans la conception de solutions éléctroniques et
-            informatiques. Nous travaillons avec des clients de divers
-            secteurs pour leur fournir des produits innovants et sur-mesure
-            qui répondent au mieux à leurs besoins.
+          We're Take Eir, a young start-up company made up of engineers
+            engineers specializing in the design of electronic and
+            solutions. We work with customers from a wide range of sectors
+            sectors to provide them with innovative, tailor-made products
+            that best meet their needs.
           </p>
         </div>
         <p class="textcorp" id="paragraph2">
-          Notre équipe expérimentée est passionnée par la technologie et
-          déterminée à fournir des solutions de pointe pour aider nos clients
-          à atteindre leurs objectifs. Nous sommes fiers de notre engagement
-          envers la qualité et la fiabilité, et nous nous efforçons de
-          maintenir des normes élevées dans tout ce que nous faisons.
+        Our experienced team is passionate about technology and determined
+          determined to provide cutting-edge solutions to help our customers
+          achieve their goals. We pride ourselves on our commitment
+          to quality and reliability, and we strive to maintain
+          high standards in everything we do.
         </p>
 
         <p class="textcorp" id="paragraph3">
-          Chez Take Eir, nous sommes convaincus que la technologie peut
-          changer le monde, et nous sommes déterminés à jouer un rôle clé dans
-          cette transformation, tout en respectant l’environnement via des
-          méthodes de conception éco-responsables.
+        At Take Eir, we're convinced that technology can change the world.
+          change the world, and we're determined to play a key role in this transformation
+          this transformation, while respecting the environment through
+          eco-responsible design methods.
         </p>
       </div>
       <h3 id="sectionEquipe">Notre Équipe :</h3>
       <div class="corps">
         <div>
           <p class="textcorp">
-            Dîplomés d’une grande école d’ingénieurs, nos membres sont
-            spécialisés dans les technologies du numérique. Découvrez-les :
+          Graduates of a leading engineering school, our members are
+            in digital technologies. Find out more about them:
           </p>
         </div>
         <div class="equip-div">
