@@ -36,6 +36,17 @@ h1 {
   border: solid 1px #e0584c;
 }
 
+.left-part {
+  margin-right: 10px;
+}
+
+.left-part select {
+  width: 50%;
+  margin-bottom: 10px;
+  margin-top: 3px;
+  left: 0;
+}
+
 .conv {
   flex-grow: 1;
   border-radius: 10px;
@@ -103,9 +114,19 @@ h1 {
   font-weight: bold;
 }
 
+.tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
 .ticket-tag {
+  padding: 5px;
+  border-radius: 10px;
+  width: auto;
   font-weight: normal;
   font-style: italic;
+  background-color: #e0584c;
 }
 
 .ticket-state {

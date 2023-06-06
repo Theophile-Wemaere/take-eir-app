@@ -41,7 +41,7 @@ if (!isset($_SESSION["email"])) {
 
         <select id="tag">
             <option value=select>Choisissez un tag</option>
-            <script>getTags()</script>          
+            <script>getTags("tag")</script>          
         </select>
 
         <textarea id="body" placeholder="Saisissez ici..." name="body"></textarea>

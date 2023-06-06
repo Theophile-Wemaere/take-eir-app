@@ -1,5 +1,5 @@
-function getTags() {
-    const tags = document.getElementById("tag");
+function getTags(id) {
+    const tags = document.getElementById(id);
     fetch("/controllers/tickets-controller.php?action=tag", {
       method: "GET",
     })
@@ -18,7 +18,9 @@ function getTags() {
   }
   
   function getTickets() {
-    fetch("/controllers/tickets-controller.php?action=tickets", {
+    const tag_filter = document.getElementById("tags-filter");
+
+    fetch("/controllers/tickets-controller.php?action=tickets&search="+tag_filter.value, {
       method: "GET",
     })
       .then((response) => response.json())
@@ -36,9 +38,12 @@ function getTags() {
             title.classList.add("ticket-title");
             title.textContent = `[${item.name} ${item.surname}] ${item.subject}`;
   
+            const tagContainer = document.createElement("div");
+            tagContainer.classList.add("tags");
             const tag = document.createElement("p");
-            tag.classList.add("ticket-tag");
+            tag.classList.add("ticket-tag")
             tag.textContent = item.tag_name;
+            tagContainer.appendChild(tag);
   
             const stateSpan = document.createElement("span");
             stateSpan.classList.add("ticket-state");
@@ -57,7 +62,7 @@ function getTags() {
             timestampSpan.textContent = createdAt.toLocaleString();
   
             ticketDiv.appendChild(title);
-            ticketDiv.appendChild(tag);
+            ticketDiv.appendChild(tagContainer);
             ticketDiv.appendChild(stateSpan);
             ticketDiv.appendChild(timestampSpan);
   
