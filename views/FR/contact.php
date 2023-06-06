@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/top-bar.php"; ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/FR/top-bar.php"; ?>
     <div class="wrapper">
         <h4 class="sent-notification"></h4>
         <form id="myForm">

@@ -44,7 +44,7 @@ if (!isset($_SESSION["role_permission"])) {
 <html>
 
 <body>
-<?php require $_SERVER['DOCUMENT_ROOT'] . "/views/top-bar.php"; ?>
+<?php require $_SERVER['DOCUMENT_ROOT'] . "/views/FR/top-bar.php"; ?>
   <div class="wrapper">
     <div class="main-box">
       <form>
@@ -69,7 +69,7 @@ if (!isset($_SESSION["role_permission"])) {
     </div>
 
   </div>
-  <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/top-bar.php"; ?>
+  <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/FR/top-bar.php"; ?>
 </body>
 
 </html>

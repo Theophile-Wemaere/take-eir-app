@@ -26,7 +26,7 @@ if (!isset($_SESSION["email"])) {
 </head>
 
 <body>
-    <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/top-bar.php"; ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/EN/top-bar.php"; ?>
 
     <div class="wrapper">
         <h4 class="sent-notification"></h4>
@@ -98,7 +98,7 @@ if (!isset($_SESSION["email"])) {
 
         </form>
     </div>
-    <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/bottom-bar.php"; ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/EN/bottom-bar.php"; ?>
 </body>
 
 </html>
