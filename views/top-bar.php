@@ -35,7 +35,6 @@
             <a href="/index.php/login">
                 <button class="login-button" id="user-menu" onmouseenter="dropMenuUser()" onmouseleave="dropMenuUser()">
                     <?php
-                    session_start();
                     if (isset($_SESSION["email"])) {
                         echo $_SESSION["name"] .
                             " " .
@@ -73,7 +72,6 @@
     <div class="separator"></div>
     <a href="/index.php/login"><button class="login-button" style="margin-top: 10px;margin-bottom: 10px;">
             <?php
-            session_start();
             if (isset($_SESSION["email"])) {
                 echo $_SESSION["name"] . " " . $_SESSION["surname"];
             } else {

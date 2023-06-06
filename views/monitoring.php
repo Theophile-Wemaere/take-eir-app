@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-
 <?php
 session_start();
 if (!isset($_SESSION["name"])) {
@@ -10,6 +7,10 @@ if (!isset($_SESSION["name"])) {
 }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="fr">
+
 
 <head>
   <meta content="width=device-width, initial-scale=1" name="viewport" />

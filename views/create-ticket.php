@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
 <?php
 session_start();
 if (!isset($_SESSION["email"])) {
   header("Location: /index.php/login");
 }
 ?>
+<!DOCTYPE html>
+<html lang="fr">
 
 <head>
   <title>health-eir</title>

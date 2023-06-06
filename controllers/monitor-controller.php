@@ -73,7 +73,10 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "GET" and isset($_GET["action"])) {
                   "values" => $min . ":" . $max,
                   "id_device" => $id_device
                ]);
-            }
+               echo "success";
+            } 
+         } else {
+            echo "error_doctor";
          }
          break;
    }

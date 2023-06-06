@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
 <?php
 session_start();
 if (!isset($_SESSION["role_permission"])) {
@@ -8,6 +6,8 @@ if (!isset($_SESSION["role_permission"])) {
   header("Location: /");
 }
 ?>
+<!DOCTYPE html>
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">

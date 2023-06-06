@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION["role_permission"])) {
+  header("Location: /index.php/login");
+} elseif ($_SESSION["role_permission"] < 6) {
+  header("Location: /");
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 

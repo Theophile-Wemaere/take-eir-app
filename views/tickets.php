@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php 
 session_start();
 if (!isset($_SESSION["email"])) {
@@ -10,6 +9,7 @@ if ($_SESSION["role_permission"] == 6) {
   header("Location: /index.php/admin-tickets");
 }
 ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
