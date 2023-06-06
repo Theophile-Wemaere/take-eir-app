@@ -9,12 +9,7 @@ if ($_SESSION["role_permission"] == 6) {
 }
 ?>
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html lang="en">
-
-=======
 <html lang="fr">
->>>>>>> f2153931ae18a08f2d37282fd46a9b018afc9bb8
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
