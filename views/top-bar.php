@@ -2,6 +2,9 @@
 <div class="top-bar">
     <div class="top-bar-img">
         <a href="/"><img src="/images/logo-notext.png" /></a>
+        <a href="/index.php/FR">FR</a>
+        <a>|</a>
+        <a href="/index.php/EN">EN</a>
     </div>
     <div class="right-items">
         <a href="/index.php/produit">
