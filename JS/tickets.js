@@ -207,7 +207,7 @@ function getTags(id) {
   }
   
   function createTicket() {
-    const tag = document.getElementById("tag");
+    const tag = document.getElementById("tags-filter");
     const subject = document.getElementById("subject");
     const body = document.getElementById("body");
   
