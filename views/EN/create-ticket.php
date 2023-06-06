@@ -39,10 +39,16 @@ if (!isset($_SESSION["email"])) {
           <input id="subject" name="subject" />
         </div>
 
-        <select id="tag">
-            <option value=select>Choose a tag</option>
-            <script>getTags("tag")</script>          
+        <select id="tags-filter">
+          <option value=select>Choose a tag</option>
         </select>
+        <script>
+          getTags("tags-filter")
+          const selectElement = document.getElementById("tags-filter");
+          selectElement.addEventListener("change", function () {
+            getTickets();
+          });
+        </script>
 
         <textarea id="body" placeholder="Enter here..." name="body"></textarea>
       </div>
