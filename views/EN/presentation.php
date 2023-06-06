@@ -74,7 +74,7 @@
           eco-responsible design methods.
         </p>
       </div>
-      <h3 id="sectionEquipe">Notre Équipe :</h3>
+      <h3 id="sectionEquipe">Our team :</h3>
       <div class="corps">
         <div>
           <p class="textcorp">
