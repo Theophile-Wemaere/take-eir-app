@@ -4,7 +4,7 @@
 session_start();
 if (!isset($_SESSION["role_permission"])) {
   header("Location: /index.php/login");
-} elseif($_SESSION["role_permission"] < 6) {
+} elseif ($_SESSION["role_permission"] < 6) {
   header("Location: /");
 }
 ?>
@@ -30,26 +30,26 @@ if (!isset($_SESSION["role_permission"])) {
 </head>
 
 <body>
-  <?php require "../views/top-bar.php"; ?>
+  <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/top-bar.php"; ?>
   <div class="wrapper">
     <div class="tabs">
-      <a href="/admin/admin-faq.php" class="page-button">Gérer FAQ</a>  
-      <a href="/admin/admin-users.php"  class="page-button">Gérer utilisateurs</a>  
-      <a href="/admin/admin-tickets.php" class="page-button active-tab">Gérer tickets</a>  
+      <a href="/index.php/admin-faq" class="page-button">Gérer FAQ</a>
+      <a href="/index.php/admin-users" class="page-button">Gérer utilisateurs</a>
+      <a href="/index.php/admin-tickets" class="page-button active-tab">Gérer tickets</a>
     </div>
     <div class="main-box">
-        <div class="left-part">
-          <div id="tickets" class="tickets-container">
-            <p style="text-align: center;height: 200px;">Aucun tickets :(</p>
-            <script>getTickets()</script>
-          </div>
+      <div class="left-part">
+        <div id="tickets" class="tickets-container">
+          <p style="text-align: center;height: 200px;">Aucun tickets :(</p>
+          <script>getTickets()</script>
         </div>
-        <div id="conv" class="conv">
-          <p style="text-align: center;">Cliquer sur un ticket pour afficher la conversation</p>
-        </div>
+      </div>
+      <div id="conv" class="conv">
+        <p style="text-align: center;">Cliquer sur un ticket pour afficher la conversation</p>
+      </div>
     </div>
   </div>
-  <?php require "../views/bottom-bar.php"; ?>
+  <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/bottom-bar.php"; ?>
 </body>
 
 </html>

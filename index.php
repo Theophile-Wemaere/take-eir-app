@@ -1,5 +1,5 @@
 <?php
-
+ini_set('display_errors', '0');
 $whitelist = file(".whitelist", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 $whitelist = array_filter($whitelist, function($line) {
     return strpos($line, '#') !== 0;
@@ -13,8 +13,8 @@ $filename = basename($path);
       $name = $whitelist[array_search($filename, $whitelist, true)];
       if (strpos($name,"settings") !== false) {
         require "views/settings/$name.php";
-      } elseif ($name == "contact") {
-        require "views/contact/contact.php";
+      } elseif (strpos($name,"admin") !== false) {
+        require "views/admin/$name.php";
       } else {
         require "views/$name.php";
       }
@@ -23,4 +23,3 @@ $filename = basename($path);
     }
   }
 ?>
-

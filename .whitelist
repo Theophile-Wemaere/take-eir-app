@@ -23,3 +23,8 @@ settings-delete
 settings-mdp
 settings-notif
 settings-email
+
+# admin
+admin-users
+admin-tickets
+admin-faq

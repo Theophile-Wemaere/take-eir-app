@@ -7,7 +7,7 @@ if (!isset($_SESSION["email"])) {
 }
 
 if ($_SESSION["role_permission"] == 6) {
-  header("Location: /admin/admin-tickets.php");
+  header("Location: /index.php/admin-tickets");
 }
 ?>
 <html lang="en">

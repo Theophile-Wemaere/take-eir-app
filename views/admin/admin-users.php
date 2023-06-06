@@ -4,7 +4,7 @@
 session_start();
 if (!isset($_SESSION["role_permission"])) {
   header("Location: /index.php/login");
-} elseif($_SESSION["role_permission"] < 6) {
+} elseif ($_SESSION["role_permission"] < 6) {
   header("Location: /");
 }
 ?>
@@ -23,18 +23,19 @@ if (!isset($_SESSION["role_permission"])) {
   <script src="/JS/admin-users.js"></script>
   <link rel="stylesheet" href="https://kit.fontawesome.com/bc424452bc.css" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Nunito&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Nunito&display=swap"
+    rel="stylesheet" />
 </head>
 
 <html>
 
 <body>
-  <?php require "../views/top-bar.php"; ?>
+  <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/top-bar.php"; ?>
   <div class="wrapper">
     <div class="tabs">
-      <a href="/admin/admin-faq.php" class="page-button">Gérer FAQ</a>  
-      <a href="/admin/admin-users.php"  class="page-button active-tab">Gérer utilisateurs</a>  
-      <a href="/admin/admin-tickets.php" class="page-button">Gérer tickets</a>  
+      <a href="/index.php/admin-faq" class="page-button">Gérer FAQ</a>
+      <a href="/index.php/admin-users" class="page-button active-tab">Gérer utilisateurs</a>
+      <a href="/index.php/admin-tickets" class="page-button">Gérer tickets</a>
     </div>
     <div class="main-box">
       <form id="mySearch" onsubmit="return doSearch()">
@@ -47,7 +48,7 @@ if (!isset($_SESSION["role_permission"])) {
       </script>
     </div>
   </div>
-  <?php require "../views/bottom-bar.php"; ?>
+  <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/bottom-bar.php"; ?>
 </body>
 
 </html>

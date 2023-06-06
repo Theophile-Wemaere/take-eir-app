@@ -4,7 +4,7 @@
 session_start();
 if (!isset($_SESSION["role_permission"])) {
   header("Location: /index.php/login");
-} elseif($_SESSION["role_permission"] < 6) {
+} elseif ($_SESSION["role_permission"] < 6) {
   header("Location: /");
 }
 ?>
@@ -32,13 +32,13 @@ if (!isset($_SESSION["role_permission"])) {
 <html>
 
 <body>
-  <?php require "../views/top-bar.php"; ?>
+  <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/top-bar.php"; ?>
   <div class="wrapper">
-  <div class="tabs">
-      <a href="/admin/admin-faq.php" class="page-button active-tab">Gérer FAQ</a>  
-      <a href="/admin/admin-users.php"  class="page-button">Gérer utilisateurs</a>  
-      <a href="/admin/admin-tickets.php" class="page-button">Gérer tickets</a>  
-  </div>
+    <div class="tabs">
+      <a href="/index.php/admin-faq" class="page-button active-tab">Gérer FAQ</a>
+      <a href="/index.php/admin-users" class="page-button">Gérer utilisateurs</a>
+      <a href="/index.php/admin-tickets" class="page-button">Gérer tickets</a>
+    </div>
     <form>
       <p class="h1alt">Créer un article</p>
       <div class="separation"></div>
@@ -50,17 +50,17 @@ if (!isset($_SESSION["role_permission"])) {
         <textarea id="body" placeholder="Saisissez ici..." name="body"></textarea>
       </div>
       <div class="pied-formulaire">
-            <button id="btn" type="button" onclick=createArticle()>Créer l'article</button>
+        <button id="btn" type="button" onclick=createArticle()>Créer l'article</button>
       </div>
     </form>
-<div id="faq" class="faq-container">
-<script>
-fetchFAQ_admin()
-  </script>
+    <div id="faq" class="faq-container">
+      <script>
+        fetchFAQ_admin()
+      </script>
     </div>
 
   </div>
-  <?php require "../views/bottom-bar.php"; ?>
+  <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/bottom-bar.php"; ?>
 </body>
 
 </html>
