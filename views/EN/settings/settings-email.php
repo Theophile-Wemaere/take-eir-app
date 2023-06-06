@@ -17,7 +17,7 @@ if (!isset($_SESSION["email"])) {
     <script src="/JS/scripts.js"></script>
     <script src="/JS/users.js"></script>
     <script src="/JS/settings.js"></script>
-    <title>Modifier son e-mail</title>
+    <title>Update e-mail</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -37,7 +37,7 @@ if (!isset($_SESSION["email"])) {
     <div class="wrapper">
         <h4 class="sent-notification"></h4>
         <form id="myForm">
-            <h1>Modifiez votre adresse e-mail :</h1>
+            <h1>Update your e-mail :</h1>
             <div class="separation"></div>
             <div class="corps-formulaire">
                 <div class="droite">
@@ -52,7 +52,7 @@ if (!isset($_SESSION["email"])) {
                         </div>
                         <div class="test">
                             <a href="/index.php/settings-mdp"><i class="fa-solid fa-key"></i></a>
-                            <a href="/index.php/settings-mdp"><label>Mot de passe</label></a>
+                            <a href="/index.php/settings-mdp"><label>Password</label></a>
                         </div>
                         <div class="test">
                             <a href="/index.php/settings-notif"><i class="fa-solid fa-comment"></i></a>
@@ -60,42 +60,41 @@ if (!isset($_SESSION["email"])) {
                         </div>
                         <div class="test">
                             <a href="/index.php/settings-delete"><i class="fa-solid fa-trash"></i></a>
-                            <a href="/index.php/settings-delete"><label><span class="supprimer">Supprimer le
-                                        compte</span></label></a>
+                            <a href="/index.php/settings-delete"><label><span class="supprimer">Delete account</span></label></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="gauche">
                     <div class="groupe">
-                        <label>E-mail actuel</label>
+                        <label>Current E-mail</label>
                         <input type="email" id="email" value=<?php echo $_SESSION["email"]; ?> disabled="disabled"
                             required>
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <div class="groupe">
-                        <label>Nouvel e-mail</label>
+                        <label>New e-mail</label>
                         <input id="password" name="email" required>
                         <i class="fa-solid fa-envelope"></i>
-                        <p id="emailError" class="error-match">Merci d'entrer un email valide</p>
+                        <p id="emailError" class="error-match">please enter a valid email</p>
                     </div>
                     <div class="groupe">
-                        <label>Vérification de l'e-mail</label>
+                        <label>Confirm e-mail</label>
                         <input id="confirm-password" type="email" name="confirm-email" required>
                         <i class="fa-solid fa-envelope"></i>
                     </div>
                     <script>
                         checkEmail("password");
                     </script>
-                    <div id="password-match-message" class="error-match">Emails différents!</div>
-                    <div id="error-msg" class="error-match">Cet email est déjà utilisé</div>
-                    <div id="success-msg" class="error-match" style="color: green">Email mis à jour !</div>
+                    <div id="password-match-message" class="error-match">Emails don't match!</div>
+                    <div id="error-msg" class="error-match">This email is already used</div>
+                    <div id="success-msg" class="error-match" style="color: green">Email updated!</div>
                 </div>
             </div>
 
             <center>
                 <div class="pied-formulaire">
-                    <button type="button" id='submit-btn' onclick="changeEmail()">Confirmer</button>
+                    <button type="button" id='submit-btn' onclick="changeEmail()">Confirm</button>
                     <div id="loader" class="loader"></div>
                     <script>
                         const btn = document.getElementById("submit-btn");

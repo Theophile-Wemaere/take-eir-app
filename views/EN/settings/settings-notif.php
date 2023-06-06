@@ -16,7 +16,7 @@ if (!isset($_SESSION["email"])) {
     <link rel="stylesheet" href="/CSS/notif_settings.css">
     <script src="/JS/scripts.js"></script>
     <script src="/JS/settings.js"></script>
-    <title>Activer les notifications</title>
+    <title>Toggle notifications</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -37,7 +37,7 @@ if (!isset($_SESSION["email"])) {
     <div class="wrapper">
         <h4 class="sent-notification"></h4>
         <form id="myForm">
-            <h1>Activation des notifications :</h1>
+            <h1>Toggle notifications :</h1>
             <div class="separation"></div>
 
             <div class="corps-formulaire">
@@ -53,7 +53,7 @@ if (!isset($_SESSION["email"])) {
                         </div>
                         <div class="test">
                             <a href="/index.php/settings-mdp"><i class="fa-solid fa-key"></i></a>
-                            <a href="/index.php/settings-mdp"><label>Mot de passe</label></a>
+                            <a href="/index.php/settings-mdp"><label>Password</label></a>
                         </div>
                         <div class="test">
                             <a href="#"><i class="fa-solid fa-comment current"></i></a>
@@ -61,15 +61,14 @@ if (!isset($_SESSION["email"])) {
                         </div>
                         <div class="test">
                             <a href="/index.php/settings-delete"><i class="fa-solid fa-trash"></i></a>
-                            <a href="/index.php/settings-delete"><label><span class="supprimer">Supprimer le
-                                        compte</span></label></a>
+                            <a href="/index.php/settings-delete"><label><span class="supprimer">Delete account</span></label></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="gauche">
                     <div class="groupe">
-                        <label>Activer les notifications ?</label>
+                        <label>Enable notifications ?</label>
                         <div class="wrap">
                             <label for="switchA1" class="switch-item">
                                 <input type="checkbox" name="" id="switchA1" class="control" checked>
@@ -78,13 +77,13 @@ if (!isset($_SESSION["email"])) {
                             <script>getNotification()</script>
                         </div>
                     </div>
-                <div id="success-msg" class="error-match" style="color: green">Notifications mises à jour !</div>
+                <div id="success-msg" class="error-match" style="color: green">Notifications updated !</div>
                 </div>
             </div>
 
             <center>
                 <div class="pied-formulaire">
-                    <button type="button" id="submit-btn" onclick="updateNotification()" >Confirmer</button>
+                    <button type="button" id="submit-btn" onclick="updateNotification()" >Confirm</button>
                     <div id="loader" class="loader"></div>
                     <script>
                         const btn = document.getElementById("submit-btn");

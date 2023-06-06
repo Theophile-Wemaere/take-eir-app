@@ -16,7 +16,7 @@ if (!isset($_SESSION["email"])) {
     <link rel="stylesheet" href="/CSS/settings.css">
     <script src="/JS/scripts.js"></script>
     <script src="/JS/settings.js"></script>
-    <title>Modifier son profil</title>
+    <title>Update your profil</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -35,7 +35,7 @@ if (!isset($_SESSION["email"])) {
     <div class="wrapper">
         <h4 class="sent-notification"></h4>
         <form id="myForm">
-            <h1>Modifiez votre profil :</h1>
+            <h1>Update your profil :</h1>
             <div class="separation"></div>
 
             <div class="corps-formulaire">
@@ -51,7 +51,7 @@ if (!isset($_SESSION["email"])) {
                         </div>
                         <div class="test">
                             <a href="/index.php/settings-mdp"><i class="fa-solid fa-key"></i></a>
-                            <a href="/index.php/settings-mdp"><label>Mot de passe</label></a>
+                            <a href="/index.php/settings-mdp"><label>Password</label></a>
                         </div>
                         <div class="test">
                             <a href="/index.php/settings-notif"><i class="fa-solid fa-comment"></i></a>
@@ -59,8 +59,7 @@ if (!isset($_SESSION["email"])) {
                         </div>
                         <div class="test">
                             <a href="/index.php/settings-delete"><i class="fa-solid fa-trash"></i></a>
-                            <a href="/index.php/settings-delete"><label><span class="supprimer">Supprimer le
-                                        compte</span></label></a>
+                            <a href="/index.php/settings-delete"><label><span class="supprimer">Delete account</span></label></a>
                         </div>
                     </div>
                 </div>
@@ -75,20 +74,20 @@ if (!isset($_SESSION["email"])) {
 
 
                     <select id="role" name="role" class="type">
-                        <option value=select>Choisissez votre statut</option>
-                        <option value=famille>Patient/Famille</option>
-                        <option value=medecin>Medecin</option>
+                        <option value=select>Choose your status</option>
+                        <option value=famille>Family</option>
+                        <option value=medecin>Doctor</option>
                     </select>
 
                     <div class="gender">
                         <div class="h">
                             <input type="checkbox" id="h" name="gender" value="M" checked>
-                            <label for="h">Homme</label>
+                            <label for="h">Men</label>
                         </div>
 
                         <div class="f">
                             <input type="checkbox" id="f" name="gender" value="F">
-                            <label for="f">Femme</label>
+                            <label for="f">Women</label>
                         </div>
                     </div>
 
@@ -107,13 +106,13 @@ if (!isset($_SESSION["email"])) {
                     </script>
 
                     <div class="groupe">
-                        <label>Prénom</label>
+                        <label>Name</label>
                         <input id="name" value=<?php echo $_SESSION["name"]; ?> required>
                         <i class="fa-solid fa-user"></i>
                     </div>
 
                     <div class="groupe">
-                        <label>Nom de famille</label>
+                        <label>Surname</label>
                         <input id="surname" value=<?php echo $_SESSION["surname"]; ?> required>
                         <i class="fa-solid fa-user"></i>
                     </div>
@@ -121,15 +120,15 @@ if (!isset($_SESSION["email"])) {
                     <script>
                         getProfil();
                     </script>
-                    <div id="error-msg" class="error-match">Merci de remplir tous les champs</div>
-                    <div id="error-upload" class="error-match">Merci image</div>
-                    <div id="success-msg" class="error-match" style="color: green">Profil mis à jour !</div>
+                    <div id="error-msg" class="error-match">Please fill in all fields</div>
+                    <div id="error-upload" class="error-match">Error, this file format ins't valid </div>
+                    <div id="success-msg" class="error-match" style="color: green">Profil updated !</div>
                 </div>
             </div>
 
             <center>
                 <div class="pied-formulaire">
-                    <button type="button" id='submit-btn' onclick="updateProfil()">Confirmer</button>
+                    <button type="button" id='submit-btn' onclick="updateProfil()">Confirm</button>
                     <div id="loader" class="loader"></div>
                     <script>
                         const btn = document.getElementById("submit-btn");

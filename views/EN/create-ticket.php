@@ -31,23 +31,23 @@ if (!isset($_SESSION["email"])) {
   <div class="wrapper">
 <div class="main-box">
     <form>
-      <p class="h1alt">Ouvrir un ticket</p>
+      <p class="h1alt">Open a ticket</p>
       <div class="separation"></div>
       <div class="corps-formulaire">
         <div class="groupe">
-          <label>Sujet du ticket</label>
+          <label>Ticket topic</label>
           <input id="subject" name="subject" />
         </div>
 
         <select id="tag">
-            <option value=select>Choisissez un tag</option>
+            <option value=select>Choose a tag</option>
             <script>getTags("tag")</script>          
         </select>
 
-        <textarea id="body" placeholder="Saisissez ici..." name="body"></textarea>
+        <textarea id="body" placeholder="Enter here..." name="body"></textarea>
       </div>
       <div class="pied-formulaire">
-              <button id="btn" type="button" onclick=createTicket()>envoyer</button>
+              <button id="btn" type="button" onclick=createTicket()>send</button>
       </div>
       <p id="error-msg" style="text-align:center;color: red;display: none;"></p> 
     </form>

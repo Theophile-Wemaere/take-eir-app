@@ -28,27 +28,27 @@ if (isset($_SESSION["name"])) {
   <?php require "top-bar.php"; ?>
   <div class="wrapper">
     <form action="">
-      <h1>INSCRIPTION</h1>
+      <h1>REGISTRATION</h1>
       <div class="separation"></div>
       <div class="corps-formulaire">
 
         <div class="gauche">
 
           <select id="role" name="role" class="type">
-            <option value=select>Choisissez votre statut</option>
-            <option value=famille>Patient/Famille</option>
-            <option value=medecin>Medecin</option>
+            <option value=select>Choose your role</option>
+            <option value=famille>Family</option>
+            <option value=medecin>Doctor</option>
           </select>
 
           <div class="gender">
             <div class="h">
               <input type="checkbox" id="h" name="gender" value="M" checked>
-              <label for="h">Homme</label>
+              <label for="h">Men</label>
             </div>
 
             <div class="f">
               <input type="checkbox" id="f" name="gender" value="F">
-              <label for="f">Femme</label>
+              <label for="f">Women</label>
             </div>
           </div>
 
@@ -67,13 +67,13 @@ if (isset($_SESSION["name"])) {
           </script>
 
           <div class="groupe">
-            <label>* Prénom</label>
+            <label>* Name</label>
             <input id="name" type="text" name="name" required>
             <i class="fa-solid fa-user"></i>
           </div>
 
           <div class="groupe">
-            <label>* Nom</label>
+            <label>* Surname</label>
             <input id="surname" type="text" name="surname" required>
             <i class="fa-solid fa-user"></i>
           </div>
@@ -82,27 +82,27 @@ if (isset($_SESSION["name"])) {
             <label>* Email</label>
             <input id="email" type="email" name="email" required />
             <i class="fa-solid fa-envelope"></i>
-            <p id="emailError" class="error-match">Merci d'entrer un email valide!</p>
+            <p id="emailError" class="error-match">Please enter a valid email !</p>
           </div>
           <script>checkEmail("email")</script>
 
           <div class="groupe">
-            <label>* Mot de passe</label>
+            <label>* Password</label>
             <input id="password" type="password" name="password" required />
             <i class="fa-solid fa-key"></i>
-            <p id="passwordError" class="error-match">8 caractères minimum avec :</br>
-              une majuscule,</br> un nombre</br> et un caractère spéciale (@$!%*?&)</p>
+            <p id="passwordError" class="error-match">Minimum 8 characters with:</br>
+              one uppercase letter,</br> one number,</br> and one special character (@$!%*?&)</p>
           </div>
 
           <div class="groupe">
-            <label>* Confirmation du mot de passe</label>
+            <label>* Confirm password</label>
             <input id="confirm-password" type="password" name="password" required>
             <i class="fa-solid fa-key"></i>
           </div>
 
-          <div id="password-match-message" class="error-match">Mots de passe différents!</div>
+          <div id="password-match-message" class="error-match">Passwords don't match!</div>
           <div class="pied-formulaire">
-            <button id="submit-btn" type="button" onclick=doRegister()>S'inscrire</button>
+            <button id="submit-btn" type="button" onclick=doRegister()>Register</button>
           </div>
           <div id="loader" class="loader"></div>
           <script>
@@ -124,8 +124,8 @@ if (isset($_SESSION["name"])) {
         </div>
         <div class="separation" style="margin-top: 20px;margin-bottom: 20px;"></div>
         <div class="droite">
-          <a>J'ai déjà un compte</a>
-          <a class="link" href="/index.php/login">Me connecter</a>
+          <a>I have an account</a>
+          <a class="link" href="/index.php/login">Login</a>
         </div>
       </div>
 

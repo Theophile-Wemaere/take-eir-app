@@ -31,11 +31,11 @@ if (!isset($_SESSION["email"])) {
 </head>
 
 <body>
-    <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/top-bar.php"; ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/EN/top-bar.php"; ?>
 
     <div class="wrapper">
         <form id="myForm">
-            <h1>Votre profil :</h1>
+            <h1>Your profil :</h1>
             <div class="separation"></div>
             <div class="corps-formulaire">
                 <div class="groupe img-container">
@@ -48,14 +48,14 @@ if (!isset($_SESSION["email"])) {
                 </p>
 
                 <div class="groupe">
-                    <label><i class="fa-solid fa-user"></i>Prénom : </label>
+                    <label><i class="fa-solid fa-user"></i>Name : </label>
                     <p>
                         <?php echo $_SESSION["name"]; ?>
                     </p>
                 </div>
 
                 <div class="groupe">
-                    <label><i class="fa-solid fa-user"></i>Nom de famille : </label>
+                    <label><i class="fa-solid fa-user"></i>Surname : </label>
                     <p>
                         <?php echo $_SESSION["surname"]; ?>
                     </p>
@@ -67,7 +67,7 @@ if (!isset($_SESSION["email"])) {
                         <?php echo $_SESSION["email"]; ?>
                     </p>
                 </div>
-                <a class="link" href="/index.php/settings-profil">Accéder aux paramètres</a>
+                <a class="link" href="/index.php/settings-profil">Access settings</a>
             </div>
         </form>
         <div class="devices">
@@ -76,12 +76,12 @@ if (!isset($_SESSION["email"])) {
                 if ($_SESSION["role_permission"] == "3") {
                     echo "Patients";
                 } else {
-                    echo "Vos appareils";
+                    echo "Your devices";
                 } ?>
             </p>
 
             <div class="search">
-                <input type="text" id="search" placeholder="Rechercher par nom, prénom, ..."
+                <input type="text" id="search" placeholder="Search by name, email..."
                     onkeydown="handleKeyDown(event)">
                 <button type="button" onclick="getDevices()"><i class="fa fa-search"></i></button>
             </div>
@@ -106,14 +106,14 @@ if (!isset($_SESSION["email"])) {
             <script>getDevices()</script>
 
             <div class="add">
-                <p>Entrer votre health-key pour ajouter un appareil</p>
+                <p>Enter your health-key to add a device</p>
                 <input type="text" id="health-key" placeholder="XXX-XXX-XXX">
                 <button type="button" onclick="addKey()"><i class="fa fa-arrow-circle-right"></i></button>
             </div>
         </div>
 
     </div>
-    <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/bottom-bar.php"; ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/EN/bottom-bar.php"; ?>
 </body>
 
 </html>

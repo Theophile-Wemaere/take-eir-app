@@ -42,9 +42,9 @@ justify-content: center;
 
         <div class="main-box">
             <div class="left-part">
-                <h1>Oh non, cette page n'existe pas :(</h1>
+                <h1>Oh no, this page doesn't exist :(</h1>
                 <h3>
-                    Rassurez-vous, notre développeur basé à San Francisco va fixer ce problème en un rien de temps
+                Rest assured, our developer located in San Francisco will fix this problem in no time.
                 </h3>
             </div>
             <img src="/images/404.png" />

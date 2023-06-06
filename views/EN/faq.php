@@ -28,14 +28,14 @@
   <div class="wrapper">
 
 
-    <h1>Foire aux questions</h1>
+    <h1>Frequently asked questions</h1>
     <div id="faq" class="faq-container">
 <script>
 fetchFAQ_user()
 </script>
     </div>
-    <h3 class="noResponse" style="color: #3f2de1; padding: 10px 20px;">Vous n'avez pas trouvé de réponse à votre
-      question ? <a href="/index.php/contact" style="text-decoration:none; color:#e0584c;">Contactez-nous !</a></h3>
+    <h3 class="noResponse" style="color: #3f2de1; padding: 10px 20px;">Haven't found the answer to your question?
+      your question?<a href="/index.php/contact" style="text-decoration:none; color:#e0584c;">Contact us!</a></h3>
     <!-- partial -->
   </div>
   <?php require "bottom-bar.php"; ?>

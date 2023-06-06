@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <title>CGU</title>
+    <title>take-eir</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="/CSS/styles.css" />
     <link rel="stylesheet" href="/CSS/cgu.css" />
@@ -23,65 +23,69 @@
 
     <div class="wrapper">
         <div class="box">
-            <h3 id="title">Conditions générales d'utilisation (CGU)</h3>
+            <h3 id="title">Terms and conditions of use</h3>
             <div class="corps">
                 <table>
                     <tr>
                         <p class="textcorp">
-                            CONDITIONS GÉNÉRALES D'UTILISATION DU DISPOSITIF HEALTH-EIR
+                        GENERAL CONDITIONS OF USE FOR THE HEALTH-EIR DEVICE
                             <br><br>
-                            Le présent document énonce les conditions générales d'utilisation du dispositif Health-Eir.
-                            En utilisant ce dispositif, vous acceptez les conditions générales suivantes :
+                            This document sets out the terms and conditions for using the Health-Eir device.
+                            By using this device, you agree to the following terms and conditions:
                             <br><br>
-                            <span>1. Objet</span>
+                            <span>1. Product</span>
                             <br>
-                            Le dispositif Health-Eir est un boîtier de monitoring de la qualité de prise en charge d'un
-                            patient hospitalisé à domicile. Il permet de mesurer des grandeurs environnementales
-                            (température, taux de microparticules dans la pièce, taux de CO2) et des données
-                            physiologiques comme la fréquence cardiaque. Les données sont consultables en temps réel par
-                            la famille du patient ainsi que par le médecin traitant qui peut paramétrer les seuils des
+                            The Health-Eir device is a box for monitoring the quality of care of a patient
+                            hospitalized patient at home. It measures environmental parameters
+                            (temperature, microparticle levels in the room, CO2 levels) and physiological data
+                            physiological data such as heart rate. Data can be consulted in real time by the patient's
+                            by the patient's family, as well as by the attending physician, who can parameterize
                             capteurs.
                             <br><br>
                             <br><br>
-                            <span>2. Utilisation du dispositif</span>
+                            <span>2. Using the device</span>
                             <br>
-                            L'utilisation du dispositif Health-Eir est réservée aux patients hospitalisés à domicile
-                            ainsi qu'aux membres de leur famille et aux professionnels de santé impliqués dans leur
-                            prise en charge. Les utilisateurs s'engagent à utiliser le dispositif de manière responsable
-                            et à respecter les règles de confidentialité des données.
+                            Use of the Health-Eir device is reserved for patients hospitalized at home
+                            family members and healthcare professionals involved in their care.
+                            their care. Users undertake to use the device in a responsible manner
+                            and to respect the rules of data confidentiality.
+ Use of the Health-Eir device is reserved for patients hospitalized at home
+                            family members and healthcare professionals involved in their care.
+                            their care. Users undertake to use the device in a responsible manner
+                            and to respect the rules of data confidentiality.
                             <br><br>
                             <br><br>
-                            <span>3. Données collectées</span>
+                            <span>3. Collected data</span>
                             <br>
-                            Les données collectées par le dispositif Health-Eir sont traitées de manière confidentielle
-                            et conformément aux lois en vigueur sur la protection des données. Les données sont stockées
-                            sur des serveurs sécurisés et ne sont accessibles qu'aux utilisateurs autorisés.
+                            The data collected by the Health-Eir device is treated confidentially
+                            in accordance with current data protection laws. The data is stored
+                            on secure servers and are only accessible to authorized users.
                             <br><br>
                             <br><br>
-                            <span>4. Responsabilités</span>
+                            <span>4. Responsibilities</span>
                             <br>
-                            Le fabricant du dispositif Health-Eir décline toute responsabilité en cas d'utilisation non
-                            conforme du dispositif ou de perte ou de dommage résultant de l'utilisation du dispositif.
-                            Les utilisateurs sont responsables de l'utilisation qu'ils font du dispositif et doivent se
-                            conformer aux lois en vigueur sur la protection des données et sur la santé.
+                            The manufacturer of the Health-Eir device accepts no liability for improper use of the
+                            loss or damage resulting from the use of the device.
+                            Users are responsible for their own use of the device and must comply with applicable
+                            data protection and health laws.
                             <br><br>
                             <br><br>
-                            <span>5. Durée du contrat</span>
+                            <span>5. Contract duration</span>
                             <br>
-                            Le contrat entre le fabricant du dispositif Health-Eir et l'utilisateur est conclu pour une
-                            durée indéterminée. Les utilisateurs peuvent mettre fin au contrat à tout moment en cessant
-                            d'utiliser le dispositif.
+                            The contract between the manufacturer of the Health-Eir device and the user is concluded for an indefinite period.
+                            indefinite duration. Users may terminate the contract at any time by ceasing to use the device.
+                            using the device.
                             <br><br>
                             <br><br>
-                            <span>6. Modification des conditions d'utilisation</span>
+                            <span>6. Modification of conditions of use</span>
                             <br>
-                            Le fabricant du dispositif Health-Eir se réserve le droit de modifier les présentes
-                            conditions d'utilisation à tout moment. Les utilisateurs seront informés des modifications
-                            par e-mail ou par une notification sur le site web. Les modifications prendront effet à
-                            compter de leur publication sur le site web.
+                            The manufacturer of the Health-Eir device reserves the right to modify these
+                            conditions of use at any time. Users will be informed of any changes
+                            by e-mail or by notification on the website. Modifications will take effect
+                            of their publication on the website.
                             <br><br>
-                            En utilisant le dispositif Health-Eir, vous acceptez les présentes conditions générales
-                            d'utilisation. Si vous ne les acceptez pas, veuillez cesser d'utiliser le dispositif.
+                            By using the Health-Eir device, you agree to these terms and conditions.
+                            terms and conditions of use. If you do not accept them, please stop using the device.
                         </p>
                         <p class="textcorp">
                         </p>

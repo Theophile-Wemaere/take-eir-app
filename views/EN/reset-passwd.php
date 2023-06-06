@@ -24,21 +24,21 @@
   <div class="wrapper">
 <div class="main-box">
     <form>
-      <p class="h1alt">Mot de passe oublié ?</p>
+      <p class="h1alt">Forgot your password ?</p>
       <div class="separation"></div>
       <div class="corps-formulaire">
         <div class="groupe">
-          <label>Entrez votre email ci dessous</label>
-          <label>Vous recevrez un mail pour créer un mot de passe</label>
+          <label>Enter your email below</label>
+          <label>You will receive an email to create a password</label>
           <input id="email"/>
-          <p id="emailError" class="error-match">Merci d'entrer un email valide</p>
-          <div id="error-msg" class="error-match">Erreur, cet email n'existe pas</div>
-          <div id="success-msg" class="error-match" style="color: green">Un email a été envoyé !</div>
+          <p id="emailError" class="error-match">Please enter a valdi email</p>
+          <div id="error-msg" class="error-match">Error, this email doesn't exists</div>
+          <div id="success-msg" class="error-match" style="color: green">An email was sent !</div>
         </div>
 
       </div>
       <div class="pied-formulaire">
-        <button id="submit-btn" type="button" onclick=resetPassword()>envoyer</button>
+        <button id="submit-btn" type="button" onclick=resetPassword()>Send</button>
         <script>checkEmail("email")
         const input = document.getElementById("email");
         input.addEventListener("input", function () {

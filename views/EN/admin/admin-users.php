@@ -32,9 +32,9 @@ if (!isset($_SESSION["role_permission"])) {
   <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/EN/top-bar.php"; ?>
   <div class="wrapper">
     <div class="tabs">
-      <a href="/index.php/admin-faq" class="page-button">Gérer FAQ</a>
-      <a href="/index.php/admin-users" class="page-button active-tab">Gérer utilisateurs</a>
-      <a href="/index.php/admin-tickets" class="page-button">Gérer tickets</a>
+      <a href="/index.php/admin-faq" class="page-button">Manage FAQ</a>
+      <a href="/index.php/admin-users" class="page-button active-tab">Manage users</a>
+      <a href="/index.php/admin-tickets" class="page-button">Manage tickets</a>
     </div>
     <div class="main-box">
       <form id="mySearch" onsubmit="return doSearch()">

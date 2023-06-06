@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <title>health-eir</title>
+    <title>take-eir</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="/CSS/styles.css" />
     <link rel="stylesheet" href="/CSS/carroussel.css">

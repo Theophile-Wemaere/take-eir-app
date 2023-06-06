@@ -113,7 +113,7 @@ if (!isset($_SESSION["email"])) {
         </div>
 
     </div>
-    <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/bottom-bar.php"; ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/EN/bottom-bar.php"; ?>
 </body>
 
 </html>

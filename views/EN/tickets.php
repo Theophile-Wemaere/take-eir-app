@@ -13,7 +13,7 @@ if ($_SESSION["role_permission"] == 6) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>F.A.Q</title>
+  <title>tickets</title>
   <link rel="stylesheet" href="/CSS/styles.css">
   <link rel="stylesheet" href="/CSS/form.css">
   <link rel="stylesheet" href="/CSS/tickets.css">
@@ -31,7 +31,7 @@ if ($_SESSION["role_permission"] == 6) {
 <body>
   <?php require "top-bar.php"; ?>
   <div class="wrapper">
-    <h1>Vos tickets</h1>
+    <h1>Your tickets</h1>
     <div class="main-box">
       <div class="left-part">
         <select id="tags-filter">
@@ -45,15 +45,15 @@ if ($_SESSION["role_permission"] == 6) {
           });
         </script>
         <div id="tickets" class="tickets-container">
-          <p style="text-align: center;height: 200px;">Vous n'avez aucun ticket :(</p>
+          <p style="text-align: center;height: 200px;">You have no ticket :(</p>
           <script>getTickets()</script>
         </div>
         <div class="pied-formulaire">
-          <a href="/index.php/create-ticket"><button type="button">Ouvrir un ticket</button></a>
+          <a href="/index.php/create-ticket"><button type="button">Open a ticket</button></a>
         </div>
       </div>
       <div id="conv" class="conv" style="display: none;">
-        <p style="text-align: center;">Cliquer sur un ticket pour afficher la conversation</p>
+        <p style="text-align: center;">Click on a ticket to display the conversation</p>
       </div>
     </div>
   </div>

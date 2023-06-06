@@ -34,22 +34,22 @@ if (!isset($_SESSION["role_permission"])) {
   <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/EN/top-bar.php"; ?>
   <div class="wrapper">
     <div class="tabs">
-      <a href="/index.php/admin-faq" class="page-button active-tab">Gérer FAQ</a>
-      <a href="/index.php/admin-users" class="page-button">Gérer utilisateurs</a>
-      <a href="/index.php/admin-tickets" class="page-button">Gérer tickets</a>
+      <a href="/index.php/admin-faq" class="page-button active-tab">Manage FAQ</a>
+      <a href="/index.php/admin-users" class="page-button">Manage utilisateurs</a>
+      <a href="/index.php/admin-tickets" class="page-button">Manage tickets</a>
     </div>
     <form>
-      <p class="h1alt">Créer un article</p>
+      <p class="h1alt">Create an article</p>
       <div class="separation"></div>
       <div class="corps-formulaire">
         <div class="groupe">
-          <label>Sujet de l'article</label>
+          <label>Topic of the article</label>
           <input id="subject" name="subject" />
         </div>
-        <textarea id="body" placeholder="Saisissez ici..." name="body"></textarea>
+        <textarea id="body" placeholder="Enter here..." name="body"></textarea>
       </div>
       <div class="pied-formulaire">
-        <button id="btn" type="button" onclick=createArticle()>Créer l'article</button>
+        <button id="btn" type="button" onclick=createArticle()>Create article</button>
       </div>
     </form>
     <div id="faq" class="faq-container">

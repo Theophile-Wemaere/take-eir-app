@@ -15,7 +15,7 @@ if (!isset($_SESSION["name"])) {
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
   <meta charset="utf-8" />
-  <title>Information globale</title>
+  <title>Monitoring</title>
 
   <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -51,32 +51,32 @@ if (!isset($_SESSION["name"])) {
     <!--Création des div invisibles pour récuperer les données de la table en javascript-->
 
     <div class="globalMonitoring">
-      <h3 for="jauge" class="labelJauge">Monitoring global</h3>
+      <h3 for="jauge" class="labelJauge">Global monitoring</h3>
       <div class="jauge">
         <div class="groupe">
           <div class="jauge-container">
             <div id="cardGaugeContainer" class="plotJauge"></div>
-            <p> Rythme Cardiaque </p>
+            <p> Heart rate </p>
           </div>
           <div class="jauge-container">
             <div id="tempGaugeContainer" class="plotJauge"></div>
-            <p> Température </p>
+            <p> Temperature </p>
           </div>
         </div>
         <div class="groupe">
           <div class="jauge-container">
             <div id="humidityGaugeContainer" class="plotJauge"></div>
-            <p> Humidité </p>
+            <p> Humidity </p>
           </div>
           <div class="jauge-container">
             <div id="noiseGaugeContainer" class="plotJauge"></div>
-            <p> Niveau de bruit </p>
+            <p> Noise level </p>
           </div>
         </div>
         <div class="groupe">
           <div class="jauge-container">
             <div id="dustGaugeContainer" class="plotJauge"></div>
-            <p> Poussières </p>
+            <p> Dust </p>
           </div>
           <div class="jauge-container">
             <div id="co2GaugeContainer" class="plotJauge"></div>
@@ -87,22 +87,20 @@ if (!isset($_SESSION["name"])) {
 
       <h3 for="jauge" class="labelJauge" style="font-size:none">
         <div class="infoPatient">
-          <h3 class="labelJauge">Informations du patient</h3>
+          <h3 class="labelJauge">Patient information</h3>
           <div class="row">
             <div class="groupe">
-              <p class="title">Prénom : </p>
+              <p class="title">Name : </p>
               <input id="name">
             </div>
             <div class="groupe">
-              <p class="title">Nom : </p>
+              <p class="title">Surname : </p>
               <input id="surname">
             </div>
             <div class="groupe">
-              <p class="title">Email du médecin: </p>
+              <p class="title">Doctor email: </p>
               <input id="email">
-              <p id="emailError" style="color:red;font-size: 14px;margin-top: 5px;display: none;">Merci d'entrer un
-                email
-                valide</p>
+              <p id="emailError" style="color:red;font-size: 14px;margin-top: 5px;display: none;">Please enter a valid email</p>
               <script>checkEmail("email")</script>
             </div>
             <div class="groupe">
@@ -111,9 +109,9 @@ if (!isset($_SESSION["name"])) {
             </div>
           </div>
           <div class="row">
-            <button onclick=updatePatient()>Confirmer</button>
+            <button onclick=updatePatient()>Confirm</button>
           </div>
-          <div id="success-msg" class="error-match" style="display: none;color: green">Profil mis à jour !</div>
+          <div id="success-msg" class="error-match" style="display: none;color: green">Profil updated !</div>
         </div>
         <script>getPatient()</script>
       </h3>
@@ -141,13 +139,13 @@ if (!isset($_SESSION["name"])) {
             <div id="cardiacGraph" class="Plot"></div>
             <!--slider html code-->
             <div class="slider-box">
-              <label for="heartPathRange">Seuil d'alerte du rythme cardiaque</label>
+              <label for="heartPathRange">Heart rate alert threshold</label>
               <br>
               <input type="text" id="heartRange" readonly>
               <div id="heart-range" class="slider"></div>
-              <button onclick="setThreshold('#heart-range',1)">Confirmer</button>
-              <div id="success-msg2" class="error-match" style="color: green">seuil mis à jour!</div>
-              <div id="error-msg" class="error-match">Vous n'avez pas le droit de modifier ces valeurs</div>
+              <button onclick="setThreshold('#heart-range',1)">Confirm</button>
+              <div id="success-msg2" class="error-match" style="color: green">threshold updated!</div>
+              <div id="error-msg" class="error-match">You are not allowed to modify these values</div>
             </div>
           </div>
 

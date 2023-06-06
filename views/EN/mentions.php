@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-  <title>Mentions légales</title>
+  <title>Terms of use</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="/CSS/styles.css" />
   <link rel="stylesheet" href="/CSS/mentions.css" />
@@ -20,23 +20,23 @@
         <?php require "top-bar.php"; ?>
         <div class="wrapper">
             <div class="box">
-            <h3 id="title">Mentions légales</h3>
+            <h3 id="title">Terms of use</h3>
             <div class="corps">
               <table>
               <tr>
                   <p class="textcorp">
-                      Adresse : 10 Rue de Vanves, 92130 Issy-les-Moulineaux
+                  Address: 10 Rue de Vanves, 92130 Issy-les-Moulineaux, France
                       <br><br>
                       E-mail : contact.healtheir@gmail.com
                       <br><br>
-                      Société SAS : Take-Eir <br>
-                      Date de création (fictive) : le 01/10/2022
+                      SAS company : Take-Eir <br>
+                      Creation date (fictive) : 01/10/2022
                       <br><br>
-                      Dirigeants : <br> Alexandre MELLE, Imad RACHATI, Sofiane SIFAOUI, Quentin VERMONT,
+                      Leaders: <br> Alexandre MELLE, Imad RACHATI, Sofiane SIFAOUI, Quentin VERMONT,
                       Maxime VETTORATO, Théophile WEMEARE
                   </p>
                   <p class="textcorp">
-                      Projet académique dans le cadre de la première année du cycle ingénieur de l'ISEP.
+                  Academic project for the first year of ISEP's engineering program.
                   </p>
                   </td>
               </tr>

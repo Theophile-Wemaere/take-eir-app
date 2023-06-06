@@ -16,7 +16,7 @@ if (!isset($_SESSION["email"])) {
     <link rel="stylesheet" href="/CSS/mdp_settings.css">
     <script src="/JS/scripts.js"></script>
     <script src="/JS/settings.js"></script>
-    <title>Supprimer son compte</title>
+    <title>Delete account</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,7 +31,7 @@ if (!isset($_SESSION["email"])) {
     <div class="wrapper">
         <h4 class="sent-notification"></h4>
         <form id="myForm">
-            <h1>Supprimer votre compte :</h1>
+            <h1>Delete your account :</h1>
             <div class="separation"></div>
 
             <div class="corps-formulaire">
@@ -47,7 +47,7 @@ if (!isset($_SESSION["email"])) {
                         </div>
                         <div class="test">
                             <a href="/index.php/settings-mdp"><i class="fa-solid fa-key"></i></a>
-                            <a href="/index.php/settings-mdp"><label>Mot de passe</label></a>
+                            <a href="/index.php/settings-mdp"><label>Password</label></a>
                         </div>
                         <div class="test">
                             <a href="/index.php/settings-notif"><i class="fa-solid fa-comment"></i></a>
@@ -55,30 +55,30 @@ if (!isset($_SESSION["email"])) {
                         </div>
                         <div class="test">
                             <a href="#"><i class="fa-solid fa-trash current"></i></a>
-                            <a href="#"><label><span class="current">Supprimer le compte</span></label></a>
+                            <a href="#"><label><span class="current">Delete account</span></label></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="gauche">
                     <div class="groupe">
-                        <label> Raison de supprimer le compte ?</label>
+                        <label> Reason of deletion ?</label>
                         <textarea id="reason" type="text" name="name"></textarea>
                         <i class="fa-solid fa-question"></i>
                     </div>
                     <div class="groupe">
-                        <label>Entrez votre mot de passe</label>
+                        <label>Enter your password</label>
                         <input id="password" type="password">
                         <i class="fa-solid fa-key"></i>
-                        <div id="error-password" class="error-match">Mot de passe incorrect !</div>
-                        <div id="error-msg" class="error-match">Merci de remplir tout les champs</div>
+                        <div id="error-password" class="error-match">Wrong password !</div>
+                        <div id="error-msg" class="error-match">Please fill all fields</div>
                     </div>
                 </div>
             </div>
 
             <center>
                 <div class="pied-formulaire">
-                    <button type="button" id="submit-btn" onclick="deleteAccount()">Supprimer votre compte</button>
+                    <button type="button" id="submit-btn" onclick="deleteAccount()">Delete your account</button>
                     <div id="loader" class="loader"></div>
                     <script>
                         const btn = document.getElementById("submit-btn");

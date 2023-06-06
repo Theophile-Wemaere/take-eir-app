@@ -13,7 +13,7 @@ if ($_SESSION["role_permission"] == 6) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>F.A.Q</title>
+  <title>tickets</title>
   <link rel="stylesheet" href="/CSS/styles.css">
   <link rel="stylesheet" href="/CSS/form.css">
   <link rel="stylesheet" href="/CSS/tickets.css">

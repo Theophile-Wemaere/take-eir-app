@@ -32,14 +32,14 @@ if (!isset($_SESSION["role_permission"])) {
   <?php require $_SERVER['DOCUMENT_ROOT'] . "/views/EN/top-bar.php"; ?>
   <div class="wrapper">
     <div class="tabs">
-      <a href="/index.php/admin-faq" class="page-button">Gérer FAQ</a>
-      <a href="/index.php/admin-users" class="page-button">Gérer utilisateurs</a>
-      <a href="/index.php/admin-tickets" class="page-button active-tab">Gérer tickets</a>
+      <a href="/index.php/admin-faq" class="page-button">Manage FAQ</a>
+      <a href="/index.php/admin-users" class="page-button">Manage utilisateurs</a>
+      <a href="/index.php/admin-tickets" class="page-button active-tab">Manage tickets</a>
     </div>
     <div class="main-box">
       <div class="left-part">
         <select id="tags-filter">
-          <option value=select>Choisissez un tag</option>
+          <option value=select>Choose a tag</option>
         </select>
         <script>
           getTags("tags-filter")
@@ -49,12 +49,12 @@ if (!isset($_SESSION["role_permission"])) {
           });
         </script>
         <div id="tickets" class="tickets-container">
-          <p style="text-align: center;height: 200px;">Aucun tickets :(</p>
+          <p style="text-align: center;height: 200px;">No tickets :(</p>
           <script>getTickets()</script>
         </div>
       </div>
       <div id="conv" class="conv">
-        <p style="text-align: center;">Cliquer sur un ticket pour afficher la conversation</p>
+        <p style="text-align: center;">Click on a ticket to display the conversation</p>
       </div>
     </div>
   </div>
