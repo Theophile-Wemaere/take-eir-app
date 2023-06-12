@@ -24,7 +24,7 @@ if (!isset($_SESSION["name"])) {
   <script src="https://cdn.anychart.com/releases/8.8.0/js/anychart-data-adapter.min.js"></script>
   <link rel="stylesheet" type="text/css"
     href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="/CSS/styles.css" />
   <link rel="stylesheet" href="/CSS/monitoring.css" />
 
@@ -138,7 +138,7 @@ if (!isset($_SESSION["name"])) {
               <p id="meanCard"></p>
               <p id="sdCard"></p>
             </div>
-            <div id="cardiacGraph" class="Plot"></div>
+            <canvas id="myChart"></canvas>
             <!--slider html code-->
             <div class="slider-box">
               <label for="heartPathRange">Seuil d'alerte du rythme cardiaque</label>
@@ -150,6 +150,86 @@ if (!isset($_SESSION["name"])) {
               <div id="error-msg" class="error-match">Vous n'avez pas le droit de modifier ces valeurs</div>
             </div>
           </div>
+          <script>
+            // Set up the initial chart
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: [],  // initial empty labels array
+                datasets: [{
+                  label: 'Real-time Data',
+                  data: [],   // initial empty data array
+                  fill: false,
+                  borderColor: 'rgb(75, 192, 192)',
+                  tension: 0.1
+                }]
+              },
+              options: {
+                responsive: true,
+                scales: {
+                  x: {
+                    display: true,
+                    title: {
+                      display: true,
+                      text: 'Time'
+                    }
+                  },
+                  y: {
+                    display: true,
+                    title: {
+                      display: true,
+                      text: 'Value'
+                    },
+                    suggestedMin: 0,
+                    suggestedMax: 150
+                  }
+                }
+              }
+            });
+
+            // Function to update the chart with new data
+            function updateChart() {
+              // Fetch data from the controller or data source
+              // Here, we'll use a random value for demonstration purposes
+              const urlParams = new URLSearchParams(window.location.search);
+              const id_device = urlParams.get("device");
+
+              fetch(
+                "/controllers/monitor-controller.php?action=ecg&device=" + id_device,
+                {
+                  method: "GET"
+                }
+              )
+                .then((res) => res.json())
+                .then((res) => {
+                  if (res !== null) {
+
+                    console.log(res.at(0).value);
+                    newData = res.at(0).value;
+
+                    // Get the current chart data
+                    var data = chart.data;
+
+                    // Add the new data point to the dataset
+                    data.labels.push(new Date().toLocaleTimeString());
+                    data.datasets[0].data.push(newData);
+
+                    // Remove the first data point if the dataset becomes too large
+                    if (data.labels.length > 10) {
+                      data.labels.shift();
+                      data.datasets[0].data.shift();
+                    }
+
+                    // Update the chart
+                    chart.update();
+                  }
+                });
+            }
+
+            // Update the chart every 1 second (adjust as needed)
+            setInterval(updateChart, 1000);
+          </script>
 
           <div style="display:none;" class="graph graph-container">
             <!--slider html code-->
@@ -256,19 +336,8 @@ if (!isset($_SESSION["name"])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
     <script>
-      // Appeler la fonction initiale pour récupérer les données une première fois
       fetchPeriodicData();
-    // Planifier l'exécution périodique de la fonction
-    //setInterval(fetchPeriodicData, 5000); // Exécuter toutes les 5 secondes (5000 millisecondes)
-    </script>
-    <!--Code Javascript pour le slider range-->
-    <script>
       getThreshold();
-    //sliderRange("#temp-range", "#tempRange", 1, -10, 40);
-    //sliderRange("#humidity-range", "#humidityRange", 1, 0, 100);
-    //sliderRange("#noise-range", "#noiseRange", 1, 0, 120);
-    //sliderRange("#dust-range", "#dustRange", 50, 0, 250);
-    //sliderRange("#co2-range", "#co2Range", 100, 0, 2000);
 
     </script>
   </div>
