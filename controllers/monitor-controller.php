@@ -12,9 +12,14 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "GET" and isset($_GET["action"])) {
    switch ($_GET["action"]) {
       case "metrics":
          $query = "SELECT metric_type, entry_time, value
-         FROM metrics
-         JOIN devices_users ON metrics.id_device = devices_users.id_device
-         WHERE metrics.id_device = :id_device AND devices_users.id_user = :id_user";
+         FROM (
+           SELECT metric_type, entry_time, value,
+                  ROW_NUMBER() OVER (PARTITION BY metric_type ORDER BY entry_time) AS row_num
+           FROM metrics
+           JOIN devices_users ON metrics.id_device = devices_users.id_device
+           WHERE metrics.id_device = :id_device AND devices_users.id_user = :id_user
+         ) AS subquery
+         WHERE row_num <= 100";
          $results = $_DB->execute(
             $query,
             [
@@ -26,21 +31,21 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "GET" and isset($_GET["action"])) {
          echo json_encode(count($results) == 0 ? null : $results);
          break;
 
-         case "ecg":
-            $query = "SELECT entry_time, value
+      case "ecg":
+         $query = "SELECT entry_time, value
             FROM metrics
             JOIN devices_users ON metrics.id_device = devices_users.id_device
             WHERE metrics.id_device = :id_device AND devices_users.id_user = :id_user AND metrics.metric_type = 1 ORDER BY entry_time DESC LIMIT 1";
-            $results = $_DB->execute(
-               $query,
-               [
-                  "id_device" => $_GET["device"],
-                  "id_user" => $_SESSION["id"]
-               ]
-            )->fetchAll();
-   
-            echo json_encode(count($results) == 0 ? null : $results);
-            break;
+         $results = $_DB->execute(
+            $query,
+            [
+               "id_device" => $_GET["device"],
+               "id_user" => $_SESSION["id"]
+            ]
+         )->fetchAll();
+
+         echo json_encode(count($results) == 0 ? null : $results);
+         break;
 
       case "threshold":
          $query = "SELECT value, metric_type 
@@ -90,7 +95,7 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "GET" and isset($_GET["action"])) {
                   "id_device" => $id_device
                ]);
                echo "success";
-            } 
+            }
          } else {
             echo "error_doctor";
          }

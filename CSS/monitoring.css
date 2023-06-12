@@ -290,6 +290,11 @@ img {
     align-items: center;
 }
 
+.graph-container canvas {
+    max-width: 80%;
+    max-height: auto;
+}
+
 .slider-box button {
     margin-top: 20px;
     background-color: #e0584c;
