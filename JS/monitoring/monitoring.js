@@ -201,14 +201,50 @@ function fetchPeriodicData() {
         }
       });
 
-      createChart('chartECG', 'Frequence Cardiaque', 'battements / min (bpm)', rythmeCardiaque, rythmeCardiaqueTime);
-      createChart('chartTemp', 'Température', 'temperature (°C)', temperature, temperatureTime);
-      createChart('chartHumidity', 'Humidité', 'humidité (%)', humidity, humidityTime);
-      createChart('chartNoise', 'Bruit ambiant', 'niveau de bruit (dB)', niveauSonore, niveauSonoreTime);
-      createChart('chartDust', 'Taux de microparticules', 'microparticules (µg/m³)', tauxMicroparticules, tauxMicroparticulesTime);
-      createChart('chartCO2', 'CO2 et VOC', 'taux de CO2 (ppm)', tauxCO2, tauxCO2Time);
+      createChart(
+        "chartECG",
+        "Frequence Cardiaque",
+        "battements / min (bpm)",
+        rythmeCardiaque,
+        rythmeCardiaqueTime
+      );
+      createChart(
+        "chartTemp",
+        "Température",
+        "temperature (°C)",
+        temperature,
+        temperatureTime
+      );
+      createChart(
+        "chartHumidity",
+        "Humidité",
+        "humidité (%)",
+        humidity,
+        humidityTime
+      );
+      createChart(
+        "chartNoise",
+        "Bruit ambiant",
+        "niveau de bruit (dB)",
+        niveauSonore,
+        niveauSonoreTime
+      );
+      createChart(
+        "chartDust",
+        "Taux de microparticules",
+        "microparticules (µg/m³)",
+        tauxMicroparticules,
+        tauxMicroparticulesTime
+      );
+      createChart(
+        "chartCO2",
+        "CO2 et VOC",
+        "taux de CO2 (ppm)",
+        tauxCO2,
+        tauxCO2Time
+      );
 
-      document.getElementById('0_0').style.display = "flex";
+      document.getElementById("0_0").style.display = "flex";
 
       // Appeler la fonction createGauge() ici, une fois que les données sont disponibles
       createGauge(
@@ -260,18 +296,20 @@ function fetchPeriodicData() {
 }
 
 function createChart(id, name, label, values, entry_time) {
-  var ctx = document.getElementById(id).getContext('2d');
+  var ctx = document.getElementById(id).getContext("2d");
   var chart = new Chart(ctx, {
-    type: 'line',
+    type: "line",
     data: {
-      labels: [],  // initial empty labels array
-      datasets: [{
-        label: label,
-        data: [],   // initial empty data array
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1
-      }]
+      labels: [], // initial empty labels array
+      datasets: [
+        {
+          label: label,
+          data: [], // initial empty data array
+          fill: false,
+          borderColor: "rgb(75, 192, 192)",
+          tension: 0.1,
+        },
+      ],
     },
     options: {
       responsive: true,
@@ -280,29 +318,29 @@ function createChart(id, name, label, values, entry_time) {
           display: true,
           title: {
             display: true,
-            text: 'Temps'
-          }
+            text: "Temps",
+          },
         },
         y: {
           display: true,
           title: {
             display: true,
-            text: name
+            text: name,
           },
-          suggestedMin: Math.min(...values),
-          suggestedMax: Math.max(...values)
-        }
-      }
-    }
+          suggestedMin: 0,
+          suggestedMax: Math.max(...values),
+        },
+      },
+    },
   });
   var data = chart.data;
   for (var i = 0; i < entry_time.length; i++) {
-    data.labels.push(entry_time[i].split(' ')[1]);
+    data.labels.push(entry_time[i].split(" ")[1]);
     data.datasets[0].data.push(values[i]);
   }
 }
 
-function updateChart(type,id) {
+function updateChart(type, id) {
   console.log("ddd");
   var canvas = document.getElementById(id);
   var chart = Chart.getChart(canvas);
@@ -312,15 +350,17 @@ function updateChart(type,id) {
   const id_device = urlParams.get("device");
 
   fetch(
-    "/controllers/monitor-controller.php?action=" + type + "&device=" + id_device,
+    "/controllers/monitor-controller.php?action=" +
+      type +
+      "&device=" +
+      id_device,
     {
-      method: "GET"
+      method: "GET",
     }
   )
     .then((res) => res.json())
     .then((res) => {
       if (res !== null) {
-
         console.log(res.at(0));
         newData = res.at(0).value;
         entryTime = res.at(0).entry_time;
@@ -329,14 +369,10 @@ function updateChart(type,id) {
         var data = chart.data;
 
         // Add the new data point to the dataset
-        data.labels.push(entryTime.split(' ')[1]);
+        data.labels.push(entryTime.split(" ")[1]);
         data.datasets[0].data.push(newData);
 
         // Remove the first data point if the dataset becomes too large
-        if (data.labels.length > 10) {
-          data.labels.shift();
-          data.datasets[0].data.shift();
-        }
 
         // Update the chart
         chart.update();

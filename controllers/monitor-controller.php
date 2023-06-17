@@ -94,6 +94,18 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "GET" and isset($_GET["action"])) {
                   "values" => $min . ":" . $max,
                   "id_device" => $id_device
                ]);
+               $url = "http://projets-tomcat.isep.fr:8080/appService/?ACTION=COMMAND&TEAM=007E&TRAME=1007E1a01EE" . dechex($max) . "12";
+               $ch = curl_init($url);
+               curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+               $response = curl_exec($ch);
+
+               if ($response === false) {
+                  error_log('Error: ' . curl_error($ch));
+               } else {
+                  error_log('Response: ' . $response);
+               }
+
+               curl_close($ch);
                echo "success";
             }
          } else {
@@ -102,4 +114,4 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "GET" and isset($_GET["action"])) {
          break;
    }
 }
-?>
+
