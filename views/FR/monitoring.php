@@ -24,7 +24,7 @@ if (!isset($_SESSION["name"])) {
   <script src="https://cdn.anychart.com/releases/8.8.0/js/anychart-data-adapter.min.js"></script>
   <link rel="stylesheet" type="text/css"
     href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="/CSS/styles.css" />
   <link rel="stylesheet" href="/CSS/monitoring.css" />
 
@@ -127,18 +127,23 @@ if (!isset($_SESSION["name"])) {
           <button><img src="/images/co2.png"></button>
         </div>
 
+        <div class="checkbox-row">
+          <input type="checkbox" id="myCheckbox">
+          <label for="myCheckbox">Rafraichissement automatique</label>
+        </div>
 
 
         <div class="tab-bodies">
 
-          <div style="display:flex;" class="graph graph-container">
+          <div id='tab_ecg' style="display:none;" class="graph graph-container">
             <!--line graph html code-->
             <h3 id="titleHeartPlot" class="title"></h3>
             <div class="info">
               <p id="meanCard"></p>
               <p id="sdCard"></p>
             </div>
-            <div id="cardiacGraph" class="Plot"></div>
+            <canvas id="chartECG"></canvas>
+
             <!--slider html code-->
             <div class="slider-box">
               <label for="heartPathRange">Seuil d'alerte du rythme cardiaque</label>
@@ -149,99 +154,57 @@ if (!isset($_SESSION["name"])) {
               <div id="success-msg2" class="error-match" style="color: green">seuil mis à jour!</div>
               <div id="error-msg" class="error-match">Vous n'avez pas le droit de modifier ces valeurs</div>
             </div>
+
           </div>
 
           <div style="display:none;" class="graph graph-container">
-            <!--slider html code-->
-            <!--<div class="slider-box">
-            <label for="tempPathRange">Seuil d'alerte pour la temperature</label>
-            <br>
-            <input type="text" id="tempRange" readonly>
-            <div id="temp-range" class="slider"></div>
-          </div>-->
-
             <!--line graph html code-->
             <h3 id="titleTempPlot" class="title"></h3>
             <div id="infoCard" class="info">
               <p id="meanTemp"></p>
               <p id="sdTemp"></p>
             </div>
-            <div id="tempGraph" class="Plot"></div>
+            <canvas id="chartTemp"></canvas>
           </div>
 
           <div style="display:none;" class="graph graph-container">
-            <!--slider html code-->
-            <!--<div class="slider-box">
-            <label for="humidityPathRange">Seuil d'alerte pour l'humidité</label>
-            <br>
-            <input type="text" id="humidityRange" readonly>
-            <div id="humidity-range" class="slider"></div>
-          </div>-->
-
             <!--line graph html code-->
             <h3 id="titleHumidityPlot" class="title"></h3>
             <div id="infoHumidity" class="info">
               <p id="meanHumidity"></p>
               <p id="sdHumidity"></p>
             </div>
-            <div id="humidityGraph" class="Plot"></div>
+            <canvas id="chartHumidity"></canvas>
           </div>
 
-
-
           <div style="display:none;" class="graph graph-container">
-
-            <!--slider html code-->
-            <!--<div class="slider-box">
-            <label for="noisePathRange">Seuil d'alerte du niveau sonore</label>
-            <br>
-            <input type="text" id="noiseRange" readonly>
-            <div id="noise-range" class="slider"></div>
-          </div>-->
-
             <!--line graph html code-->
             <h3 id="titleNoisePlot" class="title"></h3>
             <div class="info">
               <p id="meanNoise"></p>
               <p id="sdNoise"></p>
             </div>
-            <div id="noiseGraph" class="Plot"></div>
+            <canvas id="chartNoise"></canvas>
           </div>
 
           <div style="display:none;" class="graph graph-container">
-            <!--slider html code-->
-            <!--<div class="slider-box">
-            <label for="dustPathRange">Seuil d'alerte du taux de microparticulle</label>
-            <br>
-            <input type="text" id="dustRange" readonly>
-            <div id="dust-range" class="slider"></div>
-          </div>-->
-
             <!--line graph html code-->
             <h3 id="titleDustPlot" class="title"></h3>
             <div class="info">
               <p id="meanDust"></p>
               <p id="sdDust"></p>
             </div>
-            <div id="dustGraph" class="Plot"></div>
+            <canvas id="chartDust"></canvas>
           </div>
 
           <div style="display:none;" class="graph graph-container">
-            <!--slider html code-->
-            <!--<div class="slider-box">
-            <label for="co2PathRange">Seuil d'alerte du taux de CO2</label>
-            <br>
-            <input type="text" id="co2Range" readonly>
-            <div id="co2-range" class="slider"></div>
-          </div>-->
-
             <!--line graph html code-->
             <h3 id="titleCo2Plot" class="title"></h3>
             <div class="info">
               <p id="meanCo2"></p>
               <p id="sdCo2"></p>
             </div>
-            <div id="co2Graph" class="Plot"></div>
+            <canvas id="chartCO2"></canvas>
           </div>
 
         </div>
@@ -256,20 +219,23 @@ if (!isset($_SESSION["name"])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
     <script>
-      // Appeler la fonction initiale pour récupérer les données une première fois
       fetchPeriodicData();
-    // Planifier l'exécution périodique de la fonction
-    //setInterval(fetchPeriodicData, 5000); // Exécuter toutes les 5 secondes (5000 millisecondes)
-    </script>
-    <!--Code Javascript pour le slider range-->
-    <script>
       getThreshold();
-    //sliderRange("#temp-range", "#tempRange", 1, -10, 40);
-    //sliderRange("#humidity-range", "#humidityRange", 1, 0, 100);
-    //sliderRange("#noise-range", "#noiseRange", 1, 0, 120);
-    //sliderRange("#dust-range", "#dustRange", 50, 0, 250);
-    //sliderRange("#co2-range", "#co2Range", 100, 0, 2000);
-
+      var intervalIdECG;
+      var intervalId;
+      document.getElementById('myCheckbox').addEventListener('change', function () {
+        if (this.checked) {
+          intervalIdECG = setInterval(function () {
+            updateChart("ecg","chartECG");
+          }, 1000);
+          intervalId = setInterval(function () {
+            updateCharts();
+          }, 15000);
+        } else {
+          clearInterval(intervalId);
+          clearInterval(intervalIdECG);
+        }
+      });
     </script>
   </div>
   <?php require "bottom-bar.php"; ?>

@@ -92,7 +92,7 @@
     font-size: 1.5vw;
     color: white;
     cursor: pointer;
-    margin:  10px;
+    margin: 10px;
 }
 
 .infoPatient input:focus {
@@ -283,11 +283,37 @@ img {
     margin-bottom: 10px;
 }
 
+.tabs .checkbox-row {
+    width: 100%;
+    background-color: #EBEBEB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabs .checkbox-row input{
+    width: auto;
+}
+
+.tabs .checkbox-row label {
+    color: black;
+}
+
+.checkbox-row input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+
 .graph-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.graph-container canvas {
+    max-width: 80%;
+    max-height: auto;
 }
 
 .slider-box button {
