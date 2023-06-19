@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html{
   scroll-behavior: smooth;
 }
@@ -63,6 +64,18 @@ a{
 .texte-milieu {
   font-family: "Nunito", sans-serif;
   color: #2d67e0;
+=======
+html {
+  scroll-behavior: smooth;
+}
+
+.Title_prod {
+  color: #2d67e0;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-size: 4vw;
+  letter-spacing: 0.1em;
+>>>>>>> fd214abe489fdfb2ec4522d9a0d7485597d082ca
   text-align: center;
   font-weight: 900;
   font-size: 2vw;
@@ -70,7 +83,71 @@ a{
   margin-top: 130px;
 }
 
-body p {
+.Title_prod h1 {
+  font-family: "Nunito", sans-serif;
+  margin-top: 7.5%;
+  font-weight: bolder;
+  font-size: 3vw;
+  letter-spacing: 2em;
+}
+
+.arrow {
+  margin-top: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform: rotate(0deg);
+  cursor: pointer;
+}
+
+.arrow span {
+  display: block;
+  width: 1.5vw;
+  height: 1.5vw;
+  border-bottom: 5px solid #e0584c;
+  border-right: 5px solid #e0584c;
+  transform: rotate(45deg);
+  margin: -10px;
+  animation: animate 2s infinite;
+}
+
+.arrow span:nth-child(2) {
+  animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3) {
+  animation-delay: -0.4s;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-20px, -20px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(20px, 20px);
+  }
+}
+
+a {
+  scroll-behavior: smooth;
+}
+
+.texte-milieu {
+  font-family: "Nunito", sans-serif;
+  color: #2d67e0;
+  text-align: center;
+  font-weight: 900;
+  font-size: 2vw;
+  letter-spacing: 0.1em;
+  margin-top: 20%;
+}
+
+.main-box p {
   padding: 10px;
   font-family: "Nunito", sans-serif;
 }
@@ -82,12 +159,12 @@ body p {
   justify-content: space-around;
   align-items: center;
   width: hv;
-  height: 350px;
+  height: auto;
 }
 
 .introduction p {
   width: 50%;
-  height: 50%;
+  height: auto;
   display: flex;
   align-items: center;
   font-weight: 900;
@@ -97,7 +174,11 @@ body p {
   text-align: justify;
 }
 
+<<<<<<< HEAD
 p{
+=======
+.main-box p {
+>>>>>>> fd214abe489fdfb2ec4522d9a0d7485597d082ca
   text-align: justify;
 }
 
@@ -258,6 +339,10 @@ p{
 }
 
 @media (max-width: 700px) {
+  .Title_prod {
+    margin-bottom: 30px;
+  }
+
   .introduction,
   .dust-cpt,
   .temp-cpt,
@@ -267,7 +352,8 @@ p{
   }
 
   .text-container {
-    margin-bottom: 20%;
+    height: auto;
+    margin-bottom: 30%;
   }
 
   .introduction p {
@@ -300,6 +386,25 @@ p{
   .texte-milieu {
     text-align: center;
     font-size: 3vw;
+<<<<<<< HEAD
+=======
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .arrow span {
+    display: none;
+  }
+
+  .arrow span:nth-child(2) {
+    display: none;
+  }
+
+  .arrow span:nth-child(3) {
+    display: none;
+>>>>>>> fd214abe489fdfb2ec4522d9a0d7485597d082ca
   }
 
   .arrow {

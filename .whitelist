@@ -1,0 +1,33 @@
+FR
+EN
+
+# informations
+home
+presentation
+produit
+mentions
+cgu
+faq
+contact
+
+# users functions
+reset-passwd
+new-passwd
+login
+register
+health-view
+monitoring
+tickets
+create-ticket
+
+# settings
+settings-profil
+settings-delete
+settings-mdp
+settings-notif
+settings-email
+
+# admin
+admin-users
+admin-tickets
+admin-faq

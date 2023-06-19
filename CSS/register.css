@@ -1,62 +1,148 @@
-.title_register {
-  margin-bottom: 5%;
-  text-align: center;
-  color: #1277ee;
-  font-family: "Krona One", sans-serif;
-  font-size: 3vw;
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
 }
 
-.form_inscription {
-  max-width: 540px;
-  width: 90%;
+.wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.inscription {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "Reem Kufi", sans-serif;
-  max-height: 100%;
+  flex-direction: column;
+}
+
+form {
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  min-width: 250px;
+  padding: 20px 50px 20px 50px;
+  border-radius: 10px;
+}
+
+.form_log {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form h1 {
+  font-size: 20px;
+  text-align: center;
+}
+
+form div.separation {
+  background-color: #e0584c;
+  height: 1px;
   width: 100%;
 }
 
-.register_button {
-  border: 0;
-  line-height: 2.5;
-  padding: 0 20px;
-  font-size: 1rem;
-  text-align: center;
-  color: #fff;
-  border-radius: 10px;
-  background-color: #e0584c;
-  width: 200px;
-  height: 75px;
-  margin-top: 2%;
-  margin-bottom: 2%;
+form div.corps-formulaire div.separation {
+  display: none;
 }
 
-.register_button:hover {
+form div.corps-formulaire {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 30px;
+}
+
+form .corps-formulaire div.groupe {
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+form .gauche {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form div.gauche div.groupe input {
+  margin-top: 5px;
+  padding: 10px 5px 10px 30px;
+  border: 1px solid #c9c9c9;
+  outline-color: #b9d0ff;
+  border-radius: 5px;
+}
+
+form label {
+  text-align: center;
+}
+
+form div.gauche div.groupe i {
+  position: absolute;
+  color: #e0584c;
+  left: 0;
+  top: 25px;
+  padding: 9px 8px;
+}
+
+form .droite {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  max-width: 50%;
+}
+
+form .pied-formulaire {
+  display: flex;
+  justify-content: center;
+}
+
+form .pied-formulaire button {
+  margin-top: 10px;
+  background-color: #e0584c;
+  color: white;
+  font-size: 15px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form .pied-formulaire button:hover {
   opacity: 0.8;
   transform: scale(1.1);
   transition: 0.3s ease-in-out;
 }
 
-.Nom,
-.Prénom,
-.email,
-.mdp,
-.health_key {
-  padding: 10px;
-  height: 25px;
-  width: 100%;
-  margin-bottom: 50px;
-  background-color: rgb(4, 25, 214, 0.27);
-  border: 1px solid rgb(4, 25, 214);
-  border-radius: 10px;
+.link {
+  margin-top: 20px;
+}
+
+.remember {
+  margin-top: 20px;
+  font-family: "Reem Kufi", sans-serif;
+  text-align: center;
+}
+
+.loader {
+  margin-top: 20px;
+  margin-bottom: 3%;
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 ::-webkit-input-placeholder {
@@ -75,4 +161,59 @@
 :-moz-placeholder {
   color: rgb(26, 35, 232, 0.73);
   font-weight: bold;
+}
+
+.gender {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.type {
+  padding: 10px;
+  height: 40px;
+  width: 240px;
+  border-radius: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  color: black;
+  background-color: transparent;
+  text-align: center;
+  margin-top: 20px;
+}
+
+::-webkit-input-placeholder {
+  color: rgb(26, 35, 232, 0.73);
+  font-weight: bold;
+}
+::-moz-placeholder {
+  color: rgb(26, 35, 232, 0.73);
+  font-weight: bold;
+}
+
+:-ms-input-placeholder {
+  color: rgb(26, 35, 232, 0.73);
+  font-weight: bold;
+}
+:-moz-placeholder {
+  color: rgb(26, 35, 232, 0.73);
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1015px) {
+  body {
+    font-size: 14px;
+  }
+
+  form div.corps-formulaire {
+    flex-direction: column;
+  }
+
+  form div.corps-formulaire div.separation {
+    display: block;
+  }
+
+  form div.droite {
+    max-width: 100%;
+  }
 }

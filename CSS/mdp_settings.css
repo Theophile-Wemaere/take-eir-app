@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+
+.droite .test a {
+  text-decoration: none;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+form {
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  max-height: 700px;
+  min-width: 250px;
+  padding: 50px;
+  border-radius: 10px;
+  max-width: 700px;
+}
+
+form h1 {
+  font-size: 22px;
+  color: #e0584c;
+}
+
+form div.separation {
+  background-color: #e0584c;
+  height: 1px;
+  width: 100%;
+}
+
+form div.corps-formulaire {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px;
+}
+
+form .corps-formulaire div.groupe {
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+form .corps-formulaire .droite .groupe label {
+  padding: 12px 20px;
+  margin-bottom: 15px;
+  color: #73aef0;
+  font-size: 18px;
+}
+
+i {
+  color: #3f2de1;
+}
+
+.test span.current {
+  color: #3f2de1;
+}
+
+.test span.supprimer {
+  color: #e0584c;
+}
+
+.test span.supprimer:hover {
+  color: red;
+}
+
+.test {
+  padding: 20px 0;
+  color: #e0584c;
+}
+
+form .corps-formulaire .droite .groupe label:hover {
+  color: #3f2de1;
+  cursor: pointer;
+}
+
+form div.gauche div.groupe input {
+  margin-top: 5px;
+  padding: 10px 20px 10px 30px;
+  width: 190px;
+  border: 1px solid #c9c9c9;
+  outline-color: #b9d0ff;
+  border-radius: 5px;
+}
+
+form div.gauche div.groupe textarea {
+  margin-top: 5px;
+  padding: 10px 20px 10px 30px;
+  width: 190px;
+  border: 1px solid #c9c9c9;
+  outline-color: #b9d0ff;
+  border-radius: 5px;
+  resize: vertical;
+  max-height: 170px;
+}
+
+form div.gauche div.groupe label {
+  font-size: 18px;
+}
+
+form div.gauche div.groupe i {
+  position: absolute;
+  color: #e0584c;
+  left: 0;
+  top: 25px;
+  padding: 9px 8px;
+}
+
+.gauche {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.reason {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form .corps-formulaire .droite {
+  margin-left: 3px;
+  margin-right: 80px;
+}
+
+form .corps-formulaire .droite .groupe {
+  height: 100%;
+}
+
+form .corps-formulaire .droite .groupe textarea {
+  margin-top: 5px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border: 2px solid #b9d0ff;
+  outline: none;
+  border-radius: 5px;
+  color: grey;
+  resize: none;
+  height: 72%;
+}
+
+form .pied-formulaire button {
+  margin-top: 10px;
+  background-color: #e0584c;
+  color: white;
+  font-size: 15px;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form .pied-formulaire button:hover {
+  opacity: 0.8;
+  transform: scale(1.15);
+  transition: 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 850px) {
+  form div.corps-formulaire {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  form .corps-formulaire .droite {
+    margin: 0;
+  }
+
+  form .corps-formulaire .droite .groupe label,
+  form div.gauche div.groupe label {
+    font-size: 14px;
+  }
+
+  form h1 {
+    font-size: 16px;
+  }
+
+  form .corps-formulaire .droite .groupe label {
+    display: none;
+  }
+
+  .droite i {
+    padding: 5px;
+    margin-right: 24px;
+    color: #73aef0;
+  }
+
+  .droite {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+  }
+
+  .groupe {
+    width: 100%;
+  }
+
+  .label:before {
+    font-size: 14px;
+  }
+
+  .test {
+    color: #73aef0;
+  }
+
+  .test .current {
+    color: #3f2de1;
+  }
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  height: 49%;
+  align-items: left;
+  justify-content: center;
+  margin-top: 20px;
+}

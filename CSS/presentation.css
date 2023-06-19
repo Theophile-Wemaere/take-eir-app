@@ -1,8 +1,6 @@
 .corps {
   background-color: #ffffff;
-  left: 2%;
-  right: 2%;
-  width: 96%;
+  width: 70%;
   border-radius: 20px;
   align-items: center;
   justify-content: center;
@@ -23,9 +21,12 @@
 
 .box {
   position: relative;
+  display: flex;
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 85%;
   max-height: 100%;
   height: 100;
@@ -77,6 +78,17 @@ figure figcaption {
   text-align: center;
 }
 
+.equip-div figcaption {
+  font-size: 1vw;
+}
+
+.equip-grid figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .dropbtn {
   height: 50px;
   float: right;
@@ -98,7 +110,7 @@ figure figcaption {
   background-color: #dde9ff;
 }
 
-.dropdown {
+.dropdownPres {
   position: relative;
   display: inline-block;
 }
@@ -127,7 +139,7 @@ figure figcaption {
   height: fit-content;
 }
 
-.dropdown a:hover {
+.dropdownPres a:hover {
   background-color: #dde9ff;
 }
 
@@ -139,27 +151,90 @@ figure figcaption {
 }
 
 @media (min-width: 850px) {
-  .equip-img {
-    width: 65%;
+  .equip-grid {
+    display: inline-block;
+    width: 30%;
+    padding: 5px;
   }
 
+<<<<<<< HEAD
 h3{
   margin-top: 100px;
   margin-bottom: -80px;
 }
+=======
+  figcaption {
+    font-size: 1vw;
+  }
+
+  .corps .textcorp {
+    font-size: 1vw;
+  }
+
+  .equip-img {
+    width: 70%;
+  }
+
+  h3 {
+    margin-top: 100px;
+    margin-bottom: -80px;
+  }
+>>>>>>> fd214abe489fdfb2ec4522d9a0d7485597d082ca
   /*#title {
     margin-top: 16%;
   }*/
 }
 
+.equip-div {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.equip-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.equip-grid figure {
+  margin: 0;
+}
+
 @media (max-width: 850px) {
-  .equip-img {
-    width: 65%;
+  .equip-grid {
+    display: inline-block;
+    width: 30%;
+    padding: 5px;
   }
 
-  /*#title {
-    margin-top: 32%;
-  }*/
+  .equip-img {
+    width: 100px;
+  }
+}
+
+@media (max-width: 550px) {
+  .equip-img {
+    width: 70px;
+  }
+
+  .equip-div {
+    flex-direction: row;
+  }
+
+  .equip-div figcaption {
+    font-size: 3vw;
+  }
+
+  .equip-block {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
 }
 
 

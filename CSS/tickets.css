@@ -1,0 +1,186 @@
+:root {
+  --accent-color: #2d67e0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat";
+}
+
+h1 {
+  font-family: "Nunito";
+  font-weight: 500;
+  font-size: 4vw;
+  letter-spacing: 0.05em;
+  margin-bottom: 0;
+  text-align: center;
+  color: var(--accent-color);
+}
+
+.main-box {
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 10px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.tickets-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  max-height: 410px;
+  overflow: scroll;
+  border-radius: 10px;
+  border: solid 1px #e0584c;
+}
+
+.left-part {
+  margin-right: 10px;
+}
+
+.left-part select {
+  width: 50%;
+  margin-bottom: 10px;
+  margin-top: 3px;
+  left: 0;
+}
+
+.conv {
+  flex-grow: 1;
+  border-radius: 10px;
+  border: solid 1px #e0584c;
+  margin-left: 25px;
+  max-width: 50%;
+  max-height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.conversation {
+  padding: 5px;
+  overflow: scroll;
+  max-height: 85%;
+  flex-grow: 1;
+}
+
+.messagerow {
+  font-weight: normal;
+  margin-bottom: 2px;
+}
+
+.respbox {
+  border-top: solid 1px #e0584c;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  height: 15%;
+  padding: 5px;
+}
+
+.messagebox {
+  width: 90%;
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 10px;
+  resize: none;
+  height: 80%;
+}
+
+.send-btn {
+  padding: 0;
+  flex-grow: 1;
+  height: 80%;
+}
+
+.left-part {
+  max-width: 80%;
+}
+
+.ticket {
+  box-sizing: border-box;
+  background: transparent;
+  padding: 20px;
+  position: relative;
+  border: solid 1px #e0584c;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ticket-title {
+  margin: 0 35px 0 0;
+  font-weight: bold;
+}
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.ticket-tag {
+  padding: 5px;
+  border-radius: 10px;
+  width: auto;
+  font-weight: normal;
+  font-style: italic;
+  background-color: #e0584c;
+}
+
+.ticket-state {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.ticket-timestamp {
+  font-weight: normal;
+}
+
+.current-ticket {
+  border: solid 5px #2d67e0;
+}
+
+.corps-formulaire {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 1350px) {
+  .tickets-container h1 {
+    font-size: 21px;
+  }
+
+  h3 {
+    font-size: 15px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  .main-box {
+    flex-direction: column-reverse;
+  }
+
+  .left-part {
+    max-width: 100%;
+  }
+
+  .conv {
+    margin-left: 0;
+    max-width: 100%;
+    height: 200px;
+  }
+
+  .tickets-container {
+    margin: 10px 0 0 0;
+    padding: 0;
+    max-height: 325px;
+  }
+
+  .ticket {
+    margin: 10px;
+  }
+}
