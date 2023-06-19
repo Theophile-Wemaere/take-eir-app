@@ -230,7 +230,7 @@ if (!isset($_SESSION["name"])) {
           }, 1000);
           intervalId = setInterval(function () {
             updateCharts();
-          }, 15000);
+          }, 10000);
         } else {
           clearInterval(intervalId);
           clearInterval(intervalIdECG);
