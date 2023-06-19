@@ -127,6 +127,12 @@ if (!isset($_SESSION["name"])) {
           <button><img src="/images/co2.png"></button>
         </div>
 
+        <div class="checkbox-row">
+          <input type="checkbox" id="myCheckbox">
+          <label for="myCheckbox">Rafraichissement automatique</label>
+        </div>
+
+
         <div class="tab-bodies">
 
           <div id='tab_ecg' style="display:none;" class="graph graph-container">
@@ -136,23 +142,6 @@ if (!isset($_SESSION["name"])) {
               <p id="meanCard"></p>
               <p id="sdCard"></p>
             </div>
-            <label>
-              <input type="checkbox" id="myCheckbox">
-              Temps-réel
-            </label>
-            <script>
-              var intervalId;
-
-              document.getElementById('myCheckbox').addEventListener('change', function () {
-                if (this.checked) {
-                  intervalId = setInterval(function () {
-                    updateChart("ecg", "chartECG");
-                  }, 1000);
-                } else {
-                  clearInterval(intervalId);
-                }
-              });
-            </script>
             <canvas id="chartECG"></canvas>
 
             <!--slider html code-->
@@ -232,6 +221,21 @@ if (!isset($_SESSION["name"])) {
     <script>
       fetchPeriodicData();
       getThreshold();
+      var intervalIdECG;
+      var intervalId;
+      document.getElementById('myCheckbox').addEventListener('change', function () {
+        if (this.checked) {
+          intervalIdECG = setInterval(function () {
+            updateChart("ecg","chartECG");
+          }, 1000);
+          intervalId = setInterval(function () {
+            updateCharts();
+          }, 15000);
+        } else {
+          clearInterval(intervalId);
+          clearInterval(intervalIdECG);
+        }
+      });
     </script>
   </div>
   <?php require "bottom-bar.php"; ?>

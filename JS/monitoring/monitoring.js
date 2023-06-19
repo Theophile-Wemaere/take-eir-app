@@ -147,7 +147,7 @@ function fetchPeriodicData() {
 
   xhr.onload = function () {
     if (xhr.status === 200) {
-      var data = JSON.parse(xhr.responseText);
+      var datas = JSON.parse(xhr.responseText);
       var rythmeCardiaqueTime = [];
       var rythmeCardiaque = [];
 
@@ -166,8 +166,11 @@ function fetchPeriodicData() {
       var tauxCO2Time = [];
       var tauxCO2 = [];
 
+      var tauxVOCTime = [];
+      var tauxVOC = [];
+
       // Parcourir les données et les trier en fonction du type de métrique
-      data.forEach((element) => {
+      datas.forEach((element) => {
         var metricType = element.metric_type;
         var entryTime = element.entry_time;
         var value = element.value;
@@ -197,6 +200,9 @@ function fetchPeriodicData() {
           case 6:
             humidityTime.push(entryTime);
             humidity.push(parseFloat(value));
+            break;
+          case 7:
+            tauxVOC.push(parseFloat(value));
             break;
         }
       });
@@ -243,6 +249,19 @@ function fetchPeriodicData() {
         tauxCO2,
         tauxCO2Time
       );
+
+      var chart = Chart.getChart("chartCO2");
+      var data = chart.data;
+      data.datasets.push({
+        label: 'taux de particules organiques (ppb)',
+        data: [],
+        borderColor: 'blue', // Customize the line color
+        borderWidth: 1, // Customize the line width
+        fill: false, // Disable filling the area under the line
+      });
+      for (var i = 0; i < tauxVOC.length; i++) {
+        data.datasets[1].data.push(tauxVOC[i]);
+      }
 
       document.getElementById("0_0").style.display = "flex";
 
@@ -328,7 +347,7 @@ function createChart(id, name, label, values, entry_time) {
             text: name,
           },
           suggestedMin: 0,
-          suggestedMax: Math.max(...values),
+          suggestedMax: Math.max(...values)*2,
         },
       },
     },
@@ -341,7 +360,6 @@ function createChart(id, name, label, values, entry_time) {
 }
 
 function updateChart(type, id) {
-  console.log("ddd");
   var canvas = document.getElementById(id);
   var chart = Chart.getChart(canvas);
   // Fetch data from the controller or data source
@@ -376,6 +394,50 @@ function updateChart(type, id) {
 
         // Update the chart
         chart.update();
+      }
+    });
+}
+
+function updateCharts() {
+  const metricTypes = {
+    1: 'chartECG',
+    2: 'chartTemp',
+    3: 'chartNoise',
+    4: 'chartDust',   
+    5: 'chartCO2',
+    6: 'chartHumidity',
+    7: 'chartCO2'
+  };
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const id_device = urlParams.get('device');
+
+  fetch('/controllers/monitor-controller.php?action=update&device=' + id_device, {
+    method: 'GET',
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res !== null) {
+        res.forEach((dataPoint) => {
+          const metricType = dataPoint.metric_type;
+          const id = metricTypes[metricType];
+          const chartCanvas = document.getElementById(id)
+          const chart = Chart.getChart(chartCanvas);
+
+          const newData = dataPoint.value;
+          const entryTime = dataPoint.entry_time;
+
+          const data = chart.data;
+
+          if(metricType === 7) {
+            data.datasets[1].data.push(newData);
+          } else {
+            data.labels.push(entryTime.split(' ')[1]);
+            data.datasets[0].data.push(newData);
+          }
+
+          chart.update();
+        });
       }
     });
 }
