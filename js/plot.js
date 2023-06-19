@@ -63,32 +63,15 @@ function calculerVarianceDecibels(niveauxSonores) {
   return varianceDecibels;
 }
 
-function getTimeDifferenceInMinutes(date1, date2) {
-  // Convertir les dates en millisecondes
-  var time1 = date1.getTime();
-  var time2 = date2.getTime();
 
-  // Calculer la différence de temps en millisecondes
-  var timeDiff = Math.abs(time2 - time1);
+function timeDifference(temps1, temps2) {
+  const difference = Math.abs(temps1 - temps2) / 1000; // Conversion en secondes
 
-  // Convertir la différence de temps en minutes
-  var minutes = Math.floor(timeDiff / (1000 * 60));
+  const heures = Math.floor(difference / 3600);
+  const minutes = Math.floor((difference % 3600) / 60);
+  const secondes = Math.floor(difference % 60);
 
-  return minutes;
-}
-
-function getTimeDifferenceInHours(date1, date2) {
-  // Convertir les dates en millisecondes
-  var time1 = date1.getTime();
-  var time2 = date2.getTime();
-
-  // Calculer la différence de temps en millisecondes
-  var timeDiff = Math.abs(time2 - time1);
-
-  // Convertir la différence de temps en heures
-  var hours = Math.floor(timeDiff / (1000 * 60 * 60));
-
-  return hours;
+  return `${heures} dernières heures, les ${minutes} dernières minutes et les ${secondes} dernières secondes`;
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------
@@ -104,18 +87,22 @@ const nomsMois = [
   'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'
 ];
 
-function Plot(time, ord1, id, color) {
+function Plot(time, ord1,id, color, ord2 = [], color2=null) {
+
+
   //On conserve les données des X dernières minutes
   var Date = time.slice(-31);
   var Rate = ord1.slice(-31);
+  var Rate2 = ord2.slice(-31);
 
 
   // Format the data
-  const data = Date.map((date, i) => ({ date: date, rate: Rate[i] }));
+  const data = Date.map((date, i) => ({ date: date, rate: Rate[i]}));
+  const data2 = Date.map((date, i) => ({ date: date, rate2: Rate2[i]}));
+
 
   //Temps en minute
-  minDiff = getTimeDifferenceInMinutes(Date[0], Date[Date.length - 1]);
-  hoursDiff = getTimeDifferenceInHours(Date[0], Date[Date.length - 1]);
+  timeDiff = timeDifference(Date[0], Date[Date.length - 1]);
 
 
   //--------------------------------------------Crétion du graphique suivant l'évolution du rythme cardiaque--------------------------------------
@@ -160,6 +147,38 @@ function Plot(time, ord1, id, color) {
     .style("fill", "blue")
     .style("font-weight", "bold");
 
+  if (id.includes("temp") || id.includes("co2")){ 
+  // Add Y axis for ord2
+  var y2 = d3.scaleLinear()
+    .domain([d3.min(data2, d => d.rate2) - 20, d3.max(data2, d => d.rate2) + 20])
+    .range([height, 0]);
+
+  svg.append("g")
+    .attr("transform", `translate(${width}, 0)`)
+    .call(d3.axisRight(y2))
+    .selectAll("text")
+    .style("font-family", "Montserrat")
+    .style("font-size", "3em")
+    .style("fill", "green")
+    .style("font-weight", "bold");
+
+  // Create the circle that travels along the curve of chart2
+  var focus2 = svg
+    .append('g')
+    .append('circle')
+    .style("fill", "none")
+    .attr("stroke", color2)
+    .attr('r', 8.5)
+    .style("opacity", 0);
+  // Create the text that travels along the curve of chart2
+  var focusText2 = svg
+    .append('g')
+    .append('text')
+    .style("opacity", 0)
+    .attr("text-anchor", "left")
+    .attr("alignment-baseline", "middle");
+  }
+  
 
   // This allows to find the closest X index of the mouse:
   var bisect = d3.bisector(function (d) { return d.date; }).left;
@@ -180,6 +199,7 @@ function Plot(time, ord1, id, color) {
     .style("opacity", 0)
     .attr("text-anchor", "left")
     .attr("alignment-baseline", "middle")
+  
 
   //Si on on veut faire un graphique pour la température on fait un graphique different avec un gradient de couleur
 
@@ -224,7 +244,20 @@ function Plot(time, ord1, id, color) {
         // Just add that to have a curve instead of segments
         .x(function (d) { return x(d.date) })
         .y(function (d) { return y(d.rate) })
-      )
+      );
+  }
+
+  if (id.includes("temp") || id.includes("co2")){
+    // Ajouter la deuxième ligne
+    svg.append("path")
+      .datum(data2)
+      .attr("fill", "none")
+      .attr("stroke", "purple")
+      .attr("stroke-width", 5)
+      .attr("d", d3.line()
+        .x(d => x(d.date))
+        .y(d => y2(d.rate2))
+      );
   }
 
   // Create a rect on top of the svg area: this rectangle recovers mouse position
@@ -244,72 +277,91 @@ function Plot(time, ord1, id, color) {
     focusText.style("opacity", 1)
   }
   function mousemove() {
-    // recover coordinate we need
     var x0 = x.invert(d3.mouse(this)[0]);
     var i = bisect(data, x0, 1);
-    var selectedData = data[i]
-
+    var selectedData = data[i];
+    var selectedData2 = data2 ? data2[i] : null;
+  
     if (selectedData) {
       focus
         .attr("cx", x(selectedData.date))
         .attr("cy", y(selectedData.rate));
-
-      
-
+  
+      if (selectedData2) {
+        focus2
+          .attr("cx", x(selectedData2.date))
+          .attr("cy", y2(selectedData2.rate2));
+      }
+  
       if (id.includes("card")) {
         focusText
           .html("x:" + selectedData.date.getHours() + ":" + selectedData.date.getMinutes() + "\n y:" + selectedData.rate + " bpm")
           .attr("x", x(selectedData.date) + 15)
           .attr("y", y(selectedData.rate))
           .style("font-size", "2em")
-          .style("font-weight", "bold")
-
-
+          .style("font-weight", "bold");
+  
       } else if (id.includes("temp")) {
         focusText
           .html("x:" + selectedData.date.getHours() + ":" + selectedData.date.getMinutes() + "  -  " + " y:" + selectedData.rate + " °C")
           .attr("x", x(selectedData.date) + 15)
           .attr("y", y(selectedData.rate))
           .style("font-size", "2em")
-          .style("font-weight", "bold")
-
-
+          .style("font-weight", "bold");
+  
+        if (selectedData2) {
+          focusText2
+            .html("x:" + selectedData2.date.getHours() + ":" + selectedData2.date.getMinutes() + "  -  " + " y:" + selectedData2.rate2 + " °C")
+            .attr("x", x(selectedData2.date) + 15)
+            .attr("y", y2(selectedData2.rate2))
+            .style("font-size", "2em")
+            .style("font-weight", "bold");
+        }
+  
       } else if (id.includes("noise")) {
         focusText
           .html("x:" + selectedData.date.getHours() + ":" + selectedData.date.getMinutes() + "  -  " + "y:" + selectedData.rate + " dB")
           .attr("x", x(selectedData.date) + 15)
           .attr("y", y(selectedData.rate))
           .style("font-size", "2em")
-          .style("font-weight", "bold")
-
-
+          .style("font-weight", "bold");
+  
       } else if (id.includes("dust")) {
         focusText
           .html("x:" + selectedData.date.getHours() + ":" + selectedData.date.getMinutes() + "  -  " + "y:" + selectedData.rate + " µg/m^3")
           .attr("x", x(selectedData.date) + 15)
           .attr("y", y(selectedData.rate))
           .style("font-size", "2em")
-          .style("font-weight", "bold")
-
-
+          .style("font-weight", "bold");
+  
       } else if (id.includes("co2")) {
         focusText
           .html("x:" + selectedData.date.getHours() + ":" + selectedData.date.getMinutes() + "  -  " + "y:" + selectedData.rate + " ppm")
           .attr("x", x(selectedData.date) + 15)
           .attr("y", y(selectedData.rate))
           .style("font-size", "2em")
-          .style("font-weight", "bold")
-
+          .style("font-weight", "bold");
+  
+        if (selectedData2) {
+          focusText2
+            .html("x:" + selectedData2.date.getHours() + ":" + selectedData2.date.getMinutes() + "  -  " + " y:" + selectedData2.rate2 + " °C")
+            .attr("x", x(selectedData2.date) + 15)
+            .attr("y", y2(selectedData2.rate2))
+            .style("font-size", "2em")
+            .style("font-weight", "bold");
+        }
+  
       } else if (id.includes("humidity")) {
         focusText
           .html("x:" + selectedData.date.getHours() + ":" + selectedData.date.getMinutes() + "  -  " + "y:" + selectedData.rate + " %")
           .attr("x", x(selectedData.date) + 15)
           .attr("y", y(selectedData.rate))
           .style("font-size", "2em")
-          .style("font-weight", "bold")
+          .style("font-weight", "bold");
       }
     }
   }
+  
   
   function mouseout() {
     focus.style("opacity", 0)
@@ -326,12 +378,11 @@ function Plot(time, ord1, id, color) {
     .text("Temps P.M (en min)");
 
 
-
   //Ajout du titre au graphique et de la moyenne et de l'écart type
   if (id.includes("card")) {
-    document.getElementById("titleHeartPlot").innerHTML = "Évolution du rythme cardiaque du patient sur les " + minDiff + " dernières minutes, pour la journée du " + Date[Date.length - 1].getDate() + " " + nomsMois[Date[Date.length - 1].getMonth()] + " " + Date[Date.length - 1].getFullYear();
-    document.getElementById("meanCard").innerHTML = "Rythme cardiaque moyen sur les " + minDiff + " dernières minutes : <strong>" + Math.round(Average(Rate)) + " bpm</strong>";
-    document.getElementById("sdCard").innerHTML = "Écart moyen entre deux pulsations sur les " + minDiff + " dernières minutes : <strong>" + Math.round(Math.pow(Variance(Rate), 0.5)) + " bpm</strong>";
+    document.getElementById("titleHeartPlot").innerHTML = "Évolution du rythme cardiaque du patient sur les " + timeDiff + ", pour la journée du " + Date[Date.length - 1].getDate() + " " + nomsMois[Date[Date.length - 1].getMonth()] + " " + Date[Date.length - 1].getFullYear();
+    document.getElementById("meanCard").innerHTML = "Rythme cardiaque moyen sur les " + timeDiff + " : <strong>" + Math.round(Average(Rate)) + " bpm</strong>";
+    document.getElementById("sdCard").innerHTML = "Écart moyen entre deux pulsations sur les " + timeDiff + " : <strong>" + Math.round(Math.pow(Variance(Rate), 0.5)) + " bpm</strong>";
     // Ajouter un label à l'axe Y
     svg.append("text")
       .attr("transform", "rotate(-90)") // Fait pivoter le texte de 90 degrés pour l'axe Y
@@ -343,9 +394,9 @@ function Plot(time, ord1, id, color) {
   }
   else if (id.includes("temp")) {
 
-    document.getElementById("titleTempPlot").innerHTML = "Évolution de la température dans la chambre sur les " + hoursDiff + " dernières heures, pour la journée du " + data[data.length - 1].date.getDate() + " " + nomsMois[data[data.length - 1].date.getMonth()] + " " + data[data.length - 1].date.getFullYear();
-    document.getElementById("meanTemp").innerHTML = "Température moyenne sur les " + hoursDiff + " dernières heures : <strong>" + Math.round(Average(Rate)) + " °C</strong>";
-    document.getElementById("sdTemp").innerHTML = "Écart moyen entre deux mesures sur les " + hoursDiff + " dernières heures : <strong>" + Math.round(Math.pow(Variance(Rate), 0.5)) + " °C </strong>";
+    document.getElementById("titleTempPlot").innerHTML = "Évolution de la température dans la chambre sur les " + timeDiff + ", pour la journée du " + data[data.length - 1].date.getDate() + " " + nomsMois[data[data.length - 1].date.getMonth()] + " " + data[data.length - 1].date.getFullYear();
+    document.getElementById("meanTemp").innerHTML = "Température moyenne sur les " + timeDiff + " : <strong>" + Math.round(Average(Rate)) + " °C</strong>";
+    document.getElementById("sdTemp").innerHTML = "Écart moyen entre deux mesures sur les " + timeDiff + " : <strong>" + Math.round(Math.pow(Variance(Rate), 0.5)) + " °C </strong>";
 
     // Ajouter un label à l'axe Y
     svg.append("text")
@@ -359,9 +410,9 @@ function Plot(time, ord1, id, color) {
 
   }
   else if (id.includes("noise")) {
-    document.getElementById("titleNoisePlot").innerHTML = "Évolution du niveau sonore dans la chambre sur les " + hoursDiff + " dernières heures, pour la journée du " + data[data.length - 1].date.getDate() + " " + nomsMois[data[data.length - 1].date.getMonth()] + " " + data[data.length - 1].date.getFullYear();
-    document.getElementById("meanNoise").innerHTML = "Niveau sonore moyen sur les " + hoursDiff + " dernières heures : <strong>" + Math.round(calculerMoyenneDecibels(Rate)) + " dB</strong>";
-    document.getElementById("sdNoise").innerHTML = "Écart moyen entre deux mesures sur les " + hoursDiff + " dernières heures : <strong>" + Math.round(Math.pow(calculerVarianceDecibels(Rate), 0.5)) + " dB </strong>";
+    document.getElementById("titleNoisePlot").innerHTML = "Évolution du niveau sonore dans la chambre sur les " + timeDiff + ", pour la journée du " + data[data.length - 1].date.getDate() + " " + nomsMois[data[data.length - 1].date.getMonth()] + " " + data[data.length - 1].date.getFullYear();
+    document.getElementById("meanNoise").innerHTML = "Niveau sonore moyen sur les " + timeDiff + " : <strong>" + Math.round(calculerMoyenneDecibels(Rate)) + " dB</strong>";
+    document.getElementById("sdNoise").innerHTML = "Écart moyen entre deux mesures sur les " + timeDiff + " : <strong>" + Math.round(Math.pow(calculerVarianceDecibels(Rate), 0.5)) + " dB </strong>";
     // Ajouter un label à l'axe Y
     svg.append("text")
       .attr("transform", "rotate(-90)") // Fait pivoter le texte de 90 degrés pour l'axe Y
@@ -372,9 +423,9 @@ function Plot(time, ord1, id, color) {
       .text("Niveau sonore (en dB)");
   }
   else if (id.includes("dust")) {
-    document.getElementById("titleDustPlot").innerHTML = "Évolution du taux de microparticules dans la chambre sur les " + hoursDiff + " dernières heures, pour la journée du " + data[data.length - 1].date.getDate() + " " + nomsMois[data[data.length - 1].date.getMonth()] + " " + data[data.length - 1].date.getFullYear();
-    document.getElementById("meanDust").innerHTML = "Taux de microparticules moyen sur les " + hoursDiff + " dernières heures : <strong>" + Math.round(Average(Rate)) + " µg/m^3</strong>";
-    document.getElementById("sdDust").innerHTML = "Écart moyen entre deux mesures sur les " + hoursDiff + " dernières heures : <strong>" + Math.round(Math.pow(Variance(Rate), 0.5)) + " µg/m^3</strong>";
+    document.getElementById("titleDustPlot").innerHTML = "Évolution du taux de microparticules dans la chambre sur les " + timeDiff + ", pour la journée du " + data[data.length - 1].date.getDate() + " " + nomsMois[data[data.length - 1].date.getMonth()] + " " + data[data.length - 1].date.getFullYear();
+    document.getElementById("meanDust").innerHTML = "Taux de microparticules moyen sur les " + timeDiff + " : <strong>" + Math.round(Average(Rate)) + " µg/m^3</strong>";
+    document.getElementById("sdDust").innerHTML = "Écart moyen entre deux mesures sur les " + timeDiff + " : <strong>" + Math.round(Math.pow(Variance(Rate), 0.5)) + " µg/m^3</strong>";
     // Ajouter un label à l'axe Y
     svg.append("text")
       .attr("transform", "rotate(-90)") // Fait pivoter le texte de 90 degrés pour l'axe Y
@@ -385,9 +436,9 @@ function Plot(time, ord1, id, color) {
       .text("Taux de microparticules (en µg/m^3)");
   }
   else if (id.includes("co2")) {
-    document.getElementById("titleCo2Plot").innerHTML = "Évolution du taux de CO2 dans la chambre sur les " + hoursDiff + " dernières heures, pour la journée du " + data[data.length - 1].date.getDate() + " " + nomsMois[data[data.length - 1].date.getMonth()] + " " + data[data.length - 1].date.getFullYear();
-    document.getElementById("meanCo2").innerHTML = "Taux de CO2 moyen sur les " + hoursDiff + " dernières heures : <strong>" + Math.round(Average(Rate)) + " ppm</strong>";
-    document.getElementById("sdCo2").innerHTML = "Écart moyen entre deux mesures sur les " + hoursDiff + " dernières heures : <strong>" + Math.round(Math.pow(Variance(Rate), 0.5)) + " ppm </strong>";
+    document.getElementById("titleCo2Plot").innerHTML = "Évolution du taux de CO2 dans la chambre sur les " + timeDiff + ", pour la journée du " + data[data.length - 1].date.getDate() + " " + nomsMois[data[data.length - 1].date.getMonth()] + " " + data[data.length - 1].date.getFullYear();
+    document.getElementById("meanCo2").innerHTML = "Taux de CO2 moyen sur les " + timeDiff + " : <strong>" + Math.round(Average(Rate)) + " ppm</strong>";
+    document.getElementById("sdCo2").innerHTML = "Écart moyen entre deux mesures sur les " + timeDiff + " : <strong>" + Math.round(Math.pow(Variance(Rate), 0.5)) + " ppm </strong>";
     // Ajouter un label à l'axe Y
     svg.append("text")
       .attr("transform", "rotate(-90)") // Fait pivoter le texte de 90 degrés pour l'axe Y
@@ -398,9 +449,9 @@ function Plot(time, ord1, id, color) {
       .text("Concentration en CO2 (en ppm)");
   }
   else if (id.includes("humidity")) {
-    document.getElementById("titleHumidityPlot").innerHTML = "Évolution du taux d'humidité dans la chambre sur les " + hoursDiff + " dernières heures, pour la journée du " + data[data.length - 1].date.getDate() + " " + nomsMois[data[data.length - 1].date.getMonth()] + " " + data[data.length - 1].date.getFullYear();
-    document.getElementById("meanHumidity").innerHTML = "Taux d'humidité moyen sur les " + hoursDiff + " dernières heures : <strong>" + Math.round(Average(Rate)) + " %</strong>";
-    document.getElementById("sdHumidity").innerHTML = "Écart moyen entre deux mesures sur les " + hoursDiff + " dernières heures : <strong>" + Math.round(Math.pow(Variance(Rate), 0.5)) + " %</strong>";
+    document.getElementById("titleHumidityPlot").innerHTML = "Évolution du taux d'humidité dans la chambre sur les " + timeDiff + ", pour la journée du " + data[data.length - 1].date.getDate() + " " + nomsMois[data[data.length - 1].date.getMonth()] + " " + data[data.length - 1].date.getFullYear();
+    document.getElementById("meanHumidity").innerHTML = "Taux d'humidité moyen sur les " + timeDiff + " : <strong>" + Math.round(Average(Rate)) + " %</strong>";
+    document.getElementById("sdHumidity").innerHTML = "Écart moyen entre deux mesures sur les " + timeDiff + " : <strong>" + Math.round(Math.pow(Variance(Rate), 0.5)) + " %</strong>";
     // Ajouter un label à l'axe Y
     svg.append("text")
       .attr("transform", "rotate(-90)") // Fait pivoter le texte de 90 degrés pour l'axe Y
