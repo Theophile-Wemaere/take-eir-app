@@ -1,3 +1,5 @@
+
+
 .corps {
   background-color: #ffffff;
   left: 2%;
@@ -12,8 +14,8 @@
 }
 
 .corps .textcorp {
-  color: #2d67e0;
   font-family: "Nunito", sans-serif;
+  color: #2d67e0;
   font-style: normal;
   font-weight: 900;
   font-size: 2vw;
@@ -45,13 +47,4 @@ span {
   font-size: 5vw;
   letter-spacing: 0.1em;
   text-align: center;
-}
-
-.ecoIssue{
-  color: #00755E;
-}
-.ecoPicture{
-  height:13%;
-  width: 13%;
-  margin-left: 40%;
 }
