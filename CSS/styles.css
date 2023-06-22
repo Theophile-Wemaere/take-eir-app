@@ -394,6 +394,11 @@ body {
   font-size: 15px;
 }
 
+.bottom-bar .row2 a {
+  text-decoration: none;
+  color: #2d67e0;
+}
+
 .bottom-bar .links {
   display: flex;
   flex-direction: column;

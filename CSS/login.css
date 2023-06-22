@@ -96,6 +96,9 @@ form .droite {
   max-width: 50%;
 }
 
+form .droite  a {
+  text-align: center;
+}
 form .pied-formulaire {
   display: flex;
   justify-content: center;

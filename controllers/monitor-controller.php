@@ -20,7 +20,7 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "GET" and isset($_GET["action"])) {
             JOIN devices_users ON metrics.id_device = devices_users.id_device
             WHERE metrics.id_device = :id_device AND devices_users.id_user = :id_user
          ) AS subquery
-         WHERE row_num <= 100
+         WHERE row_num <= 500
          ORDER BY metric_type, entry_time ASC";
          $results = $_DB->execute(
             $query,
