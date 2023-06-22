@@ -19,6 +19,9 @@
         </div>
     </div>
     <div class="row2">
+        <a href="/index.php/eco"><i style="color:green" class="fa fa-tree"></i> Discover our eco-responsibility commitment <i style="color:green" class="fa fa-tree"></i></a>
+    </div>
+    <div class="row2">
        This website was made with <i class="fa fa-heart"></i> by ISEP students, </br>
         Institut Supérieur d'Électronique de Paris, 10 rue de Vanves, 92130 Issy-les-Moulineaux
     </div>

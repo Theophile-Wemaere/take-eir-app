@@ -4,8 +4,8 @@
 <head>
     <title>Engagement écologique</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="/take-eir-app/CSS/styles.css" />
-    <link rel="stylesheet" href="/take-eir-app/CSS/eco.css" />
+    <link rel="stylesheet" href="/CSS/eco.css" />
+    <link rel="stylesheet" href="/CSS/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/images/logo-notext.png" type="image/icon type" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,7 +25,7 @@
             <div class="corps">
                 <table>
                     <tr>
-                        <img class="ecoPicture" src="/take-eir-app/images/ecologique.png">
+                        <img class="ecoPicture" src="/images/ecologique.png">
                         <p class="textcorp">
 
                             Chez Take EIR, nous accordons une importance primordiale à l'éco-conception de nos produits.
@@ -43,7 +43,7 @@
                             <br><br>
                         <div class="titleEco">
                             <span class="ecoIssue">Conception éco-responsable : </span>
-                            <img class="ecoPicture_2" src="/take-eir-app/images/recycler.png">
+                            <img class="ecoPicture_2" src="/images/recycler.png">
                         </div>
                         <br><br>
                         Lors de la conception du boîtier électronique Health-EIR, nous avons intégré les principes de
@@ -59,7 +59,7 @@
                         <br><br>
                         <div class="titleEco">
                             <span class="ecoIssue">Optimisation de la consommation d'énergie :</span>
-                            <img class="ecoPicture_2" src="/take-eir-app/images/energie-ecologique.png">
+                            <img class="ecoPicture_2" src="/images/energie-ecologique.png">
                         </div>
                         <br><br>
                         Nous avons intégré des technologies efficaces sur le plan énergétique afin de réduire la
@@ -71,7 +71,7 @@
                         <br><br>
                         <div class="titleEco">
                             <span class="ecoIssue">Réparabilité et modularité :</span>
-                            <img class="ecoPicture_2" src="/take-eir-app/images/sac-plastique.png">
+                            <img class="ecoPicture_2" src="/images/sac-plastique.png">
                         </div>
                         <br><br>
                         Nous concevons le boitier Health-EIR de manière à faciliter sa réparation et son évolutivité.
@@ -83,7 +83,7 @@
                         <br><br>
                         <div class="titleEco">
                             <span class="ecoIssue">Objectifs environnementaux :</span>
-                            <img class="ecoPicture_2" src="/take-eir-app/images/respectueux-de-la-nature.png">
+                            <img class="ecoPicture_2" src="/images/respectueux-de-la-nature.png">
                         </div>
                         <br><br>
                         En tant que startup engagée en faveur de la durabilité, nous nous fixons des objectifs
@@ -93,7 +93,7 @@
                         <br><br>
                         <div class="titleEco">
                             <span class="ecoIssue">Réduction des émissions de gaz à effet de serre :</span>
-                            <img class="ecoPicture_2" src="/take-eir-app/images/co2_2.png">
+                            <img class="ecoPicture_2" src="/images/co2_2.png">
                         </div>
                         <br><br>
                         Nous cherchons à optimiser l'efficacité énergétique du boitier Health-EIR pour réduire les
@@ -105,7 +105,7 @@
                         <br><br>
                         <div class="titleEco">
                             <span class="ecoIssue">Gestion responsable des déchets :</span>
-                            <img class="ecoPicture_2" src="/take-eir-app/images/zero-pour-cent.png">
+                            <img class="ecoPicture_2" src="/images/zero-pour-cent.png">
                         </div>
                         <br><br>
                         Nous encourageons activement le recyclage des composants électroniques en fin de vie du boitier
@@ -117,7 +117,7 @@
                         <br><br>
                         <div class="titleEco">
                             <span class="ecoIssue">Sensibilisation à l'éco-responsabilité :</span>
-                            <img class="ecoPicture_2" src="/take-eir-app/images/empreinte-carbone.png">
+                            <img class="ecoPicture_2" src="/images/empreinte-carbone.png">
                         </div>
                         <br><br>
                         Nous nous engageons à sensibiliser nos clients, nos employés et nos partenaires sur l'importance
@@ -126,7 +126,7 @@
                         nous encourageons l'adoption
                         de comportements durables.
                         </p>
-                        <img class="ecoPicture" src="/take-eir-app/images/ecologique_2.png">
+                        <img class="ecoPicture" src="/images/ecologique_2.png">
                         <p class="textcorp">
                         </p>
                         </td>
