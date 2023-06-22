@@ -1,139 +1,3 @@
-// Code JavaScript avec Ajax
-/*function fetchPeriodicData() {
-  var xhr = new XMLHttpRequest();
-  const urlParams = new URLSearchParams(window.location.search);
-  const id_device = urlParams.get("device");
-  xhr.open(
-    "POST",
-    "/controllers/monitor-controller.php?action=metrics&device=" + id_device,
-    true
-  );
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-  xhr.onload = function () {
-    if (xhr.status === 200) {
-      var data = JSON.parse(xhr.responseText);
-      var rythmeCardiaqueTime = [];
-      var rythmeCardiaque = [];
-
-      var temperatureTime = [];
-      var temperature = [];
-
-      var humidityTime = [];
-      var humidity = [];
-
-      var niveauSonoreTime = [];
-      var niveauSonore = [];
-
-      var tauxMicroparticulesTime = [];
-      var tauxMicroparticules = [];
-
-      var tauxCO2Time = [];
-      var tauxCO2 = [];
-
-      // Parcourir les données et les trier en fonction du type de métrique
-      data.forEach((element) => {
-        var metricType = element.metric_type;
-        var entryTime = new Date(element.entry_time);
-        var value = element.value;
-
-        // Tri des données en fonction du type de métrique
-        switch (parseInt(metricType)) {
-          case 1:
-            rythmeCardiaqueTime.push(entryTime);
-            rythmeCardiaque.push(parseFloat(value));
-            break;
-          case 2:
-            temperatureTime.push(entryTime);
-            temperature.push(parseFloat(value));
-            break;
-          case 3:
-            niveauSonoreTime.push(entryTime);
-            niveauSonore.push(parseFloat(value));
-            break;
-          case 4:
-            tauxMicroparticulesTime.push(entryTime);
-            tauxMicroparticules.push(parseFloat(value));
-            break;
-          case 5:
-            tauxCO2Time.push(entryTime);
-            tauxCO2.push(parseFloat(value));
-            break;
-          case 6:
-            humidityTime.push(entryTime);
-            humidity.push(parseFloat(value));
-            break;
-        }
-      });
-
-      // Initial plot
-      Plot(
-        rythmeCardiaqueTime,
-        rythmeCardiaque,
-        "#cardiacGraph",
-        "rgb(224, 88, 76)"
-      );
-
-      Plot(temperatureTime, temperature, "#tempGraph", "#5DD1B7");
-      Plot(humidityTime, humidity, "#humidityGraph", "#6883F5");
-      Plot(niveauSonoreTime, niveauSonore, "#noiseGraph", "#712DE0");
-      Plot(
-        tauxMicroparticulesTime,
-        tauxMicroparticules,
-        "#dustGraph",
-        "#67B4C5"
-      );
-      Plot(tauxCO2Time, tauxCO2, "#co2Graph", "grey");
-
-      // Appeler la fonction createGauge() ici, une fois que les données sont disponibles
-      createGauge(
-        "cardGaugeContainer",
-        0,
-        120,
-        "BPM",
-        rythmeCardiaque[rythmeCardiaque.length - 1]
-      );
-      createGauge(
-        "tempGaugeContainer",
-        0,
-        40,
-        "°C",
-        temperature[temperature.length - 1]
-      );
-      createGauge(
-        "humidityGaugeContainer",
-        0,
-        100,
-        "%",
-        humidity[humidity.length - 1]
-      );
-      createGauge(
-        "noiseGaugeContainer",
-        0,
-        120,
-        "DB",
-        niveauSonore[niveauSonore.length - 1]
-      );
-      createGauge(
-        "dustGaugeContainer",
-        0,
-        250,
-        "µg/m^3",
-        tauxMicroparticules[tauxMicroparticules.length - 1]
-      );
-      createGauge(
-        "co2GaugeContainer",
-        0,
-        2000,
-        "PPM",
-        tauxCO2[tauxCO2.length - 1]
-      );
-    }
-  };
-
-  xhr.send();
-}*/
-
 function fetchPeriodicData() {
   var xhr = new XMLHttpRequest();
   const urlParams = new URLSearchParams(window.location.search);
@@ -166,7 +30,6 @@ function fetchPeriodicData() {
       var tauxCO2Time = [];
       var tauxCO2 = [];
 
-      var tauxVOCTime = [];
       var tauxVOC = [];
 
       // Parcourir les données et les trier en fonction du type de métrique
@@ -347,7 +210,7 @@ function createChart(id, name, label, values, entry_time) {
             text: name,
           },
           suggestedMin: 0,
-          suggestedMax: Math.max(...values)*2,
+          suggestedMax: Math.max(...values) * 2,
         },
       },
     },
@@ -362,16 +225,14 @@ function createChart(id, name, label, values, entry_time) {
 function updateChart(type, id) {
   var canvas = document.getElementById(id);
   var chart = Chart.getChart(canvas);
-  // Fetch data from the controller or data source
-  // Here, we'll use a random value for demonstration purposes
   const urlParams = new URLSearchParams(window.location.search);
   const id_device = urlParams.get("device");
 
   fetch(
     "/controllers/monitor-controller.php?action=" +
-      type +
-      "&device=" +
-      id_device,
+    type +
+    "&device=" +
+    id_device,
     {
       method: "GET",
     }
@@ -398,12 +259,143 @@ function updateChart(type, id) {
     });
 }
 
+function refreshChart() {
+  const metricTypes = {
+    1: 'chartECG',
+    2: 'chartTemp',
+    3: 'chartNoise',
+    4: 'chartDust',
+    5: 'chartCO2',
+    6: 'chartHumidity',
+    7: 'chartCO2'
+  };
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const id_device = urlParams.get("device");
+
+  var rythmeCardiaqueTime = [];
+  var rythmeCardiaque = [];
+
+  var temperatureTime = [];
+  var temperature = [];
+
+  var humidityTime = [];
+  var humidity = [];
+
+  var niveauSonoreTime = [];
+  var niveauSonore = [];
+
+  var tauxMicroparticulesTime = [];
+  var tauxMicroparticules = [];
+
+  var tauxCO2Time = [];
+  var tauxCO2 = [];
+
+  var tauxVOC = [];
+
+  fetch("/controllers/monitor-controller.php?action=metrics&device=" + id_device, {
+    method: 'GET',
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res !== null) {
+        // Parcourir les données et les trier en fonction du type de métrique
+        res.forEach((element) => {
+          var metricType = element.metric_type;
+          var entryTime = element.entry_time;
+          var value = element.value;
+
+          // Tri des données en fonction du type de métrique
+          switch (parseInt(metricType)) {
+            case 1:
+              rythmeCardiaqueTime.push(entryTime);
+              rythmeCardiaque.push(parseFloat(value));
+              break;
+            case 2:
+              temperatureTime.push(entryTime);
+              temperature.push(parseFloat(value));
+              break;
+            case 3:
+              niveauSonoreTime.push(entryTime);
+              niveauSonore.push(parseFloat(value));
+              break;
+            case 4:
+              tauxMicroparticulesTime.push(entryTime);
+              tauxMicroparticules.push(parseFloat(value));
+              break;
+            case 5:
+              tauxCO2Time.push(entryTime);
+              tauxCO2.push(parseFloat(value));
+              break;
+            case 6:
+              humidityTime.push(entryTime);
+              humidity.push(parseFloat(value));
+              break;
+            case 7:
+              tauxVOC.push(parseFloat(value));
+              break;
+          }
+        });
+      }
+    });
+
+  for (var i = 1; i <= 7; i++) {
+    const id = metricTypes[i];
+    const chart = Chart.getChart(document.getElementById(id));
+    var values = [];
+    var times = [];
+    switch (i) {
+      case 1:
+        values = rythmeCardiaque;
+        times = rythmeCardiaqueTime;
+        break;
+      case 2:
+        values = temperature;
+        times = temperatureTime;
+        break;
+      case 3:
+        values = niveauSonore;
+        times = niveauSonoreTime;
+        break;
+      case 4:
+        values = tauxMicroparticules;
+        times = tauxMicroparticulesTime;
+        break;
+      case 5:
+        values = tauxCO2;
+        times = tauxCO2Time;
+        break;
+      case 6:
+        values = humidity;
+        times = humidityTime;
+        break;
+      case 7:
+        values = tauxVOC;
+        break;
+    }
+    var data = chart.data;
+    if(i != 7) {
+      data.labels = [];
+      data.datasets[0].data = [];
+      for (var i = 0; i < times.length; i++) {
+        data.labels.push(times[i].split(" ")[1]);
+        data.datasets[0].data.push(values[i]);
+      }
+    } else {
+      data.datasets[1].data = [];
+      for (var i = 0; i < times.length; i++) {
+        data.datasets[1].data.push(values[i]);
+      }
+    }
+  }
+}
+
 function updateCharts() {
   const metricTypes = {
     1: 'chartECG',
     2: 'chartTemp',
     3: 'chartNoise',
-    4: 'chartDust',   
+    4: 'chartDust',
     5: 'chartCO2',
     6: 'chartHumidity',
     7: 'chartCO2'
@@ -429,7 +421,7 @@ function updateCharts() {
 
           const data = chart.data;
 
-          if(metricType === 7) {
+          if (metricType === 7) {
             data.datasets[1].data.push(newData);
           } else {
             data.labels.push(entryTime.split(' ')[1]);

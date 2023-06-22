@@ -225,6 +225,7 @@ if (!isset($_SESSION["name"])) {
       var intervalId;
       document.getElementById('myCheckbox').addEventListener('change', function () {
         if (this.checked) {
+          fetchPeriodicData()
           intervalIdECG = setInterval(function () {
             updateChart("ecg","chartECG");
           }, 1000);
