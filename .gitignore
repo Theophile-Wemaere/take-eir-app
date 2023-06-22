@@ -5,5 +5,5 @@ docker-compose.yml
 views/uploads/
 .vscode
 php/
-scripts/
+scripts
 buttons/
