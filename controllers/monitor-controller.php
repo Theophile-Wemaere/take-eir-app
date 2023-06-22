@@ -11,8 +11,7 @@ require "../model/database.php";
 if (isset($_SERVER["REQUEST_METHOD"]) == "GET" and isset($_GET["action"])) {
    switch ($_GET["action"]) {
       case "metrics":
-         $query = "
-         SELECT metric_type, entry_time, value
+         $query = "SELECT metric_type, entry_time, value
          FROM (
             SELECT metric_type, entry_time, value,
                   ROW_NUMBER() OVER (PARTITION BY metric_type ORDER BY entry_time DESC) AS row_num
@@ -20,7 +19,7 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "GET" and isset($_GET["action"])) {
             JOIN devices_users ON metrics.id_device = devices_users.id_device
             WHERE metrics.id_device = :id_device AND devices_users.id_user = :id_user
          ) AS subquery
-         WHERE row_num <= 500
+         WHERE row_num <= 100
          ORDER BY metric_type, entry_time ASC";
          $results = $_DB->execute(
             $query,
@@ -60,7 +59,7 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "GET" and isset($_GET["action"])) {
            WHERE metrics.id_device = :id_device AND devices_users.id_user = :id_user
          ) AS subquery
          WHERE row_num = 1
-         ORDER BY entry_time DESC";
+         ORDER BY entry_time ASC";
 
          /* $query = "SELECT entry_time, value
              FROM metrics

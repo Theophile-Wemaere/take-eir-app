@@ -252,6 +252,10 @@ function updateChart(type, id) {
         data.datasets[0].data.push(newData);
 
         // Remove the first data point if the dataset becomes too large
+        if (data.labels.length > 100) {
+          data.labels.shift();
+          data.datasets[0].data.shift();
+        }
 
         // Update the chart
         chart.update();
@@ -374,7 +378,7 @@ function refreshChart() {
         break;
     }
     var data = chart.data;
-    if(i != 7) {
+    if (i != 7) {
       data.labels = [];
       data.datasets[0].data = [];
       for (var i = 0; i < times.length; i++) {
@@ -409,6 +413,7 @@ function updateCharts() {
   })
     .then((res) => res.json())
     .then((res) => {
+      console.log(res)
       if (res !== null) {
         res.forEach((dataPoint) => {
           const metricType = dataPoint.metric_type;
@@ -421,12 +426,31 @@ function updateCharts() {
 
           const data = chart.data;
 
-          if (metricType === 7) {
-            data.datasets[1].data.push(newData);
+          var modifiedData = Object.assign({}, data);
+
+          modifiedData.labels = data.labels.slice();
+          modifiedData.datasets[0].data = data.datasets[0].data.slice();
+          modifiedData.labels.push(entryTime.split(" ")[1]);
+
+          if (metricType === 7 ) {
+            modifiedData.datasets[1] = Object.assign({}, data.datasets[1]);
+            modifiedData.datasets[1].data = data.datasets[1].data.slice();
+            modifiedData.datasets[1].data.push(newData);
+            
           } else {
-            data.labels.push(entryTime.split(' ')[1]);
-            data.datasets[0].data.push(newData);
+            if (metricType === 5) {
+              modifiedData.datasets[1] = Object.assign({}, data.datasets[1]);
+              modifiedData.datasets[1].data = data.datasets[1].data.slice();
+              modifiedData.datasets[1].data.shift();
+            }
+            modifiedData.datasets[0].data.push(newData);
+            modifiedData.datasets[0].data.shift();
           }
+
+          modifiedData.labels.shift();
+          
+
+          chart.data = modifiedData;
 
           chart.update();
         });

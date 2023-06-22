@@ -1,485 +1,463 @@
 .wrapper {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .tabs {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .tabs .tab-registers {
-    display: flex;
-    background-color: RGB(255, 255, 255);
+  display: flex;
+  background-color: RGB(255, 255, 255);
 }
 
 .jauge {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .jauge .groupe {
-    display: flex;
-    flex-direction: row;
-    width: 33%;
+  display: flex;
+  flex-direction: row;
+  width: 33%;
 }
 
 .jauge .jauge-container {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
 
 .jauge .jauge-container p {
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-    font-weight: bold;
-    font-size: 1vw;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 1vw;
 }
 
-
 .tabs button {
-    padding: 0.5em;
-    background-color: RGB(255, 255, 255);
-    border: none;
-    font: inherit;
-    border-radius: 15px 15px 0px 0px;
+  padding: 0.5em;
+  background-color: RGB(255, 255, 255);
+  border: none;
+  font: inherit;
+  border-radius: 15px 15px 0px 0px;
 }
 
 .tabs .tab-registers button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .tabs .tab-bodies {
-    padding: 0.5em;
-    background-color: RGB(235, 235, 235);
-    flex-grow: 1;
-    overflow-y: auto;
+  padding: 0.5em;
+  background-color: RGB(235, 235, 235);
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 .tabs button.active-tab {
-    background-color: rgb(235, 235, 235);
+  background-color: rgb(235, 235, 235);
 }
 
 .globalMonitoring {
-    width: 82%;
-    height: hv;
-    left: 10%;
-    top: 25%;
-    font-family: 'Montserrat', sans-serif;
-    background: #FFFFFF;
-    box-shadow: 1px 4px 3px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
+  width: 82%;
+  height: hv;
+  left: 10%;
+  top: 25%;
+  font-family: "Montserrat", sans-serif;
+  background: #ffffff;
+  box-shadow: 1px 4px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
 }
 
 .cadre {
-    color: #a5e3f6;
-    font-family: "Comfortaa";
+  color: #a5e3f6;
+  font-family: "Comfortaa";
 }
 
-
 .infoPatient {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .infoPatient p {
-    color: white;
-    font-size: 1.5vw;
-    margin: 10px;
+  color: white;
+  font-size: 1.5vw;
+  margin: 10px;
 }
 
 .infoPatient input {
-    font-size: 1.5vw;
-    color: white;
-    cursor: pointer;
-    margin: 10px;
+  font-size: 1.5vw;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
 }
 
 .infoPatient input:focus {
-    border-radius: 5px;
-    border: solid 1px #BFD9FA;
-    background-color: #5DD1B7;
-    color: black;
+  border-radius: 5px;
+  border: solid 1px #bfd9fa;
+  background-color: #5dd1b7;
+  color: black;
 }
 
 .infoPatient h3 {
-    margin: 0;
+  margin: 0;
 }
 
 .infoPatient .groupe {
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .infoPatient .title {
-    color: #BFD9FA;
-    font-style: italic;
-    font-size: 1.5vw;
-    margin: 0;
-    width: auto;
+  color: #bfd9fa;
+  font-style: italic;
+  font-size: 1.5vw;
+  margin: 0;
+  width: auto;
 }
 
 .infoPatient .row {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 .infoPatient button {
-    margin-top: 20px;
-    background-color: #e0584c;
-    color: white;
-    font-size: 15px;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 10%;
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 120px;
+  margin-top: 20px;
+  background-color: #e0584c;
+  color: white;
+  font-size: 15px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 120px;
 }
 
 .infoPatient button:hover {
-    opacity: 0.8;
-    transform: scale(1.1);
-    transition: 0.3s ease-in-out;
+  opacity: 0.8;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
 }
 
 .ui-slider .ui-slider-handle {
-    height: 1.5em;
+  height: 1.5em;
 }
 
 .title {
-    font-family: 'Montserrat';
-    width: 70%;
-    height: 15%;
-    margin-top: 3%;
-    text-align: center;
-    border-radius: 15px;
-    color: white;
-    padding: 1vw;
-    font-size: 1em;
+  font-family: "Montserrat";
+  width: 70%;
+  height: 15%;
+  margin-top: 3%;
+  text-align: center;
+  border-radius: 15px;
+  color: white;
+  padding: 1vw;
+  font-size: 1em;
 }
 
 #titleHeartPlot {
-    background: #E0584C;
-
+  background: #e0584c;
 }
 
 #titleTempPlot {
-    background: #5DD1B7;
-
+  background: #5dd1b7;
 }
 
 #titleNoisePlot {
-    background: #712DE0;
-
+  background: #712de0;
 }
 
 #titleDustPlot {
-    background: #67B4C5;
-
+  background: #67b4c5;
 }
 
 #titleCo2Plot {
-    background: rgb(11, 1, 1, 0.75);
-
+  background: rgb(11, 1, 1, 0.75);
 }
 
 #titleHumidityPlot {
-    background: #235A8C;
-
+  background: #235a8c;
 }
-
-
 
 img {
-    width: 50%;
-    height: 80%;
+  width: 50%;
+  height: 80%;
 }
 
-
 .Plot {
-    margin-top: 2%;
-    margin-left: 8%;
-    margin-bottom: 5%;
-    width: 90%;
-    height: 70%;
+  margin-top: 2%;
+  margin-left: 8%;
+  margin-bottom: 5%;
+  width: 90%;
+  height: 70%;
 }
 
 .info {
-    padding: 5px;
-    font-size: 1em;
+  padding: 5px;
+  font-size: 1em;
 }
 
-
-
 #sdCard {
-    color: #b17074;
+  color: #b17074;
 }
 
 #sdTemp {
-    color: lawngreen;
+  color: lawngreen;
 }
 
 #sdHumidity {
-    color: #88d8f9;
+  color: #88d8f9;
 }
 
 #sdNoise {
-    color: #324ab2;
+  color: #324ab2;
 }
 
 #sdDust {
-    color: #77b5fe;
+  color: #77b5fe;
 }
 
 #sdCo2 {
-    color: #4a5a6a;
+  color: #4a5a6a;
 }
 
 #meanCard {
-    color: #FF6961;
+  color: #ff6961;
 }
 
 #meanTemp {
-    color: #34a853;
+  color: #34a853;
 }
 
 #meanHumidity {
-    color: #80CEE1;
+  color: #80cee1;
 }
 
 #meanNoise {
-    color: #7f00ff;
+  color: #7f00ff;
 }
 
 #meanDust {
-    color: #22427c;
+  color: #22427c;
 }
 
 #meanCo2 {
-    color: #2a303d;
+  color: #2a303d;
 }
 
 .slider-box {
-    width: 70%;
-    height: 5%;
-    transform: translate(-50, -50%);
-    background: #0f056b;
-    padding: 2vw;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 70%;
+  height: 5%;
+  transform: translate(-50, -50%);
+  background: #0f056b;
+  padding: 2vw;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .slider-box input {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .tabs .checkbox-row {
-    width: 100%;
-    background-color: #EBEBEB;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  background-color: #ebebeb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.tabs .checkbox-row input{
-    width: auto;
+.tabs .checkbox-row input {
+  width: auto;
 }
 
 .tabs .checkbox-row label {
-    color: black;
+  color: black;
+  margin-right: 20px;
 }
 
 .checkbox-row input[type="checkbox"] {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
-
 .graph-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .graph-container canvas {
-    max-width: 80%;
-    max-height: auto;
+  max-width: 80%;
+  max-height: auto;
 }
 
 .slider-box button {
-    margin-top: 20px;
-    background-color: #e0584c;
-    color: white;
-    font-size: 15px;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 30%;
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 120px;
+  margin-top: 20px;
+  background-color: #e0584c;
+  color: white;
+  font-size: 15px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 120px;
 }
 
 .slider-box button:hover {
-    opacity: 0.8;
-    transform: scale(1.1);
-    transition: 0.3s ease-in-out;
+  opacity: 0.8;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
 }
 
 label,
 input {
-    border: none;
-    display: inline-block;
+  border: none;
+  display: inline-block;
 }
 
 label {
-    font-size: 0.75em;
-    color: white;
-    font-weight: bold;
-    text-align: center;
+  font-size: 0.75em;
+  color: white;
+  font-weight: bold;
+  text-align: center;
 }
 
 input {
-    width: 100%;
-    text-align: center;
-    margin-top: 2%;
-    font-weight: 900;
-    margin-bottom: 2%;
-    outline: none;
-    background: none;
-    color: whitesmoke;
-    font-family: 'Montserrat';
+  width: 100%;
+  text-align: center;
+  margin-top: 2%;
+  font-weight: 900;
+  margin-bottom: 2%;
+  outline: none;
+  background: none;
+  color: whitesmoke;
+  font-family: "Montserrat";
 }
 
 .ul-slider-horizontal {
-    height: 0.2em;
+  height: 0.2em;
 }
 
 .ui-widget-header {
-    background: white !important;
+  background: white !important;
 }
 
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-    background: white !important;
-    font-weight: normal;
-    border-radius: 10px !important;
-    margin-top: -3px !important;
-    outline: none;
+  background: white !important;
+  font-weight: normal;
+  border-radius: 10px !important;
+  margin-top: -3px !important;
+  outline: none;
 }
 
 .labelJauge {
-    background-color: #0f056b;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    padding: 20px;
+  background-color: #0f056b;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  padding: 20px;
 }
 
 h1.labelJauge {
-    padding: 20px 0 20px 0;
+  padding: 20px 0 20px 0;
 }
-
 
 .plotJauge text {
-    font-size: 2vw;
-    font-weight: bold;
-    color: black;
+  font-size: 2vw;
+  font-weight: bold;
+  color: black;
 }
 
+@media (max-width: 800px) {
+  .info {
+    font-size: 1.5em;
+  }
 
+  .title {
+    padding: 0.6vw;
+    font-size: 3vw;
+  }
 
-@media(max-width:800px) {
+  h3 {
+    font-size: 3vw;
+  }
 
-    .info {
+  img {
+    width: 60%;
+    height: 90%;
+  }
 
-        font-size: 1.5em;
+  .info {
+    margin-left: 10%;
+    font-size: 2.5vw;
+  }
 
-    }
+  .Plot {
+    width: 100%;
+    height: 70%;
+  }
 
-    .title {
-        padding: 0.6vw;
-        font-size: 3vw;
-    }
+  .graph {
+    width: 100%;
+  }
 
-    h3 {
-        font-size: 3vw;
-    }
+  .slider-box {
+    width: 50%;
+    padding: 0.75vw;
+    text-align: center;
+  }
 
+  label {
+    font-size: 0.5em;
+    margin-left: 1%;
+  }
 
-    img {
-        width: 60%;
-        height: 90%;
-    }
+  input {
+    font-weight: 700;
+  }
 
-    .info {
-        margin-left: 10%;
-        font-size: 2.5vw;
-    }
+  .ul-slider-horizontal {
+    height: 0.1em !important;
+  }
 
-    .Plot {
-        width: 100%;
-        height: 70%;
-    }
+  .infoPatient .title {
+    font-size: 2vw;
+  }
 
-    .graph {
-        width: 100%;
-    }
+  .infoPatient input {
+    font-size: 2vw;
+  }
 
-    .slider-box {
-        width: 50%;
-        padding: 0.75vw;
-        text-align: center;
-    }
+  .infoPatient p {
+    font-size: 2vw;
+  }
 
-    label {
-        font-size: 0.5em;
-        margin-left: 1%;
-    }
+  .jauge {
+    flex-direction: column;
+  }
 
-    input {
+  .jauge .groupe {
+    width: 100%;
+  }
 
-        font-weight: 700;
-
-    }
-
-    .ul-slider-horizontal {
-        height: 0.1em !important;
-    }
-
-    .infoPatient .title {
-        font-size: 2vw;
-    }
-
-    .infoPatient input {
-        font-size: 2vw;
-    }
-
-    .infoPatient p {
-        font-size: 2vw;
-    }
-
-    .jauge {
-        flex-direction: column;
-    }
-
-    .jauge .groupe {
-        width: 100%;
-    }
-
-    .slider-box {
-        display: none;
-    }
+  .slider-box {
+    display: none;
+  }
 }

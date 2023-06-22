@@ -130,6 +130,13 @@ if (!isset($_SESSION["name"])) {
         <div class="checkbox-row">
           <input type="checkbox" id="myCheckbox">
           <label for="myCheckbox">Rafraichissement automatique</label>
+          <input type="range" id="slider" min="1" max="10" step="1" value="1" oninput="updateSliderValue()">
+
+          <label id="sliderValue">1 second</label>
+
+          <script>
+          </script>
+
         </div>
 
 
@@ -219,22 +226,40 @@ if (!isset($_SESSION["name"])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
     <script>
+      
+      var slider = document.getElementById("slider");
+      var sliderValue = document.getElementById("sliderValue");
+      var value = slider.value;
+      var intervalId;
+      function updateSliderValue() {
+        value = slider.value;
+        sliderValue.innerHTML = value + " second";
+        if (value > 1) {
+          sliderValue.innerHTML += "s";
+        }
+        clearInterval(intervalId);
+        intervalId = setInterval(function () {
+            updateCharts();
+          }, value*1000);
+
+      }
+
       fetchPeriodicData();
       getThreshold();
       var intervalIdECG;
-      var intervalId;
       document.getElementById('myCheckbox').addEventListener('change', function () {
+        console.log(value);
         if (this.checked) {
-          fetchPeriodicData()
-          intervalIdECG = setInterval(function () {
-            updateChart("ecg","chartECG");
-          }, 1000);
+          //fetchPeriodicData()
+          //intervalIdECG = setInterval(function () {
+            updateChart("ecg", "chartECG");
+          //}, 1000);
           intervalId = setInterval(function () {
             updateCharts();
-          }, 10000);
+          }, value*1000);
         } else {
           clearInterval(intervalId);
-          clearInterval(intervalIdECG);
+          //clearInterval(intervalIdECG);
         }
       });
     </script>
