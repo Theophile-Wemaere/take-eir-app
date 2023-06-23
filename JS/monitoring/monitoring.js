@@ -223,7 +223,7 @@ function createChart(id, name, label, values, entry_time, color) {
             text: name,
           },
           suggestedMin: 0,
-          suggestedMax: Math.max(...values) * 2,
+          suggestedMax: Math.max(...values) * 1.3,
         },
       },
     },
