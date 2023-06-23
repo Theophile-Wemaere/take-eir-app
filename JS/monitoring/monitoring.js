@@ -70,12 +70,42 @@ function fetchPeriodicData() {
         }
       });
 
-      Plot(rythmeCardiaqueTime, rythmeCardiaque, '#cardiacGraph');
-      Plot(temperatureTime, temperature, '#tempGraph');
-      Plot(humidityTime, humidity, '#humidityGraph');
-      Plot(niveauSonoreTime, niveauSonore, '#noiseGraph');
-      Plot(tauxMicroparticulesTime, tauxMicroparticules, '#dustGraph');
-      Plot(tauxCO2Time, tauxCO2, '#co2Graph');
+      try {
+        Plot(rythmeCardiaqueTime, rythmeCardiaque, '#cardiacGraph');
+      } catch (error) {
+        // Handle the exception specific to this Plot call
+      }
+      
+      try {
+        Plot(temperatureTime, temperature, '#tempGraph');
+      } catch (error) {
+        // Handle the exception specific to this Plot call
+      }
+      
+      try {
+        Plot(humidityTime, humidity, '#humidityGraph');
+      } catch (error) {
+        // Handle the exception specific to this Plot call
+      }
+      
+      try {
+        Plot(niveauSonoreTime, niveauSonore, '#noiseGraph');
+      } catch (error) {
+        // Handle the exception specific to this Plot call
+      }
+      
+      try {
+        Plot(tauxMicroparticulesTime, tauxMicroparticules, '#dustGraph');
+      } catch (error) {
+        // Handle the exception specific to this Plot call
+      }
+      
+      try {
+        Plot(tauxCO2Time, tauxCO2, '#co2Graph');
+      } catch (error) {
+        // Handle the exception specific to this Plot call
+      }
+      
 
       createChart(
         "chartECG",
