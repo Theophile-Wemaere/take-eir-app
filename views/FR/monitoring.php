@@ -134,11 +134,7 @@ if (!isset($_SESSION["name"])) {
 
           <label id="sliderValue">1 second</label>
 
-          <script>
-          </script>
-
         </div>
-
 
         <div class="tab-bodies">
 
@@ -226,7 +222,7 @@ if (!isset($_SESSION["name"])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
     <script>
-      
+
       var slider = document.getElementById("slider");
       var sliderValue = document.getElementById("sliderValue");
       var value = slider.value;
@@ -239,8 +235,8 @@ if (!isset($_SESSION["name"])) {
         }
         clearInterval(intervalId);
         intervalId = setInterval(function () {
-            updateCharts();
-          }, value*1000);
+          updateCharts();
+        }, value * 1000);
 
       }
 
@@ -252,7 +248,7 @@ if (!isset($_SESSION["name"])) {
         if (this.checked) {
           intervalId = setInterval(function () {
             updateCharts();
-          }, value*1000);
+          }, value * 1000);
         } else {
           clearInterval(intervalId);
           //clearInterval(intervalIdECG);

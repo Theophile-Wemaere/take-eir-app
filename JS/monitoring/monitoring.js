@@ -70,6 +70,13 @@ function fetchPeriodicData() {
         }
       });
 
+      Plot(rythmeCardiaqueTime, rythmeCardiaque, '#cardiacGraph');
+      Plot(temperatureTime, temperature, '#tempGraph');
+      Plot(humidityTime, humidity, '#humidityGraph');
+      Plot(niveauSonoreTime, niveauSonore, '#noiseGraph');
+      Plot(tauxMicroparticulesTime, tauxMicroparticules, '#dustGraph');
+      Plot(tauxCO2Time, tauxCO2, '#co2Graph');
+
       createChart(
         "chartECG",
         "Frequence Cardiaque",
@@ -438,11 +445,11 @@ function updateCharts() {
           modifiedData.datasets[0].data = data.datasets[0].data.slice();
           modifiedData.labels.push(entryTime.split(" ")[1]);
 
-          if (metricType === 7 ) {
+          if (metricType === 7) {
             modifiedData.datasets[1] = Object.assign({}, data.datasets[1]);
             modifiedData.datasets[1].data = data.datasets[1].data.slice();
             modifiedData.datasets[1].data.push(newData);
-            
+
           } else {
             if (metricType === 5) {
               modifiedData.datasets[1] = Object.assign({}, data.datasets[1]);
@@ -454,7 +461,7 @@ function updateCharts() {
           }
 
           modifiedData.labels.shift();
-          
+
 
           chart.data = modifiedData;
 
