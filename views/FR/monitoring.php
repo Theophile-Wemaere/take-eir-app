@@ -250,10 +250,6 @@ if (!isset($_SESSION["name"])) {
       document.getElementById('myCheckbox').addEventListener('change', function () {
         console.log(value);
         if (this.checked) {
-          //fetchPeriodicData()
-          //intervalIdECG = setInterval(function () {
-            updateChart("ecg", "chartECG");
-          //}, 1000);
           intervalId = setInterval(function () {
             updateCharts();
           }, value*1000);

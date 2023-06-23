@@ -75,42 +75,48 @@ function fetchPeriodicData() {
         "Frequence Cardiaque",
         "battements / min (bpm)",
         rythmeCardiaque,
-        rythmeCardiaqueTime
+        rythmeCardiaqueTime,
+        'rgb(255, 0, 0)'
       );
       createChart(
         "chartTemp",
         "Température",
         "temperature (°C)",
         temperature,
-        temperatureTime
+        temperatureTime,
+        'rgb(0, 128, 0)'
       );
       createChart(
         "chartHumidity",
         "Humidité",
         "humidité (%)",
         humidity,
-        humidityTime
+        humidityTime,
+        'rgb(100, 0, 100)'
       );
       createChart(
         "chartNoise",
         "Bruit ambiant",
         "niveau de bruit (dB)",
         niveauSonore,
-        niveauSonoreTime
+        niveauSonoreTime,
+        'rgb(255, 165, 0)'
       );
       createChart(
         "chartDust",
         "Taux de microparticules",
         "microparticules (µg/m³)",
         tauxMicroparticules,
-        tauxMicroparticulesTime
+        tauxMicroparticulesTime,
+        'rgb(0, 0, 255)'
       );
       createChart(
         "chartCO2",
         "CO2 et VOC",
         "taux de CO2 (ppm)",
         tauxCO2,
-        tauxCO2Time
+        tauxCO2Time,
+        'rgb(128, 0, 128)'
       );
 
       var chart = Chart.getChart("chartCO2");
@@ -118,7 +124,7 @@ function fetchPeriodicData() {
       data.datasets.push({
         label: 'taux de particules organiques (ppb)',
         data: [],
-        borderColor: 'blue', // Customize the line color
+        borderColor: 'rgb(0, 128, 128)', // Customize the line color
         borderWidth: 1, // Customize the line width
         fill: false, // Disable filling the area under the line
       });
@@ -177,7 +183,7 @@ function fetchPeriodicData() {
   xhr.send();
 }
 
-function createChart(id, name, label, values, entry_time) {
+function createChart(id, name, label, values, entry_time, color) {
   var ctx = document.getElementById(id).getContext("2d");
   var chart = new Chart(ctx, {
     type: "line",
@@ -188,7 +194,7 @@ function createChart(id, name, label, values, entry_time) {
           label: label,
           data: [], // initial empty data array
           fill: false,
-          borderColor: "rgb(75, 192, 192)",
+          borderColor: color,
           tension: 0.1,
         },
       ],
@@ -413,8 +419,8 @@ function updateCharts() {
   })
     .then((res) => res.json())
     .then((res) => {
-      console.log(res)
       if (res !== null) {
+        console.log(res);
         res.forEach((dataPoint) => {
           const metricType = dataPoint.metric_type;
           const id = metricTypes[metricType];
